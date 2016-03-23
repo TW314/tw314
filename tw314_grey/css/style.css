@@ -1,0 +1,27 @@
+.parallax-container {
+    height: 39em;
+}
+nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
+    display: inline;
+}
+.menu_circle{
+    width: 6em;
+    height: 6em;
+}
+.icon{
+    vertical-align: -moz-middle-with-baseline;
+    font-size: 5em !important;
+}
+.menu{
+    margin: auto 20%;
+}
+.menu ul li {
+    margin: auto 15px;
+}
+
+nav {
+    background-color: transparent;
+}
+nav ul a {
+    color: black;
+}
