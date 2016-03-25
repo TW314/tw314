@@ -58,3 +58,35 @@ nav ul a:hover {
     height: 6em;
     padding-top: 13%;
 }
+nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul a.btn-floating {margin-left: 22px;}
+
+.flow-text {
+    font-size: 1rem;
+}
+
+.margin-parallax{
+    margin: 20em 5em;
+}
+
+.card .card-image p {
+    position: absolute;
+    top: 3em;
+    color: white;
+    text-align: justify;
+    margin: auto 5%;
+    font-weight: 500;
+}
+.card .card-image img {
+    opacity: 0.6;
+}
+.card .card-image .card-title {
+    padding: 1%;
+    color: rgba(255, 255, 255, 0.45);
+}
+.fallback{
+    margin:auto 0 ;
+}
+
+.border-how{
+    border-top: solid 1px #eeeeee;
+}
