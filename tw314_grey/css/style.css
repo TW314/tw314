@@ -7,10 +7,13 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons {
 .menu_circle{
     width: 6em;
     height: 6em;
+    margin: 0px auto;
+}
+.menu_circle i{
+    margin: 0px auto;
 }
 .icon{
-    vertical-align: -moz-middle-with-baseline;
-    font-size: 5em !important;
+    font-size: 4em !important;
 }
 .menu{
     margin: auto 20%;
@@ -24,4 +27,34 @@ nav {
 }
 nav ul a {
     color: black;
+}
+.entrar{
+    margin-top: -15px;
+}
+.nav-align{
+    position: absolute;
+    margin-top: 65px;
+    padding: 5px 25%;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 1;
+    width: 100%;
+}
+
+.hvr-reveal {
+    display: inherit;
+}
+
+.hvr-reveal::before {
+    border-radius: 50%;
+    border-color: black;
+}
+
+nav ul a:hover {
+    background: none;
+}
+
+.btn-floating.btn-large {
+    width: 6em;
+    height: 6em;
+    padding-top: 13%;
 }
