@@ -32,40 +32,45 @@
             </ul>
             <ul class="center-align nav-align hide-on-small-only section">
                 <li>
-                    <a href="#home" class="btn-floating btn-large waves-effect waves-light grey menu_circle hvr-reveal">
+                    <a href="#home" class="hoverable btn-floating btn-large waves-effect waves-light grey menu_circle hvr-reveal">
                         <i class="material-icons icon">home</i>
                     </a>
                     <p class="flow-text">HOME</p>
                 </li>
                 <li>
-                    <a href="#section_how" class="btn-floating btn-large waves-effect waves-light grey menu_circle hvr-reveal">
+                    <a href="#section_how" class="hoverable btn-floating btn-large waves-effect waves-light grey menu_circle hvr-reveal">
                         <i class="material-icons icon left">info</i>
                     </a>
                     <p class="flow-text">COMO FUNCIONA?</p>
                 </li>
                 <li>
-                    <a href="#section_clients" class="btn-floating btn-large waves-effect waves-light grey menu_circle hvr-reveal">
+                    <a href="#section_clients" class="hoverable btn-floating btn-large waves-effect waves-light grey menu_circle hvr-reveal">
                         <i class="material-icons icon">group</i>
                     </a>
                     <p class="flow-text">CLIENTES</p>
                 </li>
                 <li>
-                    <a href="#section_contact" class="btn-floating btn-large waves-effect waves-light grey menu_circle hvr-reveal">
+                    <a href="#section_contact" class="hoverable btn-floating btn-large waves-effect waves-light grey menu_circle hvr-reveal">
                         <i class="material-icons icon">question_answer</i>
                     </a>
                     <p class="flow-text">CONTATO</p>
                 </li>
                 <li>
-                    <a href="#section_contract" class="btn-floating btn-large waves-effect waves-light grey menu_circle hvr-reveal">
+                    <a href="#section_contract" class="hoverable btn-floating btn-large waves-effect waves-light grey menu_circle hvr-reveal">
                         <i class="material-icons icon">thumb_up</i>
                     </a>
                     <p class="flow-text">CONTRATAR</p>
                 </li>
             </ul>
-            <!--  <ul class="right side-nav">
-                <li class="hide-on-small-only"><a href="parallax.html"><i class="mdi-navigation-arrow-back"></i></a></li>
-            </ul> -->
             <a class="button-collapse black-text" href="#" data-activates='nav-mobile'><i class="mdi-navigation-menu"></i></a>
+            <ul class="right side-nav"  id="nav-mobile">
+                <li class="valign-wrapper"><a href="#home"><i class="material-icons">home</i> Home</a></li>
+                <li class="valign-wrapper"><a href="#section_how"><i class="material-icons ">info</i> Como Funciona?</a></li>
+                <li class="valign-wrapper"><a href="#section_clients"><i class="material-icons">group</i> Clientes</a></li>
+                <li class="valign-wrapper"><a href="#section_contact"><i class="material-icons">question_answer</i> Contato</a></li>
+                <li class="valign-wrapper"><a href="#section_contract"><i class="material-icons">thumb_up</i> Contratar</a></li>
+                <li class="valign-wrapper"><a href=""><i class="material-icons">exit_to_app</i> Entrar</a></li>
+            </ul>
         </div>
     </nav>
     <!--  Parallax Section  -->
@@ -110,7 +115,7 @@
             </div>
         </div>
         <div class="row border-how">
-            <h4 class="light valign-wrapper scrollspy" id="section_how"><i class="material-icons medium">info</i> Como funciona</h4>
+            <h4 class="light valign-wrapper scrollspy" id="section_how"><i class="material-icons medium">info</i> Como funciona?</h4>
             <div class="animation-wrapper" id="flexible-animation">
                 <img src="img/tuto.png" class="responsive-img center-block" alt="animation">
             </div>
@@ -126,7 +131,7 @@
         <div class="container">
             <div class="owl-carousel center-align">
                 <div class="item">
-                    <div class="card small">
+                    <div class="card small hoverable">
                         <div class="card-image waves-effect waves-block waves-light">
                             <img class="activator" src="img/1.jpg">
                         </div>
@@ -140,7 +145,7 @@
                     </div>
                 </div>
                 <div class="item">
-                    <div class="card small">
+                    <div class="card small hoverable">
                         <div class="card-image waves-effect waves-block waves-light">
                             <img class="activator" src="img/2.jpg">
                         </div>
@@ -154,7 +159,7 @@
                     </div>
                 </div>
                 <div class="item">
-                    <div class="card small">
+                    <div class="card small hoverable">
                         <div class="card-image waves-effect waves-block waves-light">
                             <img class="activator" src="img/3.jpg">
                         </div>
@@ -168,7 +173,7 @@
                     </div>
                 </div>
                 <div class="item">
-                    <div class="card small">
+                    <div class="card small hoverable">
                         <div class="card-image waves-effect waves-block waves-light">
                             <img class="activator" src="img/4.jpg">
                         </div>
@@ -191,7 +196,7 @@
 
                 <div class="row ">
                     <div class="col s12 m6 margin-contact">
-                        <div class="card">
+                        <div class="card hoverable">
                             <div class="card-content center-block">
                                 <span class="card-title">Ainda com dúvidas? Tire-as agora!</span>
                             </div>
@@ -241,7 +246,7 @@
         <div class="container">
             <div class="row ">
                 <div class="col s12 m6 margin-contact">
-                    <div class="card">
+                    <div class="card hoverable">
                         <div class="card-content center-block">
                             <span class="card-title">Quer entrar pro time? Faça o pedido!</span>
                         </div>
@@ -279,11 +284,11 @@
     <div class="footer-copyright">
         © 2016 Ticket Web 314 v 0.0 - Todos os direitos reservados.
         <span class="logo-footer"><i class="material-icons">face</i></span>
-        <a class="right" href="#section_contract">Contratar</a>
-        <a class="right" href="#section_contact">Contato</a>
-        <a class="right" href="#section_clients">Clientes</a>
-        <a class="right" href="#section_how">Como Funciona</a>
-        <a class="right" href="#home">Home</a>
+        <a class="text-lighten-4 right" href="#section_contract">Contratar</a>
+        <a class="text-lighten-4 right" href="#section_contact">Contato</a>
+        <a class="text-lighten-4 right" href="#section_clients">Clientes</a>
+        <a class="text-lighten-4 right" href="#section_how">Como Funciona?</a>
+        <a class="text-lighten-4 right" href="#home">Home</a>
     </div>
 </footer>
 <a href="#0" class="cd-top">Top</a>
@@ -296,6 +301,7 @@
 <script src="js/init.js"></script>
 <script type="text/javascript" src="js/backtotop.js"></script>
 <script type="application/javascript">
+    $(".button-collapse").sideNav();
     $(document).ready(function(){
         $('.scrollspy').scrollSpy();
         $(".owl-carousel").owlCarousel({
