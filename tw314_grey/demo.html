@@ -6,29 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="description" content="Materialize is a modern responsive CSS framework based on Material Design by Google. ">
-    <title>Parallax - Materialize</title>
-    <!-- Favicons-->
+    <title>TW314</title>
+    <!-- Favicons
     <link rel="apple-touch-icon-precomposed" href="images/favicon/apple-touch-icon-152x152.png">
     <meta name="msapplication-TileColor" content="#FFFFFF">
     <meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png">
     <link rel="icon" href="images/favicon/favicon-32x32.png" sizes="32x32">
-    <!--  Android 5 Chrome Color-->
-    <meta name="theme-color" content="#EE6E73">
     <!-- CSS-->
-    <link href="css/prism.css" rel="stylesheet">
     <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
     <link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <script src="js/modernizr.custom.cssanimations.856d2f5d99fa.js"></script>
-
-
+    <link rel="stylesheet" href="css/owl.carousel.css">
     <link rel="stylesheet" href="css/hover-min.css">
     <link rel="stylesheet" href="css/backtotop.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="parallax-demo">
-<header id="home">
+<body>
+<header id="home" class="scrollspy">
     <nav>
         <div class="nav-wrapper">
             <a href="index.html" class="brand-logo black-text"><i class="material-icons">face</i> TW314</a>
@@ -49,28 +44,27 @@
                     <p class="flow-text">COMO FUNCIONA?</p>
                 </li>
                 <li>
-                    <a href="#home" class="btn-floating btn-large waves-effect waves-light grey menu_circle hvr-reveal">
+                    <a href="#section_clients" class="btn-floating btn-large waves-effect waves-light grey menu_circle hvr-reveal">
                         <i class="material-icons icon">group</i>
                     </a>
                     <p class="flow-text">CLIENTES</p>
                 </li>
                 <li>
-                    <a href="#home" class="btn-floating btn-large waves-effect waves-light grey menu_circle hvr-reveal">
+                    <a href="#section_contact" class="btn-floating btn-large waves-effect waves-light grey menu_circle hvr-reveal">
                         <i class="material-icons icon">question_answer</i>
                     </a>
                     <p class="flow-text">CONTATO</p>
                 </li>
                 <li>
-                    <a href="#home" class="btn-floating btn-large waves-effect waves-light grey menu_circle hvr-reveal">
+                    <a href="#section_contract" class="btn-floating btn-large waves-effect waves-light grey menu_circle hvr-reveal">
                         <i class="material-icons icon">thumb_up</i>
                     </a>
                     <p class="flow-text">CONTRATAR</p>
                 </li>
             </ul>
-            <!--
-            <ul class="right side-nav">
+            <!--  <ul class="right side-nav">
                 <li class="hide-on-small-only"><a href="parallax.html"><i class="mdi-navigation-arrow-back"></i></a></li>
-            </ul>-->
+            </ul> -->
             <a class="button-collapse black-text" href="#" data-activates='nav-mobile'><i class="mdi-navigation-menu"></i></a>
         </div>
     </nav>
@@ -122,50 +116,181 @@
             </div>
         </div>
     </div>
-    <div class="parallax-container">
-        <div class="parallax"><img src="img/2.jpg"></div>
+    <div class="row">
+        <div class="parallax-container">
+            <div class="parallax"><img src="img/2.jpg"></div>
+        </div>
+        <div class="row section-parallax">
+            <h4 class="light valign-wrapper scrollspy white-text" id="section_clients"><i class="material-icons medium">group</i> Clientes</h4>
+        </div>
+        <div class="container">
+            <div class="owl-carousel center-align">
+                <div class="item">
+                    <div class="card small">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" src="img/1.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Cliente 1<i class="material-icons right">more_vert</i></span>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">Cliente 1<i class="material-icons right">close</i></span>
+                            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card small">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" src="img/2.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Cliente 2<i class="material-icons right">more_vert</i></span>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">Cliente 2<i class="material-icons right">close</i></span>
+                            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card small">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" src="img/3.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Cliente 3<i class="material-icons right">more_vert</i></span>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">Cliente 3<i class="material-icons right">close</i></span>
+                            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="card small">
+                        <div class="card-image waves-effect waves-block waves-light">
+                            <img class="activator" src="img/4.jpg">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Cliente 4<i class="material-icons right">more_vert</i></span>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="card-title grey-text text-darken-4">Cliente 4<i class="material-icons right">close</i></span>
+                            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section white">
+        <div class="row">
+            <h4 class="light valign-wrapper scrollspy" id="section_contact"><i class="material-icons medium">question_answer</i> Contato</h4>
+            <div class="container">
+
+                <div class="row ">
+                    <div class="col s12 m6 margin-contact">
+                        <div class="card">
+                            <div class="card-content center-block">
+                                <span class="card-title">Ainda com dúvidas? Tire-as agora!</span>
+                            </div>
+                            <div class="card-action">
+                                <form class="col s12">
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="nome" type="text" class="validate">
+                                            <label for="nome">Nome Completo</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="email" type="email" class="validate">
+                                            <label for="email">E-mail</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <input id="assunto" type="text" class="validate">
+                                            <label for="assunto">Assunto</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12">
+                                            <textarea id="mensagem" class="materialize-textarea"></textarea>
+                                            <label for="mensagem">Mensagem</label>
+                                        </div>
+                                    </div>
+                                    <a href="#" class="waves-effect waves-light btn-xlarge btn-large grey right">Eu quero!</a>
+                                </form>
+                                <a href=""></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="parallax-container">
+            <div class="parallax"><img src="img/3.jpg"></div>
+        </div>
+        <div class="row section-parallax">
+            <h4 class="light valign-wrapper scrollspy white-text" id="section_contract"><i class="material-icons medium">thumb_up</i> Contratar</h4>
+        </div>
+        <div class="container">
+            <div class="row ">
+                <div class="col s12 m6 margin-contact">
+                    <div class="card">
+                        <div class="card-content center-block">
+                            <span class="card-title">Quer entrar pro time? Faça o pedido!</span>
+                        </div>
+                        <div class="card-action">
+                            <form class="col s12">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="responsavel" type="text" class="validate">
+                                        <label for="responsavel">Nome do Responsável</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="contato" type="email" class="validate">
+                                        <label for="contato">E-mail para contato</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="cnpj" type="text" class="validate">
+                                        <label for="cnpj">CNPJ</label>
+                                    </div>
+                                </div>
+                                <a href="#" class="waves-effect waves-light btn grey right"> Enviar</a>
+                            </form>
+                            <a href=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </main>
 <footer class="page-footer">
-    <div class="container">
-        <div class="row">
-            <div class="col l4 s12">
-                <h5 class="white-text">Help Materialize Grow</h5>
-                <p class="grey-text text-lighten-4">We hope you have enjoyed using Materialize! If you feel Materialize has helped you out and want to support the team, send us over a donation! Any amount would help support and continue development on this project and is greatly appreciated.</p>
-                <form id="paypal-donate" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                    <input type="hidden" name="cmd" value="_s-xclick">
-                    <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
-">
-                    <button class="btn waves-effect waves-light red lighten-3" type="submit" name="action" alt="PayPal - The safer, easier way to pay online!">Donate Now</button>
-                </form>
-            </div>
-            <div class="col l4 s12">
-                <h5 class="white-text">Join the Discussion</h5>
-                <p class="grey-text text-lighten-4">We have a Gitter chat room set up where you can talk directly with us. Come in and discuss new features, future goals, general problems or questions, or anything else you can think of.</p>
-                <a class="btn waves-effect waves-light red lighten-3" target="_blank" href="https://gitter.im/Dogfalo/materialize">Chat</a>
-            </div>
-            <div class="col l4 s12" style="overflow: hidden;">
-                <h5 class="white-text">Connect</h5>
-                <iframe src="http://ghbtns.com/github-btn.html?user=dogfalo&repo=materialize&type=watch&count=true&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
-                <br>
-                <a href="https://twitter.com/MaterializeCSS" class="twitter-follow-button" data-show-count="true" data-size="large" data-dnt="true">Follow @MaterializeCSS</a>
-                <br>
-                <div class="g-follow" data-annotation="bubble" data-height="24" data-href="https://plus.google.com/108619793845925798422" data-rel="publisher"></div>
-            </div>
-        </div>
-    </div>
     <div class="footer-copyright">
-        <div class="container">
-            © 2014-2015 Materialize, All rights reserved.
-            <a class="grey-text text-lighten-4 right" href="https://github.com/Dogfalo/materialize/blob/master/LICENSE">MIT License</a>
-        </div>
+        © 2016 Ticket Web 314 v 0.0 - Todos os direitos reservados.
+        <span class="logo-footer"><i class="material-icons">face</i></span>
+        <a class="right" href="#section_contract">Contratar</a>
+        <a class="right" href="#section_contact">Contato</a>
+        <a class="right" href="#section_clients">Clientes</a>
+        <a class="right" href="#section_how">Como Funciona</a>
+        <a class="right" href="#home">Home</a>
     </div>
 </footer>
-
 <a href="#0" class="cd-top">Top</a>
 
 <!--  Scripts-->
 <script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
 <script>if (!window.jQuery) { document.write('<script src="js/jquery-2.1.1.min.js"><\/script>'); } </script>
 <script src="js/materialize.min.js"></script>
 <script src="js/init.js"></script>
@@ -173,6 +298,23 @@
 <script type="application/javascript">
     $(document).ready(function(){
         $('.scrollspy').scrollSpy();
+        $(".owl-carousel").owlCarousel({
+                    center: true,
+                    loop:true,
+                    margin:10,
+                    autoplay:true,
+                    autoplayTimeout:3000,
+                    autoplayHoverPause:true,
+                    responsive:{
+                        260:{
+                            items: 1
+                        },
+                        600:{
+                            items: 3
+                        }
+                    }
+                }
+        );
     });
 </script>
 
