@@ -61,5 +61,5 @@ target/
 #Ipython Notebook
 .ipynb_checkpoints
 
-#Pasta PyCharme
+#Pasta PyCharm
 *.idea
