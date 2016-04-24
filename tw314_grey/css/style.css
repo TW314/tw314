@@ -40,31 +40,57 @@ footer.page-footer .footer-copyright a:hover {
 }
 
 nav {
-    background-color: transparent;
+    background-color: #ee692e;
 }
 nav ul a {
     color: black;
+}
+.margin-title{
+    margin: auto;
+}
+.margin-icons{
+    margin: 0 10px;
+}
+.brown{
+    background-color: #564949;
+}
+.brown-text{
+    color: #564949;
+}
+.white{
+    background-color: #fff6f6;
+}
+.white-text{
+    color: #fff6f6;
+}
+.blue{
+    background-color: #638ab3 !important;
+}
+.blue-text{
+    color: #638ab3;
 }
 .entrar{
     margin-top: -15px;
 }
 .nav-align{
     position: absolute;
-    margin-top: 65px;
-    padding: 5px 25%;
-    background: rgba(0, 0, 0, 0.35);
+    margin-top: 64px;
+    padding: 20px 25%;
+    background: rgba(99, 138, 179, 0.35);
     z-index: 1;
     width: 100%;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
 }
-
+.bold{
+    font-weight: bold;
+}
 .hvr-reveal {
     display: inherit;
 }
 
 .hvr-reveal::before {
     border-radius: 50%;
-    border-color: black;
+    border-color: #5d87b3;
 }
 
 nav ul a:hover {
