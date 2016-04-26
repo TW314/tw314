@@ -1,6 +1,9 @@
-638ab3
-564949
-564949
-9fc9df
-ee692e
-ee222e
+638ab3 - azul escuro
+564949 - marrom
+9fc9df -  azul claro
+ee692e - laranja
+ee222e - vermelho
+
+
+
+00a0c2 - azul - ampulheta
