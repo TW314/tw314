@@ -1,0 +1,55 @@
+{% extends "master.html" %}
+{% block master %}
+    <div class="row">
+        <form class="col s6">
+            <div class="row">
+
+                <div class="input-field col s12">
+                    <input id="last_name" type="text" class="validate">
+                    <label for="last_name">Nome</label>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="input-field col s12">
+                    <input id="last_name" type="text" class="validate">
+                    <label for="last_name">Login</label>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="input-field col s12">
+                    <input id="last_name" type="text" class="validate">
+                    <label for="last_name">Senha</label>
+                </div>
+
+            </div>
+            <div class="row">
+
+                <div class="input-field col s12">
+                    <select multiple>
+                        <option value="" disabled selected>Perfil</option>
+                        <option value="1">Funcionário</option>
+                        <option value="2">Administrador</option>
+
+                    </select>
+                    <label>Materialize Multiple Select</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <a class="waves-effect waves-light btn right"> Cadastrar<i class="material-icons">send</i></a>
+            </div>
+            <div class="row">
+                <a class="waves-effect waves-light btn right"> Cancelar<i class="material-icons">cancel</i></a>
+            </div>
+
+
+        </form>
+    </div>
+
+{% endblock %}
