@@ -1,9 +1,9 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>TW314</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,11 +26,11 @@
     <link rel="stylesheet" href="{% static "css/style.css" %}">
 </head>
 <body>
-<header>
+<header class="master">
     <nav>
+        <a href="#" class="nav-toggle-btn"></a>
         <ul class="right hide-on-med-and-down">
-            <li><a href="#!">First Sidebar Link</a></li>
-            <li><a href="#!">Second Sidebar Link</a></li>
+            <li><a href="#!">SAIR</a></li>
         </ul>
         <ul id="slide-out" class="side-nav">
             <li><a href="#!">First Sidebar Link</a></li>
@@ -38,13 +38,51 @@
         </ul>
         <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
     </nav>
-</header>
-{%  block master %}
+    <div>
+        <a href="#" class="nav-toggle-btn"></a>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </div>
+    <!--<nav>
 
-{% endblock %}
+        <ul class="right hide-on-med-and-down">
+            <li><a href="#!">SAIR </a></li>
+        </ul>
+        <ul class="hide-on-med-and-down">
+            <li><a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a></li>
+        </ul>
+        <ul id="slide-out" class="side-nav">
+            <li><a href="#!">First Sidebar Link</a></li>
+            <li><a href="#!">Second Sidebar Link</a></li>
+        </ul>
+    </nav> -->
+</header>
+<main class="content">
+    {%  block master %}
+
+    {% endblock %}
+</main>
+
+<footer></footer>
+
 
 <!--  Scripts-->
 <script src="{% static "js/jquery-2.1.1.min.js" %}"></script>
+<script type="text/javascript">
+    (function() {
+        var bodyEl = $('body'),
+                navToggleBtn = bodyEl.find('.nav-toggle-btn');
+
+        navToggleBtn.on('click', function(e) {
+            bodyEl.toggleClass('active-nav');
+            e.preventDefault();
+        });
+    })();
+</script>
 <script src="{% static "js/owl.carousel.min.js" %}"></script>
 
 <script src="{% static "js/materialize.min.js" %}"></script>
