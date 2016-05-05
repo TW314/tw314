@@ -266,7 +266,7 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul 
 ***************/
 
 
-.master div {
+.master aside {
     position: fixed;
     z-index: 1000;
     top: 0;
@@ -276,14 +276,14 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul 
     transform: translate3d(-200px, 0, 0);
     transition: transform 0.4s ease;
 }
-.active-nav .master div {
+.active-nav .master aside {
     transform: translate3d(0, 0, 0);
 }
-.master div ul {
+.master aside ul {
     list-style: none;
     margin-top: 100px;
 }
-.master div ul li a {
+.master aside ul li a {
     text-decoration: none;
     display: block;
     text-align: center;
