@@ -290,7 +290,7 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul 
     position: absolute;
     width: 40px;
     height: 40px;
-    background-color: #666;
+    content: "\f0c9";
 }
 
 .content {
