@@ -305,3 +305,6 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul 
     transform: translate3d(200px, 0, 0);
 }
 
+.menu_padding {
+    padding-left: 15px;
+}
