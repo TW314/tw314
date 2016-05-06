@@ -1,55 +1,208 @@
 {% extends "master.html" %}
 {% block master %}
     <div class="row">
-        <form class="col s6">
-            <div class="row">
+        <div class="col s6">
+            <form class="col s12">
+                <div class="row">
 
-                <div class="input-field col s12">
-                    <input id="last_name" type="text" class="validate">
-                    <label for="last_name">Nome</label>
+                    <div class="input-field col s12">
+                        <input id="last_name" type="text" class="validate">
+                        <label for="last_name">Nome</label>
+                    </div>
+
                 </div>
 
-            </div>
+                <div class="row">
 
-            <div class="row">
+                    <div class="input-field col s12">
+                        <input id="last_name" type="text" class="validate">
+                        <label for="last_name">Login</label>
+                    </div>
 
-                <div class="input-field col s12">
-                    <input id="last_name" type="text" class="validate">
-                    <label for="last_name">Login</label>
                 </div>
 
-            </div>
+                <div class="row">
 
-            <div class="row">
+                    <div class="input-field col s12">
+                        <input id="last_name" type="text" class="validate">
+                        <label for="last_name">Senha</label>
+                    </div>
 
-                <div class="input-field col s12">
-                    <input id="last_name" type="text" class="validate">
-                    <label for="last_name">Senha</label>
+                </div>
+                <div class="row">
+
+                    <div class="input-field col s12">
+                        <select multiple>
+                            <option value="" disabled selected>Perfil</option>
+                            <option value="1">Funcionário</option>
+                            <option value="2">Administrador</option>
+
+                        </select>
+                        <label>Perfil</label>
+                    </div>
                 </div>
 
-            </div>
-            <div class="row">
-
-                <div class="input-field col s12">
-                    <select multiple>
-                        <option value="" disabled selected>Perfil</option>
-                        <option value="1">Funcionário</option>
-                        <option value="2">Administrador</option>
-
-                    </select>
-                    <label>Materialize Multiple Select</label>
+                <div class="row">
+                    <a class="waves-effect waves-light btn right"> Cadastrar<i class="material-icons">send</i></a>
                 </div>
-            </div>
-
-            <div class="row">
-                <a class="waves-effect waves-light btn right"> Cadastrar<i class="material-icons">send</i></a>
-            </div>
-            <div class="row">
-                <a class="waves-effect waves-light btn right"> Cancelar<i class="material-icons">cancel</i></a>
-            </div>
+                <div class="row">
+                    <a class="waves-effect waves-light btn right"> Cancelar<i class="material-icons">cancel</i></a>
+                </div>
 
 
-        </form>
+
+
+            </form>
+        </div>
+        <div class="col s6">
+            <div class="col s12">
+                <table class="highlight">
+                    <thead>
+                    <tr>
+                        <th data-field="nome">Nome</th>
+                        <th data-field="login">Login</th>
+                        <th data-field="perfil">Perfil</th>
+                        <th data-field="acoes">Ações</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td class="fixed-action-btn horizontal click-to-toggle" style="bottom: 455px; right: 153px;">
+                            <a class="btn-floating btn-short red">
+                                <i class="material-icons">menu</i>
+                            </a>
+                            <ul>
+                                <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+                                <li><a class="btn-floating yellow darken-1"><i class="material-icons">remove_red_eye</i></a></li>
+                                <li><a class="btn-floating green"><i class="material-icons">block</i></a></li>
+                                <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+                            </ul>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td class="fixed-action-btn horizontal click-to-toggle" style="bottom: 435px; right: 189px; height: 5px; width: 7px;">
+                            <a class="btn-floating btn-short red">
+                                <i class="material-icons">menu</i>
+                            </a>
+                            <ul>
+                                <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+                                <li><a class="btn-floating yellow darken-1"><i class="material-icons">remove_red_eye</i></a></li>
+                                <li><a class="btn-floating green"><i class="material-icons">block</i></a></li>
+                                <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+                            </ul>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td class="fixed-action-btn horizontal click-to-toggle" style="bottom: 382px; right: 190px; height: 5px; width: 7px;">
+                            <a class="btn-floating btn-short red">
+                                <i class="material-icons">menu</i>
+                            </a>
+                            <ul>
+                                <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+                                <li><a class="btn-floating yellow darken-1"><i class="material-icons">remove_red_eye</i></a></li>
+                                <li><a class="btn-floating green"><i class="material-icons">block</i></a></li>
+                                <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+                            </ul>
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td class="fixed-action-btn horizontal click-to-toggle" style="bottom: 330px; right: 190px; height: 5px; width: 7px;">
+                            <a class="btn-floating btn-short red">
+                                <i class="material-icons">menu</i>
+                            </a>
+                            <ul>
+                                <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+                                <li><a class="btn-floating yellow darken-1"><i class="material-icons">remove_red_eye</i></a></li>
+                                <li><a class="btn-floating green"><i class="material-icons">block</i></a></li>
+                                <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+                            </ul>
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td class="fixed-action-btn horizontal click-to-toggle" style="bottom: 280px; right: 190px; height: 5px; width: 7px;">
+                            <a class="btn-floating btn-short red">
+                                <i class="material-icons">menu</i>
+                            </a>
+                            <ul>
+                                <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+                                <li><a class="btn-floating yellow darken-1"><i class="material-icons">remove_red_eye</i></a></li>
+                                <li><a class="btn-floating green"><i class="material-icons">block</i></a></li>
+                                <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+                            </ul>
+
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td class="fixed-action-btn horizontal click-to-toggle" style="bottom: 230px; right: 190px; height: 5px; width: 7px;">
+                            <a class="btn-floating btn-short red">
+                                <i class="material-icons">menu</i>
+                            </a>
+                            <ul>
+                                <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+                                <li><a class="btn-floating yellow darken-1"><i class="material-icons">remove_red_eye</i></a></li>
+                                <li><a class="btn-floating green"><i class="material-icons">block</i></a></li>
+                                <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+                            </ul>
+
+                        </td>
+                    </tr>
+
+
+
+                    </tbody>
+                </table>
+                <br />
+
+
+                <div class="row" align="Right">
+
+                    <ul class="pagination">
+                        <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                        <li class="active"><a href="#!">1</a></li>
+                        <li class="waves-effect"><a href="#!">2</a></li>
+                        <li class="waves-effect"><a href="#!">3</a></li>
+                        <li class="waves-effect"><a href="#!">4</a></li>
+                        <li class="waves-effect"><a href="#!">5</a></li>
+                        <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+                    </ul>
+
+                </div>
+                <br />
+                <div class="row" align="Center">
+                    <a href="...">Acesso Rápido</a> | <a href="...">Serviços</a> | <a href="...">Usuários</a>
+                </div>
+
+
+
+            </div>
+
+        </div>
     </div>
 
 {% endblock %}
