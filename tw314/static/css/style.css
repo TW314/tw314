@@ -1,13 +1,63 @@
 /*************
 ** Genérico **
 *************/
-/*@principal: #ee692e;
-@secundaria: #638ab3;
-@base: #fff6f6;
-@texto: #564949;
-@alerta: #db3d34;
-@sucesso :#16a068; */
+/** Cores **/
 
+.brown{
+    background-color: #564949;
+}
+.brown-text{
+    color: #564949;
+}
+.white{
+    background-color: #fff6f6;
+}
+.white-text{
+    color: #fff6f6;
+}
+.blue{
+    background-color: #00a0c2 !important;
+}
+.blue-text{
+    color: #00a0c2;
+}
+
+.principal_text{color: #ee692e;}
+.principal_bg{background: #ee692e;}
+
+.principal_v_text{color: #ee4d2e;}
+.principal_v_bg{background: #ee4d2e;}
+
+.secundária1_text{color: #00a0c2;}
+.secundária1_bg{background: #00a0c2;}
+
+.secundária1_v_text{color: #00809c;}
+.secundária1_v_bg{background: #00809c}
+
+.secundária2_text{color: #a2a2a2;}
+.secundária2_bg{background: #a2a2a2;}
+
+.base_text{color: #fff6f6;}
+.base_bg{background: #fff6f6;}
+
+.texto_text{color: #564949;}
+.texto_bg{background: #564949}
+
+.alerta_text{color: #db3d34;}
+.alerta_bg{background: #db3d34;}
+
+.sucesso_text{color: #16a068;}
+.sucesso_bg{color: #16a068;}
+
+/** Fontes **/
+.fa-2x {font-size: 38px; margin-top: 18px !important;}
+.font20 {font-size: 20px;}
+.font18 {font-size: 18px;}
+.font24 {font-size: 24px;}
+
+nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+    height: 75px;
+}
 @font-face {
     font-family: 'lato';
     src: url('lato-light-webfont.eot');
@@ -25,11 +75,6 @@ html{font-family: 'lato', sans-serif;}
 .parallax-container {
     height: 39em;
 }
-
-.fa-2x {font-size: 32px;}
-.font20 {font-size: 20px;}
-.font18 {font-size: 18px;}
-.font24 {font-size: 24px;}
 
 
 /************
@@ -86,30 +131,13 @@ nav ul a {
 .margin-icons{
     margin: 0 10px;
 }
-.brown{
-    background-color: #564949;
-}
-.brown-text{
-    color: #564949;
-}
-.white{
-    background-color: #fff6f6;
-}
-.white-text{
-    color: #fff6f6;
-}
-.blue{
-    background-color: #638ab3 !important;
-}
-.blue-text{
-    color: #638ab3;
-}
+
 .entrar{
     margin-top: -15px;
 }
 .nav-align{
     position: absolute;
-    margin-top: 64px;
+    margin-top: 75px;
     padding: 20px 25%;
     background: rgba(99, 138, 179, 0.35);
     z-index: 1;
@@ -150,7 +178,7 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul 
 .card .card-image p {
     position: absolute;
     top: 3em;
-    color: white;
+    color: #fff6f6;
     text-align: justify;
     margin: auto 5%;
     font-weight: 500;
@@ -282,7 +310,7 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul 
     top: 0;
     bottom: 0;
     width: 200px;
-    background-color: #ee692e;
+    background-color: #ee4d2e;
     transform: translate3d(-200px, 0, 0);
     transition: transform 0.4s ease;
 }
@@ -297,16 +325,15 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul 
     text-decoration: none;
     display: block;
     text-align: center;
-    color: #fff;
+    color: #fff6f6;
     padding: 10px 0;
 }
 
 .master .nav-toggle-btn {
     display: block;
     position: absolute;
-    width: 40px;
-    height: 40px;
-    content: "\f0c9";
+    width: 64px;
+    height: 75px;
 }
 
 .content {
@@ -317,9 +344,37 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul 
     transform: translate3d(200px, 0, 0);
 }
 
+/*************************
+** Propriedades do Menu **
+*************************/
 .menu_padding {
     margin-left: 15px;
 }
 .side-top{
     margin-top: 15px;
 }
+
+.menu_border {
+    margin: 0;
+    border: 0px solid #e0e0e0;
+    border-radius: 0px;
+    overflow: hidden;
+    position: relative;
+}
+
+.menu_header {
+    font-size: small;
+    text-align: center;
+    background-color: #ee692e !important;
+    border-bottom: 1px solid #ee692e;
+    padding: 10px 20px;
+}
+
+.menu_item {
+    background-color: #ee692e;
+    line-height: 1.5rem;
+    padding: 10px 20px !important;
+    margin: 0;
+    border-bottom: 1px solid #ee692e;
+}
+
