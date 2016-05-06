@@ -1,3 +1,13 @@
+/*************
+** Genérico **
+*************/
+/*@principal: #ee692e;
+@secundaria: #638ab3;
+@base: #fff6f6;
+@texto: #564949;
+@alerta: #db3d34;
+@sucesso :#16a068; */
+
 @font-face {
     font-family: 'lato';
     src: url('lato-light-webfont.eot');
@@ -10,17 +20,17 @@
     font-style: normal;
 
 }
-html{
-    font-family: 'lato', sans-serif;}
+
+html{font-family: 'lato', sans-serif;}
 .parallax-container {
     height: 39em;
 }
 
-.fa-2x {
-    font-size: 32px;
-}
-
+.fa-2x {font-size: 32px;}
 .font20 {font-size: 20px;}
+.font18 {font-size: 18px;}
+.font24 {font-size: 24px;}
+
 
 /************
 ** OnePage **
@@ -308,5 +318,8 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul 
 }
 
 .menu_padding {
-    padding-left: 15px;
+    margin-left: 15px;
+}
+.side-top{
+    margin-top: 15px;
 }

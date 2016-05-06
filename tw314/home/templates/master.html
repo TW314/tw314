@@ -29,27 +29,14 @@
 </head>
 <body>
 <header class="master">
-    <!-- <nav>
-        <ul class="left hide-on-med-and-down">
-            <li><a href="#" class="nav-toggle-btn brand-logo"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></a></li>
-        </ul>
-        <ul class="right hide-on-med-and-down">
-            <li><a href="#!">SAIR</a></li>
-        </ul>
-        <ul id="slide-out" class="side-nav">
-            <li><a href="#!">First Sidebar Link</a></li>
-            <li><a href="#!">Second Sidebar Link</a></li>
-        </ul>
-    </nav> -->
-
     <nav>
-        <a href="#" class="nav-toggle-btn brand-logo"><i class="fa fa-bars fa-2x menu_padding" aria-hidden="true"></i></a>
-        <ul class="right hide-on-med-and-down">
-            <li><a class="white-text" href="">SAIR <i class="fa fa-times" aria-hidden="true"></i></a></li>
+        <a href="#" class="nav-toggle-btn brand-logo "><i class="fa fa-bars fa-2x menu_padding" aria-hidden="true"></i></a>
+        <ul class="right ">
+            <li><a class="white-text font24 light" href=""><i class="fa fa-times" aria-hidden="true"></i> SAIR </a></li>
         </ul>
     </nav>
     <aside>
-        <a href="#" class="nav-toggle-btn brand-logo white-text"><i class="fa fa-arrow-left fa-2x menu_padding" aria-hidden="true"></i></a>
+        <a href="#" class="nav-toggle-btn brand-logo white-text"><i class="fa fa-arrow-left fa-2x side-top menu_padding" aria-hidden="true"></i></a>
         <ul>
             <li><a href="#">Home</a></li>
             <li><a href="#">About</a></li>
@@ -57,28 +44,13 @@
             <li><a href="#">Contact</a></li>
         </ul>
     </aside>
-    <!--<nav>
-
-        <ul class="right hide-on-med-and-down">
-            <li><a href="#!">SAIR </a></li>
-        </ul>
-        <ul class="hide-on-med-and-down">
-            <li><a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a></li>
-        </ul>
-        <ul id="slide-out" class="side-nav">
-            <li><a href="#!">First Sidebar Link</a></li>
-            <li><a href="#!">Second Sidebar Link</a></li>
-        </ul>
-    </nav> -->
 </header>
 <main class="content">
     {%  block master %}
 
     {% endblock %}
 </main>
-
 <footer></footer>
-
 
 <!--  Scripts-->
 <script src="{% static "js/jquery-2.1.1.min.js" %}"></script>
@@ -94,12 +66,9 @@
     })();
 </script>
 <script src="{% static "js/owl.carousel.min.js" %}"></script>
-
 <script src="{% static "js/materialize.min.js" %}"></script>
 <script src="{% static "js/init.js" %}"></script>
-
 <script type="text/javascript" src="{% static "js/backtotop.js " %}"></script>
-
 <script type="application/javascript">
     $(".button-collapse").sideNav();
     $(document).ready(function(){
@@ -123,14 +92,12 @@
         );
     });
 </script>
-
 <script>
     // Initialize collapse button
     $(".button-collapse").sideNav({closeOnClick: true});
     // Initialize collapsible (uncomment the line below if you use the dropdown variation)
     //$('.collapsible').collapsible();
 </script>
-
 
 </body>
 </html>
