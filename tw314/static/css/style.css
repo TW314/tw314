@@ -305,6 +305,34 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul 
     transform: translate3d(200px, 0, 0);
 }
 
+/*************************
+** Propriedades do Menu **
+*************************/
 .menu_padding {
     padding-left: 15px;
 }
+
+.menu_border {
+    margin: 0;
+    border: 0px solid #e0e0e0;
+    border-radius: 0px;
+    overflow: hidden;
+    position: relative;
+}
+
+.menu_header {
+    font-size: small;
+    text-align: center;
+    background-color: #ee692e !important;
+    border-bottom: 1px solid #ee692e;
+    padding: 10px 20px;
+}
+
+.menu_item {
+    background-color: #ee692e;
+    line-height: 1.5rem;
+    padding: 10px 20px !important;
+    margin: 0;
+    border-bottom: 1px solid #ee692e;
+}
+
