@@ -324,9 +324,7 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul 
 .master aside ul li a {
     text-decoration: none;
     display: block;
-    text-align: center;
     color: #fff6f6;
-    padding: 10px 0;
 }
 
 .master .nav-toggle-btn {
