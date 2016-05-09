@@ -299,16 +299,20 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul 
     transform: translate3d(200px, 0, 0);
 }
 
+.master-logo {
+    margin-left: 56px;
+}
+
 /*************************
 ** Propriedades do Menu **
 *************************/
-.menu_padding {margin: 15px;}
-aside.menu_padding {margin: 0 25px;}
+.menu-padding {margin: 15px;}
+aside.menu-padding {margin: 0 25px;}
 .side-top{
     margin-top: 15px;
 }
 
-.menu_border {
+.menu-border {
     margin: 0;
     border: 0px solid #e0e0e0;
     border-radius: 0px;
@@ -316,7 +320,7 @@ aside.menu_padding {margin: 0 25px;}
     position: relative;
 }
 
-.menu_header {
+.menu-header {
     font-size: small;
     text-align: center;
     background-color: #fff6f6 !important;
