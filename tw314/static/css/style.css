@@ -332,7 +332,7 @@ aside.menu_padding {margin: 0 25px;}
 }
 
 .collection a.collection-item:hover:not(.active) {
-    background-color: #f74f30;
+    background-color: #ee692e;
     color: #fff6f6;
 }
 
