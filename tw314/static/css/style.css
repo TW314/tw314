@@ -276,7 +276,9 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul 
 .active-nav .master aside {
     transform: translate3d(0, 0, 0);
 }
-.master aside ul {margin-top: 75px;}
+.master aside .side-bottom {
+    margin: 18em 0;
+}
 .master aside ul li a {
     text-decoration: none;
     display: block;
@@ -322,7 +324,7 @@ aside.menu_padding {margin: 0 25px;}
     padding: 10px 20px;
 }
 
-.collection a.collection-item {color: #ee692e;}
+.collection a.collection-item {color: #564949;}
 
 .collection .collection-item {
     background-color: #fff6f6;
@@ -361,4 +363,8 @@ nav ul a {height: 100%;}
 .info-side{
     margin-top: 66px;
     font-size: 12px;
+}
+
+.line-side{
+    border-top: 0.7px solid #a2a2a2;
 }
