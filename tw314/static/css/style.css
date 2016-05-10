@@ -417,11 +417,19 @@ nav ul a {height: 100%;}
     height: inherit;
     left: 0;
     width: auto;
-    right: 13%;
+    right: 65px;
 }
 
 .fixed-action-btn ul {
     left: 0;
     margin: -27px 0;
     bottom: auto;
+}
+
+/*************************
+** Cartões da Tela Main **
+*************************/
+
+.card-margin {
+    margin-top: 30px;
 }

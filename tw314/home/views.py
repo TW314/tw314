@@ -8,3 +8,7 @@ def index(request):
 def cadastro_usuario(request):
     return render(request, 'home/admin/cadastrar_usuario.html', {})
 
+
+def admin_principal(request):
+    return render(request, 'home/admin/admin_principal.html', {})
+
