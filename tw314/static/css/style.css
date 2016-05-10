@@ -306,6 +306,7 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul 
 /*************************
 ** Propriedades do Menu **
 *************************/
+
 .menu-padding {margin: 15px;}
 aside.menu-padding {margin: 0 25px;}
 .side-top{
@@ -371,4 +372,30 @@ nav ul a {height: 100%;}
 
 .line-side{
     border-top: 0.7px solid #a2a2a2;
+}
+
+/*************************
+** Paginação de Tabelas **
+*************************/
+
+.pagination li.active {
+  background-color: #039be5;
+}
+
+/*************************
+**        Botões        **
+*************************/
+
+.btn, .btn-large {
+  text-decoration: none;
+  color: #fff;
+  background-color: #039be5;
+  text-align: center;
+  letter-spacing: .5px;
+  transition: .2s ease-out;
+  cursor: pointer;
+}
+
+.btn:hover, .btn-large:hover {
+  background-color: #00809c;
 }
