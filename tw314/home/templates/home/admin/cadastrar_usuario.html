@@ -1,5 +1,5 @@
 {% extends "master_admin.html" %}
-{% block titulo %} CADASTRAR USUARIO {% endblock %}
+{% block titulo %} CADASTRAR USUÁRIO {% endblock %}
 {% block master %}
     <div class="row">
         <div class="col s6">
@@ -81,7 +81,27 @@
                                 </a>
                                 <ul>
                                     <li><a class="btn-floating secundaria1_bg"><i class="fa fa-key" aria-hidden="true"></i></a></li>
-                                    <li><a class="btn-floating secundaria1_bg"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
+                                    <li>
+                                        <a class="btn-floating secundaria1_bg"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                        <div id="modal1" class="modal">
+                                        <div class="modal-content">
+                                            <h4>Modal Header</h4>
+                                            <p>A bunch of text</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a href="#modal1" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+
+                                        </div>
+                                    </div>
+                                    <script type="text/javascript" src="js/jquery.js"></script>
+                                    <script src="js/materialize.js"></script>
+                                    <script>
+                                        $(document).ready(function(){
+                                            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+                                            $('.modal-trigger').leanModal();
+                                        });
+                                    </script>
+                                    </li>
                                     <li><a class="btn-floating secundaria1_bg"><i class="fa fa-ban" aria-hidden="true"></i></a></li>
                                     <li><a class="btn-floating secundaria1_bg"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
                                 </ul>
@@ -184,13 +204,13 @@
                 </table>
                 <div class="row" align="Right">
                     <ul class="pagination">
-                        <li class="disabled"><a href="#!"><i class="fa fa-chevron-left" aria-hidden="true"></i> </a></li>
+                        <li class="disabled"><a href="#!"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i> </a></li>
                         <li class="active"><a href="#!">1</a></li>
                         <li class="waves-effect"><a href="#!">2</a></li>
                         <li class="waves-effect"><a href="#!">3</a></li>
                         <li class="waves-effect"><a href="#!">4</a></li>
                         <li class="waves-effect"><a href="#!">5</a></li>
-                        <li class="waves-effect"><a href="#!"><i class="fa fa-chevron-right" aria-hidden="true"></i></a></li>
+                        <li class="waves-effect"><a href="#!"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></li>
                     </ul>
                 </div>
             </div>
