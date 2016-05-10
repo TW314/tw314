@@ -80,27 +80,27 @@
                                     <i class="fa fa-bars" aria-hidden="true"></i>
                                 </a>
                                 <ul>
-                                    <li><a class="btn-floating secundaria1_bg"><i class="fa fa-key" aria-hidden="true"></i></a></li>
+                                    <li><a  class="btn-floating secundaria1_bg"><i class="fa fa-key" aria-hidden="true"></i></a></li>
                                     <li>
-                                        <a class="btn-floating secundaria1_bg"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                        <button data-target="modal1" class="btn-floating secundaria1_bg waves-effect waves-light btn modal-trigger">M</button>
+                                        <a type="button" class="btn-floating secundaria1_bg waves-effect waves-light btn modal-trigger" href="#modal1"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                         <div id="modal1" class="modal">
-                                        <div class="modal-content">
-                                            <h4>Modal Header</h4>
-                                            <p>A bunch of text</p>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <a href="#modal1" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                                            <div class="modal-content">
+                                                <h4>Modal Header</h4>
+                                                <p>A bunch of text</p>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <a href="#modal1" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
 
+                                            </div>
                                         </div>
-                                    </div>
-                                    <script type="text/javascript" src="js/jquery.js"></script>
-                                    <script src="js/materialize.js"></script>
-                                    <script>
-                                        $(document).ready(function(){
-                                            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-                                            $('.modal-trigger').leanModal();
-                                        });
-                                    </script>
+                                        <script>
+                                            $(document).ready(function(){
+                                                $('.modal-trigger').leanModal();
+                                            });
+                                        </script>
+
+
                                     </li>
                                     <li><a class="btn-floating secundaria1_bg"><i class="fa fa-ban" aria-hidden="true"></i></a></li>
                                     <li><a class="btn-floating secundaria1_bg"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
