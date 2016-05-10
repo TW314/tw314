@@ -80,8 +80,8 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons{ display: 
 .menu{ margin: auto 20%; }
 .menu ul li { margin: auto 15px; }
 footer.page-footer {
-    color: black;
-    background: gray;
+    color: #fff6f6;
+    background: #ee4d2e;
     padding: 0.7em;
 }
 footer.page-footer .footer-copyright { background: none; }
@@ -356,7 +356,6 @@ aside.menu-padding {margin: 0 25px;}
 
 nav ul a {height: 100%;}
 
-.btn, .btn-large, .btn-flat {line-height: normal;}
 
 .master aside td, .master aside th {padding: 5px 0;}
 
@@ -379,7 +378,7 @@ nav ul a {height: 100%;}
 *************************/
 
 .pagination li.active {
-  background-color: #039be5;
+    background-color: #039be5;
 }
 
 /*************************
@@ -387,15 +386,42 @@ nav ul a {height: 100%;}
 *************************/
 
 .btn, .btn-large {
-  text-decoration: none;
-  color: #fff;
-  background-color: #039be5;
-  text-align: center;
-  letter-spacing: .5px;
-  transition: .2s ease-out;
-  cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+    background-color: #039be5;
+    text-align: center;
+    letter-spacing: .5px;
+    transition: .2s ease-out;
+    cursor: pointer;
 }
 
 .btn:hover, .btn-large:hover {
-  background-color: #00809c;
+    background-color: #00809c;
+}
+.fixed-footer{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+    width: 100%;
+}
+
+.fixed-action-btn {
+    position: inherit;
+}
+
+.fixed-action-btn.horizontal ul {
+    top: inherit;
+    height: inherit;
+    left: 0;
+    width: auto;
+    right: 13%;
+}
+
+.fixed-action-btn ul {
+    left: 0;
+    margin: -27px 0;
+    bottom: auto;
 }

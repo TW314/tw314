@@ -31,7 +31,7 @@
 <header class="master">
     <nav>
         <ul>
-            <li><a href="#" class="master-logo white-text"><i class="fa fa-hourglass-start font24" aria-hidden="true"></i> <span class="font24">TW314</span></a></li>
+            <li><a href="#" class="white-text"><i class="fa fa-hourglass-start font24" aria-hidden="true"></i> <span class="font24">TW314 - </span></a></li>
             <li class="font24">{% block titulo %}{% endblock %}</li>
         </ul>
         <ul class="right ">
@@ -44,7 +44,16 @@
 
     {% endblock %}
 </main>
-<footer></footer>
+<footer class="page-footer fixed-footer">
+    <div class="footer-copyright">
+        © 2016 Ticket Web 314 v 0.0 - Todos os direitos reservados.
+        <span class="logo-footer"><i class="fa fa-hourglass-start font24" aria-hidden="true"></i></span>
+        <a class="text-lighten-4 right" href="#">Serviços</a>
+        <a class="text-lighten-4 right" href="#">Usuários</a>
+        <a class="text-lighten-4 right" href="#">Relatórios</a>
+        <a class="text-lighten-4 right" href="#">Principal</a>
+    </div>
+</footer>
 
 <!--  Scripts-->
 <script src="{% static "js/jquery-2.1.1.min.js" %}"></script>
