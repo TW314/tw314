@@ -1,5 +1,54 @@
 {% extends "master_admin.html" %}
 {% block titulo %} Relatorio {% endblock %}
 {% block master %}
+    <div class="row">
+        <div class="col s4">
+            <!--
+            <div class="row">
+                 Dropdown Trigger
+                <a class='dropdown-button btn' href='#dpdFiltro' data-activates='dpdFiltro'>Filtro</a>
 
+                 Dropdown Structure
+                <ul id='dpdFiltro' class='dropdown-content'>
+                    <li><a href="#!">one</a></li>
+                    <li><a href="#!">two</a></li>
+                    <li><a href="#!">three</a></li>
+                </ul>
+            </div>
+            -->
+            <div class="row">
+                <div class="input-field col s12 m6">
+                    <select class="icons">
+                        <option value="" disabled selected>Selecione um filtro</option>
+                        <option value="" data-icon="images/sample-1.jpg" class="left circle">Serviço</option>
+                        <option value="" data-icon="images/office.jpg" class="left circle">Funcionario</option>
+                    </select>
+                    <label>Filtrar por</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <a class='dropdown-button btn' href='#calendario' data-activates='calendario'>Calendario</a>
+                <ul id='calendario' class='dropdown-content'>
+                    <li><a href="#!">one</a></li>
+                </ul>
+            </div>
+
+            <div class="row">
+                <a class='dropdown-button btn' href='#calendario_2' data-activates='calendario_2'>Calendario</a>
+                <ul id='calendario_2' class='dropdown-content'>
+                    <li><a href="#!">one</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col s4">
+            <form action="#">
+                <p>
+                    <input type="checkbox" id="test" />
+                    <label for="test">Teste</label>
+                </p>
+            </form>
+        </div>
+    </div>
 {% endblock %}
