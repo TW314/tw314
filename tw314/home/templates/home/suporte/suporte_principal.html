@@ -1,10 +1,52 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends "master_admin.html" %}
+{% load staticfiles %}
+{% block titulo %} Bem-vindo, Suporte {% endblock %}
+{% block master %}
+    <div class="row">
+        <div class="container col s4 card-margin">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="{% static "img/1.jpg" %}">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Gerência de Usuários<i class="material-icons right">more_vert</i></span>
+                    <p><a href="cadastrar_usuario">Acessar módulo</a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Gerência de Usuários<i class="material-icons right">close</i></span>
+                    <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                </div>
+            </div>
+        </div>
+        <div class="container col s4 card-margin">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="{% static "img/2.jpg" %}">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Relatórios<i class="material-icons right">more_vert</i></span>
+                    <p><a href="#">Acessar módulo</a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Relatórios<i class="material-icons right">close</i></span>
+                    <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                </div>
+            </div>
+        </div>
+        <div class="container col s4 card-margin">
+            <div class="card">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="{% static "img/3.jpg" %}">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator grey-text text-darken-4">Serviços<i class="material-icons right">more_vert</i></span>
+                    <p><a href="#">Acessar módulo</a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title grey-text text-darken-4">Serviços<i class="material-icons right">close</i></span>
+                    <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
