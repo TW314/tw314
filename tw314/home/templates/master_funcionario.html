@@ -30,16 +30,22 @@
 <body>
 <header class="master">
     <nav>
+        <!-- Inicio do Cabecalho -->
         <ul>
             <li><a href="#" class="nav-toggle-btn brand-logo"><i class="fa fa-bars fa-2x menu-padding" aria-hidden="true"></i></a></li>
-            <li>{% block titulo %}{% endblock %}</li>
+            <li class="font24">{% block titulo %}{% endblock %}</li>
         </ul>
         <ul class="right ">
             <li><a class="white-text font24 light" href=""><i class="fa fa-sign-out" aria-hidden="true"></i> SAIR </a></li>
         </ul>
+        <!-- Fim do Cabecalho -->
     </nav>
+
+    <!-- Inicio do menu lateral -->
     <aside class="collection with-header menu-border base_bg">
         <a href="#" class="nav-toggle-btn collection-header menu-header principal_text"><i class="fa fa-hourglass-start font24 menu-padding" aria-hidden="true"></i> <span class="font24">TW314</span> <i class="fa fa-chevron-left font24 menu-padding" aria-hidden="true"></i></a>
+
+        <!-- Inicio da secao de informacoes -->
         <div class="row info-side">
             <div class="col s6">
                 <p class="texto_text light uppercase">Tíquete:</p>
@@ -54,16 +60,19 @@
                 <p class="texto_text light">Normal</p>
             </div>
         </div>
+        <!-- Fim da secao de informacoes -->
+        <!-- Inicio da secao de opcoes do menu -->
         <ul class="line-side">
             <li><a href="#" class="collection-item texto_text light waves-effect btn-flat"><i class="fa fa-clipboard" aria-hidden="true"></i> Relatório</a></li>
             <li><a href="#" class="collection-item texto_text light waves-effect btn-flat"><i class="fa fa-user" aria-hidden="true"></i> Perfil</a></li>
         </ul>
         <ul class="side-bottom line-side">
-            <li><a href="#" class="collection-item texto_text light waves-effect btn-flat">
-<i class="fa fa-info-circle" aria-hidden="true"></i> Sobre</a></li>
+            <li><a href="#" class="collection-item texto_text light waves-effect btn-flat"><i class="fa fa-info-circle" aria-hidden="true"></i> Sobre</a></li>
             <li><a href="#" class="collection-item texto_text light waves-effect btn-flat"><i class="fa fa-envelope" aria-hidden="true"></i> Contatar Suporte</a></li>
         </ul>
+        <!-- Fim da secao de opcoes do menu -->
     </aside>
+    <!-- Fim do menu lateral -->
 </header>
 <main class="content">
     {%  block master %}
