@@ -12,3 +12,6 @@ def cadastro_usuario(request):
 def admin_principal(request):
     return render(request, 'home/admin/admin_principal.html', {})
 
+
+def relatorio(request):
+    return render(request, 'home/admin/relatorio.html', {})
