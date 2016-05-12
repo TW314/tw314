@@ -408,23 +408,13 @@ nav ul a {height: 100%;}
     width: 100%;
 }
 
-.fixed-action-btn {
-    position: inherit;
-}
 
-.fixed-action-btn.horizontal ul {
-    top: inherit;
-    height: inherit;
-    left: 0;
-    width: auto;
-    right: 65px;
-}
 
-.fixed-action-btn ul {
-    left: 0;
-    margin: -27px 0;
-    bottom: auto;
-}
+
+
+
+
+
 
 /*************************
 ** Cartões da Tela Main **
