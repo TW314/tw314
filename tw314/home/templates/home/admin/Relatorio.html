@@ -1,0 +1,70 @@
+{% extends "master_admin.html" %}
+{% block titulo %} Relatorio {% endblock %}
+{% block master %}
+    <div class="row">
+        <div class="col s4">
+            <div class="row">
+                <!--Filtro para relatório-->
+                <div class="input-field col s12 m6">
+                    <select class="icons">
+                        <option value="" disabled selected>Selecione um filtro</option>
+                        <option value="" data-icon="images/sample-1.jpg" class="left circle">Serviço</option>
+                        <option value="" data-icon="images/office.jpg" class="left circle">Funcionario</option>
+                    </select>
+                    <label>Filtrar por</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Date Picker do Periodo Inicial-->
+                <div class="col s6">
+                    <div class="row">
+                        <label>Periodo Inicial</label>
+                        <input type="date" class="datepicker">
+
+                    </div>
+                </div>
+
+                <!-- Date Picker do Periodo Final-->
+                <div class="col s6">
+                    <div class="row">
+                        <label>Periodo Final</label>
+                        <input type="date" class="datepicker">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col s4">
+            <!-- Switch para deixar a tabela visivel ou invisivel-->
+            <div class="row">
+                <div class="switch">
+                    <label>
+                        Sem tabela
+                        <input type="checkbox">
+                        <span class="lever"></span>
+                        Com tabela
+                    </label>
+                </div>
+            </div>
+
+            <div class="row">
+                <!--Filtro para relatório-->
+                <div class="input-field col s12 m6">
+                    <select class="icons">
+                        <option value="" disabled selected>Selecione um gráfico</option>
+                        <option value="" data-icon="images/sample-1.jpg" class="left circle">Pizza</option>
+                        <option value="" data-icon="images/office.jpg" class="left circle">Coluna</option>
+                        <option value="" data-icon="images/office.jpg" class="left circle">Barra</option>
+                        <option value="" data-icon="images/office.jpg" class="left circle">Áreas</option>
+                    </select>
+                    <label>Tipo de Gráfico</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col s4">
+            <a class="waves-effect waves-light btn-large button-relatorio-margin"><i class="material-icons right">cloud</i>button</a>
+        </div>
+    </div>
+{% endblock %}
