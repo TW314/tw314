@@ -18,3 +18,6 @@ def suporte_princpal(request):
 
 
 
+
+def relatorio(request):
+    return render(request, 'home/admin/relatorio.html', {})

@@ -412,28 +412,16 @@ nav ul a {height: 100%;}
     width: 100%;
 }
 
-.fixed-action-btn {
-    position: inherit;
-}
-
-.fixed-action-btn.horizontal ul {
-    top: inherit;
-    height: inherit;
-    left: 0;
-    width: auto;
-    right: 65px;
-}
-
-
 .fixed-action-btn ul {
     left: 0;
     margin: -27px 0;
     bottom: auto;
 }
 
-/*******************************
-** Cartões da Tela Main Admin **
-*******************************/
+
+/*************************
+** Cartões da Tela Main **
+*************************/
 
 .card-margin {
     margin-top: 30px;
@@ -442,4 +430,10 @@ nav ul a {height: 100%;}
 .card .card-title {
   font-size: 22px;
   font-weight: 300;
+}
+
+
+.button-relatorio-margin{
+    margin-top: 30px;
+    margin-left: 100px;
 }
