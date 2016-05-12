@@ -13,5 +13,11 @@ def admin_principal(request):
     return render(request, 'home/admin/admin_principal.html', {})
 
 
+def suporte_princpal(request):
+    return render(request, 'home/suporte/suporte_principal.html', {})
+
+
+
+
 def relatorio(request):
     return render(request, 'home/admin/relatorio.html', {})
