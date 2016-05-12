@@ -21,3 +21,6 @@ def suporte_princpal(request):
 
 def relatorio(request):
     return render(request, 'home/admin/relatorio.html', {})
+
+def cadastro_admin(request):
+    return render(request, 'home/suporte/cadastro_admin.html', {})
