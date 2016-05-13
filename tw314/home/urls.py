@@ -4,10 +4,13 @@ from . import views
 
 urlpatterns = [
     url(r'^$', views.index),
+    #admin
     url(r'^admin/cadastrar_usuario', views.cadastro_usuario),
     url(r'^admin/admin_principal', views.admin_principal),
-    url(r'^suporte/suporte_principal', views.suporte_princpal),
     url(r'^admin/relatorio', views.relatorio),
+    #suporte
+    url(r'^suporte/suporte_principal', views.suporte_princpal),
     url(r'^suporte/cadastro_admin', views.cadastro_admin),
+
     url(r'^teste', views.demo_chart),
 ]
