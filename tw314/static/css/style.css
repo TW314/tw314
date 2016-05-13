@@ -412,6 +412,16 @@ nav ul a {height: 100%;}
     width: 100%;
 }
 
+@media (max-width: 992px){
+    .fixed-footer{
+        position: inherit;
+        right: auto;
+        bottom: auto;
+        padding-top: 15px;
+        margin-bottom: auto;
+        width: 100%;
+    }
+}
 
 
 
@@ -438,8 +448,8 @@ nav ul a {height: 100%;}
 }
 
 .card .card-title {
-  font-size: 22px;
-  font-weight: 300;
+    font-size: 22px;
+    font-weight: 300;
 }
 
 .list-style li{list-style: circle;}
