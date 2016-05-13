@@ -441,3 +441,5 @@ nav ul a {height: 100%;}
   font-size: 22px;
   font-weight: 300;
 }
+
+.list-style li{list-style: circle;}

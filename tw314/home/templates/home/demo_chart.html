@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="{% static "js/highcharts.js" %}"></script>
+    <script type="text/javascript" src="{% static "js/themes/gray.js" %}"></script>
 </head>
 <body>
-<div id="container" style="width:100%; height:400px;"></div>
+<div id="conta" style="width:100%; height:400px;"></div>
 
-<script type="text/javascript">
+<script>
     $(function () {
-        $('#container').highcharts({
+        $('#conta').highcharts({
             chart: {
                 type: 'bar'
             },
@@ -32,21 +33,6 @@
             }, {
                 name: 'John',
                 data: [5, 7, 3]
-            }]
-        });
-    });
-    var chart1; // globally available
-    $(function() {
-        chart1 = new Highcharts.StockChart({
-            chart: {
-                renderTo: 'container'
-            },
-            rangeSelector: {
-                selected: 1
-            },
-            series: [{
-                name: 'USD to EUR',
-                data: usdtoeur // predefined JavaScript array
             }]
         });
     });

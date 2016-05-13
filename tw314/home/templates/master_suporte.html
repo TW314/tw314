@@ -1,0 +1,113 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>TW314</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="description" content="Materialize is a modern responsive CSS framework based on Material Design by Google. ">
+    <title>TW314</title>
+
+    <!-- Favicons
+    <link rel="apple-touch-icon-precomposed" href="images/favicon/apple-touch-icon-152x152.png">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png">
+    <link rel="icon" href="images/favicon/favicon-32x32.png" sizes="32x32">
+    <!-- CSS-->
+
+    <link href="{% static "css/materialize.min.css" %}" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "css/owl.carousel.css" %}">
+    <link rel="stylesheet" href="{% static "css/hover-min.css" %}">
+    <link rel="stylesheet" href="{% static "css/backtotop.css" %}">
+    <link rel="stylesheet" href="{% static "font-awesome-4.6.2/css/font-awesome.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+</head>
+<body>
+<header class="master">
+    <nav>
+        <ul>
+            <li>
+                <a href="admin_principal" class="white-text">
+                    <img src="{% static "img/logo_ampulheta.png" %}" class="responsive-img" alt="logo TW314">
+                </a>
+            </li>
+            <li><span class="font24">TW314 - </span></li>
+            <li class="font24"> {% block titulo %}{% endblock %}</li>
+        </ul>
+        <ul class="right ">
+            <li><a class="white-text font24 light" href=""><i class="fa fa-sign-out" aria-hidden="true"></i> SAIR </a></li>
+        </ul>
+    </nav>
+</header>
+<main class="content">
+    {%  block master %}
+
+    {% endblock %}
+</main>
+<footer class="master page-footer">
+    <div class="footer-copyright">
+        <div class="col s4 left">
+            © 2016 Ticket Web 314 v 0.0 - Todos os direitos reservados.
+        </div>
+        <span class="logo-footer"><img src="{% static "img/logo_fragmento.png" %}" class="responsive-img" alt="logo TW314"></span>
+        <!--TODO: Arrumar uma solução para dinamizar o rodapé da Master-->
+        <a class="text-lighten-4 right" href="#">Atendimento</a>
+        <a class="text-lighten-4 right" href="cadastrar_usuario">Estabelecimento</a>
+        <a class="text-lighten-4 right" href="#">Administradores</a>
+    </div>
+</footer>
+
+<!--  Scripts-->
+<script src="{% static "js/jquery-2.1.1.min.js" %}"></script>
+<script type="text/javascript">
+    (function() {
+        var bodyEl = $('body'),
+                navToggleBtn = bodyEl.find('.nav-toggle-btn');
+
+        navToggleBtn.on('click', function(e) {
+            bodyEl.toggleClass('active-nav');
+            e.preventDefault();
+        });
+    })();
+</script>
+<script src="{% static "js/owl.carousel.min.js" %}"></script>
+<script src="{% static "js/materialize.min.js" %}"></script>
+<script src="{% static "js/init.js" %}"></script>
+<script type="text/javascript" src="{% static "js/backtotop.js " %}"></script>
+<script type="application/javascript">
+    $(".button-collapse").sideNav();
+    $(document).ready(function(){
+        $('.scrollspy').scrollSpy();
+        $(".owl-carousel").owlCarousel({
+                    center: true,
+                    loop:true,
+                    margin:10,
+                    autoplay:true,
+                    autoplayTimeout:3000,
+                    autoplayHoverPause:true,
+                    responsive:{
+                        260:{
+                            items: 1
+                        },
+                        600:{
+                            items: 3
+                        }
+                    }
+                }
+        );
+    });
+</script>
+<script>
+    // Initialize collapse button
+    $(".button-collapse").sideNav({closeOnClick: true});
+    // Initialize collapsible (uncomment the line below if you use the dropdown variation)
+    //$('.collapsible').collapsible();
+</script>
+
+</body>
+</html>
