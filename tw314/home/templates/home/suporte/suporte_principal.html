@@ -4,18 +4,18 @@
 {% block master %}
     <div class="row">
         <div class="container col s12 m6 l4 card-margin">
-            <div class="card">
+            <div class="card hoverable">
                 <div class="card-image waves-effect waves-block waves-light">
                     <img class="activator" src="{% static "img/admin.jpg" %}">
                 </div>
                 <div class="card-content">
                     <span class="card-title activator texto_text"><i class="fa fa-male margin-icons" aria-hidden="true"></i> Gerência de Administradores<i class="fa fa-ellipsis-v material-icons right" aria-hidden="true"></i> </span>
-                    <p><a href="cadastrar_usuario">Ir para</a></p>
+                    <p><a href="cadastro_admin">Ir para</a></p>
                 </div>
                 <div class="card-reveal">
                     <span class="card-title texto_text">Gerência de Administradores<i class="material-icons right">close</i></span>
                     <p class="texto_text">
-                    <ul class="list-style">Nesse espaço, será possível realizar as seguintes ações com o administrador:
+                    <ul class="list-style">Nesse espaço, será possível realizar as seguintes ações de Gerência de Administrador:
                         <li>Cadastrar</li>
                         <li>Editar</li>
                         <li>Listar</li>
@@ -23,11 +23,12 @@
                         <li>Ativar/Inativar</li>
                     </ul>
                     </p>
+                    <p><a href="cadastro_admin" class="right">Ir para</a></p>
                 </div>
             </div>
         </div>
         <div class="container col s12 m6 l4 card-margin">
-            <div class="card">
+            <div class="card hoverable">
                 <div class="card-image waves-effect waves-block waves-light">
                     <img class="activator" src="{% static "img/estabelecimento.jpg" %}">
                 </div>
@@ -37,12 +38,21 @@
                 </div>
                 <div class="card-reveal">
                     <span class="card-title texto_text">Gerência de Estabelecimentos<i class="material-icons right">close</i></span>
-                    <p class="texto_text">Here is some more information about this product that is only revealed once clicked on.</p>
+                    <p class="texto_text">
+                    <ul class="list-style">Nesse espaço, será possível realizar as seguintes ações de Gerência Estabelecimento:
+                        <li>Cadastrar</li>
+                        <li>Editar</li>
+                        <li>Listar</li>
+                        <li>Vizualizar</li>
+                        <li>Ativar/Inativar</li>
+                    </ul>
+                    </p>
+                    <p><a href="cadastro_admin" class="right">Ir para</a></p>
                 </div>
             </div>
         </div>
         <div class="container col s12 m6 l4 card-margin">
-            <div class="card">
+            <div class="card hoverable">
                 <div class="card-image waves-effect waves-block waves-light">
                     <img class="activator" src="{% static "img/contato.jpg" %}">
                 </div>
@@ -52,7 +62,15 @@
                 </div>
                 <div class="card-reveal">
                     <span class="card-title texto_text">Solicitações de atendimento<i class="material-icons right">close</i></span>
-                    <p class="texto_text">Here is some more information about this product that is only revealed once clicked on.</p>
+                    <p class="texto_text">
+                    <ul class="list-style">Nesse espaço, será possível realizar as seguintes ações de Atendimento:
+                        <li>Responder</li>
+                        <li>Listar</li>
+                        <li>Vizualizar</li>
+                        <li>Vloquear/Desbloquear</li>
+                    </ul>
+                    </p>
+                    <p><a href="cadastro_admin" class="right">Ir para</a></p>
                 </div>
             </div>
         </div>
