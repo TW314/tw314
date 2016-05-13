@@ -1,41 +1,123 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="{% static "js/highcharts.js" %}"></script>
-    <script type="text/javascript" src="{% static "js/themes/gray.js" %}"></script>
 </head>
 <body>
-<div id="conta" style="width:100%; height:400px;"></div>
-
-<script>
-    $(function () {
-        $('#conta').highcharts({
-            chart: {
-                type: 'bar'
-            },
-            title: {
-                text: 'Fruit Consumption'
-            },
-            xAxis: {
-                categories: ['Apples', 'Bananas', 'Oranges']
-            },
-            yAxis: {
-                title: {
-                    text: 'Fruit eaten'
-                }
-            },
-            series: [{
-                name: 'Jane',
-                data: [1, 0, 4]
-            }, {
-                name: 'John',
-                data: [5, 7, 3]
-            }]
-        });
-    });
-</script>
+<h1>Highcharts Examples</h1>
+<h4>Line charts</h4>
+<ul>
+    <li><a href="{% static "highcharts/examples/line-basic/index.htm" %}">Basic line</a></li>
+    <li><a href="{% static "highcharts/examples/line-ajax/index.htm" %}">Ajax loaded data, clickable points</a></li>
+    <li><a href="{% static "highcharts/examples/line-labels/index.htm " %}">With data labels</a></li>
+    <li><a href="{% static "highcharts/examples/line-time-series/index.htm" %}">Time series, zoomable</a></li>
+    <li><a href="{% static "highcharts/examples/spline-inverted/index.htm" %}">Spline with inverted axes</a></li>
+    <li><a href="{% static "highcharts/examples/spline-symbols/index.htm" %}">Spline with symbols</a></li>
+    <li><a href="{% static "highcharts/examples/spline-plot-bands/index.htm" %}">Spline with plot bands</a></li>
+    <li><a href="{% static "highcharts/examples/spline-irregular-time/index.htm" %}">Time data with irregular intervals</a></li>
+    <li><a href="{% static "highcharts/examples/line-log-axis/index.htm" %}">Logarithmic axis</a></li>
+</ul>
+<h4>Area charts</h4>
+<ul>
+    <li><a href="{% static "highcharts/examples/area-basic/index.htm" %}">Basic area</a></li>
+    <li><a href="{% static "highcharts/examples/area-negative/index.htm" %}">Area with negative values</a></li>
+    <li><a href="{% static "highcharts/examples/area-stacked/index.htm" %}">Stacked area</a></li>
+    <li><a href="{% static "highcharts/examples/area-stacked-percent/index.htm" %}">Percentage area</a></li>
+    <li><a href="{% static "highcharts/examples/area-missing/index.htm" %}">Area with missing points</a></li>
+    <li><a href="{% static "highcharts/examples/area-inverted/index.htm" %}">Inverted axes</a></li>
+    <li><a href="{% static "highcharts/examples/areaspline/index.htm" %}">Area-spline</a></li>
+    <li><a href="{% static "highcharts/examples/arearange/index.htm" %}">Area range</a></li>
+    <li><a href="{% static "highcharts/examples/arearange-line/index.htm" %}">Area range and line</a></li>
+    <li><a href="{% static "highcharts/examples/sparkline/index.htm" %}">Sparkline charts</a></li>
+</ul>
+<h4>Column and bar charts</h4>
+<ul>
+    <li><a href="{% static "highcharts/examples/bar-basic/index.htm" %}">Basic bar</a></li>
+    <li><a href="{% static "highcharts/examples/bar-stacked/index.htm" %}">Stacked bar</a></li>
+    <li><a href="{% static "highcharts/examples/bar-negative-stack/index.htm" %}">Bar with negative stack</a></li>
+    <li><a href="{% static "highcharts/examples/column-basic/index.htm" %}">Basic column</a></li>
+    <li><a href="{% static "highcharts/examples/column-negative/index.htm" %}">Column with negative values</a></li>
+    <li><a href="{% static "highcharts/examples/column-stacked/index.htm" %}">Stacked column</a></li>
+    <li><a href="{% static "highcharts/examples/column-stacked-and-grouped/index.htm" %}">Stacked and grouped column</a></li>
+    <li><a href="{% static "highcharts/examples/column-stacked-percent/index.htm" %}">Stacked percentage column</a></li>
+    <li><a href="{% static "highcharts/examples/column-rotated-labels/index.htm" %}">Column with rotated labels</a></li>
+    <li><a href="{% static "highcharts/examples/column-drilldown/index.htm" %}">Column with drilldown</a></li>
+    <li><a href="{% static "highcharts/examples/column-placement/index.htm" %}">Fixed placement columns</a></li>
+    <li><a href="{% static "highcharts/examples/column-parsed/index.htm" %}">Data defined in a HTML table</a></li>
+    <li><a href="{% static "highcharts/examples/columnrange/index.htm" %}">Column range</a></li>
+</ul>
+<h4>Pie charts</h4>
+<ul>
+    <li><a href="{% static "highcharts/examples/pie-basic/index.htm" %}">Pie chart</a></li>
+    <li><a href="{% static "highcharts/examples/pie-legend/index.htm" %}">Pie with legend</a></li>
+    <li><a href="{% static "highcharts/examples/pie-donut/index.htm" %}">Donut chart</a></li>
+    <li><a href="{% static "highcharts/examples/pie-semi-circle/index.htm" %}">Semi circle donut</a></li>
+    <li><a href="{% static "highcharts/examples/pie-drilldown/index.htm" %}">Pie with drilldown</a></li>
+    <li><a href="{% static "highcharts/examples/pie-gradient/index.htm" %}">Pie with gradient fill</a></li>
+    <li><a href="{% static "highcharts/examples/pie-monochrome/index.htm" %}">Pie with monochrome fill</a></li>
+</ul>
+<h4>Scatter and bubble charts</h4>
+<ul>
+    <li><a href="{% static "highcharts/examples/scatter/index.htm" %}">Scatter plot</a></li>
+    <li><a href="{% static "highcharts/examples/bubble/index.htm" %}">Bubble chart</a></li>
+    <li><a href="{% static "highcharts/examples/bubble-3d/index.htm" %}">3D bubbles</a></li>
+</ul>
+<h4>Combinations</h4>
+<ul>
+    <li><a href="{% static "highcharts/examples/synchronized-charts/index.htm" %}">Synchronized charts</a></li>
+    <li><a href="{% static "highcharts/examples/combo/index.htm" %}">Column, line and pie</a></li>
+    <li><a href="{% static "highcharts/examples/combo-dual-axes/index.htm" %}">Dual axes, line and column</a></li>
+    <li><a href="{% static "highcharts/examples/combo-multi-axes/index.htm" %}">Multiple axes</a></li>
+    <li><a href="{% static "highcharts/examples/combo-regression/index.htm" %}">Scatter with regression line</a></li>
+    <li><a href="{% static "highcharts/examples/combo-meteogram/index.htm" %}">Meteogram</a></li>
+    <li><a href="{% static "highcharts/examples/combo-timeline/index.htm" %}">Advanced timeline</a></li>
+</ul>
+<h4>Dynamic charts</h4>
+<ul>
+    <li><a href="{% static "highcharts/examples/dynamic-update/index.htm" %}">Spline updating each second</a></li>
+    <li><a href="{% static "highcharts/examples/dynamic-click-to-add/index.htm" %}">Click to add a point</a></li>
+    <li><a href="{% static "highcharts/examples/dynamic-master-detail/index.htm" %}">Master-detail chart</a></li>
+</ul>
+<h4>3D charts</h4>
+<ul>
+    <li><a href="{% static "highcharts/examples/3d-column-interactive/index.htm" %}">3D column</a></li>
+    <li><a href="{% static "highcharts/examples/3d-column-null-values/index.htm" %}">3D column with null and 0 values</a></li>
+    <li><a href="{% static "highcharts/examples/3d-column-stacking-grouping/index.htm" %}">3D column with stacking and grouping</a></li>
+    <li><a href="{% static "highcharts/examples/3d-pie/index.htm" %}">3D pie</a></li>
+    <li><a href="{% static "highcharts/examples/3d-pie-donut/index.htm" %}">3D donut</a></li>
+    <li><a href="{% static "highcharts/examples/3d-scatter-draggable/index.htm" %}">3D scatter chart</a></li>
+</ul>
+<h4>Gauges</h4>
+<ul>
+    <li><a href="{% static "highcharts/examples/gauge-speedometer/index.htm" %}">Angular gauge</a></li>
+    <li><a href="{% static "highcharts/examples/gauge-solid/index.htm" %}">Solid gauge</a></li>
+    <li><a href="{% static "highcharts/examples/gauge-activity/index.htm" %}">Activity gauge</a></li>
+    <li><a href="{% static "highcharts/examples/gauge-clock/index.htm" %}">Clock</a></li>
+    <li><a href="{% static "highcharts/examples/gauge-dual/index.htm" %}">Gauge with dual axes</a></li>
+    <li><a href="{% static "highcharts/examples/gauge-vu-meter/index.htm" %}">VU meter</a></li>
+</ul>
+<h4>Heat and tree maps</h4>
+<ul>
+    <li><a href="{% static "highcharts/examples/heatmap/index.htm" %}">Heat map</a></li>
+    <li><a href="{% static "highcharts/examples/heatmap-canvas/index.htm" %}">Large heat map</a></li>
+    <li><a href="{% static "highcharts/examples/treemap-coloraxis/index.htm" %}">Tree map with color axis</a></li>
+    <li><a href="{% static "highcharts/examples/treemap-with-levels/index.htm" %}">Tree map with levels</a></li>
+    <li><a href="{% static "highcharts/examples/treemap-large-dataset/index.htm" %}">Large tree map</a></li>
+</ul>
+<h4>More chart types</h4>
+<ul>
+    <li><a href="{% static "highcharts/examples/polar/index.htm" %}">Polar chart</a></li>
+    <li><a href="{% static "highcharts/examples/polar-spider/index.htm" %}">Spiderweb</a></li>
+    <li><a href="{% static "highcharts/examples/polar-wind-rose/index.htm" %}">Wind rose</a></li>
+    <li><a href="{% static "highcharts/examples/box-plot/index.htm" %}">Box plot</a></li>
+    <li><a href="{% static "highcharts/examples/error-bar/index.htm" %}">Error bar</a></li>
+    <li><a href="{% static "highcharts/examples/waterfall/index.htm" %}">Waterfall</a></li>
+    <li><a href="{% static "highcharts/examples/funnel/index.htm" %}">Funnel chart</a></li>
+    <li><a href="{% static "highcharts/examples/pyramid/index.htm" %}">Pyramid chart</a></li>
+    <li><a href="{% static "highcharts/examples/polygon/index.htm" %}">Polygon series</a></li>
+    <li><a href="{% static "highcharts/examples/renderer/index.htm" %}">General drawing</a></li>
+</ul>
 </body>
 </html>
