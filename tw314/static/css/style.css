@@ -1,7 +1,9 @@
 /*************
 ** Genérico **
 *************/
-
+.flow-text {
+    font-size: 1.5rem !important;
+}
 .uppercase{text-transform: uppercase;}
 /** Cores **/
 body{ background-color: #fff6f6; }
@@ -354,7 +356,7 @@ aside.menu-padding {margin: 0 25px;}
     width: 100%;
 }
 
-.master nav ul li {
+nav, nav ul li {
     height: 64px;
 }
 
@@ -412,17 +414,21 @@ nav ul a {height: 100%;}
     width: 100%;
 }
 
+@media (max-width: 992px){
+    .fixed-footer{
+        position: inherit;
+        right: auto;
+        bottom: auto;
+        padding-top: 15px;
+        margin-bottom: auto;
+        width: 100%;
+        height: auto !important;
+    }
+}
 
-
-
-
-
-
-
-
-
-
-
+.card .card-reveal {
+    background-color: rgba(255, 255, 255, 0.97);
+}
 
 /*************************
 ** Cartões da Tela Main **
@@ -438,6 +444,13 @@ nav ul a {height: 100%;}
 }
 
 .card .card-title {
-  font-size: 22px;
-  font-weight: 300;
+    font-size: 22px;
+    font-weight: 300;
+}
+
+.list-style li{list-style: circle;}
+
+
+.pagination-relatorio-margin{
+    margin-left: 150px;
 }

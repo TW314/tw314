@@ -2,10 +2,11 @@
 {% block titulo %} Relatorio {% endblock %}
 {% block master %}
     <div class="row">
-        <div class="col s4">
+        <div class="col s6">
             <div class="row">
+
                 <!--Filtro para relatório-->
-                <div class="input-field col s12 m6">
+                <div class="input-field col s4">
                     <select class="icons">
                         <option value="" disabled selected>Selecione um filtro</option>
                         <option value="" data-icon="images/sample-1.jpg" class="left circle">Serviço</option>
@@ -13,44 +14,9 @@
                     </select>
                     <label>Filtrar por</label>
                 </div>
-            </div>
 
-            <div class="row">
-                <!-- Date Picker do Periodo Inicial-->
-                <div class="col s6">
-                    <div class="row">
-                        <label>Periodo Inicial</label>
-                        <input type="date" class="datepicker">
-
-                    </div>
-                </div>
-
-                <!-- Date Picker do Periodo Final-->
-                <div class="col s6">
-                    <div class="row">
-                        <label>Periodo Final</label>
-                        <input type="date" class="datepicker">
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col s4">
-            <!-- Switch para deixar a tabela visivel ou invisivel-->
-            <div class="row">
-                <div class="switch">
-                    <label>
-                        Sem tabela
-                        <input type="checkbox">
-                        <span class="lever"></span>
-                        Com tabela
-                    </label>
-                </div>
-            </div>
-
-            <div class="row">
                 <!--Filtro para relatório-->
-                <div class="input-field col s12 m6">
+                <div class="input-field col s4">
                     <select class="icons">
                         <option value="" disabled selected>Selecione um gráfico</option>
                         <option value="" data-icon="images/sample-1.jpg" class="left circle">Pizza</option>
@@ -60,11 +26,76 @@
                     </select>
                     <label>Tipo de Gráfico</label>
                 </div>
-            </div>
-        </div>
 
-        <div class="col s4">
-            <a class="waves-effect waves-light btn-large button-relatorio-margin"><i class="material-icons right">cloud</i>button</a>
+                <!-- Date Picker do Periodo Inicial-->
+                <div class="input-field col s2">
+                    <label>Periodo Inicial</label>
+                    <input type="date" class="datepicker">
+                </div>
+
+                <!-- Date Picker do Periodo Inicial-->
+                <div class="input-field col s2">
+                    <label>Periodo Final</label>
+                    <input type="date" class="datepicker">
+                </div>
+
+                <!--
+                <div class="col s4">
+                    <a class="waves-effect waves-light btn-large button-relatorio-margin"><i class="material-icons right">cloud</i>button</a>
+                </div>
+                -->
+            </div>
+            <div class="row">
+                <!-- Tabela para informações -->
+                <table class="highlight responsive-table">
+                    <thead>
+                    <tr>
+                        <th data-field="id">Name</th>
+                        <th data-field="name">Item Name</th>
+                        <th data-field="price">Item Price</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td>Alvin</td>
+                        <td>Eclair</td>
+                        <td>$0.87</td>
+                    </tr>
+                    <tr>
+                        <td>Alan</td>
+                        <td>Jellybean</td>
+                        <td>$3.76</td>
+                    </tr>
+                    <tr>
+                        <td>Jonathan</td>
+                        <td>Lollipop</td>
+                        <td>$7.00</td>
+                    </tr>
+                    <tr>
+                        <td>Alvin</td>
+                        <td>Eclair</td>
+                        <td>$0.87</td>
+                    </tr>
+                    <tr>
+                        <td>Alan</td>
+                        <td>Jellybean</td>
+                        <td>$3.76</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <!-- Componente de paginação -->
+                <ul class="pagination">
+                    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                    <li class="active"><a href="#!">1</a></li>
+                    <li class="waves-effect"><a href="#!">2</a></li>
+                    <li class="waves-effect"><a href="#!">3</a></li>
+                    <li class="waves-effect"><a href="#!">4</a></li>
+                    <li class="waves-effect"><a href="#!">5</a></li>
+                    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+                </ul>
+            </div>
         </div>
     </div>
 {% endblock %}
