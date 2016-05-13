@@ -356,7 +356,7 @@ aside.menu-padding {margin: 0 25px;}
     width: 100%;
 }
 
-.master nav, nav ul li {
+.master nav, .master nav ul li {
     height: 64px;
 }
 
