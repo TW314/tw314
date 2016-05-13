@@ -24,3 +24,9 @@ def relatorio(request):
 
 def cadastro_admin(request):
     return render(request, 'home/suporte/cadastro_admin.html', {})
+
+def cadastro_servico(request):
+    return render(request, 'home/admin/cadastro_servico.html', {})
+
+def cadastro_estabelecimento(request):
+    return render(request, 'home/suporte/cadastro_estabelecimento.html', {})

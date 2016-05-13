@@ -9,4 +9,6 @@ urlpatterns = [
     url(r'^admin/suporte_principal', views.suporte_princpal),
     url(r'^admin/relatorio', views.relatorio),
     url(r'^suporte/cadastro_admin', views.cadastro_admin),
+    url(r'^admin/cadastro_servico', views.cadastro_servico),
+    url(r'^suporte/cadastro_estabelecimento', views.cadastro_estabelecimento),
 ]
