@@ -30,19 +30,23 @@
 <body>
 <header class="master">
     <nav>
-        <!-- Inicio do Cabecalho -->
         <ul>
             <li><a href="#" class="nav-toggle-btn brand-logo"><i class="fa fa-bars fa-2x menu-padding" aria-hidden="true"></i></a></li>
-            <li class="font24">{% block titulo %}{% endblock %}</li>
+            <li>
+                <a href="admin_principal" class="white-text">
+                    <img src="{% static "img/logo_ampulheta.png" %}" class="responsive-img" alt="logo TW314">
+                </a>
+            </li>
+            <li class="flow-text_2"><span class="">TW314 </span></li>
+            <li class="flow-text_2 hide-on-small-and-down"> - {% block titulo %}{% endblock %}</li>
         </ul>
         <ul class="right ">
             <li><a class="white-text font24 light" href=""><i class="fa fa-sign-out" aria-hidden="true"></i> SAIR </a></li>
         </ul>
-        <!-- Fim do Cabecalho -->
     </nav>
     <!-- Inicio do menu lateral -->
     <aside class="collection with-header menu-border base_bg">
-        <a href="#" class="nav-toggle-btn collection-header menu-header principal_text"><i class="fa fa-hourglass-start font24 menu-padding" aria-hidden="true"></i> <span class="font24">TW314</span> <i class="fa fa-chevron-left font24 menu-padding" aria-hidden="true"></i></a>
+        <a href="#" class="nav-toggle-btn collection-header menu-header principal_text"><img src="{% static "img/logo_fragmento_invertido.png" %}" class="responsive-img responsive-video" alt="logo TW314"> <span class="font24">TW314</span> <i class="fa fa-chevron-left font24 menu-padding" aria-hidden="true"></i></a>
         <!-- Inicio da secao de informacoes -->
         <div class="row info-side">
             <div class="col s6">

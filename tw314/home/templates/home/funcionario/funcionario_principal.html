@@ -1,0 +1,19 @@
+{% extends "master_funcionario.html" %}
+{% load staticfiles %}
+{% block titulo %} Bem-vindo, Funcionário {% endblock %}
+{% block master %}
+    <div class="row">
+        <div class="col m6">
+            <h5 class="uppercase texto_text">há <span class="principal_v_text">10 pessoas </span> na fila de espera</h5>
+        </div>
+        <div class="col m6">
+            <a href="" class="tooltipped right texto_text" data-position="left" data-delay="50" data-tooltip="I am tooltip"><h5><i class="fa fa-play" aria-hidden="true"></i></h5></a>
+        </div>
+    </div>
+    <!-- Scripts -->
+    <script>
+        $(document).ready(function(){
+            $('.tooltipped').tooltip({delay: 50});
+        });
+    </script>
+{% endblock %}

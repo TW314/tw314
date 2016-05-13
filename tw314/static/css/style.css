@@ -2,7 +2,7 @@
 ** Genérico **
 *************/
 .flow-text_2 {
-    font-size: 1.5rem !important;
+    font-size: 2rem !important;
 }
 .uppercase{text-transform: uppercase;}
 /** Cores **/
@@ -293,7 +293,7 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul 
 
 .master .nav-toggle-btn {
     display: block;
-    position: absolute;
+    position: relative;
     height: 64px;
 }
 
