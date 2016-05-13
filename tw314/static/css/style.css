@@ -1,7 +1,7 @@
 /*************
 ** Genérico **
 *************/
-.flow-text {
+.flow-text_2 {
     font-size: 1.5rem !important;
 }
 .uppercase{text-transform: uppercase;}
@@ -356,11 +356,11 @@ aside.menu-padding {margin: 0 25px;}
     width: 100%;
 }
 
-nav, nav ul li {
+.master nav, .master nav ul li {
     height: 64px;
 }
 
-nav ul a {height: 100%;}
+.master nav ul a {height: 100%;}
 
 
 .master aside td, .master aside th {padding: 5px 0;}
