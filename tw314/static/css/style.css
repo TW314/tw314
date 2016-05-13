@@ -1,7 +1,9 @@
 /*************
 ** Genérico **
 *************/
-
+.flow-text {
+    font-size: 1.5rem !important;
+}
 .uppercase{text-transform: uppercase;}
 /** Cores **/
 body{ background-color: #fff6f6; }
@@ -354,7 +356,7 @@ aside.menu-padding {margin: 0 25px;}
     width: 100%;
 }
 
-.master nav ul li {
+nav, nav ul li {
     height: 64px;
 }
 
@@ -420,6 +422,7 @@ nav ul a {height: 100%;}
         padding-top: 15px;
         margin-bottom: auto;
         width: 100%;
+        height: auto !important;
     }
 }
 
