@@ -3,17 +3,67 @@
 {% block titulo %} Bem-vindo, Funcionário {% endblock %}
 {% block master %}
     <div class="row">
-        <div class="col m6">
-            <h5 class="uppercase texto_text">há <span class="principal_v_text">10 pessoas </span> na fila de espera</h5>
+        <div class="col s12 m6">
+            <h5 class="uppercase texto_text flow-text_2">há <span class="principal_v_text">10 pessoas </span> na fila de espera</h5>
         </div>
-        <div class="col m6">
+        <div class="col s12 m6">
             <a href="" class="tooltipped right texto_text" data-position="left" data-delay="50" data-tooltip="I am tooltip"><h5><i class="fa fa-play" aria-hidden="true"></i></h5></a>
         </div>
     </div>
+    <div class="row">
+        <div class="col s2 m8 center-align">
+            <p class="uppercase font18">Progresso do atendimento</p>
+            <i class="hide-on-small-and-down fa fa-hourglass-o fa-5x fa-spin fa-fw secundaria1_text" aria-hidden="true"></i>
+            <span class="sr-only">Loading...</span>
+            <input id="clockface" class="secundaria1_text font18 center clockface" placeholder="00:00:00">
+        </div>
+        <div class="col s10 m4 right">
+            <div class="row ">
+                <button id="start" class="btn btn-large waves-effect waves-light right col s8 font18" type="cadastrar" name="action"><span class="center">Iniciar Atendimento</span> <i class="right fa fa-check-circle" aria-hidden="true"></i> </button>
+            </div>
+            <div class="row">
+                <button id="reset" class="btn btn-large waves-effect waves-light right col s8 font18" type="cancelar" name="action"><span class="center">Finalizar Atendimento</span> <i class="right fa fa-times-circle" aria-hidden="true"></i> </button>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="{% static "js/tock.js" %}"></script>
     <!-- Scripts -->
     <script>
         $(document).ready(function(){
             $('.tooltipped').tooltip({delay: 50});
         });
     </script>
+    <script>
+        window.onload = function() {
+
+            var timer = new Tock({
+                callback: function () {
+                    $('#clockface').val(timer.msToTime(timer.lap()));
+                }
+            });
+
+            $('#start').on('click', function () {
+                timer.start($('#clockface').val());
+            });
+
+            $('#lap').on('click', function () {
+                $('#laptimes').append(timer.msToTime(timer.lap()) + '<br>');
+            });
+
+            $('#pause').on('click', function () {
+                timer.pause();
+            });
+
+            $('#stop').on('click', function () {
+                timer.stop();
+            });
+
+            $('#reset').on('click', function () {
+                timer.reset();
+                $('#clockface').val('');
+                $('#laptimes').html('');
+            });
+        }
+    </script>
+
 {% endblock %}
