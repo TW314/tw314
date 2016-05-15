@@ -2,39 +2,58 @@
 {% load staticfiles %}
 {% block titulo %} Bem-vindo, Funcionário {% endblock %}
 {% block master %}
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
     <div class="row">
-        <div class="col s12 m6">
-            <h5 class="uppercase texto_text flow-text_2">há <span class="principal_v_text">10 pessoas </span> na fila de espera</h5>
+        <div class="col m6 hide-on-small-and-down">
+            <h6 class="uppercase texto_text flow-text_3">há <span class="principal_v_text">10 pessoas </span> na fila de espera</h6>
         </div>
         <div class="col s12 m6">
-            <a href="" class="tooltipped right texto_text" data-position="left" data-delay="50" data-tooltip="I am tooltip"><h5><i class="fa fa-play" aria-hidden="true"></i></h5></a>
+            <button id="play" class="tooltipped right secundaria2_text btn-flat" data-position="left" data-delay="50" data-tooltip="Iniciar fila"><i class="fa fa-play-circle-o font80" aria-hidden="true"></i></button>
+            <button id="paus" class="hide tooltipped right secundaria2_text btn-flat" data-position="left" data-delay="50" data-tooltip="Pausar fila"><i class="fa fa-pause-circle-o font80" aria-hidden="true"></i></button>
         </div>
+    </div>
+    <div class="row">
+        <div id="qeue" style="width: 250px; height: 250px; margin: 0 auto"></div>
     </div>
     <div class="row">
         <div class="col s2 m8 center-align">
             <p class="uppercase font18">Progresso do atendimento</p>
-            <i class="hide-on-small-and-down fa fa-hourglass-o fa-5x fa-spin fa-fw secundaria1_text" aria-hidden="true"></i>
+            <i id="hourglass" class="hide-on-small-and-down fa fa-hourglass-o fa-5x fa-fw secundaria1_text" aria-hidden="true"></i>
             <span class="sr-only">Loading...</span>
-            <input id="clockface" class="secundaria1_text font18 center clockface" placeholder="00:00:00">
+            <input id="clockface" disabled class="secundaria1_text font18 center clockface" placeholder="00:00:000">
         </div>
         <div class="col s10 m4 right">
             <div class="row ">
-                <button id="start" class="btn btn-large waves-effect waves-light right col s8 font18" type="cadastrar" name="action"><span class="center">Iniciar Atendimento</span> <i class="right fa fa-check-circle" aria-hidden="true"></i> </button>
+                <button id="start" disabled class="btn btn-large waves-effect waves-light right col s9 font18" type="cadastrar" name="action"><span class="center">Iniciar Atendimento</span> <i class="right fa fa-play" aria-hidden="true"></i> </button>
             </div>
             <div class="row">
-                <button id="reset" class="btn btn-large waves-effect waves-light right col s8 font18" type="cancelar" name="action"><span class="center">Finalizar Atendimento</span> <i class="right fa fa-times-circle" aria-hidden="true"></i> </button>
+                <button id="reset" disabled class="btn btn-large waves-effect waves-light right col s9 font18" type="cancelar" name="action"><span class="center">Finalizar Atendimento</span> <i class="right fa fa-stop" aria-hidden="true"></i> </button>
             </div>
         </div>
     </div>
     <script type="text/javascript" src="{% static "js/tock.js" %}"></script>
+    <script type="text/javascript" src="{% static "highcharts/js/highcharts.js" %}"></script>
+    <script type="text/javascript" src="{% static "highcharts/js/highcharts-more.js" %}"></script>
+    <script type="text/javascript" src="{% static "highcharts/js/modules/solid-gauge.js" %}"></script>
     <!-- Scripts -->
     <script>
         $(document).ready(function(){
-            $('.tooltipped').tooltip({delay: 50});
+            $('.tooltipped').tooltip({delay: 40});
         });
     </script>
     <script>
         window.onload = function() {
+            $('#play').on('click', function () {
+                $("#play").addClass("hide");
+                $("#paus").removeClass("hide");
+                $( "#start" ).prop( "disabled", false );
+            });
+
+            $('#paus').on('click', function () {
+                $("#play").removeClass("hide");
+                $("#paus").addClass("hide");
+                $( "#start" ).prop( "disabled", true );
+            });
 
             var timer = new Tock({
                 callback: function () {
@@ -44,6 +63,10 @@
 
             $('#start').on('click', function () {
                 timer.start($('#clockface').val());
+                $("#hourglass").addClass("fa-spin");
+                $( "#start" ).prop( "disabled", true );
+                $( "#reset" ).prop( "disabled", false );
+                $( "#paus" ).prop( "disabled", true );
             });
 
             $('#lap').on('click', function () {
@@ -62,8 +85,11 @@
                 timer.reset();
                 $('#clockface').val('');
                 $('#laptimes').html('');
+                $("#hourglass").removeClass("fa-spin");
+                $( "#start" ).prop( "disabled", false );
+                $( "#reset" ).prop( "disabled", true );
+                $( "#paus" ).prop( "disabled", false );
             });
         }
     </script>
-
 {% endblock %}

@@ -4,9 +4,12 @@
 .flow-text_2 {
     font-size: 2rem !important;
 }
+.flow-text_3 {
+    font-size: 1.5rem !important;
+}
 .uppercase{text-transform: uppercase;}
 /** Cores **/
-body{ background-color: #fff6f6; }
+body{ background-color: #fff6f6; color: #564949;}
 .brown{ background-color: #564949; }
 .brown-text{ color: #564949; }
 .white{ background-color: #fff6f6; }
@@ -48,6 +51,7 @@ body{ background-color: #fff6f6; }
 .font18 {font-size: 18px !important;}
 .font20 {font-size: 20px;}
 .font24 {font-size: 24px;}
+.font80 {font-size: 80px !important;}
 .fa-2x {font-size: 30px;}
 
 @font-face {
@@ -455,7 +459,18 @@ aside.menu-padding {margin: 0 25px;}
     margin-left: 150px;
 }
 
+/*********************
+** Main Funcionário **
+*********************/
 .clockface {
     border-bottom: medium none !important;
     font-size: 18px !important;
 }
+
+.btn-flat:focus {
+    outline: none;
+    background: transparent;
+}
+/*************************
+** Fim Main Funcionário **
+*************************/
