@@ -32,6 +32,10 @@ def cadastro_estabelecimento(request):
     return render(request, 'home/suporte/cadastro_estabelecimento.html', {})
 
 
+def suporte_atendimento (request):
+    return  render(request, 'home/suporte/suporte_atendimento.html', {})
+
+
 #???
 def demo_chart(request):
     return render(request, 'home/demo_chart.html', {})

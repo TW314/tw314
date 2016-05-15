@@ -14,6 +14,8 @@ urlpatterns = [
     url(r'^suporte/suporte_principal', views.suporte_princpal),
     url(r'^suporte/cadastro_admin', views.cadastro_admin),
     url(r'^suporte/cadastro_estabelecimento', views.cadastro_estabelecimento),
+    url(r'^suporte/suporte_atendimento', views.suporte_atendimento),
+
 
     url(r'^teste', views.demo_chart),
 
