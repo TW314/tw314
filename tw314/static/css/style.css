@@ -488,9 +488,19 @@ aside.menu-padding {margin: 0 25px;}
 ** Sobre******************
 *************************/
 .sobre{
-    margin-left: 28rem !important;
+    margin-left: 42% !important;
     margin-top: 8rem;
+}
 
+@media (max-width: 992px) {
+    .sobre{
+        margin-left: 35% !important;
+    }
+}
+@media (max-width: 600px) {
+    .sobre{
+        margin-left: 30% !important;
+    }
 }
 
 /********Margin-form para o botão nas telas de cadastro********/
@@ -499,3 +509,25 @@ aside.menu-padding {margin: 0 25px;}
     margin-bottom: 70px;
 }
 
+/*************************
+**    Estrutura Modal   **
+*************************/
+
+.modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 160, 194, 0.56);
+  padding: 0;
+  max-height: 70%;
+  width: 55%;
+  margin: auto;
+  overflow-y: auto;
+  border-radius: 2px;
+  will-change: top, opacity;
+}
+
+.modal-padding {
+    padding-bottom: 100px;
+}

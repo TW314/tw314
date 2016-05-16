@@ -18,6 +18,7 @@ urlpatterns = [
 
     #funcionario
     url(r'funcionario/funcionario_principal', views.funcionario_principal),
+    url(r'funcionario/sobre', views.sobre),
 
     url(r'^teste', views.demo_chart),
 
