@@ -11,8 +11,15 @@
             <button id="paus" class="hide tooltipped right secundaria2_text btn-flat" data-position="left" data-delay="50" data-tooltip="Pausar fila"><i class="fa fa-pause-circle-o font80" aria-hidden="true"></i></button>
         </div>
     </div>
-    <div class="row">
-        <div id="qeue" style="width: 250px; height: 250px; margin: 0 auto"></div>
+    <div class="row center-block">
+        <!-- <div id="qeue" style="width: 250px; height: 250px; margin: 0 auto"></div> -->
+        <div class="col s1 elipse1 margin-elipse"></div>
+        <div class="col s2 elipse2 margin-elipse"></div>
+        <div class="col s3 elipse3 margin-elipse">
+            <h1 class="center" style="vertical-align: middle">TW314</h1>
+        </div>
+        <div class="col s2 elipse2 margin-elipse"></div>
+        <div class="col s1 elipse1 margin-elipse"></div>
     </div>
     <div class="row">
         <div class="col s2 m8 center-align">
@@ -39,10 +46,6 @@
     </script>
     <script>
         window.onload = function() {
-
-            if($('#play').val() === "pizza"){
-
-            }
             $('#play').on('click', function () {
                 $("#play").hide("fast");
                 $("#paus").show("fast");

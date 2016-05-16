@@ -471,6 +471,34 @@ aside.menu-padding {margin: 0 25px;}
     outline: none;
     background: transparent;
 }
+
+.welcome{
+    padding: 0 3%;
+}
+
+/** Elipses **/
+.margin-elipse{
+    margin: auto 5rem;
+
+}
+.elipse3{
+    border-radius: 50%;
+    border: 0.7rem #000 solid;
+    height: 20rem;
+    width: 20% !important;
+}
+.elipse2{
+    border-radius: 50%;
+    border: 0.7rem #000 solid;
+    height: 15rem;
+    width: 15% !important;
+}
+.elipse1{
+    border-radius: 50%;
+    border: 0.7rem #000 solid;
+    height: 10rem;
+    width: 10% !important;
+}
 /*************************
 ** Fim Main Funcionário **
 *************************/
