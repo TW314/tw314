@@ -17,7 +17,7 @@ urlpatterns = [
     url(r'^suporte/suporte_atendimento', views.suporte_atendimento),
 
     #funcionario
-    url(r'funcionario/funcionario_princpal', views.funcionario_principal),
+    url(r'funcionario/funcionario_principal', views.funcionario_principal),
 
     url(r'^teste', views.demo_chart),
 
