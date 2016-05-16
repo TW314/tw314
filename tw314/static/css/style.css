@@ -488,8 +488,17 @@ aside.menu-padding {margin: 0 25px;}
 ** Sobre******************
 *************************/
 .sobre{
-    margin-left: 28rem !important;
+    margin-left: 42% !important;
     margin-top: 8rem;
-
 }
 
+@media (max-width: 992px) {
+    .sobre{
+        margin-left: 35% !important;
+    }
+}
+@media (max-width: 600px) {
+    .sobre{
+        margin-left: 30% !important;
+    }
+}
