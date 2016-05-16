@@ -158,7 +158,7 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul 
 .border-how{
     border-top: solid 1px #eeeeee;
 }
-.section-parallax{margin-top: -40em;}
+.section-parallax{margin-top: -35em;}
 
 .item{
     padding: 0 1em;
@@ -453,4 +453,13 @@ aside.menu-padding {margin: 0 25px;}
 
 .pagination-relatorio-margin{
     margin-left: 150px;
+}
+
+/*************************
+** Login******************
+*************************/
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-floating) {
+    color: #00809c;
+
 }

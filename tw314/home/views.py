@@ -4,6 +4,10 @@ from django.shortcuts import render
 def index(request):
     return render(request, 'home/index.html', {})
 
+#Login
+def login(request):
+    return render(request, 'home/login.html', {})
+
 #Admin
 def admin_principal(request):
     return render(request, 'home/admin/admin_principal.html', {})
@@ -26,6 +30,10 @@ def cadastro_admin(request):
 
 def cadastro_estabelecimento(request):
     return render(request, 'home/suporte/cadastro_estabelecimento.html', {})
+
+
+def suporte_atendimento (request):
+    return  render(request, 'home/suporte/suporte_atendimento.html', {})
 
 
 #???
