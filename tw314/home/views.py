@@ -53,3 +53,9 @@ def demo_chart(request):
 def funcionario_principal(request):
     return render(request, "home/funcionario/funcionario_principal.html", {})
 
+
+#Sobre
+def sobre(request):
+    return  render(request, 'home/funcionario/sobre.html', {})
+
+
