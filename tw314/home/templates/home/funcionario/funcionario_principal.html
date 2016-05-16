@@ -8,7 +8,7 @@
         </div>
         <div class="col s12 m6">
             <button id="play" class="tooltipped right secundaria2_text btn-flat" data-position="left" data-delay="50" data-tooltip="Iniciar fila"><i class="fa fa-play-circle-o font80" aria-hidden="true"></i></button>
-            <button id="paus" class="tooltipped right secundaria2_text btn-flat" data-position="left" data-delay="50" data-tooltip="Pausar fila"><i class="fa fa-pause-circle-o font80" aria-hidden="true"></i></button>
+            <button id="paus" class="hide tooltipped right secundaria2_text btn-flat" data-position="left" data-delay="50" data-tooltip="Pausar fila"><i class="fa fa-pause-circle-o font80" aria-hidden="true"></i></button>
         </div>
     </div>
     <div class="row">
@@ -39,16 +39,23 @@
     </script>
     <script>
         window.onload = function() {
+
+            if($('#play').val() === "pizza"){
+
+            }
             $('#play').on('click', function () {
                 $("#play").hide("fast");
                 $("#paus").show("fast");
+                $("#paus").removeClass("hide");
                 $( "#start" ).prop( "disabled", false );
+                $( "#sair" ).prop( "disabled", true );
             });
 
             $('#paus').on('click', function () {
                 $("#play").show("fast");
                 $("#paus").hide("fast");
                 $( "#start" ).prop( "disabled", true );
+                $( "#sair" ).prop( "disabled", false );
             });
 
             var timer = new Tock({
