@@ -7,12 +7,11 @@
             <h6 class="uppercase texto_text flow-text_3">há <span class="principal_v_text">10 pessoas </span> na fila de espera</h6>
         </div>
         <div class="col s12 m6">
-            <button id="play" class="tooltipped right secundaria2_text btn-flat" data-position="left" data-delay="50" data-tooltip="Iniciar fila"><i class="fa fa-play-circle-o font80" aria-hidden="true"></i></button>
+            <button id="play" onclick="Materialize.toast('Chamando cliente', 2000);" class="tooltipped right secundaria2_text btn-flat" data-position="left" data-delay="50" data-tooltip="Iniciar fila"><i class="fa fa-play-circle-o font80" aria-hidden="true"></i></button>
             <button id="paus" class="hide tooltipped right secundaria2_text btn-flat" data-position="left" data-delay="50" data-tooltip="Pausar fila"><i class="fa fa-pause-circle-o font80" aria-hidden="true"></i></button>
         </div>
     </div>
-    <div class="row ">
-        <!-- <div id="qeue" style="width: 250px; height: 250px; margin: 0 auto"></div> -->
+    <div hidden class="row ">
         <div class="col s12">
             <div class="col s1 big elipse1 elipse1-l margin-elipse">
                 <h5 class="center">TW312</h5>
@@ -47,6 +46,11 @@
         </div>
     </div>
     <div class="row">
+        <div class="valign-wrapper">
+            <h1 class="valign secundaria2_text light center-align">Clique em <i class="fa fa-play-circle-o font80" aria-hidden="true"></i> para iniciar a fila </h1>
+        </div>
+    </div>
+    <div class="row">
         <div class="col s2 m8 center-align">
             <p class="uppercase font18">Progresso do atendimento</p>
             <i id="hourglass" class="hide-on-small-and-down fa fa-hourglass-o fa-5x fa-fw secundaria1_text" aria-hidden="true"></i>
@@ -55,10 +59,10 @@
         </div>
         <div class="col s10 m4 right">
             <div class="row ">
-                <button id="start" disabled class="btn btn-large waves-effect waves-light right col s9 font18" type="button" name="action"><span class="center">Iniciar Atendimento</span> <i class="right fa fa-play" aria-hidden="true"></i> </button>
+                <button id="start" onclick="Materialize.toast('Atendimento Iniciado', 2000)" disabled class="btn btn-large waves-effect waves-light right col s9 font18" type="button" name="action"><span class="center">Iniciar Atendimento</span> <i class="right fa fa-play" aria-hidden="true"></i> </button>
             </div>
             <div class="row">
-                <button id="reset" disabled class="btn btn-large waves-effect waves-light right col s9 font18" type="button" name="action"><span class="center">Finalizar Atendimento</span> <i class="right fa fa-stop" aria-hidden="true"></i> </button>
+                <button id="reset" disabled class="btn btn-large waves-effect waves-light right col s9 font18" onclick="Materialize.toast('Atendimento Finalizado', 1500);Materialize.toast('Chamando cliente', 2000);" type="button" name="action"><span class="center">Finalizar Atendimento</span> <i class="right fa fa-stop" aria-hidden="true"></i> </button>
             </div>
         </div>
     </div>
@@ -69,33 +73,29 @@
             $('.tooltipped').tooltip({delay: 40});
         });
     </script>
-    <!-- <script>
-        var myVar;
-
-        function myFunction() {
-            myVar = setTimeout(showPage, 3000);
-        }
-
-        function showPage() {
-            document.getElementById("loader").style.display = "none";
-            document.getElementById("myDiv").style.display = "block";
-        }
-    </script> -->
     <script>
-        function toastr() {
-            for (var i = 1; i <= 3; i++){
-                Materialize.toast((i+1)+' tentativa', 4000);
-                Materialize.toast('Chamando cliente novamente', 4000);
-            }
-        }
+
+        /* function toastr() {
+         for (;i<=3; i++){
+         Materialize.toast((i+1)+' tentativa', 4000);
+         Materialize.toast('Chamando cliente novamente', 4000);
+         setTimeout(toastr(i), 2000);
+         }
+         } */
         window.onload = function() {
-            setTimeout(toastr, 3000);
+            function t() {
+                Materialize.toast('Chamando cliente novamente', 2000);
+            }
             $('#play').on('click', function () {
                 $("#play").hide("fast");
                 $("#paus").show("fast");
                 $("#paus").removeClass("hide");
                 $( "#start" ).prop( "disabled", false );
                 $( "#sair" ).prop( "disabled", true );
+                var i = 1;
+                for (i=1;i<=2; i++){
+                    setTimeout(t, (i*30000));
+                }
             });
 
             $('#paus').on('click', function () {
@@ -141,6 +141,12 @@
                 $( "#start" ).prop( "disabled", false );
                 $( "#reset" ).prop( "disabled", true );
                 $( "#paus" ).prop( "disabled", false );
+                document.getElementById("static").style.display = "none";
+                document.getElementById("loader").style.display = "inline-block";
+                var i = 1;
+                for (i=1;i<=2; i++){
+                    setTimeout(t, (i*30000));
+                }
             });
         }
     </script>
