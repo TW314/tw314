@@ -16,10 +16,11 @@
 
                 <!--Filtro para relatório inicio-->
                 <div class="input-field col s4">
-                    <select class="icons">
-                        <option value="" disabled selected>Selecione um filtro</option>
-                        <option value="" data-icon="images/sample-1.jpg" class="left circle">Serviço</option>
-                        <option value="" data-icon="images/office.jpg" class="left circle">Funcionario</option>
+                    <select class="icons" id="filtro">
+                        <option value="none" disabled selected>Selecione um filtro</option>
+                        <option value="sem_filtro" data-icon="images/sample-1.jpg" class="left circle">Sem Filtro</option>
+                        <option value="servico" data-icon="images/sample-2.jpg" class="left circle">Serviço</option>
+                        <option value="funcionario" data-icon="images/office.jpg" class="left circle">Funcionario</option>
                     </select>
                     <label>Filtrar por</label>
                 </div>
@@ -167,6 +168,14 @@
                     $('#container').removeClass('hide');
                 }else {
                     $('#container').addClass('hide');
+                }
+            });
+
+            $('#filtro').change(function () {
+                if($('#filtro').val() == 'none'){
+                    document.getElementById("#grafico").disabled = true;
+                }else {
+                    document.getElementById("#grafico").disabled = true;
                 }
             });
 

@@ -16,15 +16,15 @@ def admin_principal(request):
 
 
 def cadastro_usuario(request):
-    return render(request, 'home/admin/cadastrar_usuario.html', {})
+    return render(request, 'home/admin/admin_cadastrar_usuario.html', {})
 
 
 def relatorio(request):
-    return render(request, 'home/admin/relatorio.html', {})
+    return render(request, 'home/admin/admin_relatorio.html', {})
 
 
 def cadastro_servico(request):
-    return render(request, 'home/admin/cadastro_servico.html', {})
+    return render(request, 'home/admin/admin_cadastro_servico.html', {})
 
 
 #Suporte
@@ -33,11 +33,11 @@ def suporte_princpal(request):
 
 
 def cadastro_admin(request):
-    return render(request, 'home/suporte/cadastro_admin.html', {})
+    return render(request, 'home/suporte/suporte_cadastro_admin.html', {})
 
 
 def cadastro_estabelecimento(request):
-    return render(request, 'home/suporte/cadastro_estabelecimento.html', {})
+    return render(request, 'home/suporte/suporte_cadastro_estabelecimento.html', {})
 
 
 def suporte_atendimento (request):
@@ -56,6 +56,6 @@ def funcionario_principal(request):
 
 #Sobre
 def sobre(request):
-    return  render(request, 'home/funcionario/sobre.html', {})
+    return render(request, 'home/funcionario/funcionario_sobre.html', {})
 
 
