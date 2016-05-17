@@ -503,6 +503,12 @@ aside.menu-padding {margin: 0 25px;}
     }
 }
 
+/********Margin-form para o botão nas telas de cadastro********/
+
+.margin-form {
+    margin-bottom: 70px;
+}
+
 /*************************
 **    Estrutura Modal   **
 *************************/
