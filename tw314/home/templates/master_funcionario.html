@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="{% static "css/hover-min.css" %}">
     <link rel="stylesheet" href="{% static "css/backtotop.css" %}">
     <link rel="stylesheet" href="{% static "font-awesome-4.6.2/css/font-awesome.min.css" %}">
-    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link rel="stylesheet" href="{% static "css/style.css" %}" type="text/css">
 </head>
 <body  onload="startTime()">
 <header class="master">
@@ -83,7 +83,6 @@
 
     {% endblock %}
 </main>
-<footer></footer>
 
 <!--  Scripts-->
 <script src="{% static "js/jquery-2.1.1.min.js" %}"></script>
@@ -102,35 +101,7 @@
 <script src="{% static "js/materialize.min.js" %}"></script>
 <script src="{% static "js/init.js" %}"></script>
 <script type="text/javascript" src="{% static "js/backtotop.js " %}"></script>
-<script type="application/javascript">
-    $(".button-collapse").sideNav();
-    $(document).ready(function(){
-        $('.scrollspy').scrollSpy();
-        $(".owl-carousel").owlCarousel({
-                    center: true,
-                    loop:true,
-                    margin:10,
-                    autoplay:true,
-                    autoplayTimeout:3000,
-                    autoplayHoverPause:true,
-                    responsive:{
-                        260:{
-                            items: 1
-                        },
-                        600:{
-                            items: 3
-                        }
-                    }
-                }
-        );
-    });
-</script>
-<script>
-    // Initialize collapse button
-    $(".button-collapse").sideNav({closeOnClick: true});
-    // Initialize collapsible (uncomment the line below if you use the dropdown variation)
-    //$('.collapsible').collapsible();
-</script>
+
 
 </body>
 </html>
