@@ -17,26 +17,27 @@
             <div class="col s1 big elipse1 elipse1-l margin-elipse">
                 <h5 class="center">TW312</h5>
             </div>
-            <div class="preloader-wrapper col s2 big2 elipse2 elipse2-l margin-elipse">
+            <div class=" col s2 big2 elipse2 elipse2-l margin-elipse">
                 <h3 class="center">TW313</h3>
             </div>
-            <div class="col s3 elipse3 margin-elipse">
-                <h1 class="center" style="vertical-align: middle">TW314</h1>
+            <div id="static" style="display: none;" class=" col s3 big3 elipse3 margin-elipse">
+                <h2 class="center">TW314</h2>
             </div>
-
-            <!--<div class="preloader-wrapper big3 active">
-                <div class="spinner-layer spinner-blue-only">
-                    <div class="circle-clipper left">
-                        <div class="circle"></div>
-                    </div>
-                    <div class="gap-patch">
-                        <div class="circle"></div>
-                    </div>
-                    <div class="circle-clipper right">
-                        <div class="circle"></div>
+            <div id="loader" class="col s3 margin-elipse">
+                <div class="preloader-wrapper big3 active">
+                    <div class="spinner-layer spinner-blue-only">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="gap-patch">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
                     </div>
                 </div>
-            </div>-->
+            </div>
             <div class="col s2 elipse2 elipse2-r margin-elipse">
                 <h3 class="center">TW315</h3>
             </div>
@@ -68,8 +69,27 @@
             $('.tooltipped').tooltip({delay: 40});
         });
     </script>
+    <!-- <script>
+        var myVar;
+
+        function myFunction() {
+            myVar = setTimeout(showPage, 3000);
+        }
+
+        function showPage() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("myDiv").style.display = "block";
+        }
+    </script> -->
     <script>
+        function toastr() {
+            for (var i = 1; i <= 3; i++){
+                Materialize.toast((i+1)+' tentativa', 4000);
+                Materialize.toast('Chamando cliente novamente', 4000);
+            }
+        }
         window.onload = function() {
+            setTimeout(toastr, 3000);
             $('#play').on('click', function () {
                 $("#play").hide("fast");
                 $("#paus").show("fast");
@@ -97,6 +117,8 @@
                 $( "#start" ).prop( "disabled", true );
                 $( "#reset" ).prop( "disabled", false );
                 $( "#paus" ).prop( "disabled", true );
+                document.getElementById("loader").style.display = "none";
+                document.getElementById("static").style.display = "inline-block";
             });
 
             $('#lap').on('click', function () {
