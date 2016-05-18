@@ -375,7 +375,7 @@ aside.menu-padding {margin: 0 25px;}
 }
 
 .info-side{
-    margin-top: 66px;
+    margin-top: 0;
     font-size: 12px;
 }
 
@@ -471,6 +471,64 @@ aside.menu-padding {margin: 0 25px;}
     outline: none;
     background: transparent;
 }
+
+.welcome{
+    padding: 0 3%;
+}
+
+.margin-first{
+    margin: 4rem auto;
+}
+/** Elipses **/
+.ticket{
+    display: block;
+    position: absolute;
+    left: 33%;
+    top: 35%;
+}
+.margin-elipse{margin: auto 2rem;}
+.elipse3{
+    border-radius: 50%;
+    border: 0.7rem #0095b4 solid;
+    height: 17rem;
+    width: 17rem !important;
+    padding: 4rem 0 !important;
+}
+.elipse2{
+    border-radius: 50%;
+    height: 13.5rem;
+    width: 13.5rem !important;
+    margin-top: 2.5rem;
+    padding: 3rem 0 !important;
+}
+.elipse1{
+    border-radius: 50%;
+    height: 9rem;
+    width: 9rem !important;
+    margin-top: 5rem;
+    padding: 2.3rem 0 !important;
+}
+
+.preloader-wrapper.big {
+    width: 9rem;
+    height: 9rem;
+}
+.preloader-wrapper.big2 {
+    width: 13em;
+    height: 13rem;
+}
+.preloader-wrapper.big3 {
+    width: 17rem;
+    height: 17rem;
+}
+
+.spinner-blue, .spinner-blue-only {border-color: #0095b4;}
+.circle-clipper .circle {border-width: 0.7rem;}
+
+.elipse2-r{color: rgba(0, 149, 180, 0.60); border: 0.5rem rgba(0, 149, 180, 0.60) solid;}
+.elipse2-l{color: rgba(162, 162, 162, 0.60); border: 0.5rem rgba(162, 162, 162, 0.60) solid;}
+.elipse1-r{color: rgba(0, 149, 180, 0.20); border: 0.4rem rgba(0, 149, 180, 0.20) solid;}
+.elipse1-l{color: rgba(162, 162, 162, 0.20); border: 0.4rem rgba(162, 162, 162, 0.20) solid;}
 /*************************
 ** Fim Main Funcionário **
 *************************/
@@ -503,6 +561,12 @@ aside.menu-padding {margin: 0 25px;}
     }
 }
 
+/********Margin-form para o botão nas telas de cadastro********/
+
+.margin-form {
+    margin-bottom: 70px;
+}
+
 /*************************
 **    Estrutura Modal   **
 *************************/
@@ -523,5 +587,30 @@ aside.menu-padding {margin: 0 25px;}
 }
 
 .modal-padding {
-    padding-bottom: 100px;
+    padding-bottom: 5%;
 }
+
+/*****Centralizar formulário****
+*******************************/
+.center-form {
+    margin-left: 24.6% !important;
+
+}
+
+@media (max-width: 992px) {
+    .center-form{
+        margin-left: 35% !important;
+    }
+}
+@media (max-width: 600px) {
+    .center-form{
+        margin-left: 35% !important;
+    }
+}
+
+
+
+
+
+
+
