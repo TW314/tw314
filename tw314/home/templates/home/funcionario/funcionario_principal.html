@@ -14,10 +14,10 @@
     <div id="elipse" hidden class="row ">
         <div class="col s12">
             <div class="hide-on-med-and-down col s1 big elipse1 elipse1-l margin-elipse">
-                <h5 class="center">TW312</h5>
+                <h5 id="e1" class="center">TW312</h5>
             </div>
             <div class="hide-on-small-and-down col s2 big2 elipse2 elipse2-l margin-elipse">
-                <h3 class="center">TW313</h3>
+                <h3 id="e2" class="center">TW313</h3>
             </div>
             <div id="static" style="display: none;" class=" col s3 big3 elipse3 margin-elipse">
             </div>
@@ -38,10 +38,10 @@
                 </div>
             </div>
             <div class="hide-on-small-and-down col s2 elipse2 elipse2-r margin-elipse">
-                <h3 class="center">TW315</h3>
+                <h3 id="e4" class="center">TW315</h3>
             </div>
             <div class="hide-on-med-and-down col s1 elipse1 elipse1-r margin-elipse">
-                <h5 class="center">TW316</h5>
+                <h5 id="e3" class="center">TW316</h5>
             </div>
         </div>
     </div>
@@ -68,6 +68,9 @@
     </div>
     <script type="text/javascript" src="{% static "js/tock.js" %}"></script>
     <!-- Scripts -->
+    <!--
+        SOH MEXER NESSES SCRIPTS COM CERTEZA DO QUE ESTA FAZENDO
+     -->
     <script>
         $(document).ready(function(){
             $('.tooltipped').tooltip({delay: 40});
@@ -75,32 +78,54 @@
     </script>
     <script>
         window.onload = function() {
+            var ticket = 314;
             function t() {
                 Materialize.toast('Chamando cliente novamente', 2000);
             }
+            //iniciar fila
             $('#play').on('click', function () {
-                $("#play").hide("fast");
-                $("#paus").show("fast");
-                $("#msg").hide("fast");
-                $("#elipse").show("fast");
-                $("#paus").removeClass("hide");
-                $("#start").prop( "disabled", false );
-                $("#sair").prop( "disabled", true );
+                //Ocultar elementos
+                $("#msg").hide("fast"); //oculpa mensagem inicial
+                $("#play").hide("fast"); //oculta botão iniciar fila
+                //exibir elemntos
+                $("#paus").show("fast"); //exibe botão pausar fila
+                $("#elipse").show("fast"); //exibe fila em elipse
+                $("#paus").removeClass("hide"); //mostrar botão pause
+                //desativar
+                $("#start").prop( "disabled", false );//ativa botao iniciar atendimento
+                $("#sair").prop( "disabled", true );//TODO: desativar botao sair
+
+                //contador para mensagem de notificações ao cliente
                 var i = 1;
-                for (i=1;i<=2; i++){
-                    setTimeout(t, (i*30000));
+                while (true){ //conta 2x + a primeira chamada
+                    setTimeout(t, (i*30000)); //conta 30 segundos por chamada
+                    //FIXME: arrumar erro logico de soma
+                    i++;
+                    if(($('#start').clickout) || (i == 3 )) {
+                        ticket++; //passa próximo na fila
+                        break;
+                    }
                 }
-            });
+                if(i == 3){
+                    //Adiciona valores aos elipses
+                    $( "#e1" ).html("TW"+(ticket-2));
+                    $( "#e2" ).html("TW"+(ticket-1));
+                    $( "#e5" ).html("TW"+ticket);
+                    $( "#e4" ).html("TW"+(ticket+1));
+                    $( "#e3" ).html("TW"+(ticket+2));
+                }
+            }); //inicia fila
 
             $('#paus').on('click', function () {
-                $("#play").show("fast");
-                $("#paus").hide("fast");
-                $("#start").prop( "disabled", true );
-                $("#sair").prop( "disabled", false );
-                $("#msg").show("fast");
-                $("#elipse").hide("fast");
-            });
+                $("#play").show("fast"); //exibe play da fila
+                $("#msg").show("fast"); //exibe mensagem iniciapl
+                $("#elipse").hide("fast");//oculta fila em elipses
+                $("#paus").hide("fast"); //oculta botão de pausar fila
+                $("#start").prop( "disabled", true ); //desativar iniciar fila
+                $("#sair").prop( "disabled", false ); //TODO: ativa sair
+            }); //para fila
 
+            //cronometro
             var timer = new Tock({
                 callback: function () {
                     $('#clockface').val(timer.msToTime(timer.lap()));
@@ -109,43 +134,51 @@
 
             $('#start').on('click', function () {
                 timer.start($('#clockface').val());
-                $("#hourglass").addClass("fa-spin");
-                $( "#start" ).prop( "disabled", true );
-                $( "#reset" ).prop( "disabled", false );
-                $( "#paus" ).prop( "disabled", true );
-                document.getElementById("loader").style.display = "none";
-                document.getElementById("static").style.display = "inline-block";
-            });
+                $("#hourglass").addClass("fa-spin"); //giro da ampulhete
+                $( "#start" ).prop( "disabled", true ); //desativa botão iniciar atendimento
+                $( "#reset" ).prop( "disabled", false );//ativa botão iniciar atendimento
+                $( "#paus" ).prop( "disabled", true );//desativa botão pausar fila
+                document.getElementById("loader").style.display = "none"; //oculta elipse animado
+                document.getElementById("static").style.display = "inline-block"; //exibe elipse estatico
+            }); //inicia atendimento
 
-            $('#lap').on('click', function () {
-                $('#laptimes').append(timer.msToTime(timer.lap()) + '<br>');
-            });
+            /*$('#lap').on('click', function () {
+             $('#laptimes').append(timer.msToTime(timer.lap()) + '<br>');
+             });
 
-            $('#pause').on('click', function () {
-                timer.pause();
-            });
+             $('#pause').on('click', function () {
+             timer.pause();
+             });
 
-            $('#stop').on('click', function () {
-                timer.stop();
-            });
+             $('#stop').on('click', function () {
+             timer.stop();
+             }); */ //outras funcoes do cronometro
 
             $('#reset').on('click', function () {
                 timer.reset();
-                $('#clockface').val('');
-                $('#laptimes').html('');
-                $("#hourglass").removeClass("fa-spin");
-                $( "#start" ).prop( "disabled", false );
-                $( "#reset" ).prop( "disabled", true );
-                $( "#paus" ).prop( "disabled", false );
-                document.getElementById("static").style.display = "none";
-                document.getElementById("loader").style.display = "inline-block";
+                $('#clockface').val(''); //zera cronometro
+                //$('#laptimes').html(''); zera voltas
+                $("#hourglass").removeClass("fa-spin"); //para gira da ampulheta
+                $( "#start" ).prop( "disabled", false ); //ativa iniciar atendimento
+                $( "#reset" ).prop( "disabled", true ); //inativa parar atendimento
+                $( "#paus" ).prop( "disabled", false ); //ativa pausar fila
+                document.getElementById("static").style.display = "none"; //esconde elipse princiapl estático
+                document.getElementById("loader").style.display = "inline-block"; //mostra elipse principal animado
+
+                //contador para mensagem de notificações ao cliente
                 var i = 1;
-                for (i=1;i<=2; i++){
-                    setTimeout(t, (i*30000));
+                for (i=1;i<=2; i++){ //conta 2x + a primeira chamada
+                    setTimeout(t, (i*30000)); //conta 30 segundos por chamada
+                    //FIXME: arrumar erro logico de soma
                 }
-                var ticket = 314;
-                $( "#e5" ).html("TW"+(ticket+1));
-            });
+                ticket++; //passa próximo na fila
+                //Adiciona valores aos elipses
+                $( "#e1" ).html("TW"+(ticket-2));
+                $( "#e2" ).html("TW"+(ticket-1));
+                $( "#e5" ).html("TW"+ticket);
+                $( "#e4" ).html("TW"+(ticket+1));
+                $( "#e3" ).html("TW"+(ticket+2));
+            }); //finaliza atendimento
         }
     </script>
 {% endblock %}
