@@ -2,20 +2,17 @@
 
 {% block titulo %} CADASTRAR SERVIÇO {% endblock %}
 {% block master %}
-    <div class="row">
+    <!--Inicio do Formulário-->
+    <div class="row margin-form">
         <div class="col s12 m6">
             <form class="col s12">
                 <div class="row">
-
                     <div class="input-field col s12">
                         <input id="last_name" type="text" class="validate">
                         <label for="last_name">Nome</label>
                     </div>
-
                 </div>
-
                 <div class="row">
-
                     <div class="input-field col s12">
                         <input id="last_name" type="text" class="validate">
                         <label for="last_name">Descrição</label>
@@ -24,8 +21,7 @@
                 </div>
 
 
-
-
+                <!--Inicio do botões do formulário-->
                 <div class="row">
                     <button class="btn waves-effect waves-light right col s8 m4" type="cadastrar" name="action">Cadastrar
                         <i class="fa fa-check-circle" aria-hidden="true"></i>
@@ -36,12 +32,12 @@
                         <i class="fa fa-times-circle" aria-hidden="true"></i>
                     </button>
                 </div>
-
-
-
-
+                <!--Fim dos botões do formulário-->
             </form>
         </div>
+        <!--Fim do formulário-->
+
+        <!--Inicio da tabela-->
         <div class="col s12 m6">
             <div class="col s12">
                 <table class="highlight">
@@ -61,42 +57,58 @@
                         <td>xxxxxxxxxxxxx</td>
                         <td>
 
-                            <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#usuario1"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                           <!-- Botao que chama Modal -->
+                                <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#servico1"><i class="fa fa-eye" aria-hidden="true"></i></a>
 
-                            <!-- Modal Structure -->
-                            <div id="usuario1" class="modal">
-                                <div class="modal-content">
-                                    <div class="col s6">
-                                        <p style="margin-bottom: 50px;">
-                                            <i class="fa fa-briefcase fa-3x" aria-hidden="true"></i>
+                                <!-- Inicio da estrutura do Modal -->
+                                <div id="servico1" class="modal white-text">
+                                    <div class="modal-content">
 
+                                        <div class="row modal-padding">
+                                            <div class="col s8">
 
-                                        </p>
-                                        <p>
-                                        <label class="font18">Nome: Pagamento</label>
-                                         </p>
-                                        <label class="font18">Descrição: xxxxxxxxxxxxx</label>
+                                                <!-- Dados do servico-->
+                                                <div class="row">
+                                                    <div class="col s2">
+                                                        <i class="fa fa-briefcase fa-3x" aria-hidden="true"></i>
+                                                    </div>
+                                                    <div class="col s10">
+                                                        <h5>Pagamento</h5>
+                                                    </div>
+                                                </div>
 
+                                                <div class="row">
+                                                    <div class="col s3">
+                                                        <span class="font18 white-text">Descrição:</span>
+                                                    </div>
+                                                    <div class="col s7">
+                                                        <span class="font18 white-text">xxxxxxxxxxxx</span>
+                                                    </div>
+                                                </div>
 
-
+                                            </div>
+                                            <div class="col s4 right">
+                                                <!-- Botao que fecha Modal -->
+                                                <div class="row">
+                                                    <a href="#!" class="modal-action modal-close btn-floating secundaria1_bg right"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+                                                </div>
+                                                <div class="row">
+                                                    <!-- Menu de acoes da Modal -->
+                                                    <div class="fixed-action-btn vertical click-to-toggle">
+                                                        <a class="btn-floating btn-short secundaria1_bg">
+                                                            <i class="fa fa-bars" aria-hidden="true"></i>
+                                                        </a>
+                                                        <ul>
+                                                            <li><a class="btn-floating secundaria1_bg"><i class="fa fa-ban" aria-hidden="true"></i></a></li>
+                                                            <li><a class="btn-floating secundaria1_bg"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col s6" style="margin-bottom: 300px;">
-                                        <a href="#!" class="modal-action modal-close btn-floating secundaria1_bg right"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
-                                    </div>
-
-
-                                    <div class="fixed-action-btn vertical click-to-toggle" style="bottom: 5px; right: 24px;">
-                                        <a class="btn-floating btn-short secundaria1_bg">
-                                            <i class="fa fa-bars" aria-hidden="true"></i>
-                                        </a>
-                                        <ul>
-                                            <li><a class="btn-floating secundaria1_bg "><i class="fa fa-ban" aria-hidden="true"></i></a></li>
-                                            <li><a class="btn-floating secundaria1_bg "><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
-                                        </ul>
-                                    </div>
-
                                 </div>
-                            </div>
+                                <!-- Fim da estrutura do Modal -->
 
 
                         </td>
@@ -121,41 +133,59 @@
                         <td>xxxxxxxxxxxxx</td>
 
                         <td>
-                            <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#usuario2"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                            <!-- Botao que chama Modal -->
+                                <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#servico2"><i class="fa fa-eye" aria-hidden="true"></i></a>
 
-                            <!-- Modal Structure -->
-                            <div id="usuario2" class="modal">
-                                <div class="modal-content">
-                                    <div class="col s6">
-                                        <p style="margin-bottom: 50px;">
-                                            <i class="fa fa-briefcase fa-3x" aria-hidden="true"></i>
+                                <!-- Inicio da estrutura do Modal -->
+                                <div id="servico2" class="modal white-text">
+                                    <div class="modal-content">
 
-                                        </p>
-                                        <p>
-                                        <label class="font18">Nome: Venda</label>
-                                         </p>
-                                        <label class="font18">Descrição: xxxxxxxxxxxxx</label>
+                                        <div class="row modal-padding">
+                                            <div class="col s8">
 
+                                                <!-- Dados do servico-->
+                                                <div class="row">
+                                                    <div class="col s2">
+                                                         <i class="fa fa-briefcase fa-3x" aria-hidden="true"></i>
+                                                    </div>
+                                                    <div class="col s10">
+                                                        <h5>Venda</h5>
+                                                    </div>
+                                                </div>
 
+                                                <div class="row">
+                                                    <div class="col s3">
+                                                        <span class="font18 white-text">Descrição:</span>
+                                                    </div>
+                                                    <div class="col s7">
+                                                        <span class="font18 white-text">xxxxxxxxxxxx</span>
+                                                    </div>
+                                                </div>
 
+                                            </div>
+                                            <div class="col s4 right">
+                                                <!-- Botao que fecha Modal -->
+                                                <div class="row">
+                                                    <a href="#!" class="modal-action modal-close btn-floating secundaria1_bg right"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+                                                </div>
+                                                <div class="row">
+                                                    <!-- Menu de acoes da Modal -->
+                                                    <div class="fixed-action-btn vertical click-to-toggle">
+                                                        <a class="btn-floating btn-short secundaria1_bg">
+                                                            <i class="fa fa-bars" aria-hidden="true"></i>
+                                                        </a>
+                                                        <ul>
+                                                            <li><a class="btn-floating secundaria1_bg"><i class="fa fa-ban" aria-hidden="true"></i></a></li>
+                                                            <li><a class="btn-floating secundaria1_bg"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col s6" style="margin-bottom: 300px;">
-                                        <a href="#!" class="modal-action modal-close btn-floating secundaria1_bg right"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
-                                    </div>
-
-
-                                    <div class="fixed-action-btn vertical click-to-toggle" style="bottom: 5px; right: 24px;">
-                                        <a class="btn-floating btn-short secundaria1_bg">
-                                            <i class="fa fa-bars" aria-hidden="true"></i>
-                                        </a>
-                                        <ul>
-                                            <li><a class="btn-floating secundaria1_bg "><i class="fa fa-ban" aria-hidden="true"></i></a></li>
-                                            <li><a class="btn-floating secundaria1_bg "><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
-                                        </ul>
-                                    </div>
-
                                 </div>
-                            </div>
+                                <!-- Fim da estrutura do Modal -->
+
 
                         </td>
                         <!--<<td class="fixed-action-btn horizontal click-to-toggle" style="bottom: 435px; right: 189px; height: 5px; width: 7px;">
@@ -176,42 +206,58 @@
                         <td>xxxxxxxxxxxxx</td>
 
                         <td>
-                            <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#usuario3"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                            <!-- Botao que chama Modal -->
+                                <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#servico3"><i class="fa fa-eye" aria-hidden="true"></i></a>
 
-                            <!-- Modal Structure -->
-                            <div id="usuario3" class="modal">
-                                <div class="modal-content">
-                                    <div class="col s6">
-                                        <p style="margin-bottom: 50px;">
-                                            <i class="fa fa-briefcase fa-3x" aria-hidden="true"></i>
+                                <!-- Inicio da estrutura do Modal -->
+                                <div id="servico3" class="modal white-text">
+                                    <div class="modal-content">
 
+                                        <div class="row modal-padding">
+                                            <div class="col s8">
 
-                                        </p>
-                                        <p>
-                                        <label class="font18">Nome: Sedex</label>
-                                         </p>
-                                        <label class="font18">Descrição: xxxxxxxxxxxxx</label>
+                                                <!-- Dados do servico-->
+                                                <div class="row">
+                                                    <div class="col s2">
+                                                        <i class="fa fa-briefcase fa-3x" aria-hidden="true"></i>
+                                                    </div>
+                                                    <div class="col s10">
+                                                        <h5>Sedex</h5>
+                                                    </div>
+                                                </div>
 
+                                                <div class="row">
+                                                    <div class="col s3">
+                                                        <span class="font18 white-text">Descrição:</span>
+                                                    </div>
+                                                    <div class="col s7">
+                                                        <span class="font18 white-text">xxxxxxxxxxxx</span>
+                                                    </div>
+                                                </div>
 
-
+                                            </div>
+                                            <div class="col s4 right">
+                                                <!-- Botao que fecha Modal -->
+                                                <div class="row">
+                                                    <a href="#!" class="modal-action modal-close btn-floating secundaria1_bg right"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+                                                </div>
+                                                <div class="row">
+                                                    <!-- Menu de acoes da Modal -->
+                                                    <div class="fixed-action-btn vertical click-to-toggle">
+                                                        <a class="btn-floating btn-short secundaria1_bg">
+                                                            <i class="fa fa-bars" aria-hidden="true"></i>
+                                                        </a>
+                                                        <ul>
+                                                            <li><a class="btn-floating secundaria1_bg"><i class="fa fa-ban" aria-hidden="true"></i></a></li>
+                                                            <li><a class="btn-floating secundaria1_bg"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col s6" style="margin-bottom: 300px;">
-                                        <a href="#!" class="modal-action modal-close btn-floating secundaria1_bg right"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
-                                    </div>
-
-
-                                    <div class="fixed-action-btn vertical click-to-toggle" style="bottom: 5px; right: 24px;">
-                                        <a class="btn-floating btn-short secundaria1_bg">
-                                            <i class="fa fa-bars" aria-hidden="true"></i>
-                                        </a>
-                                        <ul>
-                                            <li><a class="btn-floating secundaria1_bg "><i class="fa fa-ban" aria-hidden="true"></i></a></li>
-                                            <li><a class="btn-floating secundaria1_bg "><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
-                                        </ul>
-                                    </div>
-
                                 </div>
-                            </div>
+                                <!-- Fim da estrutura do Modal -->
                         </td>
                         <!--<td class="fixed-action-btn horizontal click-to-toggle" style="bottom: 382px; right: 190px; height: 5px; width: 7px;">
                             <a class="btn-floating btn-short secundaria1_bg">
@@ -232,42 +278,58 @@
                         <td>xxxxxxxxxxxxx</td>
 
                         <td>
-                            <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#usuario4"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                            <!-- Botao que chama Modal -->
+                                <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#servico4"><i class="fa fa-eye" aria-hidden="true"></i></a>
 
-                            <!-- Modal Structure -->
-                            <div id="usuario4" class="modal">
-                                <div class="modal-content">
-                                    <div class="col s6">
-                                        <p style="margin-bottom: 50px;">
-                                            <i class="fa fa-briefcase fa-3x" aria-hidden="true"></i>
+                                <!-- Inicio da estrutura do Modal -->
+                                <div id="servico4" class="modal white-text">
+                                    <div class="modal-content">
 
+                                        <div class="row modal-padding">
+                                            <div class="col s8">
 
-                                        </p>
-                                        <p>
-                                        <label class="font18">Nome: Envio</label>
-                                         </p>
-                                        <label class="font18">Descrição: xxxxxxxxxxxxx</label>
+                                                <!-- Dados do servico-->
+                                                <div class="row">
+                                                    <div class="col s2">
+                                                        <i class="fa fa-briefcase fa-3x" aria-hidden="true"></i>
+                                                    </div>
+                                                    <div class="col s10">
+                                                        <h5>Envio</h5>
+                                                    </div>
+                                                </div>
 
+                                                <div class="row">
+                                                    <div class="col s3">
+                                                        <span class="font18 white-text">Descrição:</span>
+                                                    </div>
+                                                    <div class="col s7">
+                                                        <span class="font18 white-text">xxxxxxxxxxxx</span>
+                                                    </div>
+                                                </div>
 
-
+                                            </div>
+                                            <div class="col s4 right">
+                                                <!-- Botao que fecha Modal -->
+                                                <div class="row">
+                                                    <a href="#!" class="modal-action modal-close btn-floating secundaria1_bg right"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+                                                </div>
+                                                <div class="row">
+                                                    <!-- Menu de acoes da Modal -->
+                                                    <div class="fixed-action-btn vertical click-to-toggle">
+                                                        <a class="btn-floating btn-short secundaria1_bg">
+                                                            <i class="fa fa-bars" aria-hidden="true"></i>
+                                                        </a>
+                                                        <ul>
+                                                            <li><a class="btn-floating secundaria1_bg"><i class="fa fa-ban" aria-hidden="true"></i></a></li>
+                                                            <li><a class="btn-floating secundaria1_bg"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col s6" style="margin-bottom: 300px;">
-                                        <a href="#!" class="modal-action modal-close btn-floating secundaria1_bg right"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
-                                    </div>
-
-
-                                    <div class="fixed-action-btn vertical click-to-toggle" style="bottom: 5px; right: 24px;">
-                                        <a class="btn-floating btn-short secundaria1_bg">
-                                            <i class="fa fa-bars" aria-hidden="true"></i>
-                                        </a>
-                                        <ul>
-                                            <li><a class="btn-floating secundaria1_bg "><i class="fa fa-ban" aria-hidden="true"></i></a></li>
-                                            <li><a class="btn-floating secundaria1_bg "><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
-                                        </ul>
-                                    </div>
-
                                 </div>
-                            </div>
+                                <!-- Fim da estrutura do Modal -->
                         </td>
                         <!-- <td class="fixed-action-btn horizontal click-to-toggle" style="bottom: 330px; right: 190px; height: 5px; width: 7px;">
                              <a class="btn-floating btn-short secundaria1_bg">
@@ -288,43 +350,58 @@
                         <td>xxxxxxxxxxxxx</td>
 
                         <td>
-                            <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#usuario5"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                            <!-- Botao que chama Modal -->
+                                <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#servico5"><i class="fa fa-eye" aria-hidden="true"></i></a>
 
-                            <!-- Modal Structure -->
-                            <div id="usuario5" class="modal">
-                                <div class="modal-content">
-                                    <div class="col s6">
-                                        <p style="margin-bottom: 50px;">
-                                            <i class="fa fa-briefcase fa-3x" aria-hidden="true"></i>
+                                <!-- Inicio da estrutura do Modal -->
+                                <div id="servico5" class="modal white-text">
+                                    <div class="modal-content">
 
+                                        <div class="row modal-padding">
+                                            <div class="col s8">
 
-                                        </p>
-                                        <p>
-                                        <label class="font18">Nome: Carta</label>
-                                         </p>
-                                        <label class="font18">Descrição: xxxxxxxxxxxxx</label>
+                                                <!-- Dados do servico-->
+                                                <div class="row">
+                                                    <div class="col s2">
+                                                        <i class="fa fa-briefcase fa-3x" aria-hidden="true"></i>
+                                                    </div>
+                                                    <div class="col s10">
+                                                        <h5>Carta</h5>
+                                                    </div>
+                                                </div>
 
+                                                <div class="row">
+                                                    <div class="col s3">
+                                                        <span class="font18 white-text">Descrição:</span>
+                                                    </div>
+                                                    <div class="col s7">
+                                                        <span class="font18 white-text">xxxxxxxxxxxx</span>
+                                                    </div>
+                                                </div>
 
-
+                                            </div>
+                                            <div class="col s4 right">
+                                                <!-- Botao que fecha Modal -->
+                                                <div class="row">
+                                                    <a href="#!" class="modal-action modal-close btn-floating secundaria1_bg right"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+                                                </div>
+                                                <div class="row">
+                                                    <!-- Menu de acoes da Modal -->
+                                                    <div class="fixed-action-btn vertical click-to-toggle">
+                                                        <a class="btn-floating btn-short secundaria1_bg">
+                                                            <i class="fa fa-bars" aria-hidden="true"></i>
+                                                        </a>
+                                                        <ul>
+                                                            <li><a class="btn-floating secundaria1_bg"><i class="fa fa-ban" aria-hidden="true"></i></a></li>
+                                                            <li><a class="btn-floating secundaria1_bg"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col s6" style="margin-bottom: 300px;">
-                                        <a href="#!" class="modal-action modal-close btn-floating secundaria1_bg right"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
-                                    </div>
-
-
-                                    <div class="fixed-action-btn vertical click-to-toggle" style="bottom: 5px; right: 24px;">
-                                        <a class="btn-floating btn-short secundaria1_bg">
-                                            <i class="fa fa-bars" aria-hidden="true"></i>
-                                        </a>
-                                        <ul>
-                                            <li><a class="btn-floating secundaria1_bg "><i class="fa fa-ban" aria-hidden="true"></i></a></li>
-                                            <li><a class="btn-floating secundaria1_bg"><i class="fa fa-key" aria-hidden="true"></i></a></li>
-                                            <li><a class="btn-floating secundaria1_bg "><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
-                                        </ul>
-                                    </div>
-
                                 </div>
-                            </div>
+                                <!-- Fim da estrutura do Modal -->
                         </td>
                         <!--<td class="fixed-action-btn horizontal click-to-toggle" style="bottom: 280px; right: 190px; height: 5px; width: 7px;">
                             <a class="btn-floating btn-short secundaria1_bg">
@@ -345,43 +422,58 @@
                         <td>xxxxxxxxxxxxx</td>
 
                         <td>
-                            <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#usuario6"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                            <!-- Botao que chama Modal -->
+                                <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#servico6"><i class="fa fa-eye" aria-hidden="true"></i></a>
 
-                            <!-- Modal Structure -->
-                            <div id="usuario6" class="modal">
-                                <div class="modal-content">
-                                    <div class="col s6">
-                                        <p style="margin-bottom: 50px;">
-                                            <i class="fa fa-briefcase fa-3x" aria-hidden="true"></i>
+                                <!-- Inicio da estrutura do Modal -->
+                                <div id="servico6" class="modal white-text">
+                                    <div class="modal-content">
 
+                                        <div class="row modal-padding">
+                                            <div class="col s8">
 
-                                        </p>
-                                        <p>
-                                        <label class="font18">Nome: Recebimento de Encomendas</label>
-                                         </p>
-                                        <label class="font18">Descrição: xxxxxxxxxxxxx</label>
+                                                <!-- Dados do servico-->
+                                                <div class="row">
+                                                    <div class="col s2">
+                                                        <i class="fa fa-briefcase fa-3x" aria-hidden="true"></i>
+                                                    </div>
+                                                    <div class="col s10">
+                                                        <h5>Recebimento de Encomendas</h5>
+                                                    </div>
+                                                </div>
 
+                                                <div class="row">
+                                                    <div class="col s3">
+                                                        <span class="font18 white-text">Descrição:</span>
+                                                    </div>
+                                                    <div class="col s7">
+                                                        <span class="font18 white-text">xxxxxxxxxxxx</span>
+                                                    </div>
+                                                </div>
 
-
+                                            </div>
+                                            <div class="col s4 right">
+                                                <!-- Botao que fecha Modal -->
+                                                <div class="row">
+                                                    <a href="#!" class="modal-action modal-close btn-floating secundaria1_bg right"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+                                                </div>
+                                                <div class="row">
+                                                    <!-- Menu de acoes da Modal -->
+                                                    <div class="fixed-action-btn vertical click-to-toggle">
+                                                        <a class="btn-floating btn-short secundaria1_bg">
+                                                            <i class="fa fa-bars" aria-hidden="true"></i>
+                                                        </a>
+                                                        <ul>
+                                                            <li><a class="btn-floating secundaria1_bg"><i class="fa fa-ban" aria-hidden="true"></i></a></li>
+                                                            <li><a class="btn-floating secundaria1_bg"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col s6" style="margin-bottom: 300px;">
-                                        <a href="#!" class="modal-action modal-close btn-floating secundaria1_bg right"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
-                                    </div>
-
-
-                                    <div class="fixed-action-btn vertical click-to-toggle" style="bottom: 5px; right: 24px;">
-                                        <a class="btn-floating btn-short secundaria1_bg">
-                                            <i class="fa fa-bars" aria-hidden="true"></i>
-                                        </a>
-                                        <ul>
-                                            <li><a class="btn-floating secundaria1_bg "><i class="fa fa-ban" aria-hidden="true"></i></a></li>
-                                            <li><a class="btn-floating secundaria1_bg"><i class="fa fa-key" aria-hidden="true"></i></a></li>
-                                            <li><a class="btn-floating secundaria1_bg "><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
-                                        </ul>
-                                    </div>
-
                                 </div>
-                            </div>
+                                <!-- Fim da estrutura do Modal -->
                         </td>
                         <!-- <td class="fixed-action-btn horizontal click-to-toggle" style="bottom: 230px; right: 190px; height: 5px; width: 7px;">
                              <a class="btn-floating btn-short secundaria1_bg" >
@@ -401,9 +493,10 @@
 
                     </tbody>
                 </table>
+                <!--Fim da Tabela-->
                 <br />
 
-
+                <!--Paginação da tabela-->
                 <div class="row" align="Right">
 
                     <ul class="pagination">
@@ -417,6 +510,7 @@
                     </ul>
 
                 </div>
+                <!--Fim da Paginação da tabela-->
             </div>
 
         </div>
