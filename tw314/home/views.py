@@ -20,7 +20,7 @@ def admin_principal(request):
 
 # Cadastro de Usuario
 def admin_cadastro_usuario(request):
-    return render(request, 'home/admin/admin_cadastrar_usuario.html', {})
+    return render(request, 'home/admin/admin_cadastro_usuario.html', {})
 
 
 # Relatorio
@@ -79,7 +79,7 @@ def funcionario_relatorio(request):
 
 # Sobre
 def sobre(request):
-    return render(request, 'home/funcionario/funcionario_sobre.html', {})
+    return render(request, 'home/sobre.html', {})
 
 
 # Contatar suporte
