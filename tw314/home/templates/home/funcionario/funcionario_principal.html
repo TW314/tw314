@@ -47,22 +47,22 @@
     </div>
     <div class="row" id="msg">
         <div class="col s12 margin-first">
-            <h1 class="secundaria2_text light center-align">Clique em <i class="fa fa-play-circle-o font80" aria-hidden="true"></i> para iniciar a fila </h1>
+            <h1 style="color: rgba(162, 162, 162, 0.4);" class="flow-text_4 light center-align">Clique em <i class="fa fa-play-circle-o font80" aria-hidden="true"></i> para iniciar a fila </h1>
         </div>
     </div>
     <div class="row">
-        <div class="col s2 m8 center-align">
+        <div class="col s12 m6 l8 center-align">
             <p class="uppercase font18">Progresso do atendimento</p>
             <i id="hourglass" class="hide-on-small-and-down fa fa-hourglass-o fa-5x fa-fw secundaria1_text" aria-hidden="true"></i>
             <span class="sr-only">Loading...</span>
             <input id="clockface" disabled class="secundaria1_text font18 center clockface" placeholder="00:00:000">
         </div>
-        <div class="col s10 m4 right">
+        <div class="col s12 m6 l4 right">
             <div class="row ">
-                <button id="start" onclick="Materialize.toast('Atendimento Iniciado', 2000)" disabled class="btn btn-large waves-effect waves-light right col s9 font18" type="button" name="action"><span class="center">Iniciar Atendimento</span> <i class="right fa fa-play" aria-hidden="true"></i> </button>
+                <button id="start" onclick="Materialize.toast('Atendimento Iniciado', 2000)" disabled class="btn btn-large waves-effect waves-light right col s12 m11 l9 font18" type="button" name="action"><span class="center">Iniciar Atendimento</span> <i class="right fa fa-play" aria-hidden="true"></i> </button>
             </div>
             <div class="row">
-                <button id="reset" disabled class="btn btn-large waves-effect waves-light right col s9 font18" onclick="Materialize.toast('Atendimento Finalizado', 1500);Materialize.toast('Chamando cliente', 2000);" type="button" name="action"><span class="center">Finalizar Atendimento</span> <i class="right fa fa-stop" aria-hidden="true"></i> </button>
+                <button id="reset" disabled class="btn btn-large waves-effect waves-light right col s12 m11 l9 font18" onclick="Materialize.toast('Atendimento Finalizado', 1500);Materialize.toast('Chamando cliente', 2000);" type="button" name="action"><span class="center">Finalizar Atendimento</span> <i class="right fa fa-stop" aria-hidden="true"></i> </button>
             </div>
         </div>
     </div>
@@ -91,22 +91,18 @@
                 $("#paus").show("fast"); //exibe botão pausar fila
                 $("#elipse").show("fast"); //exibe fila em elipse
                 $("#paus").removeClass("hide"); //mostrar botão pause
-                //desativar
+                //desativar elementos
                 $("#start").prop( "disabled", false );//ativa botao iniciar atendimento
                 $("#sair").prop( "disabled", true );//TODO: desativar botao sair
 
                 //contador para mensagem de notificações ao cliente
                 var i = 1;
-                while (true){ //conta 2x + a primeira chamada
+                for (;i<=2; i++){ //conta 2x + a primeira chamada
                     setTimeout(t, (i*30000)); //conta 30 segundos por chamada
                     //FIXME: arrumar erro logico de soma
-                    i++;
-                    if(($('#start').clickout) || (i == 3 )) {
-                        ticket++; //passa próximo na fila
-                        break;
-                    }
                 }
                 if(i == 3){
+                    ticket++; //passa próximo na fila
                     //Adiciona valores aos elipses
                     $( "#e1" ).html("TW"+(ticket-2));
                     $( "#e2" ).html("TW"+(ticket-1));

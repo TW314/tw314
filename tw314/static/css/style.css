@@ -16,6 +16,9 @@ main {
 .flow-text_3 {
     font-size: 1.5rem !important;
 }
+.flow-text_4 {
+    font-size: 4rem !important;
+}
 .uppercase{text-transform: uppercase;}
 /** Cores **/
 body{ background-color: #fff6f6; color: #564949;}
@@ -243,11 +246,7 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul 
 .margin-contact{
     margin: 0 25% !important;
 }
-@media (max-width: 768px) {
-    .margin-contact{
-        margin: auto !important;
-    }
-}
+
 .btn-xlarge{
     height: 3em;
     line-height: 3em;
@@ -427,18 +426,6 @@ aside.menu-padding {margin: 0 25px;}
     width: 100%;
 }
 
-@media (max-width: 992px){
-    .fixed-footer{
-        position: inherit;
-        right: auto;
-        bottom: auto;
-        padding-top: 15px;
-        margin-bottom: auto;
-        width: 100%;
-        height: auto !important;
-    }
-}
-
 .card .card-reveal {
     background-color: rgba(255, 255, 255, 0.97);
 }
@@ -489,11 +476,11 @@ aside.menu-padding {margin: 0 25px;}
     margin: 4rem auto;
 }
 /** Elipses **/
-.ticket{
+.ticket {
     display: block;
     position: absolute;
-    left: 33%;
-    top: 35%;
+    left: 30.2rem;
+    top: 15.2rem;
 }
 .margin-elipse{margin: auto 2rem;}
 .elipse3{
@@ -530,6 +517,9 @@ aside.menu-padding {margin: 0 25px;}
     width: 17rem;
     height: 17rem;
 }
+#loader{
+    width: 17rem !important; margin-right: 40px !important; margin-left: -13px !important;
+}
 
 .spinner-blue, .spinner-blue-only {border-color: #0095b4;}
 .circle-clipper .circle {border-width: 0.7rem;}
@@ -559,16 +549,6 @@ aside.menu-padding {margin: 0 25px;}
     margin-top: 8rem;
 }
 
-@media (max-width: 992px) {
-    .sobre{
-        margin-left: 35% !important;
-    }
-}
-@media (max-width: 600px) {
-    .sobre{
-        margin-left: 30% !important;
-    }
-}
 
 /********Margin-form para o botão nas telas de cadastro********/
 
@@ -606,20 +586,49 @@ aside.menu-padding {margin: 0 25px;}
 
 }
 
-@media (max-width: 992px) {
-    .center-form{
-        margin-left: 35% !important;
-    }
-}
+/*************************
+**    Responsividade    **
+*************************/
+
+/** Mobile - celular pequeno **/
 @media (max-width: 600px) {
     .center-form{
         margin-left: 35% !important;
     }
+    .sobre{
+        margin-left: 30% !important;
+    }
+    .master aside .side-bottom {
+        margin: auto 0;
+    }
+    .ticket {
+        left: 30.2rem;
+        top: 15.2rem;
+    }
 }
 
+/** Mobile - celular pequeno **/
+@media (max-width: 768px) {
+    .margin-contact{
+        margin: auto !important;
+    }
+}
 
-
-
-
-
-
+/** Tablet/Telas menores **/
+@media (max-width: 992px){
+    .fixed-footer{
+        position: inherit;
+        right: auto;
+        bottom: auto;
+        padding-top: 15px;
+        margin-bottom: auto;
+        width: 100%;
+        height: auto !important;
+    }
+    .center-form{
+        margin-left: 35% !important;
+    }
+    .sobre{
+        margin-left: 35% !important;
+    }
+}
