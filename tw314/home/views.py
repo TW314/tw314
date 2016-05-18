@@ -17,20 +17,24 @@ def login(request):
 def admin_principal(request):
     return render(request, 'home/admin/admin_principal.html', {})
 
+
 # Cadastro de Usuario
 def admin_cadastro_usuario(request):
     return render(request, 'home/admin/admin_cadastrar_usuario.html', {})
 
-# Relatório
+
+# Relatorio
 def admin_relatorio(request):
     return render(request, 'home/admin/admin_relatorio.html', {})
 
-# Cadastro de Serviço
+
+# Cadastro de Servico
 def admin_cadastro_servico(request):
     return render(request, 'home/admin/admin_cadastro_servico.html', {})
 
+
 # Contatar suporte
-def contatar_suporte(request):
+def admin_suporte(request):
     return render(request, 'home/admin/admin_contatar_suporte.html', {})
 
 
@@ -40,13 +44,16 @@ def contatar_suporte(request):
 def suporte_princpal(request):
     return render(request, 'home/suporte/suporte_principal.html', {})
 
+
 # Cadastro de Administrador
 def suporte_cadastro_admin(request):
     return render(request, 'home/suporte/suporte_cadastro_admin.html', {})
 
+
 # Cadastro de Estabelecimento
 def suporte_cadastro_estabelecimento(request):
     return render(request, 'home/suporte/suporte_cadastro_estabelecimento.html', {})
+
 
 # Atendimento
 def suporte_atendimento(request):
@@ -64,7 +71,8 @@ def demo_chart(request):
 def funcionario_principal(request):
     return render(request, "home/funcionario/funcionario_principal.html", {})
 
-# Relatório
+
+# Relatorio
 def funcionario_relatorio(request):
     return render(request, 'home/funcionario/funcionario_relatorio.html', {})
 
@@ -72,3 +80,8 @@ def funcionario_relatorio(request):
 # Sobre
 def sobre(request):
     return render(request, 'home/funcionario/funcionario_sobre.html', {})
+
+
+# Contatar suporte
+def funcionario_suporte(request):
+    return render(request, 'home/funcionario/funcionario_contatar_suporte.html', {})

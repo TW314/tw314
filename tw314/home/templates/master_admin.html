@@ -37,10 +37,12 @@
                 </a>
             </li>
             <li><span class="flow-text_2">TW314 </span></li>
-            <li class="font24 flow-text_2 hide-on-small-and-down"> - {% block titulo %}{% endblock %}</li>
+        </ul>
+        <ul class="">
+            <li class="welcome flow-text_3 light hide-on-med-and-down">  {% block titulo %}{% endblock %}</li>
         </ul>
         <ul class="right ">
-            <li><a class="white-text font24 light" href=""><i class="fa fa-sign-out" aria-hidden="true"></i><span class="hide-on-small-and-down"> SAIR </span></a></li>
+            <li><a class="white-text flow-text_3 light" href=""><i class="fa fa-sign-out" aria-hidden="true"></i><span class="hide-on-small-and-down"> SAIR </span></a></li>
         </ul>
     </nav>
 </header>
@@ -49,16 +51,17 @@
 
     {% endblock %}
 </main>
-<footer class="master page-footer fixed-footer">
+<footer class="master page-footer">
     <div class="row show-on-medium-and-down hide-on-large-only">
         <div class="col s6">
             <span class="logo-footer"><img src="{% static "img/logo_fragmento.png" %}" class="responsive-img" alt="logo TW314"></span>
         </div>
         <div class="col s6 right-align">
             <ul>
-                <li><a class="text-lighten-4 base_text" href="cadastro_servico">Serviços</a></li>
-                <li><a class="text-lighten-4 base_text" href="cadastrar_usuario">Usuários</a></li>
-                <li><a class="text-lighten-4 base_text" href="relatorio">Relatórios</a></li>
+                <li><a class="text-lighten-4 base_text" href="admin_suporte">Suporte</a></li>
+                <li><a class="text-lighten-4 base_text" href="admin_cadastro_servico">Serviços</a></li>
+                <li><a class="text-lighten-4 base_text" href="admin_cadastrar_usuario">Usuários</a></li>
+                <li><a class="text-lighten-4 base_text" href="admin_relatorio">Relatórios</a></li>
             </ul>
         </div>
     </div>
@@ -70,9 +73,10 @@
             © 2016 Ticket Web 314 v 0.0 <span class="hide-on-med-and-down">- Todos os direitos reservados.</span>
         </div>
         <span class="logo-footer hide-on-med-and-down"><img src="{% static "img/logo_fragmento.png" %}" class="responsive-img" alt="logo TW314"></span>
-        <a class="text-lighten-4 right hide-on-med-and-down" href="relatorio">Relatórios</a>
-        <a class="text-lighten-4 right hide-on-med-and-down" href="cadastrar_usuario">Usuários</a>
-        <a class="text-lighten-4 right hide-on-med-and-down" href="cadastro_servico">Serviços</a>
+        <a class="text-lighten-4 right hide-on-med-and-down" href="admin_relatorio">Relatórios</a>
+        <a class="text-lighten-4 right hide-on-med-and-down" href="admin_cadastrar_usuario">Usuários</a>
+        <a class="text-lighten-4 right hide-on-med-and-down" href="admin_cadastro_servico">Serviços</a>
+        <a class="text-lighten-4 right hide-on-med-and-down" href="admin_suporte">Suporte</a>
     </div>
 </footer>
 

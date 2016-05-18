@@ -1,6 +1,15 @@
 /*************
 ** Genérico **
 *************/
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
 .flow-text_2 {
     font-size: 2rem !important;
 }
@@ -572,18 +581,18 @@ aside.menu-padding {margin: 0 25px;}
 *************************/
 
 .modal {
-  display: none;
-  position: fixed;
-  left: 0;
-  right: 0;
-  background-color: rgba(0, 160, 194, 0.56);
-  padding: 0;
-  max-height: 70%;
-  width: 55%;
-  margin: auto;
-  overflow-y: auto;
-  border-radius: 2px;
-  will-change: top, opacity;
+    display: none;
+    position: fixed;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 160, 194, 0.56);
+    padding: 0;
+    max-height: 70%;
+    width: 55%;
+    margin: auto;
+    overflow-y: auto;
+    border-radius: 2px;
+    will-change: top, opacity;
 }
 
 .modal-padding {
