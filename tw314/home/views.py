@@ -26,6 +26,9 @@ def relatorio(request):
 def cadastro_servico(request):
     return render(request, 'home/admin/cadastro_servico.html', {})
 
+def contatar_suporte(request):
+    return render(request, 'home/admin/contatar_suporte.html', {})
+
 
 #Suporte
 def suporte_princpal(request):

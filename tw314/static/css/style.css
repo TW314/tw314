@@ -531,3 +531,28 @@ aside.menu-padding {margin: 0 25px;}
 .modal-padding {
     padding-bottom: 5%;
 }
+
+/*****Centralizar formulário****
+*******************************/
+.center-form {
+    margin-left: 24.6% !important;
+
+}
+
+@media (max-width: 992px) {
+    .center-form{
+        margin-left: 35% !important;
+    }
+}
+@media (max-width: 600px) {
+    .center-form{
+        margin-left: 35% !important;
+    }
+}
+
+
+
+
+
+
+

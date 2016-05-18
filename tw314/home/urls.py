@@ -10,6 +10,7 @@ urlpatterns = [
     url(r'^admin/admin_principal', views.admin_principal),
     url(r'^admin/cadastro_servico', views.cadastro_servico),
     url(r'^admin/relatorio', views.relatorio),
+    url(r'^admin/contatar_suporte', views.contatar_suporte),
     #suporte
     url(r'^suporte/suporte_principal', views.suporte_princpal),
     url(r'^suporte/cadastro_admin', views.cadastro_admin),
