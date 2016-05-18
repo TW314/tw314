@@ -1,0 +1,543 @@
+{% extends "master_admin.html" %}
+
+{% block titulo %} CADASTRAR ESTABELECIMENTO{% endblock %}
+{% block master %}
+    <div class="row">
+        <div class="col s6">
+            <form class="col s12">
+                <div class="row">
+
+                    <div class="input-field col s12">
+                        <input id="last_name" type="text" class="validate">
+                        <label for="last_name">Matriz</label>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="input-field col s12">
+                        <input id="last_name" type="text" class="validate">
+                        <label for="last_name">Nome Fantasia</label>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="input-field col s12">
+                        <input id="last_name" type="text" class="validate">
+                        <label for="last_name">CNPJ</label>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="input-field col s12">
+                        <input id="last_name" type="text" class="validate">
+                        <label for="last_name">Rua</label>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="input-field col s12">
+                        <input id="last_name" type="text" class="validate">
+                        <label for="last_name">Bairro</label>
+                    </div>
+
+                </div>
+                <div class="row">
+
+                    <div class="input-field col s12">
+                        <input id="last_name" type="text" class="validate">
+                        <label for="last_name">Número</label>
+                    </div>
+
+                </div>
+                <div class="row">
+
+                    <div class="input-field col s12">
+                        <input id="last_name" type="text" class="validate">
+                        <label for="last_name">Cidade</label>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select>
+                            <option value="" disabled selected>Selecionar</option>
+                            <option value="1">AC</option>
+                            <option value="2">AL</option>
+                            <option value="3">AP</option>
+                            <option value="4">AM</option>
+                            <option value="5">BA</option>
+                            <option value="6">CE</option>
+                            <option value="7">DF</option>
+                            <option value="8">ES</option>
+                            <option value="9">GO</option>
+                            <option value="10">MA</option>
+                            <option value="11">MT</option>
+                            <option value="12">MS</option>
+                            <option value="13">MG</option>
+                            <option value="14">PR</option>
+                            <option value="15">PB</option>
+                            <option value="16">PA</option>
+                            <option value="17">PE</option>
+                            <option value="18">PI</option>
+                            <option value="19">RJ</option>
+                            <option value="20">RN</option>
+                            <option value="21">RS</option>
+                            <option value="22">RO</option>
+                            <option value="23">RR</option>
+                            <option value="24">SC</option>
+                            <option value="25">SE</option>
+                            <option value="3">SP</option>
+                            <option value="3">TO</option>
+                        </select>
+                        <label>UF</label>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="input-field col s12">
+                        <input id="last_name" type="text" class="validate">
+                        <label for="last_name">Responsável</label>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="input-field col s12">
+                        <input id="last_name" type="text" class="validate">
+                        <label for="last_name">Cargo</label>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="input-field col s12">
+                        <input id="last_name" type="text" class="validate">
+                        <label for="last_name">CPF</label>
+                    </div>
+
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col s8"></div>
+                    <button class="btn waves-effect waves-light right col s4" type="cadastrar" name="action">Cadastrar
+                        <i class="fa fa-check-circle" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <div class="row">
+                    <div class="col s8"></div>
+                    <button class="btn waves-effect waves-light right col s4" type="cancelar" name="action">Cancelar
+                        <i class="fa fa-times-circle" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+
+
+
+            </form>
+        </div>
+        <div class="col s6">
+            <div class="col s12">
+                <table class="highlight">
+                    <thead>
+                    <tr>
+                        <th data-field="matriz">Matriz</th>
+                        <th data-field="nome">Nome Fantasia</th>
+                        <th data-field="cnpj">CNPJ</th>
+                        <th data-field="rua">Rua</th>
+                        <th data-field="bairro">Bairro</th>
+                        <th data-field="numero">Número</th>
+                        <th data-field="rua">Rua</th>
+                        <th data-field="rua">Rua</th>
+                        <th data-field="rua">Rua</th>
+                        <th data-field="rua">Rua</th>
+                        <th data-field="rua">Rua</th>
+
+
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    <tr>
+                        <td>Mylena Maria Silva dos Santos</td>
+                        <td>mylena_admin</td>
+                        <td>Administrador</td>
+                        <td>
+
+                            <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#usuario1"><i class="fa fa-eye" aria-hidden="true"></i></a>
+
+                            <!-- Modal Structure -->
+                            <div id="usuario1" class="modal">
+                                <div class="modal-content">
+                                    <div class="col s6">
+                                        <p style="margin-bottom: 50px;">
+                                            <i class="fa fa-user fa-3x" aria-hidden="true"></i>
+                                            <label class="font18"> Mylena Maria Silva dos Santos</label>
+
+                                        </p>
+                                        <p>
+                                            <label class="font18">Login: mylena_admin</label>
+                                        </p>
+                                        <label class="font18">Perfil: Administrador</label>
+
+
+
+                                    </div>
+                                    <div class="col s6" style="margin-bottom: 300px;">
+                                        <a href="#!" class="modal-action modal-close btn-floating secundaria1_bg right"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+                                    </div>
+
+
+                                    <div class="fixed-action-btn vertical click-to-toggle" style="bottom: 5px; right: 24px;">
+                                        <a class="btn-floating btn-short secundaria1_bg">
+                                            <i class="fa fa-bars" aria-hidden="true"></i>
+                                        </a>
+                                        <ul>
+                                            <li><a class="btn-floating secundaria1_bg "><i class="fa fa-ban" aria-hidden="true"></i></a></li>
+                                            <li><a class="btn-floating secundaria1_bg"><i class="fa fa-key" aria-hidden="true"></i></a></li>
+                                            <li><a class="btn-floating secundaria1_bg "><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                        </td>
+
+
+
+
+                        <!--<td class="fixed-action-btn horizontal click-to-toggle" style="bottom: 455px; right: 153px;">
+                            <a class="btn-floating btn-short secundaria1_bg">
+                                <i class="fa fa-bars" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-ban" aria-hidden="true"></i></a></li>
+                                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                            </ul>
+
+
+                        </td>-->
+                    </tr>
+                    <tr>
+                        <td>Pedro Miguel Scian Ribeiro</td>
+                        <td>pedro_admin</td>
+                        <td>Administrador</td>
+                        <td>
+                            <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#usuario2"><i class="fa fa-eye" aria-hidden="true"></i></a>
+
+                            <!-- Modal Structure -->
+                            <div id="usuario2" class="modal">
+                                <div class="modal-content">
+                                    <div class="col s6">
+                                        <p style="margin-bottom: 50px;">
+                                            <i class="fa fa-user fa-3x" aria-hidden="true"></i>
+                                            <label class="font18"> Pedro Miguel Scian Ribeiro</label>
+
+                                        </p>
+                                        <p>
+                                            <label class="font18">Login: pedro_admin</label>
+                                        </p>
+                                        <label class="font18">Perfil: Administrador</label>
+
+
+
+                                    </div>
+                                    <div class="col s6" style="margin-bottom: 300px;">
+                                        <a href="#!" class="modal-action modal-close btn-floating secundaria1_bg right"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+                                    </div>
+
+
+                                    <div class="fixed-action-btn vertical click-to-toggle" style="bottom: 5px; right: 24px;">
+                                        <a class="btn-floating btn-short secundaria1_bg">
+                                            <i class="fa fa-bars" aria-hidden="true"></i>
+                                        </a>
+                                        <ul>
+                                            <li><a class="btn-floating secundaria1_bg "><i class="fa fa-ban" aria-hidden="true"></i></a></li>
+                                            <li><a class="btn-floating secundaria1_bg"><i class="fa fa-key" aria-hidden="true"></i></a></li>
+                                            <li><a class="btn-floating secundaria1_bg "><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </td>
+                        <!--<<td class="fixed-action-btn horizontal click-to-toggle" style="bottom: 435px; right: 189px; height: 5px; width: 7px;">
+                            <a class="btn-floating btn-short secundaria1_bg">
+                                <i class="fa fa-bars" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-key" aria-hidden="true"></i></a></li>
+                                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
+                                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-ban" aria-hidden="true"></i></a></li>
+                                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                            </ul>
+
+                        </td>-->
+                    </tr>
+                    <tr>
+                        <td>Haluane de Cássia Pereira Amâncio</td>
+                        <td>haluane@admin</td>
+                        <td>Administrador</td>
+                        <td>
+                            <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#usuario3"><i class="fa fa-eye" aria-hidden="true"></i></a>
+
+                            <!-- Modal Structure -->
+                            <div id="usuario3" class="modal">
+                                <div class="modal-content">
+                                    <div class="col s6">
+                                        <p style="margin-bottom: 50px;">
+                                            <i class="fa fa-user fa-3x" aria-hidden="true"></i>
+                                            <label class="font18"> Haluane de Cássia Pereira Amâncio</label>
+
+                                        </p>
+                                        <p>
+                                            <label class="font18">Login: haluane@admin</label>
+                                        </p>
+                                        <label class="font18">Perfil: Administrador</label>
+
+
+
+                                    </div>
+                                    <div class="col s6" style="margin-bottom: 300px;">
+                                        <a href="#!" class="modal-action modal-close btn-floating secundaria1_bg right"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+                                    </div>
+
+
+                                    <div class="fixed-action-btn vertical click-to-toggle" style="bottom: 5px; right: 24px;">
+                                        <a class="btn-floating btn-short secundaria1_bg">
+                                            <i class="fa fa-bars" aria-hidden="true"></i>
+                                        </a>
+                                        <ul>
+                                            <li><a class="btn-floating secundaria1_bg "><i class="fa fa-ban" aria-hidden="true"></i></a></li>
+                                            <li><a class="btn-floating secundaria1_bg"><i class="fa fa-key" aria-hidden="true"></i></a></li>
+                                            <li><a class="btn-floating secundaria1_bg "><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </td>
+                        <!--<td class="fixed-action-btn horizontal click-to-toggle" style="bottom: 382px; right: 190px; height: 5px; width: 7px;">
+                            <a class="btn-floating btn-short secundaria1_bg">
+                                <i class="fa fa-bars" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-key" aria-hidden="true"></i></a></li>
+                                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
+                                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-ban" aria-hidden="true"></i></a></li>
+                                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                            </ul>
+
+                        </td>-->
+                    </tr>
+
+                    <tr>
+                        <td>Camila Corá Novaes</td>
+                        <td>camila_fun</td>
+                        <td>Administrador</td>
+                        <td>
+                            <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#usuario4"><i class="fa fa-eye" aria-hidden="true"></i></a>
+
+                            <!-- Modal Structure -->
+                            <div id="usuario4" class="modal">
+                                <div class="modal-content">
+                                    <div class="col s6">
+                                        <p style="margin-bottom: 50px;">
+                                            <i class="fa fa-user fa-3x" aria-hidden="true"></i>
+                                            <label class="font18"> Camila Corá Novaes</label>
+
+                                        </p>
+                                        <p>
+                                            <label class="font18">Login: camila_fun</label>
+                                        </p>
+                                        <label class="font18">Perfil: Administrador</label>
+
+
+
+                                    </div>
+                                    <div class="col s6" style="margin-bottom: 300px;">
+                                        <a href="#!" class="modal-action modal-close btn-floating secundaria1_bg right"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+                                    </div>
+
+
+                                    <div class="fixed-action-btn vertical click-to-toggle" style="bottom: 5px; right: 24px;">
+                                        <a class="btn-floating btn-short secundaria1_bg">
+                                            <i class="fa fa-bars" aria-hidden="true"></i>
+                                        </a>
+                                        <ul>
+                                            <li><a class="btn-floating secundaria1_bg "><i class="fa fa-ban" aria-hidden="true"></i></a></li>
+                                            <li><a class="btn-floating secundaria1_bg"><i class="fa fa-key" aria-hidden="true"></i></a></li>
+                                            <li><a class="btn-floating secundaria1_bg "><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </td>
+                        <!-- <td class="fixed-action-btn horizontal click-to-toggle" style="bottom: 330px; right: 190px; height: 5px; width: 7px;">
+                             <a class="btn-floating btn-short secundaria1_bg">
+                                 <i class="fa fa-bars" aria-hidden="true"></i>
+                             </a>
+                             <ul>
+                                 <li><a class="btn-floating secundaria1_bg"><i class="fa fa-key" aria-hidden="true"></i></a></li>
+                                 <li><a class="btn-floating secundaria1_bg"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
+                                 <li><a class="btn-floating secundaria1_bg"><i class="fa fa-ban" aria-hidden="true"></i></a></li>
+                                 <li><a class="btn-floating secundaria1_bg"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                             </ul>
+
+                         </td>-->
+                    </tr>
+
+                    <tr>
+                        <td>Alan Henrique de Camargo</td>
+                        <td>alan_fun</td>
+                        <td>Administrador</td>
+                        <td>
+                            <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#usuario5"><i class="fa fa-eye" aria-hidden="true"></i></a>
+
+                            <!-- Modal Structure -->
+                            <div id="usuario5" class="modal">
+                                <div class="modal-content">
+                                    <div class="col s6">
+                                        <p style="margin-bottom: 50px;">
+                                            <i class="fa fa-user fa-3x" aria-hidden="true"></i>
+                                            <label class="font18"> Alan Henrique de Camargo</label>
+
+                                        </p>
+                                        <p>
+                                            <label class="font18">Login: alan_fun</label>
+                                        </p>
+                                        <label class="font18">Perfil: Administrador</label>
+
+
+
+                                    </div>
+                                    <div class="col s6" style="margin-bottom: 300px;">
+                                        <a href="#!" class="modal-action modal-close btn-floating secundaria1_bg right"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+                                    </div>
+
+
+                                    <div class="fixed-action-btn vertical click-to-toggle" style="bottom: 5px; right: 24px;">
+                                        <a class="btn-floating btn-short secundaria1_bg">
+                                            <i class="fa fa-bars" aria-hidden="true"></i>
+                                        </a>
+                                        <ul>
+                                            <li><a class="btn-floating secundaria1_bg "><i class="fa fa-ban" aria-hidden="true"></i></a></li>
+                                            <li><a class="btn-floating secundaria1_bg"><i class="fa fa-key" aria-hidden="true"></i></a></li>
+                                            <li><a class="btn-floating secundaria1_bg "><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </td>
+                        <!--<td class="fixed-action-btn horizontal click-to-toggle" style="bottom: 280px; right: 190px; height: 5px; width: 7px;">
+                            <a class="btn-floating btn-short secundaria1_bg">
+                                <i class="fa fa-bars" aria-hidden="true"></i>
+                            </a>
+                            <ul>
+                                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-key" aria-hidden="true"></i></a></li>
+                                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
+                                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-ban" aria-hidden="true"></i></a></li>
+                                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                            </ul>
+
+                        </td>-->
+                    </tr>
+
+                    <tr>
+                        <td>Ana Maria Ribeiro</td>
+                        <td>ana_admin</td>
+                        <td>Administrador</td>
+                        <td>
+                            <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#usuario6"><i class="fa fa-eye" aria-hidden="true"></i></a>
+
+                            <!-- Modal Structure -->
+                            <div id="usuario6" class="modal">
+                                <div class="modal-content">
+                                    <div class="col s6">
+                                        <p style="margin-bottom: 50px;">
+                                            <i class="fa fa-user fa-3x" aria-hidden="true"></i>
+                                            <label class="font18"> Ana Maria Ribeiro</label>
+
+                                        </p>
+                                        <p>
+                                            <label class="font18">Login: ana_admin</label>
+                                        </p>
+                                        <label class="font18">Perfil: Administrador</label>
+
+
+
+                                    </div>
+                                    <div class="col s6" style="margin-bottom: 300px;">
+                                        <a href="#!" class="modal-action modal-close btn-floating secundaria1_bg right"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+                                    </div>
+
+
+                                    <div class="fixed-action-btn vertical click-to-toggle" style="bottom: 5px; right: 24px;">
+                                        <a class="btn-floating btn-short secundaria1_bg">
+                                            <i class="fa fa-bars" aria-hidden="true"></i>
+                                        </a>
+                                        <ul>
+                                            <li><a class="btn-floating secundaria1_bg "><i class="fa fa-ban" aria-hidden="true"></i></a></li>
+                                            <li><a class="btn-floating secundaria1_bg"><i class="fa fa-key" aria-hidden="true"></i></a></li>
+                                            <li><a class="btn-floating secundaria1_bg "><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </td>
+                        <!-- <td class="fixed-action-btn horizontal click-to-toggle" style="bottom: 230px; right: 190px; height: 5px; width: 7px;">
+                             <a class="btn-floating btn-short secundaria1_bg" >
+                                 <i class="fa fa-bars" aria-hidden="true"></i>
+                             </a>
+                             <ul>
+                                 <li><a class="btn-floating secundaria1_bg"><i class="fa fa-key" aria-hidden="true"></i></a></li>
+                                 <li><a class="btn-floating secundaria1_bg"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
+                                 <li><a class="btn-floating secundaria1_bg"><i class="fa fa-ban" aria-hidden="true"></i></a></li>
+                                 <li><a class="btn-floating secundaria1_bg"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                             </ul>
+
+                         </td>-->
+                    </tr>
+
+
+
+                    </tbody>
+                </table>
+                <br />
+
+
+                <div class="row" align="Right">
+
+                    <ul class="pagination">
+                        <li class="disabled"><a href="#!"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></a></li>
+                        <li class="active"><a href="#!">1</a></li>
+                        <li class="waves-effect"><a href="#!">2</a></li>
+                        <li class="waves-effect"><a href="#!">3</a></li>
+                        <li class="waves-effect"><a href="#!">4</a></li>
+                        <li class="waves-effect"><a href="#!">5</a></li>
+                        <li class="waves-effect"><a href="#!"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></li>
+                    </ul>
+
+                </div>
+                <br />
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
