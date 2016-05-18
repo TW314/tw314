@@ -23,63 +23,61 @@
     <link rel="stylesheet" href="{% static "css/owl.carousel.css" %}">
     <link rel="stylesheet" href="{% static "css/hover-min.css" %}">
     <link rel="stylesheet" href="{% static "css/backtotop.css" %}">
+    <link rel="stylesheet" href="{% static "css/animate.css" %}">
+    <link rel="stylesheet" href="{% static "font-awesome-4.6.2/css/font-awesome.min.css" %}">
     <link rel="stylesheet" href="{% static "css/style.css" %}">
 </head>
 <body>
 <header id="home" class="scrollspy">
-    <nav>
-        <div class="nav-wrapper">
-            <a href="index.html" class="brand-logo white-text margin-title"><i class="material-icons margin-icons">face</i> TW314</a>
-            <ul class="right hide-on-small-only">
-                <li><a href="/login" class="waves-effect waves-light btn white brown-text"><i class="material-icons right entrar">exit_to_app</i>Entrar</a></li>
-            </ul>
-            <ul class="center-align nav-align hide-on-small-only section">
-                <li>
-                    <a href="#home" class="hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal">
-                        <i class="material-icons icon">home</i>
-                    </a>
-                    <p class="flow-text bold">HOME</p>
-                </li>
-                <li>
-                    <a href="#section_how" class="hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal">
-                        <i class="material-icons icon left">info</i>
-                    </a>
-                    <p class="flow-text bold">COMO FUNCIONA?</p>
-                </li>
-                <li>
-                    <a href="#section_clients" class="hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal">
-                        <i class="material-icons icon">group</i>
-                    </a>
-                    <p class="flow-text bold">CLIENTES</p>
-                </li>
-                <li>
-                    <a href="#section_contact" class="hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal">
-                        <i class="material-icons icon">question_answer</i>
-                    </a>
-                    <p class="flow-text bold">CONTATO</p>
-                </li>
-                <li>
-                    <a href="#section_contract" class="hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal">
-                        <i class="material-icons icon">thumb_up</i>
-                    </a>
-                    <p class="flow-text bold">CONTRATAR</p>
-                </li>
-                <li>
-
-                </li>
-
-            </ul>
-            <a class="button-collapse black-text" href="#" data-activates='nav-mobile'><i class="mdi-navigation-menu"></i></a>
-            <ul class="right side-nav"  id="nav-mobile">
-                <li class="valign-wrapper"><a href="#home"><i class="material-icons">home</i> Home</a></li>
-                <li class="valign-wrapper"><a href="#section_how"><i class="material-icons ">info</i> Como Funciona?</a></li>
-                <li class="valign-wrapper"><a href="#section_clients"><i class="material-icons">group</i> Clientes</a></li>
-                <li class="valign-wrapper"><a href="#section_contact"><i class="material-icons">question_answer</i> Contato</a></li>
-                <li class="valign-wrapper"><a href="#section_contract"><i class="material-icons">thumb_up</i> Contratar</a></li>
-                <li class="valign-wrapper"><a href=""><i class="material-icons">exit_to_app</i> Entrar</a></li>
-            </ul>
-        </div>
-    </nav>
+    <div class="navbar-fixed">
+        <nav class="wow fadeIn">
+            <div class="nav-wrapper fixed">
+                <a href="index.html" class="brand-logo white-text margin-title master"><img src="{% static "img/logo-certa.png" %}" class="responsive-img margin-icons icon"> TW314</a>
+                <ul class="right hide-on-small-only">
+                    <li><a href="/login" class="waves-effect waves-light btn white brown-text">
+                        <i class="material-icons right entrar fa fa-sign-in" aria-hidden="true"></i>
+                        Entrar</a>
+                    </li>
+                </ul>
+                <ul class="center-align nav-align hide-on-small-only section">
+                    <li>
+                        <a href="#home" class="hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="HOME">
+                            <i class="fa fa-home icon" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section_how" class="hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Como funciona?">
+                            <i class="fa fa-info-circle icon" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section_clients" class="hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Clientes">
+                            <i class="fa fa-users icon" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section_contact" class="hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Contato">
+                            <i class="fa fa-comments icon" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#section_contract" class="hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Contratar">
+                            <i class="fa fa-thumbs-up icon" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+                <a class="button-collapse black-text" href="#" data-activates='nav-mobile'><i class="mdi-navigation-menu"></i></a>
+                <ul class="right side-nav"  id="nav-mobile">
+                    <li class="valign-wrapper"><a href="#home"><i class="material-icons">home</i> Home</a></li>
+                    <li class="valign-wrapper"><a href="#section_how"><i class="material-icons ">info</i> Como Funciona?</a></li>
+                    <li class="valign-wrapper"><a href="#section_clients"><i class="material-icons">group</i> Clientes</a></li>
+                    <li class="valign-wrapper"><a href="#section_contact"><i class="material-icons">question_answer</i> Contato</a></li>
+                    <li class="valign-wrapper"><a href="#section_contract"><i class="material-icons">thumb_up</i> Contratar</a></li>
+                    <li class="valign-wrapper"><a href=""><i class="material-icons">exit_to_app</i> Entrar</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
     <!--  Parallax Section  -->
     <div class="parallax-container">
         <div class="parallax"><img src="{% static "img/ampulheta.jpg" %}"></div>
@@ -121,7 +119,7 @@
             </div>
         </div>
         <div class="row border-how">
-            <h4 class="light valign-wrapper scrollspy" id="section_how"><i class="material-icons medium">info</i> Como funciona?</h4>
+            <h4 class="light valign-wrapper scrollspy" id="section_how"><i class="fa fa-info-circle medium" aria-hidden="true"></i> Como funciona?</h4>
             <div class="animation-wrapper" id="flexible-animation">
                 <img src="{% static "img/tuto.png" %}" class="responsive-img center-block" alt="animation">
             </div>
@@ -232,7 +230,7 @@
                                             <label for="mensagem">Mensagem</label>
                                         </div>
                                     </div>
-                                <a href="#" class="waves-effect waves-light btn grey right"> Enviar</a>
+                                    <a href="#" class="waves-effect waves-light btn grey right"> Enviar</a>
                                 </form>
                                 <a href=""></a>
                             </div>
@@ -297,7 +295,7 @@
         <a class="text-lighten-4 right" href="#home">Home</a>
     </div>
 </footer>
-<a href="#0" class="cd-top">Top</a>
+<!-- <a href="#0" class="cd-top">Top</a> -->
 
 <!--  Scripts-->
 <script src="{% static "js/jquery-2.1.1.min.js" %}"></script>
@@ -307,7 +305,13 @@
 <script src="{% static "js/init.js" %}"></script>
 
 <script type="text/javascript" src="{% static "js/backtotop.js" %}"></script>
-
+<script src="{% static "js/wow.js" %}"></script>
+<script>
+    new WOW().init();
+    $(document).ready(function(){
+        $('.tooltipped').tooltip({delay: 50});
+    });
+</script>
 <script type="application/javascript">
     $(".button-collapse").sideNav();
     $(document).ready(function(){

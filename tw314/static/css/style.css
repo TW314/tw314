@@ -462,7 +462,9 @@ aside.menu-padding {margin: 0 25px;}
     border-bottom: medium none !important;
     font-size: 18px !important;
 }
-
+i.medium {
+    margin: 1rem;
+}
 .btn-flat:focus {
     outline: none;
     background: transparent;
