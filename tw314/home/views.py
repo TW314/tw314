@@ -29,6 +29,10 @@ def admin_relatorio(request):
 def admin_cadastro_servico(request):
     return render(request, 'home/admin/admin_cadastro_servico.html', {})
 
+# Contatar suporte
+def contatar_suporte(request):
+    return render(request, 'home/admin/admin_contatar_suporte.html', {})
+
 
 # Suporte
 
