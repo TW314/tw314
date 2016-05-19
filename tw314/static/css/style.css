@@ -87,6 +87,15 @@ html{font-family: 'lato', sans-serif;}
 /************
 ** OnePage **
 ************/
+/** Animacao **/
+#fa-mobile{
+    font-size: 8rem;
+    left: 16%;
+    position: absolute;
+    transition: all 0s cubic-bezier(0.6, -0.28, 0.12, 1) 0s;
+    transform: rotate(25deg);
+    top: 5%;
+}
 .card .card-image {
     background: #564949;
 }

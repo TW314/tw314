@@ -12,10 +12,12 @@
     <title>TW314</title>
 
     <!-- Favicons
-    <link rel="apple-touch-icon-precomposed" href="images/favicon/apple-touch-icon-152x152.png">
-    <meta name="msapplication-TileColor" content="#FFFFFF">
-    <meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png">
-    <link rel="icon" href="images/favicon/favicon-32x32.png" sizes="32x32">
+    <meta name="msapplication-TileColor" content="transparent">
+    <meta name="msapplication-TileImage" content="{% static "img/favicon.ico" %}">
+    <link rel="apple-touch-icon-precomposed" href="{% static "img/favicon.ico" %}">
+    <link rel="icon" href="{% static "img/favicon.ico" %}" sizes="32x32">-->
+    <link rel="shortcut icon" href="{% static "img/favicon.ico" %}" type="image/x-icon">
+    <link rel="icon" href="{% static "img/favicon.ico" %}" type="image/x-icon">
     <!-- CSS-->
 
     <link href="{% static "css/materialize.min.css" %}" type="text/css" rel="stylesheet" media="screen,projection">
