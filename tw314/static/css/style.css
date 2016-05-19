@@ -81,12 +81,15 @@ body{ background-color: #fff6f6; color: #564949;}
 
 html{font-family: 'lato', sans-serif;}
 .parallax-container { height: 39em; }
+.parallax-container2 {height: 45em;}
 
 
 /************
 ** OnePage **
 ************/
-
+.card .card-image {
+    background: #564949;
+}
 nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons{ display: inline; }
 .menu_circle{
     width: 6em;
@@ -99,8 +102,14 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons{ display: 
 .menu ul li { margin: auto 15px; }
 footer.page-footer {
     color: #fff6f6;
-    background: #ee4d2e;
+    background: rgba(86, 73, 73, 0.15);
     padding: 0.7em;
+    margin-top: 0;
+    border-top: solid 1px #fff6f6;
+}
+footer.master.page-footer {
+    color: #fff6f6;
+    background: #ee4d2e;
 }
 footer.page-footer .footer-copyright { background: none; }
 footer.page-footer .footer-copyright a {
@@ -128,6 +137,7 @@ nav { background-color: #ee692e; }
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
 }
 .bold{ font-weight: normal; }
+.bolder, .bolder a, .bolder span{ font-weight: bolder; }
 .hvr-reveal { display: inherit; }
 
 .hvr-reveal::before {
@@ -174,7 +184,7 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul 
 .border-how{
     border-top: solid 1px #eeeeee;
 }
-.section-parallax{margin-top: -35em;}
+.section-parallax{margin-top: -40em;}
 
 .item{
     padding: 0 1em;
@@ -245,6 +255,7 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul 
 }
 .margin-contact{
     margin: 0 25% !important;
+    padding: unset !important;
 }
 
 .btn-xlarge{
@@ -259,6 +270,7 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul 
 .cd-top:hover {
     background-color: #00a0c2;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 15px 0 rgba(0,0,0,0.12);
+    position: absolute;
 }
 
 .cd-top {
@@ -266,6 +278,7 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul 
     box-shadow: 0 2px 5px 0 rgba(0, 160, 194, 0.16),0 2px 10px 0 rgba(0,0,0,0.12);
     border-radius: 50%;
     bottom: 50px;
+    position: absolute;
 }
 
 .section {
@@ -417,7 +430,7 @@ aside.menu-padding {margin: 0 25px;}
     background-color: #00809c;
 }
 .fixed-footer{
-    position: fixed;
+    position: absolute;
     right: 0;
     bottom: 0;
     padding-top: 15px;
@@ -481,8 +494,8 @@ i.medium {
 .ticket {
     display: block;
     position: absolute;
-    left: 29.6rem;
-    top: 15.2rem;
+    left: 28.8rem;
+    top: 5rem;
 }
 .margin-elipse{margin: auto 2rem;}
 .elipse3{
@@ -541,7 +554,7 @@ i.medium {
     margin-left: 15%;
 }
 .rodape-funcionario {
-    margin-top: 23rem;
+    margin-top: 17rem;
 }
 /*************************
 ** Fim Main Funcionário **
@@ -607,19 +620,19 @@ i.medium {
 *************************/
 
 textarea.materialize-textarea {
-  background-color: transparent;
-  border: none;
-  border-bottom: 1px solid #9e9e9e;
-  border-radius: 0;
-  outline: none;
-  height: 10rem;
-  width: 100%;
-  font-size: 1rem;
-  margin: 0 0 15px 0;
-  padding: 0;
-  box-shadow: none;
-  box-sizing: content-box;
-  transition: all .3s;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #9e9e9e;
+    border-radius: 0;
+    outline: none;
+    height: 10rem;
+    width: 100%;
+    font-size: 1rem;
+    margin: 0 0 15px 0;
+    padding: 0;
+    box-shadow: none;
+    box-sizing: content-box;
+    transition: all .3s;
 }
 
 input:not([type]):focus:not([readonly]),
@@ -634,8 +647,8 @@ input[type=tel]:focus:not([readonly]),
 input[type=number]:focus:not([readonly]),
 input[type=search]:focus:not([readonly]),
 textarea.materialize-textarea:focus:not([readonly]) {
-  border-bottom: 1px solid #ee692e;
-  box-shadow: 0 1px 0 0 #ee692e;
+    border-bottom: 1px solid #ee692e;
+    box-shadow: 0 1px 0 0 #ee692e;
 }
 
 input:not([type]):focus:not([readonly]) + label,
@@ -650,7 +663,7 @@ input[type=tel]:focus:not([readonly]) + label,
 input[type=number]:focus:not([readonly]) + label,
 input[type=search]:focus:not([readonly]) + label,
 textarea.materialize-textarea:focus:not([readonly]) + label {
-  color: #ee692e;
+    color: #ee692e;
 }
 
 /***************************************************************
@@ -680,8 +693,8 @@ input[type=search].valid,
 input[type=search]:focus.valid,
 textarea.materialize-textarea.valid,
 textarea.materialize-textarea:focus.valid {
-  border-bottom: 1px solid #4CAF50;
-  box-shadow: 0 1px 0 0 #4CAF50;
+    border-bottom: 1px solid #4CAF50;
+    box-shadow: 0 1px 0 0 #4CAF50;
 }
 
 input:not([type]).valid + label:after,
@@ -708,9 +721,9 @@ input[type=search].valid + label:after,
 input[type=search]:focus.valid + label:after,
 textarea.materialize-textarea.valid + label:after,
 textarea.materialize-textarea:focus.valid + label:after {
-  content: attr(data-success);
-  color: #4CAF50;
-  opacity: 1;
+    content: attr(data-success);
+    color: #4CAF50;
+    opacity: 1;
 }
 
 /***************************************************************
@@ -740,8 +753,8 @@ input[type=search].invalid,
 input[type=search]:focus.invalid,
 textarea.materialize-textarea.invalid,
 textarea.materialize-textarea:focus.invalid {
-  border-bottom: 1px solid #F44336;
-  box-shadow: 0 1px 0 0 #F44336;
+    border-bottom: 1px solid #F44336;
+    box-shadow: 0 1px 0 0 #F44336;
 }
 
 input:not([type]).invalid + label:after,
@@ -768,9 +781,9 @@ input[type=search].invalid + label:after,
 input[type=search]:focus.invalid + label:after,
 textarea.materialize-textarea.invalid + label:after,
 textarea.materialize-textarea:focus.invalid + label:after {
-  content: attr(data-error);
-  color: #F44336;
-  opacity: 1;
+    content: attr(data-error);
+    color: #F44336;
+    opacity: 1;
 }
 
 /*************************
