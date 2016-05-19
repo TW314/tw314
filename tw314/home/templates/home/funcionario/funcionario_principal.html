@@ -4,7 +4,7 @@
 {% block master %}
     <div class="row">
         <div class="col m6 hide-on-small-and-down">
-            <h6 class="uppercase texto_text flow-text_3">há <span class="principal_v_text">10 pessoas </span> na fila de espera</h6>
+            <h6 class="uppercase texto_text flow-text_3">há <span id="fila" class="principal_v_text">10 pessoas </span> na fila de espera</h6>
         </div>
         <div class="col s12 m6">
             <button id="play" onclick="Materialize.toast('Chamando cliente', 2000);" class="tooltipped right secundaria2_text btn-flat" data-position="left" data-delay="50" data-tooltip="Iniciar fila"><i class="fa fa-play-circle-o font80" aria-hidden="true"></i></button>
@@ -78,7 +78,8 @@
     </script>
     <script>
         window.onload = function() {
-            var ticket = 314;
+            var ticket = 313;
+            var fila = 11;
             function t() {
                 Materialize.toast('Chamando cliente novamente', 2000);
             }
@@ -103,12 +104,14 @@
                 }
                 if(i == 3){
                     ticket++; //passa próximo na fila
+                    fila--;
                     //Adiciona valores aos elipses
                     $( "#e1" ).html("TW"+(ticket-2));
                     $( "#e2" ).html("TW"+(ticket-1));
                     $( "#e5" ).html("TW"+ticket);
                     $( "#e4" ).html("TW"+(ticket+1));
                     $( "#e3" ).html("TW"+(ticket+2));
+                    $( "#fila" ).html((fila-1)+" pessoas");
                 }
             }); //inicia fila
 
@@ -168,12 +171,14 @@
                     //FIXME: arrumar erro logico de soma
                 }
                 ticket++; //passa próximo na fila
+                fila--;
                 //Adiciona valores aos elipses
                 $( "#e1" ).html("TW"+(ticket-2));
                 $( "#e2" ).html("TW"+(ticket-1));
                 $( "#e5" ).html("TW"+ticket);
                 $( "#e4" ).html("TW"+(ticket+1));
                 $( "#e3" ).html("TW"+(ticket+2));
+                $( "#fila" ).html((fila-1)+" pessoas");
             }); //finaliza atendimento
         }
     </script>
