@@ -611,6 +611,9 @@ i.medium {
     border-radius: 2px;
     will-change: top, opacity;
 }
+.modal-footer {
+    background-color: rgba(0, 160, 194, 0.56) !important;
+}
 
 .modal-padding {
     padding-bottom: 5%;
