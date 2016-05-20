@@ -10,42 +10,40 @@
     <!--Script highchart fim-->
     <div class="row">
         <div class="col s6">
-            <div class="row">
+            <div class="col s6">
                 <!--Filtro para relatório inicio-->
-                <div class="input-field col s4">
-                    <select class="icons" id="filtro">
-                        <option value="none" disabled selected>Selecione um filtro</option>
-                        <option value="sem_filtro" data-icon="images/sample-1.jpg" class="left circle">Sem Filtro</option>
-                        <option value="servico" data-icon="images/sample-2.jpg" class="left circle">Serviço</option>
-                        <option value="funcionario" data-icon="images/office.jpg" class="left circle">Funcionario</option>
+                <div class="input-field col s12">
+                    <select multiple id="filtro">
+                        <option value="" disabled selected>Selicone os filtros</option>
+                        <option value="servico">Serviço</option>
+                        <option value="funcionario">Funcionário</option>
                     </select>
-                    <label>Filtrar por</label>
+                    <label>Filtrar por:</label>
                 </div>
                 <!--Filtro para relatório fim-->
-
                 <!--Filtro para relatório inicio-->
-                <div class="input-field col s4">
+                <div class="input-field col s12">
                     <select class="icons" id="grafico">
                         <option value="" disabled selected>Selecione um gráfico</option>
-                        <option value="areaspline" data-icon="images/sample-1.jpg" class="left circle">Areaspline</option>
-                        <option value="column" data-icon="images/office.jpg" class="left circle">Coluna</option>
-                        <option value="column_drilldown" data-icon="images/office.jpg" class="left circle">Coluna Drilldown</option>
-                        <option value="pie_drilldown" data-icon="images/office.jpg" class="left circle">Torta</option>
-                        <option value="container" data-icon="images/office.jpg" class="left circle">Áreas</option>
+                        <option value="areaspline" class="left circle"  data-icon="{% static "img/fa-area-chart.png" %}" > Área</option>
+                        <option value="column" data-icon="{% static "img/fa-bar-chart.png" %}" class="left circle">Coluna</option>
+                        <option value="column_drilldown" data-icon="{% static "img/fa-bar-chart.png" %}" class="left circle">Coluna Drilldown</option>
+                        <option value="pie_drilldown" data-icon="{% static "img/fa-pie-chart.png" %}" class="left circle">Torta</option>
+                        <!--<option value="container" data-icon="images/office.jpg" class="left circle">Áreas</option> -->
                     </select>
                     <label>Tipo de Gráfico</label>
                 </div>
                 <!--Filtro para relatório fim-->
-
+            </div>
+            <div class="col s6">
+                <div class="input-field col s12">
                 <!-- Date Picker do Periodo Inicial inicio-->
-                <div class="input-field col s2">
                     <label>Periodo Inicial</label>
                     <input type="date" class="datepicker">
-                </div>
                 <!-- Date Picker do Periodo Inicial fim-->
-
+                </div>
                 <!-- Date Picker do Periodo Inicial inicio-->
-                <div class="input-field col s2">
+                <div class="input-field col s12">
                     <label>Periodo Final</label>
                     <input type="date" class="datepicker">
                 </div>
