@@ -139,7 +139,7 @@ nav { background-color: #ee692e; }
 .nav-align{
     position: absolute;
     margin-top: 64px;
-    padding: 20px 25%;
+    padding: 20px 21%;
     background: rgba(0, 128, 156, 0.35);
     z-index: 1;
     width: 100%;
