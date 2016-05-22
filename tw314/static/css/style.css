@@ -20,14 +20,14 @@ main {
     font-size: 4rem !important;
 }
 .uppercase{text-transform: uppercase;}
-/** Cores **/
+/** Cores
 body{ background-color: #fff6f6; color: #564949;}
 .brown{ background-color: #564949; }
 .brown-text{ color: #564949; }
 .white{ background-color: #fff6f6; }
 .white-text{ color: #fff6f6; }
 .blue{ background-color: #00a0c2 !important; }
-.blue-text{ color: #00a0c2; }
+.blue-text{ color: #00a0c2; }**/
 
 .principal_text{color: #ee692e;}
 .principal_bg{background: #ee692e;}
@@ -348,6 +348,7 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul 
 *************************/
 
 .menu-padding {margin: 15px;}
+.menu-padding2 {margin: 0 15px;}
 aside.menu-padding {margin: 0 25px;}
 .side-top{
     margin-top: 15px;
@@ -440,6 +441,15 @@ aside.menu-padding {margin: 0 25px;}
 }
 .fixed-footer{
     position: absolute;
+    right: 0;
+    bottom: 0;
+    padding-top: 15px;
+    margin-bottom: 0;
+    z-index: 998;
+    width: 100%;
+}
+.fixed-footer2{
+    position: fixed;
     right: 0;
     bottom: 0;
     padding-top: 15px;
@@ -834,8 +844,8 @@ textarea.materialize-textarea:focus.invalid + label:after {
 
 /** Tablet/Telas menores **/
 @media (max-width: 992px){
-    .fixed-footer{
-        position: inherit;
+    .fixed-footer2{
+        position: relative;
         right: auto;
         bottom: auto;
         padding-top: 15px;
