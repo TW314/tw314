@@ -52,7 +52,7 @@
                     <a href="/" class="brand-logo center"><img src="{% static "img/logo-certa.png" %}" class="responsive-img" alt="logo TW314"><span class=""> </span></a>
                 </div>
                 <div class="center" style="margin-bottom: 100px;">
-                    <span class="card-title texto_text flow-text_3">Faça seu Login!</span>
+                    <span id="he" class="card-title texto_text flow-text_3">Faça seu Login no TW314!</span>
                 </div>
             </nav>
         </div>
@@ -63,7 +63,8 @@
                 <div class="col s12 m8 l6 margin-contact">
                     <div class="card hoverable">
                         <div class="card-action">
-                            <form class="col s12">
+                            <form class="col s12" id="login">
+                                <h6>Insira seus dados para acessar sua conta:</h6>
                                 <div class="row">
                                     <div class="input-field col s12">
                                         <input id="login" type="text" class="validate">
@@ -78,8 +79,23 @@
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <a href="#modal1" class="secundaria1_text modal-trigger">Esqueci minha senha</a>
-                                        <a href="../funcionario/funcionario_principal" class="waves-effect waves-light btn secundaria1_bg right">Entrar</a>
+                                        <button id="ir-reset" type="button" class="secundaria1_text btn-flat">Esqueci minha senha</button>
+                                        <a href="../funcionario/funcionario_principal" class="waves-effect waves-light btn secundaria1_bg right"><i class="material-icons right fa fa-sign-in" aria-hidden="true"></i> Entrar</a>
+                                    </div>
+                                </div>
+                            </form>
+                            <form class="col s12" hidden id="reset">
+                                <h6>Informe seu e-mail abaixo e receberá um link para alterar sua senha:</h6>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="email" type="email" class="validate">
+                                        <label for="email">E-mail</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <button id="ir-login" type="button" class="secundaria1_text btn-flat">Entrar com minha conta</button>
+                                        <a href="../funcionario/funcionario_principal" class="waves-effect waves-light btn secundaria1_bg right"><i class="material-icons right fa fa-paper-plane" aria-hidden="true"></i> Enviar</a>
                                     </div>
                                 </div>
                             </form>
@@ -98,50 +114,34 @@
         </div>
     </div>
 </footer>
-<!-- Inicio da estrutura do Modal -->
+<!-- Inicio da estrutura do Modal
 <div id="modal1" class="modal base_text modal-fixed-footer">
     <div class="modal-content">
         <h4><i class="fa fa-key" aria-hidden="true"></i> Enviar senha</h4>
-        <div class="card base_bg texto_text">
-            <div class="card-content texto_text">
-                <span class="card-title">Informe seu e-mail abaixo e receberá um link para alterar sua senha:</span>
-                <form class="col s12">
-                    <div class="row">
-                        <div class="input-field col s12">
-                            <input id="email" type="email" class="validate" placeholder="Digite seu e-mail aqui">
-                            <label for="email">E-mail</label>
-                        </div>
-                    </div>
-                </form>
+        <p></p>
+        <span class="card-title">Informe seu e-mail abaixo e receberá um link para alterar sua senha:</span>
+        <form class="col s12">
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="email" type="email" class="validate">
+                    <label for="email">Last Name</label>
+                </div>
             </div>
-        </div>
+        </form>
     </div>
     <div class="modal-footer">
         <!-- <button class="btn waves-effect waves-light right col s4 modal-action modal-close" type="reset" name="cancelar">Cancelar
                 <i class="fa fa-times-circle" aria-hidden="true"></i>
-            </button> -->
+            </button>
         <button class="btn sucesso_bg waves-effect waves-light right col s4 modal-action modal-close" type="submit" name="enviar">Enviar <i class="fa fa-check-circle right" aria-hidden="true"></i>
         </button>
     </div>
-</div>
+</div>-->
 
 <!--  Scripts-->
 <script src="{% static "js/jquery-2.1.1.min.js" %}"></script>
-<script type="text/javascript">
-    (function() {
-        var bodyEl = $('body'),
-                navToggleBtn = bodyEl.find('.nav-toggle-btn');
-
-        navToggleBtn.on('click', function(e) {
-            bodyEl.toggleClass('active-nav');
-            e.preventDefault();
-        });
-    })();
-</script>
-<script src="{% static "js/owl.carousel.min.js" %}"></script>
 <script src="{% static "js/materialize.min.js" %}"></script>
 <script src="{% static "js/init.js" %}"></script>
-<script type="text/javascript" src="{% static "js/backtotop.js " %}"></script>
 <script type="application/javascript">
     $(".button-collapse").sideNav();
     $(document).ready(function(){
@@ -166,10 +166,24 @@
     });
 </script>
 <script>
-    // Initialize collapse button
-    $(".button-collapse").sideNav({closeOnClick: true});
-    // Initialize collapsible (uncomment the line below if you use the dropdown variation)
-    //$('.collapsible').collapsible();
+    window.onload = function() {
+        //chama form de resetar senha
+        $('#ir-reset').on('click', function () {
+            //Ocultar elementos
+            $("#reset").show("slow"); //oculpa mensagem inicial
+            $("#login").hide("slow"); //oculta botão iniciar fila
+            //mudar valor
+            $( "#he" ).html("Redefinir sua senha");
+        });
+        $('#ir-login').on('click', function () {
+            //Ocultar elementos
+            $("#reset").hide("slow"); //oculpa mensagem inicial
+            $("#login").show("slow"); //oculta botão iniciar fila
+            //mudar valor
+            $( "#he" ).html("Faça seu Login no TW314!");
+
+        });
+    }
 </script>
 
 </body>
