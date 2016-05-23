@@ -3,21 +3,33 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>TW314</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="msapplication-tap-highlight" content="no">
-    <meta name="description" content="Materialize is a modern responsive CSS framework based on Material Design by Google. ">
+    <meta name="description" content="TW314 é um sistema de acompanhamento de fila feito para o século 21">
     <title>TW314</title>
 
-    <!-- Favicons
-    <meta name="msapplication-TileColor" content="transparent">
-    <meta name="msapplication-TileImage" content="{% static "img/favicon.ico" %}">
-    <link rel="apple-touch-icon-precomposed" href="{% static "img/favicon.ico" %}">
-    <link rel="icon" href="{% static "img/favicon.ico" %}" sizes="32x32">-->
-    <link rel="shortcut icon" href="{% static "img/favicon.ico" %}" type="image/x-icon">
-    <link rel="icon" href="{% static "img/favicon.ico" %}" type="image/x-icon">
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static "img/favicons/apple-touch-icon-57x57.png" %}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{% static "img/favicons/apple-touch-icon-60x60.png" %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static "img/favicons/apple-touch-icon-72x72.png" %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static "img/favicons/apple-touch-icon-76x76.png" %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static "img/favicons/apple-touch-icon-114x114.png" %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static "img/favicons/apple-touch-icon-120x120.png" %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static "img/favicons/apple-touch-icon-144x144.png" %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static "img/favicons/apple-touch-icon-152x152.png" %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static "img/favicons/apple-touch-icon-180x180.png" %}">
+    <link rel="icon" type="image/png" href="{% static "img/favicons/favicon-32x32.png" %}" sizes="32x32">
+    <link rel="icon" type="image/png" href="{% static "img/favicons/android-chrome-192x192.png" %}" sizes="192x192">
+    <link rel="icon" type="image/png" href="{% static "img/favicons/favicon-96x96.png" %}" sizes="96x96">
+    <link rel="icon" type="image/png" href="{% static "img/favicons/favicon-16x16.png" %}" sizes="16x16">
+    <link rel="manifest" href="{% static "img/favicons/manifest.json" %}">
+    <link rel="mask-icon" href="{% static "img/favicons/safari-pinned-tab.svg" %}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="{% static "img/favicons/mstile-144x144.png" %}">
+    <meta name="theme-color" content="#f16000">
+
     <!-- CSS-->
 
     <link href="{% static "css/materialize.min.css" %}" type="text/css" rel="stylesheet" media="screen,projection">
@@ -31,23 +43,26 @@
 </head>
 <body  onload="startTime()">
 <header class="master">
-    <nav>
-        <ul>
-            <li><a href="#" class="nav-toggle-btn brand-logo"><i class="fa fa-bars fa-2x menu-padding" aria-hidden="true"></i></a></li>
-            <li>
-                <a href="funcionario_principal" class="white-text">
-                    <img src="{% static "img/logo-certa.png" %}" class="responsive-img" alt="logo TW314">
-                </a>
-            </li>
-            <li class="flow-text_2"><span class="">TW314 </span></li>
-        </ul>
-        <ul class="">
-            <li class="welcome flow-text_3 light hide-on-med-and-down">  {% block titulo %}{% endblock %}</li>
-        </ul>
-        <ul class="right ">
-            <li><a class="white-text flow-text_3 light" id="sair" href="../login"><i class="fa fa-sign-out" aria-hidden="true"></i> <span class="hide-on-small-and-down"> SAIR </span> </a></li>
-        </ul>
-    </nav>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <ul>
+                    <li><a href="#" class="nav-toggle-btn brand-logo"><i class="fa fa-bars fa-2x menu-padding2" aria-hidden="true"></i></a></li>
+                    <li>
+                        <a href="funcionario_principal" class="white-text">
+                            <img src="{% static "img/logo-certa.png" %}" class="responsive-img" alt="logo TW314">
+                        </a>
+                    </li>
+                    <li><span class="flow-text_2">TW314 </span></li>
+                </ul>
+                <a href="#" class="flow-text_3 light hide-on-med-and-down brand-logo center">{% block titulo %}{% endblock %}</a>
+                <ul class="right">
+                    <li class="hide-on-small-only">Bem-vindo, Funcionário </li>
+                    <li><a class="white-text flow-text_3 light" href="../login"><i class="fa fa-sign-out" aria-hidden="true"></i><span class="hide-on-small-and-down"> SAIR </span></a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
     <!-- Inicio do menu lateral -->
     <aside class="collection with-header menu-border base_bg">
         <a href="#" class="nav-toggle-btn collection-header menu-header principal_text"><span class="font24">TW314</span> <i class="fa fa-chevron-left font24 menu-padding" aria-hidden="true"></i></a>
@@ -70,7 +85,7 @@
         <!-- Inicio da secao de opcoes do menu -->
         <ul class="line-side">
             <li><a href="funcionario_relatorio" class="collection-item texto_text light waves-effect btn-flat"><i class="fa fa-clipboard" aria-hidden="true"></i> Relatório</a></li>
-            <li><a href="#" class="collection-item texto_text light waves-effect btn-flat"><i class="fa fa-user" aria-hidden="true"></i> Perfil</a></li>
+            <li><a href="#modal1" class="modal-trigger collection-item texto_text light waves-effect btn-flat"><i class="fa fa-user" aria-hidden="true"></i> Perfil</a></li>
         </ul>
         <ul class="side-bottom line-side">
             <li><a href="../sobre" class="collection-item texto_text light waves-effect btn-flat"><i class="fa fa-info-circle" aria-hidden="true"></i> Sobre</a></li>
@@ -80,11 +95,65 @@
     </aside>
     <!-- Fim do menu lateral -->
 </header>
-<main class="content">
+<main class="content base_bg">
     {%  block master %}
 
     {% endblock %}
 </main>
+<!-- Inicio da estrutura do Modal -->
+<div id="modal1" class="modal white-text">
+    <div class="modal-content">
+        <div class="row modal-padding">
+            <div class="col s8" style="margin: 15px auto;">
+                <!-- Dados do usuario -->
+                <div class="row">
+                    <div class="col s2">
+                        <i class="fa fa-user fa-3x" aria-hidden="true"></i>
+                    </div>
+                    <div class="col s10">
+                        <h5>Jaílson Vidal Sampaio</h5>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s2">
+                        <span class="font18 white-text">Login:</span>
+                    </div>
+                    <div class="col s7">
+                        <span class="font18 white-text">jailson_uni</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s2">
+                        <span class="font18 white-text">Perfil:</span>
+                    </div>
+                    <div class="col s7">
+                        <span class="font18 white-text">Funcionário</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col s4 right">
+                <!-- Botao que fecha Modal -->
+                <div class="row">
+                    <a href="#!" class="modal-action modal-close btn-floating secundaria1_bg right"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
+                </div>
+                <div class="row">
+                    <!-- Menu de acoes da Modal -->
+                    <div class="fixed-action-btn vertical click-to-toggle">
+                        <a class="btn-floating btn-short secundaria1_bg">
+                            <i class="fa fa-bars" aria-hidden="true"></i>
+                        </a>
+                        <ul>
+                            <li><a class="btn-floating secundaria1_bg"><i class="fa fa-key" aria-hidden="true"></i></a></li>
+                            <li><a class="btn-floating secundaria1_bg"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                            <li><a class="btn-floating secundaria1_bg"><i class="fa fa-clipboard" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fim da estrutura do Modal -->
 
 <!--  Scripts-->
 <script src="{% static "js/jquery-2.1.1.min.js" %}"></script>

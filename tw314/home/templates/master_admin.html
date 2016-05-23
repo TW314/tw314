@@ -3,21 +3,33 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>TW314</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="msapplication-tap-highlight" content="no">
-    <meta name="description" content="Materialize is a modern responsive CSS framework based on Material Design by Google. ">
+    <meta name="description" content="TW314 é um sistema de acompanhamento de fila feito para o século 21">
     <title>TW314</title>
 
-    <!-- Favicons
-    <meta name="msapplication-TileColor" content="transparent">
-    <meta name="msapplication-TileImage" content="{% static "img/favicon.ico" %}">
-    <link rel="apple-touch-icon-precomposed" href="{% static "img/favicon.ico" %}">
-    <link rel="icon" href="{% static "img/favicon.ico" %}" sizes="32x32">-->
-    <link rel="shortcut icon" href="{% static "img/favicon.ico" %}" type="image/x-icon">
-    <link rel="icon" href="{% static "img/favicon.ico" %}" type="image/x-icon">
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static "img/favicons/apple-touch-icon-57x57.png" %}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{% static "img/favicons/apple-touch-icon-60x60.png" %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static "img/favicons/apple-touch-icon-72x72.png" %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static "img/favicons/apple-touch-icon-76x76.png" %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static "img/favicons/apple-touch-icon-114x114.png" %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static "img/favicons/apple-touch-icon-120x120.png" %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static "img/favicons/apple-touch-icon-144x144.png" %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static "img/favicons/apple-touch-icon-152x152.png" %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static "img/favicons/apple-touch-icon-180x180.png" %}">
+    <link rel="icon" type="image/png" href="{% static "img/favicons/favicon-32x32.png" %}" sizes="32x32">
+    <link rel="icon" type="image/png" href="{% static "img/favicons/android-chrome-192x192.png" %}" sizes="192x192">
+    <link rel="icon" type="image/png" href="{% static "img/favicons/favicon-96x96.png" %}" sizes="96x96">
+    <link rel="icon" type="image/png" href="{% static "img/favicons/favicon-16x16.png" %}" sizes="16x16">
+    <link rel="manifest" href="{% static "img/favicons/manifest.json" %}">
+    <link rel="mask-icon" href="{% static "img/favicons/safari-pinned-tab.svg" %}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="{% static "img/favicons/mstile-144x144.png" %}">
+    <meta name="theme-color" content="#f16000">
+
     <!-- CSS-->
 
     <link href="{% static "css/materialize.min.css" %}" type="text/css" rel="stylesheet" media="screen,projection">
@@ -31,29 +43,32 @@
 </head>
 <body>
 <header class="master">
-    <nav>
-        <ul>
-            <li>
-                <a href="admin_principal" class="white-text">
-                    <img src="{% static "img/logo-certa.png" %}" class="responsive-img" alt="logo TW314">
-                </a>
-            </li>
-            <li><span class="flow-text_2">TW314 </span></li>
-        </ul>
-        <ul class="">
-            <li class="welcome flow-text_3 light hide-on-med-and-down">  {% block titulo %}{% endblock %}</li>
-        </ul>
-        <ul class="right ">
-            <li><a class="white-text flow-text_3 light" href="../login"><i class="fa fa-sign-out" aria-hidden="true"></i><span class="hide-on-small-and-down"> SAIR </span></a></li>
-        </ul>
-    </nav>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <ul>
+                    <li>
+                        <a href="admin_principal" class="white-text">
+                            <img src="{% static "img/logo-certa.png" %}" class="responsive-img" alt="logo TW314">
+                        </a>
+                    </li>
+                    <li><span class="flow-text_2">TW314 </span></li>
+                </ul>
+                <a href="#" class="flow-text_3 light hide-on-med-and-down brand-logo center">{% block titulo %}{% endblock %}</a>
+                <ul class="right">
+                    <li class="hide-on-small-only">Bem-vindo, Administrador</li>
+                    <li><a class="white-text flow-text_3 light" href="../login"><i class="fa fa-sign-out" aria-hidden="true"></i><span class="hide-on-small-and-down"> SAIR </span></a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
 </header>
-<main class="content">
+<main class="content base_bg" style="margin-bottom: 70px ;">
     {%  block master %}
 
     {% endblock %}
 </main>
-<footer class="master page-footer">
+<footer class="master page-footer fixed-footer2">
     <div class="row show-on-medium-and-down hide-on-large-only">
         <div class="col s6">
             <span class="logo-footer"><img src="{% static "img/logo_fragmento.png" %}" class="responsive-img" alt="logo TW314"></span>
