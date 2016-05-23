@@ -88,7 +88,7 @@
             <li><a href="#modal1" class="modal-trigger collection-item texto_text light waves-effect btn-flat"><i class="fa fa-user" aria-hidden="true"></i> Perfil</a></li>
         </ul>
         <ul class="side-bottom line-side">
-            <li><a href="../sobre" class="collection-item texto_text light waves-effect btn-flat"><i class="fa fa-info-circle" aria-hidden="true"></i> Sobre</a></li>
+            <li><a href="funcionario_sobre" class="collection-item texto_text light waves-effect btn-flat"><i class="fa fa-info-circle" aria-hidden="true"></i> Sobre</a></li>
             <li><a href="funcionario_suporte" class="collection-item texto_text light waves-effect btn-flat"><i class="fa fa-envelope" aria-hidden="true"></i> Contatar Suporte</a></li>
         </ul>
         <!-- Fim da secao de opcoes do menu -->
@@ -101,55 +101,48 @@
     {% endblock %}
 </main>
 <!-- Inicio da estrutura do Modal -->
-<div id="modal1" class="modal white-text">
-    <div class="modal-content">
-        <div class="row modal-padding">
-            <div class="col s8" style="margin: 15px auto;">
-                <!-- Dados do usuario -->
+<div id="modal1" class="modal modal-fixed-footer base_text">
+    <div class="modal-content modal-padding">
+        <div class="row">
+            <div class="col s8">
+                <h5 class="light valign-wrapper form-title" ><i class="fa fa-user fa-2x" aria-hidden="true"></i><span> Jaílson Vidal Sampaio <small></small> </span></h5>
+            </div>
+            <div class="col s4"><a href="" class="modal-action modal-close btn-flat base_text right"> esc <i class="right fa fa-times" aria-hidden="true"></i></a></div>
+        </div>
+        <div class="row">
+            <!-- Dados -->
+            <div class="col s12">
                 <div class="row">
-                    <div class="col s2">
-                        <i class="fa fa-user fa-3x" aria-hidden="true"></i>
+                    <div class="row small-title">
+                        <small class="secundaria1_v_text">Dados</small>
                     </div>
-                    <div class="col s10">
-                        <h5>Jaílson Vidal Sampaio</h5>
+                    <div class="col s3">
+                        <span class="font18 white-text">Perfil:</span>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col s2">
+                    <div class="col s9">
+                        <span class="font18 white-text">Funcionário</span>
+                    </div>
+                    <div class="col s3">
                         <span class="font18 white-text">Login:</span>
                     </div>
-                    <div class="col s7">
+                    <div class="col s9">
                         <span class="font18 white-text">jailson_uni</span>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col s2">
-                        <span class="font18 white-text">Perfil:</span>
-                    </div>
-                    <div class="col s7">
-                        <span class="font18 white-text">Funcionário</span>
-                    </div>
-                </div>
             </div>
-            <div class="col s4 right">
-                <!-- Botao que fecha Modal -->
-                <div class="row">
-                    <a href="#!" class="modal-action modal-close btn-floating secundaria1_bg right"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
-                </div>
-                <div class="row">
-                    <!-- Menu de acoes da Modal -->
-                    <div class="fixed-action-btn vertical click-to-toggle">
-                        <a class="btn-floating btn-short secundaria1_bg">
-                            <i class="fa fa-bars" aria-hidden="true"></i>
-                        </a>
-                        <ul>
-                            <li><a class="btn-floating secundaria1_bg"><i class="fa fa-key" aria-hidden="true"></i></a></li>
-                            <li><a class="btn-floating secundaria1_bg"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
-                            <li><a class="btn-floating secundaria1_bg"><i class="fa fa-clipboard" aria-hidden="true"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <!-- Menu de acoes da Modal -->
+        <div class="fixed-action-btn horizontal">
+            <a class="btn-floating btn-short secundaria1_bg">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </a>
+            <ul>
+                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-key" aria-hidden="true"></i></a></li>
+                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-clipboard" aria-hidden="true"></i></a></li>
+            </ul>
         </div>
     </div>
 </div>
