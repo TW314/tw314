@@ -4,13 +4,14 @@ from . import views
 urlpatterns = [
     url(r'^$', views.index),
     url(r'^login', views.login),
-    url(r'^sobre', views.sobre),
+    #url(r'^sobre', views.sobre),
     # admin
     url(r'^admin/admin_cadastrar_usuario', views.admin_cadastro_usuario),
     url(r'^admin/admin_principal', views.admin_principal),
     url(r'^admin/admin_cadastro_servico', views.admin_cadastro_servico),
     url(r'^admin/admin_relatorio', views.admin_relatorio),
     url(r'^admin/admin_suporte', views.admin_suporte),
+    url(r'^admin/admin_sobre', views.admin_sobre),
     # suporte
     url(r'^suporte/suporte_principal', views.suporte_princpal),
     url(r'^suporte/suporte_cadastro_admin', views.suporte_cadastro_admin),
@@ -20,6 +21,7 @@ urlpatterns = [
     url(r'^funcionario/funcionario_principal', views.funcionario_principal),
     url(r'^funcionario/funcionario_relatorio', views.funcionario_relatorio),
     url(r'^funcionario/funcionario_suporte', views.funcionario_suporte),
+    url(r'^funcionario/funcionario_sobre', views.funcionario_sobre),
 
     url(r'^teste', views.demo_chart),
 ]
