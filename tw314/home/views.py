@@ -38,6 +38,10 @@ def admin_suporte(request):
     return render(request, 'home/admin/admin_contatar_suporte.html', {})
 
 
+# Sobre
+def admin_sobre(request):
+    return render(request, 'home/admin/admin_sobre.html', {})
+
 # Suporte
 
 # Principal
@@ -78,8 +82,8 @@ def funcionario_relatorio(request):
 
 
 # Sobre
-def sobre(request):
-    return render(request, 'home/sobre.html', {})
+def funcionario_sobre(request):
+    return render(request, 'home/funcionario/funcionario_sobre.html', {})
 
 
 # Contatar suporte

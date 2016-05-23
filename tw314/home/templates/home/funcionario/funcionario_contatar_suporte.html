@@ -1,61 +1,55 @@
 {% extends "master_funcionario.html" %}
-{% block titulo %} CONTATAR SUPORTE {% endblock %}
+{% block titulo %} Contatar Suporte {% endblock %}
 {% block master %}
-
-    <div class="row">
-        <!--Inicio do formulário-->
-        <form class="col s6 m6 center-form"><!-- center-form = Classe para centralizar o Formulário-->
-            <div class="row">
-                <h3 class="brown-text flow-text_2">Preencha sua solicitação</h3>
-                <div class="input-field col s12">
-                    <input placeholder="Assunto" id="first_name" type="text" class="validate">
+    <div class="row margin-form texto_text ">
+        <div class="col s12 m6 offset-m3">
+            <!--Começo do formulário-->
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">Preencha sua solicitação</span>
+                </div>
+                <div class="card-action">
+                    <form class="col s12">
+                        <h6 class="light valign-wrapper form-title secundaria2_text" style="margin-top: 10px;"><i class="fa fa-user small" aria-hidden="true"></i><span> Dados de Acesso </span></h6>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="fa fa-comment-o prefix" aria-hidden="true"></i>
+                                <input id="assunto" type="text" class="validate">
+                                <label for="assunto">Assunto</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <i class="fa fa-envelope prefix" aria-hidden="true"></i>
+                                    <textarea id="mensagem" class="materialize-textarea"></textarea>
+                                    <label for="mensagem">Mensagem</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <small class="small right">ATENÇÃO: Todos os campos são obrigatórios</small>
+                        </div>
+                        <div class="row">
+                            <!--Botão Cancelar-->
+                            <div class="col s12 m6">
+                                <button class="btn waves-effect waves-light right col s12 alerta_bg" type="reset" name="action">Cancelar
+                                    <i class="fa fa-times-circle right" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <!--Fim do botão cancelar-->
+                            <!--Botão Cadastrar-->
+                            <div class="col s12 m6">
+                                <button class="btn waves-effect waves-light right col s12 sucesso_bg" type="submit" name="action">Enviar
+                                    <i class="fa fa-paper-plane right" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <!--Fim do Botão Cadastrar-->
+                        </div>
+                    </form>
+                    <a href=""></a>
                 </div>
             </div>
-            <div class="row">
-                <div class="input-field col s12">
-                    <textarea id="textarea1" class="materialize-textarea" placeholder="Digite sua mensagem aqui"></textarea>
-                </div>
-            </div>
-            <br />
-
-            <!--Botões para enviar e cancelar a solicitação-->
-
-            <div class="row">
-                    <button class="btn waves-effect waves-light right col s4" type="cadastrar" name="action">Enviar
-                        <i class="fa fa-check-circle" aria-hidden="true"></i>
-                    </button>
-            </div>
-
-            <div class="row">
-                    <button class="btn waves-effect waves-light right col s4" type="cancelar" name="action">Cancelar
-                        <i class="fa fa-times-circle" aria-hidden="true"></i>
-                    </button>
-                </div>
-
-            <!--Fim dos botões-->
-
-        </form>
-        <!--Fim do Formulário -->
-     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        </div>
+    </div>
 {% endblock %}
