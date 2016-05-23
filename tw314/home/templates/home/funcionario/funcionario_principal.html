@@ -1,12 +1,12 @@
 {% extends "master_funcionario.html" %}
 {% load staticfiles %}
-{% block titulo %} Bem-vindo, Funcionário {% endblock %}
+{% block titulo %} Principal {% endblock %}
 {% block master %}
     <div class="row">
         <div class="col m6 hide-on-small-and-down">
             <h6 class="uppercase texto_text flow-text_3">há <span id="fila" class="principal_v_text">10 pessoas </span> na fila de espera</h6>
         </div>
-        <div class="col s12 m6">
+        <div class="col s12 m6" style="margin-top: 20px;">
             <button id="play" onclick="Materialize.toast('Chamando cliente', 2000);" class="tooltipped right secundaria2_text btn-flat" data-position="left" data-delay="50" data-tooltip="Iniciar fila"><i class="fa fa-play-circle-o font80" aria-hidden="true"></i></button>
             <button id="paus" class="hide tooltipped right secundaria2_text btn-flat" data-position="left" data-delay="50" data-tooltip="Pausar fila"><i class="fa fa-pause-circle-o font80" aria-hidden="true"></i></button>
         </div>
