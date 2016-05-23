@@ -1,6 +1,6 @@
 {% extends "master_admin.html" %}
 {% load staticfiles %}
-{% block titulo %} Relatorio {% endblock %}
+{% block titulo %} Relatório {% endblock %}
 {% block master %}
     <!--Script highchart inicio-->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
@@ -8,46 +8,55 @@
         ${demo.css}
     </style>
     <!--Script highchart fim-->
+
     <div class="row">
-        <div class="col s6">
+        <div class="col s12">
             <div class="row">
+                <div class="col s12">
+                    <div class="input-field col s12">
+                        <small class="secundaria2_text">Filtros</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6">
                 <!--Filtro para relatório inicio-->
-                <div class="input-field col s4">
-                    <select class="icons" id="filtro">
-                        <option value="none" disabled selected>Selecione um filtro</option>
-                        <option value="sem_filtro" data-icon="images/sample-1.jpg" class="left circle">Sem Filtro</option>
-                        <option value="servico" data-icon="images/sample-2.jpg" class="left circle">Serviço</option>
-                        <option value="funcionario" data-icon="images/office.jpg" class="left circle">Funcionario</option>
+                <div class="input-field col s12 m6">
+                    <select id="filtro">
+                        <option value="" disabled selected>Selecione os filtros</option>
+                        <option value="servico">Serviço</option>
+                        <option value="funcionario">Funcionário</option>
                     </select>
-                    <label>Filtrar por</label>
+                    <label>Filtrar por:</label>
                 </div>
                 <!--Filtro para relatório fim-->
-
-                <!--Filtro para relatório inicio-->
-                <div class="input-field col s4">
+                <!-- Tipo de gráfico inicio-->
+                <div class="input-field col s12 m6">
                     <select class="icons" id="grafico">
-                        <option value="" disabled selected>Selecione um gráfico</option>
-                        <option value="areaspline" data-icon="images/sample-1.jpg" class="left circle">Areaspline</option>
-                        <option value="column" data-icon="images/office.jpg" class="left circle">Coluna</option>
-                        <option value="column_drilldown" data-icon="images/office.jpg" class="left circle">Coluna Drilldown</option>
-                        <option value="pie_drilldown" data-icon="images/office.jpg" class="left circle">Torta</option>
-                        <option value="container" data-icon="images/office.jpg" class="left circle">Áreas</option>
+                        <option value="" disabled selected>Selecione um tipo de gráfico</option>
+                        <option value="areaspline" class="left circle"  data-icon="{% static "img/fa-area-chart.png" %}" > Área</option>
+                        <option value="column" data-icon="{% static "img/fa-bar-chart.png" %}" class="left circle"> Coluna</option>
+                        <option value="column_drilldown" data-icon="{% static "img/fa-bar-chart.png" %}" class="left circle"> Coluna Drilldown</option>
+                        <option value="pie_drilldown" data-icon="{% static "img/fa-pie-chart.png" %}" class="left circle"> Pizza</option>
+                        <!--
+                        <option value="container" data-icon="images/office.jpg" class="left circle">Áreas</option> -->
                     </select>
                     <label>Tipo de Gráfico</label>
                 </div>
-                <!--Filtro para relatório fim-->
-
-                <!-- Date Picker do Periodo Inicial inicio-->
-                <div class="input-field col s2">
-                    <label>Periodo Inicial</label>
-                    <input type="date" class="datepicker">
+                <!-- Tipo de gráfico fim-->
+            </div>
+            <div class="col s12 m6">
+                <div class="input-field col s12 m6">
+                    <!-- Date Picker do Periodo Inicial inicio-->
+                    <i class="fa fa-calendar-o prefix" aria-hidden="true"></i>
+                    <label for="data-inicial" class="active" >Periodo Inicial</label>
+                    <input id="data-inicial" type="date" class="datepicker" >
+                    <!-- Date Picker do Periodo Inicial fim-->
                 </div>
-                <!-- Date Picker do Periodo Inicial fim-->
-
                 <!-- Date Picker do Periodo Inicial inicio-->
-                <div class="input-field col s2">
-                    <label>Periodo Final</label>
-                    <input type="date" class="datepicker">
+                <div class="input-field col s12 m6">
+                    <i class="fa fa-calendar prefix" aria-hidden="true"></i>
+                    <label for="data-final" class="active" >Periodo Final</label>
+                    <input id="data-final" type="date" class="datepicker">
                 </div>
                 <!-- Date Picker do Periodo Inicial fim-->
 
@@ -57,114 +66,185 @@
                 </div>
                 -->
             </div>
-            <div class="row">
-                <!-- Tabela para informações inicio-->
-                <table class="highlight responsive-table">
-                    <thead>
-                    <tr>
-                        <th data-field="id">Name</th>
-                        <th data-field="name">Item Name</th>
-                        <th data-field="price">Item Price</th>
-                    </tr>
-                    </thead>
-
-                    <tbody>
-                    <tr>
-                        <td>Alvin</td>
-                        <td>Eclair</td>
-                        <td>$0.87</td>
-                    </tr>
-                    <tr>
-                        <td>Alan</td>
-                        <td>Jellybean</td>
-                        <td>$3.76</td>
-                    </tr>
-                    <tr>
-                        <td>Jonathan</td>
-                        <td>Lollipop</td>
-                        <td>$7.00</td>
-                    </tr>
-                    <tr>
-                        <td>Alvin</td>
-                        <td>Eclair</td>
-                        <td>$0.87</td>
-                    </tr>
-                    <tr>
-                        <td>Alan</td>
-                        <td>Jellybean</td>
-                        <td>$3.76</td>
-                    </tr>
-                    </tbody>
-                </table>
-                <!-- Tabela para informações fim-->
-
-                <!-- Componente de paginação inicio-->
-                <ul class="pagination">
-                    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-                    <li class="active"><a href="#!">1</a></li>
-                    <li class="waves-effect"><a href="#!">2</a></li>
-                    <li class="waves-effect"><a href="#!">3</a></li>
-                    <li class="waves-effect"><a href="#!">4</a></li>
-                    <li class="waves-effect"><a href="#!">5</a></li>
-                    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-                </ul>
-                <!-- Componente de paginação fim-->
-            </div>
         </div>
+        <div class="col s12">
+            <div class="col s12 m6">
+                <div class="row">
+                    <div class="card white">
+                        <div class="card-content texto_text">
+                            <span id="table" class="card-title">Tabela</span>
+                            <h4 id="table-u" class="center light">Selecione um tipo de filtro para exibir uma tabela</h4>
+                            <!-- Tabela para Servicos inicio-->
+                            <table hidden id="servico" class="highlight responsive-table">
+                                <thead>
+                                <tr>
+                                    <th data-field="id">Serviço</th>
+                                    <th data-field="name">Quantidade de Clientes</th>
+                                    <th data-field="price">Tempo médio de atendimento</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>Recebimento de Encomendas</td>
+                                    <td class="center">16</td>
+                                    <td class="center">5 min.</td>
+                                </tr>
+                                <tr>
+                                    <td>Carta</td>
+                                    <td class="center">56</td>
+                                    <td class="center">4 min.</td>
+                                </tr>
+                                <tr>
+                                    <td>Envio</td>
+                                    <td class="center">9</td>
+                                    <td class="center">7 min.</td>
+                                </tr>
+                                <tr>
+                                    <td>Venda</td>
+                                    <td class="center">23</td>
+                                    <td class="center">15 min.</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <!-- Tabela para Servicos fim-->
 
-        <div class="col s6">
-            <div class="row">
-                <!--Grafico-->
-                <div id="areaspline" class="hide" style="height: 400px; margin: 0 auto"></div>
-                <div id="column" class="hide" style="height: 400px; margin: 0 auto"></div>
-                <div id="column_drilldown" class="hide" style="height: 400px; margin: 0 auto"></div>
-                <div id="pie_drilldown" class="hide" style="height: 400px; margin: 0 auto"></div>
-                <div id="container" class="hide" style="height: 400px; margin: 0 auto"></div>
+                            <!-- Tabela para funcionarios inicio-->
+                            <table hidden id="funcionario" class="highlight responsive-table">
+                                <thead>
+                                <tr>
+                                    <th data-field="id">Funcionário</th>
+                                    <th data-field="name">Clientes Atendidos</th>
+                                    <th data-field="price">Média de Atendimento</th>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+                                <tr>
+                                    <td>Mylena Maria</td>
+                                    <td class="center">20</td>
+                                    <td class="center"> 15 min.</td>
+                                </tr>
+                                <tr>
+                                    <td>Pedro Miguel</td>
+                                    <td class="center">18</td>
+                                    <td class="center">10 min.</td>
+                                </tr>
+                                <tr>
+                                    <td>Haluane de Cássia</td>
+                                    <td class="center">19</td>
+                                    <td class="center">13 min.</td>
+                                </tr>
+                                <tr>
+                                    <td>Camila Corá</td>
+                                    <td class="center">22</td>
+                                    <td class="center">18 min.</td>
+                                </tr>
+                                <tr>
+                                    <td>Alan Henrique</td>
+                                    <td class="center">25</td>
+                                    <td class="center">5 min.</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <!-- Tabela para funcionarios fim-->
+                        </div>
+                        <div class="row">
+                            <!-- Componente de paginação inicio-->
+                            <ul id="pag" hidden class="right pagination">
+                                <li class="disabled"><a href="#!"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></a></li>
+                                <li class="active"><a href="#!">1</a></li>
+                                <li class="waves-effect"><a href="#!">2</a></li>
+                                <li class="waves-effect"><a href="#!">3</a></li>
+                                <li class="waves-effect"><a href="#!">4</a></li>
+                                <li class="waves-effect"><a href="#!">5</a></li>
+                                <li class="waves-effect"><a href="#!"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></li>
+                            </ul>
+                            <!-- Componente de paginação fim-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6">
+                <div class="row">
+                    <div class="card white">
+                        <div class="card-content texto_text">
+                            <span id="chart" class="card-title">Gráfico</span>
+                            <h4 id="chart-u" class="center light">Selecione um tipo de Gráfico para exibir um gráfico</h4>
+                            <!--Grafico-->
+                            <div id="areaspline" hidden style="height: 60%; margin: 0 auto"></div>
+                            <div id="column" hidden style="height: 60%; margin: 0 auto"></div>
+                            <div id="column_drilldown" hidden style="height: 60%; margin: 0 auto"></div>
+                            <div id="pie_drilldown" hidden style="height: 60%; margin: 0 auto"></div>
+                            <div id="container" hidden style="height: 60%; margin: 0 auto"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- Scripts inicio -->
-
     <script type="text/javascript">
         $(function () {
-            $('#grafico').change(function () {
-                if($('#grafico').val() == 'areaspline'){
-                    $('#areaspline').removeClass('hide');
-                }else {
-                    $('#areaspline').addClass('hide');
+            // ** Tabelas ** //
+            $('#filtro').change(function () {
+                $('#table-u').hide("slow");
+                $('#pag').show("slow");
+                if($('#filtro').val() == 'servico'){
+                    $('#table').html("Tabela de Serviços");
+                    $('#servico').show("slow");
+                    $('#funcionario').hide("slow");
+                }else if($('#filtro').val() == 'funcionario'){
+                    $('#table').html("Tabela de Funcionários");
+                    $('#servico').hide("slow");
+                    $('#funcionario').show("slow");
                 }
             });
 
+            // ** Graficos ** //
             $('#grafico').change(function () {
-                if($('#grafico').val() == 'column'){
-                    $('#column').removeClass('hide');
-                }else {
-                    $('#column').addClass('hide');
+                $('#chart-u').hide("slow");
+                if ($('#grafico').val() == 'areaspline') {
+                    $('#areaspline').show("slow");
+                    $('#chart').html("Gráfico de Área");
+                } else {
+                    $('#areaspline').hide("slow");
                 }
             });
-
             $('#grafico').change(function () {
-                if($('#grafico').val() == 'column_drilldown'){
-                    $('#column_drilldown').removeClass('hide');
-                }else {
-                    $('#column_drilldown').addClass('hide');
+                $('#chart-u').hide("slow");
+                if ($('#grafico').val() == 'column') {
+                    $('#column').show("slow");
+                    $('#chart').html("Gráfico de Coluna");
+                } else {
+                    $('#column').hide("slow");
                 }
             });
-
             $('#grafico').change(function () {
-                if($('#grafico').val() == 'pie_drilldown'){
-                    $('#pie_drilldown').removeClass('hide');
-                }else {
-                    $('#pie_drilldown').addClass('hide');
+                $('#chart-u').hide("slow");
+                if ($('#grafico').val() == 'column_drilldown') {
+                    $('#column_drilldown').show("slow");
+                    $('#chart').html("Gráfico de Coluna Drilldown");
+                } else {
+                    $('#column_drilldown').hide("slow");
                 }
             });
-
             $('#grafico').change(function () {
+                $('#chart-u').hide("slow");
+                if ($('#grafico').val() == 'pie_drilldown') {
+                    $('#pie_drilldown').show("slow");
+                    $('#chart').html("Gráfico de Pizza");
+                } else {
+                    $('#pie_drilldown').hide("slow");
+                }
+            });
+            $('#grafico').change(function () {
+                $('#chart-u').hide("slow");
                 if($('#grafico').val() == 'container'){
-                    $('#container').removeClass('hide');
+                    $('#container').show("slow");
+                    $('#chart').html("Gráfico de Pizza");
                 }else {
-                    $('#container').addClass('hide');
+                    $('#container').hide("slow");
                 }
             });
 
@@ -184,7 +264,7 @@
                     type: 'areaspline'
                 },
                 title: {
-                    text: 'Average fruit consumption during one week'
+                    text: 'Média de Atendimento de Serviços por Funcionários'
                 },
                 legend: {
                     layout: 'vertical',
@@ -194,32 +274,29 @@
                     y: 100,
                     floating: true,
                     borderWidth: 1,
-                    backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+                    backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#fff6f6'
                 },
                 xAxis: {
                     categories: [
-                        'Monday',
-                        'Tuesday',
-                        'Wednesday',
-                        'Thursday',
-                        'Friday',
-                        'Saturday',
-                        'Sunday'
+                        'Recebimento de Encomendas',
+                        'Carta',
+                        'Envio',
+                        'Venda'
                     ],
                     plotBands: [{ // visualize the weekend
                         from: 4.5,
                         to: 6.5,
-                        color: 'rgba(68, 170, 213, .2)'
+                        color: 'rgba(68, 170, 213, 0.2)'
                     }]
                 },
                 yAxis: {
                     title: {
-                        text: 'Fruit units'
+                        text: 'Média de Atendimento'
                     }
                 },
                 tooltip: {
                     shared: true,
-                    valueSuffix: ' units'
+                    valueSuffix: ' min.'
                 },
                 credits: {
                     enabled: false
@@ -230,11 +307,20 @@
                     }
                 },
                 series: [{
-                    name: 'John',
-                    data: [3, 4, 3, 5, 4, 10, 12]
+                    name: 'Mylena Maria',
+                    data: [5, 10, 4, 15]
                 }, {
-                    name: 'Jane',
-                    data: [1, 3, 4, 3, 3, 5, 4]
+                    name: 'Pedro Miguel',
+                    data: [1, 4, 10, 18]
+                }, {
+                    name: 'Haluane de Cássia ',
+                    data: [0, 1.5, 10, 13]
+                }, {
+                    name: 'Camila Corá ',
+                    data: [3, 4, 10, 18]
+                }, {
+                    name: 'Alan Henrique',
+                    data: [3, 4, 10, 5]
                 }]
             });
 
@@ -244,38 +330,28 @@
                     type: 'column'
                 },
                 title: {
-                    text: 'Monthly Average Rainfall'
-                },
-                subtitle: {
-                    text: 'Source: WorldClimate.com'
+                    text: 'Clientes Atendidos X Serviços prestados'
                 },
                 xAxis: {
                     categories: [
-                        'Jan',
-                        'Feb',
-                        'Mar',
-                        'Apr',
-                        'May',
-                        'Jun',
-                        'Jul',
-                        'Aug',
-                        'Sep',
-                        'Oct',
-                        'Nov',
-                        'Dec'
+                        'Alan Henrique',
+                        'Camila Corá',
+                        'Haluane de Cássia',
+                        'Mylena Maria',
+                        'Pedro Miguel'
                     ],
                     crosshair: true
                 },
                 yAxis: {
                     min: 0,
                     title: {
-                        text: 'Rainfall (mm)'
+                        text: 'Clientes Atendidos'
                     }
                 },
                 tooltip: {
                     headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
                     pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-                    '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                    '<td style="padding:0"><b>{point.y:.1f} Clientes</b></td></tr>',
                     footerFormat: '</table>',
                     shared: true,
                     useHTML: true
@@ -287,20 +363,20 @@
                     }
                 },
                 series: [{
-                    name: 'Tokyo',
-                    data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
+                    name: 'Recebimento de Encomendas',
+                    data: [3, 7, 3, 4, 3]
 
                 }, {
-                    name: 'New York',
-                    data: [83.6, 78.8, 98.5, 93.4, 106.0, 84.5, 105.0, 104.3, 91.2, 83.5, 106.6, 92.3]
+                    name: 'Carta',
+                    data: [8, 5, 7, 3, 4]
 
                 }, {
-                    name: 'London',
-                    data: [48.9, 38.8, 39.3, 41.4, 47.0, 48.3, 59.0, 59.6, 52.4, 65.2, 59.3, 51.2]
+                    name: 'Envio',
+                    data: [6, 6, 2, 6, 7]
 
                 }, {
-                    name: 'Berlin',
-                    data: [42.4, 33.2, 34.5, 39.7, 52.6, 75.5, 57.4, 60.4, 47.6, 39.1, 46.8, 51.1]
+                    name: 'Venda',
+                    data: [7, 4, 4, 7, 5]
 
                 }]
             });
@@ -311,17 +387,14 @@
                     type: 'column'
                 },
                 title: {
-                    text: 'Browser market shares. January, 2015 to May, 2015'
-                },
-                subtitle: {
-                    text: 'Click the columns to view versions. Source: <a href="http://netmarketshare.com">netmarketshare.com</a>.'
+                    text: 'Média de Atendimento por Serviço'
                 },
                 xAxis: {
                     type: 'category'
                 },
                 yAxis: {
                     title: {
-                        text: 'Total percent market share'
+                        text: 'Média de Atendimento'
                     }
 
                 },
@@ -333,225 +406,137 @@
                         borderWidth: 0,
                         dataLabels: {
                             enabled: true,
-                            format: '{point.y:.1f}%'
+                            format: '{point.y:.1f} min.'
                         }
                     }
                 },
 
                 tooltip: {
                     headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-                    pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+                    pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f} min.</b> <br/>'
                 },
 
                 series: [{
                     name: 'Brands',
                     colorByPoint: true,
                     data: [{
-                        name: 'Microsoft Internet Explorer',
-                        y: 56.33,
-                        drilldown: 'Microsoft Internet Explorer'
+
+                        name: 'Recebimento de Encomendas',
+                        y: 5,
+                        drilldown: 'Recebimento de Encomendas'
                     }, {
-                        name: 'Chrome',
-                        y: 24.03,
-                        drilldown: 'Chrome'
+                        name: 'Carta',
+                        y: 4,
+                        drilldown: 'Carta'
                     }, {
-                        name: 'Firefox',
-                        y: 10.38,
-                        drilldown: 'Firefox'
+                        name: 'Envio',
+                        y: 7,
+                        drilldown: 'Envio'
                     }, {
-                        name: 'Safari',
-                        y: 4.77,
-                        drilldown: 'Safari'
-                    }, {
-                        name: 'Opera',
-                        y: 0.91,
-                        drilldown: 'Opera'
-                    }, {
-                        name: 'Proprietary or Undetectable',
-                        y: 0.2,
-                        drilldown: null
+                        name: 'Venda',
+                        y: 15,
+                        drilldown: 'Venda'
                     }]
                 }],
                 drilldown: {
                     series: [{
-                        name: 'Microsoft Internet Explorer',
-                        id: 'Microsoft Internet Explorer',
+                        name: 'Recebimento de Encomendas',
+                        id: 'Recebimento de Encomendas',
                         data: [
                             [
-                                'v11.0',
-                                24.13
+                                'Alan Henrique',
+                                3
                             ],
                             [
-                                'v8.0',
-                                17.2
+                                'Camila Corá',
+                                6
                             ],
                             [
-                                'v9.0',
-                                8.11
+                                'Haluane de Cássia',
+                                3
                             ],
                             [
-                                'v10.0',
-                                5.33
+                                'Mylena Maria',
+                                4
                             ],
                             [
-                                'v6.0',
-                                1.06
-                            ],
-                            [
-                                'v7.0',
-                                0.5
+                                'Pedro Miguel',
+                                5
                             ]
                         ]
                     }, {
-                        name: 'Chrome',
-                        id: 'Chrome',
+                        name: 'Carta',
+                        id: 'Carta',
                         data: [
                             [
-                                'v40.0',
+                                'Alan Henrique',
+                                7
+                            ],
+                            [
+                                'Camila Corá',
+                                10
+                            ],
+                            [
+                                'Haluane de Cássia',
+                                6
+                            ],
+                            [
+                                'Mylena Maria',
+                                4
+                            ],
+                            [
+                                'Pedro Miguel',
+                                8
+                            ]
+                        ]
+                    }, {
+                        name: 'Envio',
+                        id: 'Envio',
+                        data: [
+                            [
+                                'Alan Henrique',
+                                3
+                            ],
+                            [
+                                'Camila Corá',
                                 5
                             ],
                             [
-                                'v41.0',
-                                4.32
+                                'Haluane de Cássia',
+                                1
                             ],
                             [
-                                'v42.0',
-                                3.68
+                                'Mylena Maria',
+                                4
                             ],
                             [
-                                'v39.0',
-                                2.96
-                            ],
-                            [
-                                'v36.0',
-                                2.53
-                            ],
-                            [
-                                'v43.0',
-                                1.45
-                            ],
-                            [
-                                'v31.0',
-                                1.24
-                            ],
-                            [
-                                'v35.0',
-                                0.85
-                            ],
-                            [
-                                'v38.0',
-                                0.6
-                            ],
-                            [
-                                'v32.0',
-                                0.55
-                            ],
-                            [
-                                'v37.0',
-                                0.38
-                            ],
-                            [
-                                'v33.0',
-                                0.19
-                            ],
-                            [
-                                'v34.0',
-                                0.14
-                            ],
-                            [
-                                'v30.0',
-                                0.14
+                                'Pedro Miguel',
+                                6
                             ]
                         ]
                     }, {
-                        name: 'Firefox',
-                        id: 'Firefox',
+                        name: 'Venda',
+                        id: 'Venda',
                         data: [
                             [
-                                'v35',
-                                2.76
+                                'Alan Henrique',
+                                14
                             ],
                             [
-                                'v36',
-                                2.32
+                                'Camila Corá',
+                                15
                             ],
                             [
-                                'v37',
-                                2.31
+                                'Haluane de Cássia',
+                                13
                             ],
                             [
-                                'v34',
-                                1.27
+                                'Mylena Maria',
+                                17
                             ],
                             [
-                                'v38',
-                                1.02
-                            ],
-                            [
-                                'v31',
-                                0.33
-                            ],
-                            [
-                                'v33',
-                                0.22
-                            ],
-                            [
-                                'v32',
-                                0.15
-                            ]
-                        ]
-                    }, {
-                        name: 'Safari',
-                        id: 'Safari',
-                        data: [
-                            [
-                                'v8.0',
-                                2.56
-                            ],
-                            [
-                                'v7.1',
-                                0.77
-                            ],
-                            [
-                                'v5.1',
-                                0.42
-                            ],
-                            [
-                                'v5.0',
-                                0.3
-                            ],
-                            [
-                                'v6.1',
-                                0.29
-                            ],
-                            [
-                                'v7.0',
-                                0.26
-                            ],
-                            [
-                                'v6.2',
-                                0.17
-                            ]
-                        ]
-                    }, {
-                        name: 'Opera',
-                        id: 'Opera',
-                        data: [
-                            [
-                                'v12.x',
-                                0.34
-                            ],
-                            [
-                                'v28',
-                                0.24
-                            ],
-                            [
-                                'v27',
-                                0.17
-                            ],
-                            [
-                                'v29',
-                                0.16
+                                'Pedro Miguel',
+                                12
                             ]
                         ]
                     }]
@@ -565,117 +550,91 @@
                     type: 'pie'
                 },
                 title: {
-                    text: 'Browser market shares. January, 2015 to May, 2015'
-                },
-                subtitle: {
-                    text: 'Click the slices to view versions. Source: netmarketshare.com.'
+                    text: 'Média de Atendimento por Funcionário'
                 },
                 plotOptions: {
                     series: {
                         dataLabels: {
                             enabled: true,
-                            format: '{point.name}: {point.y:.1f}%'
+                            format: '{point.name}: {point.y:.1f} min.'
                         }
                     }
                 },
 
                 tooltip: {
                     headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
-                    pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}%</b> of total<br/>'
+                    pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f} min.</b> <br/>'
                 },
                 series: [{
                     name: 'Brands',
                     colorByPoint: true,
                     data: [{
-                        name: 'Microsoft Internet Explorer',
-                        y: 56.33,
-                        drilldown: 'Microsoft Internet Explorer'
+                        name: 'Alan Henrique',
+                        y: 5,
+                        drilldown: 'Alan Henrique'
                     }, {
-                        name: 'Chrome',
-                        y: 24.03,
-                        drilldown: 'Chrome'
+                        name: 'Camila Corá',
+                        y: 18,
+                        drilldown: 'Camila Corá'
                     }, {
-                        name: 'Firefox',
-                        y: 10.38,
-                        drilldown: 'Firefox'
+                        name: 'Haluane de Cássia',
+                        y: 13,
+                        drilldown: 'Haluane de Cássia'
                     }, {
-                        name: 'Safari',
-                        y: 4.77,
-                        drilldown: 'Safari'
+                        name: 'Mylena Maria',
+                        y: 15,
+                        drilldown: 'Mylena Maria'
                     }, {
-                        name: 'Opera',
-                        y: 0.91,
-                        drilldown: 'Opera'
-                    }, {
-                        name: 'Proprietary or Undetectable',
-                        y: 0.2,
-                        drilldown: null
+                        name: 'Pedro Miguel',
+                        y: 10,
+                        drilldown: 'Pedro Miguel'
                     }]
                 }],
                 drilldown: {
                     series: [{
-                        name: 'Microsoft Internet Explorer',
-                        id: 'Microsoft Internet Explorer',
+                        name: 'Alan Henrique',
+                        id: 'Alan Henrique',
                         data: [
-                            ['v11.0', 24.13],
-                            ['v8.0', 17.2],
-                            ['v9.0', 8.11],
-                            ['v10.0', 5.33],
-                            ['v6.0', 1.06],
-                            ['v7.0', 0.5]
+                            ['Recebimento de Encomendas', 3],
+                            ['Carta', 7],
+                            ['Envio', 3],
+                            ['Venda', 14]
                         ]
                     }, {
-                        name: 'Chrome',
-                        id: 'Chrome',
+                        name: 'Camila Corá',
+                        id: 'Camila Corá',
                         data: [
-                            ['v40.0', 5],
-                            ['v41.0', 4.32],
-                            ['v42.0', 3.68],
-                            ['v39.0', 2.96],
-                            ['v36.0', 2.53],
-                            ['v43.0', 1.45],
-                            ['v31.0', 1.24],
-                            ['v35.0', 0.85],
-                            ['v38.0', 0.6],
-                            ['v32.0', 0.55],
-                            ['v37.0', 0.38],
-                            ['v33.0', 0.19],
-                            ['v34.0', 0.14],
-                            ['v30.0', 0.14]
+                            ['Recebimento de Encomendas', 6],
+                            ['Carta', 10],
+                            ['Envio', 5],
+                            ['Venda', 15]
                         ]
                     }, {
-                        name: 'Firefox',
-                        id: 'Firefox',
+                        name: 'Haluane de Cássia',
+                        id: 'Haluane de Cássia',
                         data: [
-                            ['v35', 2.76],
-                            ['v36', 2.32],
-                            ['v37', 2.31],
-                            ['v34', 1.27],
-                            ['v38', 1.02],
-                            ['v31', 0.33],
-                            ['v33', 0.22],
-                            ['v32', 0.15]
+                            ['Recebimento de Encomendas', 3],
+                            ['Carta', 6],
+                            ['Envio', 1],
+                            ['Venda', 13]
                         ]
                     }, {
-                        name: 'Safari',
-                        id: 'Safari',
+                        name: 'Mylena Maria',
+                        id: 'Mylena Maria',
                         data: [
-                            ['v8.0', 2.56],
-                            ['v7.1', 0.77],
-                            ['v5.1', 0.42],
-                            ['v5.0', 0.3],
-                            ['v6.1', 0.29],
-                            ['v7.0', 0.26],
-                            ['v6.2', 0.17]
+                            ['Recebimento de Encomendas', 4],
+                            ['Carta', 4],
+                            ['Envio', 4],
+                            ['Venda', 17]
                         ]
                     }, {
-                        name: 'Opera',
-                        id: 'Opera',
+                        name: 'Pedro Miguel',
+                        id: 'Pedro Miguel',
                         data: [
-                            ['v12.x', 0.34],
-                            ['v28', 0.24],
-                            ['v27', 0.17],
-                            ['v29', 0.16]
+                            ['Recebimento de Encomendas', 5],
+                            ['Carta', 8],
+                            ['Envio', 6],
+                            ['Venda', 12]
                         ]
                     }]
                 }

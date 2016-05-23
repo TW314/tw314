@@ -1,864 +1,333 @@
 {% extends "master_suporte.html" %}
 
-{% block titulo %} CADASTRAR ESTABELECIMENTO{% endblock %}
+{% block titulo %} Cadastrar Estabelecimento {% endblock %}
 {% block master %}
-    <!--Começo do formulário-->
-    <div class="row margin-form">
+    <div class="row margin-form texto_text">
         <div class="col s12 m6">
-            <form class="col s12">
-                <div class="row">
-                    <div class="input-field col s6">
-                        <input id="last_name" type="text" class="validate">
-                        <label for="last_name">Matriz</label>
-                    </div>
-                    <div class="input-field col s6">
-                        <input id="last_name" type="text" class="validate">
-                        <label for="last_name">Nome Fantasia</label>
-                    </div>
+            <!--Começo do formulário-->
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">Insira os dados para cadastrar o estabelecimento:</span>
                 </div>
-                <div class="row">
-                    <div class="input-field col s4">
-                        <input id="last_name" type="text" class="validate">
-                        <label for="last_name">CNPJ</label>
-                    </div>
-                    <div class="input-field col s8">
-                        <input id="last_name" type="text" class="validate">
-                        <label for="last_name">Rua</label>
-                    </div>
+                <div class="card-action">
+                    <form class="col s12">
+                        <h6 class="light valign-wrapper form-title secundaria2_text" style="margin-top: 10px;"><i class="fa fa-building small" aria-hidden="true"></i><span> Empresa </span></h6>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <select id="s-matriz">
+                                    <option value="" disabled selected>Estabelecimento Matriz</option>
+                                    <option value="1">Ciclope SA</option>
+                                    <option value="2">Calçados SA</option>
+                                    <option value="3">iCarly</option>
+                                </select>
+                                <label for="s-matriz">Estabelecimento Matriz</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="s-cnpj" type="number" class="validate" >
+                                <label for="s-cnpj" data-error="Insira somente números" >CNPJ</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input id="s-nome-fantasia" type="text" class="validate">
+                                <label for="s-nome-fantasia">Nome Fantasia</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="s-razao-social" type="text" class="validate">
+                                <label for="s-razao-social">Razão Social</label>
+                            </div>
+                        </div>
+                        <h6 class="light valign-wrapper form-title secundaria2_text"><i class="fa fa-map-marker small" aria-hidden="true"></i><span> Endereço </span></h6>
+                        <div class="row">
+                            <div class="input-field col s4">
+                                <input id="s-cep" type="text" class="validate">
+                                <label for="s-cep" data-error="Insira somente números">CEP</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="s-rua" type="text" class="validate">
+                                <label for="s-rua">Rua</label>
+                            </div>
+                            <div class="input-field col s2">
+                                <input id="s-numero" type="number" class="validate">
+                                <label for="s-numero" data-error="Insira somente números">Número</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s8">
+                                <input id="s-bairro" type="text" class="validate">
+                                <label for="s-bairro">Bairro</label>
+                            </div>
+                            <div class="input-field col s4">
+                                <input id="s-cidade" type="text" class="validate">
+                                <label for="s-cidade">Cidade</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s4">
+                                <select id="s-estado">
+                                    <option value="" disabled selected>Selecione</option>
+                                    <option value="1">AC</option>
+                                    <option value="2">AL</option>
+                                    <option value="3">AP</option>
+                                    <option value="4">AM</option>
+                                    <option value="5">BA</option>
+                                    <option value="6">CE</option>
+                                    <option value="7">DF</option>
+                                    <option value="8">ES</option>
+                                    <option value="9">GO</option>
+                                    <option value="10">MA</option>
+                                    <option value="11">MT</option>
+                                    <option value="12">MS</option>
+                                    <option value="13">MG</option>
+                                    <option value="14">PR</option>
+                                    <option value="15">PB</option>
+                                    <option value="16">PA</option>
+                                    <option value="17">PE</option>
+                                    <option value="18">PI</option>
+                                    <option value="19">RJ</option>
+                                    <option value="20">RN</option>
+                                    <option value="21">RS</option>
+                                    <option value="22">RO</option>
+                                    <option value="23">RR</option>
+                                    <option value="24">SC</option>
+                                    <option value="25">SE</option>
+                                    <option value="26">SP</option>
+                                    <option value="27">TO</option>
+                                </select>
+                                <label for="s-estado">UF</label>
+                            </div>
+                        </div>
+                        <h6 class="light valign-wrapper form-title secundaria2_text"><i class="small fa fa-comment" aria-hidden="true"></i><span> Contato </span></h6>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input id="s-email" type="email" class="validate">
+                                <label for="s-email" data-error="E-mail inválido">E-mail</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="s-tel" type="tel" class="validate">
+                                <label for="s-tel" data-error="Insira somente números">Telefone</label>
+                            </div>
+                        </div>
+                        <h6 class="light valign-wrapper form-title secundaria2_text"><i class="small fa fa-user" aria-hidden="true"></i><span> Responsável </span></h6>
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input id="s-responsavel" type="text" class="validate">
+                                <label for="s-responsavel">Responsável</label>
+                            </div>
+                            <!--<div class="input-field col s6">
+                                <input id="last_name" type="text" class="validate">
+                                <label for="last_name">Cargo</label>
+                            </div> -->
+                            <div class="input-field col s6">
+                                <input id="s-cpf" type="number" class="validate">
+                                <label for="s-cpf" data-error="Insira somente números">CPF</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <small class="small right">ATENÇÃO: Todos os campos são obrigatórios</small>
+                        </div>
+                        <div class="row">
+                            <!--Botão Cancelar-->
+                            <div class="col s12 m6">
+                                <button class="btn waves-effect waves-light right col s12 alerta_bg" type="reset" name="action">Cancelar
+                                    <i class="fa fa-times-circle right" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <!--Fim do botão cancelar-->
+                            <!--Botão Cadastrar-->
+                            <div class="col s12 m6">
+                                <button class="btn waves-effect waves-light right col s12 sucesso_bg" type="submit" name="action">Cadastrar
+                                    <i class="fa fa-check-circle right" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <!--Fim do Botão Cadastrar-->
+                        </div>
+                    </form>
+                    <a href=""></a>
                 </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="last_name" type="text" class="validate">
-                        <label for="last_name">Bairro</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s2">
-                        <input id="last_name" type="text" class="validate">
-                        <label for="last_name">Número</label>
-                    </div>
-                        <div class="input-field col s8">
-                        <input id="last_name" type="text" class="validate">
-                        <label for="last_name">Cidade</label>
-                    </div>
-                    <div class="input-field col s2">
-                        <select>
-                            <option value="" disabled selected>Selecione</option>
-                            <option value="1">AC</option>
-                            <option value="2">AL</option>
-                            <option value="3">AP</option>
-                            <option value="4">AM</option>
-                            <option value="5">BA</option>
-                            <option value="6">CE</option>
-                            <option value="7">DF</option>
-                            <option value="8">ES</option>
-                            <option value="9">GO</option>
-                            <option value="10">MA</option>
-                            <option value="11">MT</option>
-                            <option value="12">MS</option>
-                            <option value="13">MG</option>
-                            <option value="14">PR</option>
-                            <option value="15">PB</option>
-                            <option value="16">PA</option>
-                            <option value="17">PE</option>
-                            <option value="18">PI</option>
-                            <option value="19">RJ</option>
-                            <option value="20">RN</option>
-                            <option value="21">RS</option>
-                            <option value="22">RO</option>
-                            <option value="23">RR</option>
-                            <option value="24">SC</option>
-                            <option value="25">SE</option>
-                            <option value="26">SP</option>
-                            <option value="27">TO</option>
-                        </select>
-                        <label>UF</label>
-                    </div>
-
-                    </div>
-                <div class="row">
-                    <div class="input-field col s6">
-                        <input id="last_name" type="text" class="validate">
-                        <label for="last_name">Responsável</label>
-                    </div>
-                    <div class="input-field col s6">
-                        <input id="last_name" type="text" class="validate">
-                        <label for="last_name">Cargo</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s4">
-                        <input id="last_name" type="text" class="validate">
-                        <label for="last_name">CPF</label>
-                    </div>
-                </div>
-
-
-
-                <!--Botão Cadastrar-->
-                <div class="row">
-                    <button class="btn waves-effect waves-light right col s4" type="cadastrar" name="action">Cadastrar
-                        <i class="fa fa-check-circle" aria-hidden="true"></i>
-                    </button>
-                </div>
-                <!--Fim do Botão Cadastrar-->
-
-                <!--Botão Cancelar-->
-
-                <div class="row">
-                    <button class="btn waves-effect waves-light right col s4" type="cancelar" name="action">Cancelar
-                        <i class="fa fa-times-circle" aria-hidden="true"></i>
-                    </button>
-                </div>
-                <!--Fim do botão cancelar-->
-            </form>
+            </div>
         </div>
-
-             <!--Fim do formulário-->
-
-         <!--Começo da Tabela-->
-
+        <!--Fim do formulário-->
         <div class="col s12 m6">
             <div class="col s12">
-                <table class="highlight">
-                    <thead>
-                    <tr>
-
-                        <th data-field="nome">Nome Fantasia</th>
-                        <th data-field="cnpj">CNPJ</th>
-                        <th data-field="rua">Responsável</th>
-                        <th data-field="acoes"></th>
-
-
-
-                    </tr>
-                    </thead>
-
-                    <tbody>
-                    <tr>
-                        <td>Ciclope SA</td>
-                        <td>01.857.368/0001-33</td>
-                        <td>Pedro Ribeiro</td>
-                        <td>
-                            <!-- Botao que chama Modal -->
-                                <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#estabelecimento1"><i class="fa fa-eye" aria-hidden="true"></i></a>
-
-                                <!-- Inicio da estrutura do Modal -->
-                                <div id="estabelecimento1" class="modal white-text">
-                                    <div class="modal-content">
-
-                                        <div class="row modal-padding">
-                                            <div class="col s8">
-
-                                                <!-- Dados do estabelecimento -->
-                                                <div class="row">
-                                                    <div class="col s2">
-                                                        <i class="fa fa-building fa-3x" aria-hidden="true"></i>
-                                                    </div>
-                                                    <div class="col s10">
-                                                        <h5>Ciclope SA</h5>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">Matriz:</span>
-                                                    </div>
-                                                    <div class="col s7">
-                                                        <span class="font18 white-text">xxxxxxxxxxx</span>
-                                                    </div>
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">CNPJ:</span>
-                                                    </div>
-                                                    <div class="col s1">
-                                                        <span class="font18 white-text">xxxxxxxxxxx</span>
-                                                     </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">Rua:</span>
-                                                    </div>
-                                                    <div class="col s7">
-                                                        <span class="font18 white-text">xxxxxxxxxxx</span>
-                                                    </div>
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">Bairro:</span>
-                                                        </div>
-                                                     <div class="col s1">
-                                                        <span class="font18 white-text">xxxx</span>
-                                                        </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">Número:</span>
-                                                    </div>
-                                                    <div class="col s7">
-                                                        <span class="font18 white-text">xx</span>
-                                                    </div>
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">Cidade:</span>
-                                                    </div>
-                                                     <div class="col s1">
-                                                        <span class="font18 white-text">xxxxxxxxxxx</span>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">UF:</span>
-                                                    </div>
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">xx</span>
-                                                    </div>
-                                                    <div class="col s4">
-                                                        <span class="font18 white-text">Responsável:</span>
-                                                    </div>
-                                                    <div class="col s4">
-                                                        <span class="font18 white-text">xxxxxxxxxxx</span>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">Cargo:</span>
-                                                    </div>
-                                                    <div class="col s5">
-                                                        <span class="font18 white-text">xxxxxxxxxxx</span>
-                                                    </div>
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">CPF:</span>
-                                                    </div>
-                                                    <div class="col s3">
-                                                        <span class="font18 white-text">xxxxx</span>
-                                                    </div>
-                                                </div>
-
-
-                                            </div>
-                                            <div class="col s4 right">
-                                                <!-- Botao que fecha Modal -->
-                                                <div class="row">
-                                                    <a href="#!" class="modal-action modal-close btn-floating secundaria1_bg right"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
-                                                </div>
-                                                <div class="row">
-                                                    <!-- Menu de acoes da Modal -->
-                                                    <div class="modal-fixed-footer fixed-action-btn vertical click-to-toggle">
-                                                        <a class="btn-floating btn-short secundaria1_bg">
-                                                            <i class="fa fa-bars" aria-hidden="true"></i>
-                                                        </a>
-                                                        <ul>
-                                                            <li><a class="btn-floating secundaria1_bg"><i class="fa fa-ban" aria-hidden="true"></i></a></li>
-                                                            <li><a class="btn-floating secundaria1_bg"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Fim da estrutura do Modal -->
-
-
-
-
-                        </td>
-
-
-
-
-                        <!--<td class="fixed-action-btn horizontal click-to-toggle" style="bottom: 455px; right: 153px;">
-                            <a class="btn-floating btn-short secundaria1_bg">
-                                <i class="fa fa-bars" aria-hidden="true"></i>
-                            </a>
-                            <ul>
-                                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-ban" aria-hidden="true"></i></a></li>
-                                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
-                            </ul>
-
-
-                        </td>-->
-                    </tr>
-                    <tr>
-                        <td>Calçados SA</td>
-                        <td>38.812.161/0001-52</td>
-                        <td>Mylena Santos</td>
-                        <td>
-                         <!-- Botao que chama Modal -->
-                                <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#estabelecimento2"><i class="fa fa-eye" aria-hidden="true"></i></a>
-
-                                <!-- Inicio da estrutura do Modal -->
-                                <div id="estabelecimento2" class="modal white-text">
-                                    <div class="modal-content">
-
-                                        <div class="row modal-padding">
-                                            <div class="col s8">
-
-                                                <!-- Dados do estabelecimento -->
-                                                <div class="row">
-                                                    <div class="col s2">
-                                                        <i class="fa fa-building fa-3x" aria-hidden="true"></i>
-                                                    </div>
-                                                    <div class="col s10">
-                                                        <h5>Calçados SA</h5>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">Matriz:</span>
-                                                    </div>
-                                                    <div class="col s7">
-                                                        <span class="font18 white-text">xxxxxxxxxxx</span>
-                                                    </div>
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">CNPJ:</span>
-                                                    </div>
-                                                    <div class="col s1">
-                                                        <span class="font18 white-text">xxxxxxxxxxx</span>
-                                                     </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">Rua:</span>
-                                                    </div>
-                                                    <div class="col s7">
-                                                        <span class="font18 white-text">xxxxxxxxxxx</span>
-                                                    </div>
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">Bairro:</span>
-                                                        </div>
-                                                     <div class="col s1">
-                                                        <span class="font18 white-text">xxxx</span>
-                                                        </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">Número:</span>
-                                                    </div>
-                                                    <div class="col s7">
-                                                        <span class="font18 white-text">xx</span>
-                                                    </div>
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">Cidade:</span>
-                                                    </div>
-                                                     <div class="col s1">
-                                                        <span class="font18 white-text">xxxxxxxxxxx</span>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">UF:</span>
-                                                    </div>
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">xx</span>
-                                                    </div>
-                                                    <div class="col s4">
-                                                        <span class="font18 white-text">Responsável:</span>
-                                                    </div>
-                                                    <div class="col s4">
-                                                        <span class="font18 white-text">xxxxxxxxxxx</span>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">Cargo:</span>
-                                                    </div>
-                                                    <div class="col s5">
-                                                        <span class="font18 white-text">xxxxxxxxxxx</span>
-                                                    </div>
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">CPF:</span>
-                                                    </div>
-                                                    <div class="col s3">
-                                                        <span class="font18 white-text">xxxxx</span>
-                                                    </div>
-                                                </div>
-
-
-                                            </div>
-                                            <div class="col s4 right">
-                                                <!-- Botao que fecha Modal -->
-                                                <div class="row">
-                                                    <a href="#!" class="modal-action modal-close btn-floating secundaria1_bg right"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
-                                                </div>
-                                                <div class="row">
-                                                    <!-- Menu de acoes da Modal -->
-                                                    <div class="modal-fixed-footer fixed-action-btn vertical click-to-toggle">
-                                                        <a class="btn-floating btn-short secundaria1_bg">
-                                                            <i class="fa fa-bars" aria-hidden="true"></i>
-                                                        </a>
-                                                        <ul>
-                                                            <li><a class="btn-floating secundaria1_bg"><i class="fa fa-ban" aria-hidden="true"></i></a></li>
-                                                            <li><a class="btn-floating secundaria1_bg"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Fim da estrutura do Modal -->
-
-
-                        </td>
-                        <!--<td class="fixed-action-btn horizontal click-to-toggle" style="bottom: 382px; right: 190px; height: 5px; width: 7px;">
-                            <a class="btn-floating btn-short secundaria1_bg">
-                                <i class="fa fa-bars" aria-hidden="true"></i>
-                            </a>
-                            <ul>
-                                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-key" aria-hidden="true"></i></a></li>
-                                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-ban" aria-hidden="true"></i></a></li>
-                                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
-                            </ul>
-
-                        </td>-->
-                    </tr>
-
-                    <tr>
-                        <td>Roupas LTDA</td>
-                        <td>26.828.316/0001-60</td>
-                        <td>Camila Corá</td>
-                        <td>
-                            <!-- Botao que chama Modal -->
-                                <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#estabelecimento3"><i class="fa fa-eye" aria-hidden="true"></i></a>
-
-                                <!-- Inicio da estrutura do Modal -->
-                                <div id="estabelecimento3" class="modal white-text">
-                                    <div class="modal-content">
-
-                                        <div class="row modal-padding">
-                                            <div class="col s8">
-
-                                                <!-- Dados do estabelecimento -->
-                                                <div class="row">
-                                                    <div class="col s2">
-                                                        <i class="fa fa-building fa-3x" aria-hidden="true"></i>
-                                                    </div>
-                                                    <div class="col s10">
-                                                        <h5>Roupas LTDA</h5>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">Matriz:</span>
-                                                    </div>
-                                                    <div class="col s7">
-                                                        <span class="font18 white-text">xxxxxxxxxxx</span>
-                                                    </div>
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">CNPJ:</span>
-                                                    </div>
-                                                    <div class="col s1">
-                                                        <span class="font18 white-text">xxxxxxxxxxx</span>
-                                                     </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">Rua:</span>
-                                                    </div>
-                                                    <div class="col s7">
-                                                        <span class="font18 white-text">xxxxxxxxxxx</span>
-                                                    </div>
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">Bairro:</span>
-                                                        </div>
-                                                     <div class="col s1">
-                                                        <span class="font18 white-text">xxxx</span>
-                                                        </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">Número:</span>
-                                                    </div>
-                                                    <div class="col s7">
-                                                        <span class="font18 white-text">xx</span>
-                                                    </div>
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">Cidade:</span>
-                                                    </div>
-                                                     <div class="col s1">
-                                                        <span class="font18 white-text">xxxxxxxxxxx</span>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">UF:</span>
-                                                    </div>
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">xx</span>
-                                                    </div>
-                                                    <div class="col s4">
-                                                        <span class="font18 white-text">Responsável:</span>
-                                                    </div>
-                                                    <div class="col s4">
-                                                        <span class="font18 white-text">xxxxxxxxxxx</span>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">Cargo:</span>
-                                                    </div>
-                                                    <div class="col s5">
-                                                        <span class="font18 white-text">xxxxxxxxxxx</span>
-                                                    </div>
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">CPF:</span>
-                                                    </div>
-                                                    <div class="col s3">
-                                                        <span class="font18 white-text">xxxxx</span>
-                                                    </div>
-                                                </div>
-
-
-                                            </div>
-                                            <div class="col s4 right">
-                                                <!-- Botao que fecha Modal -->
-                                                <div class="row">
-                                                    <a href="#!" class="modal-action modal-close btn-floating secundaria1_bg right"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
-                                                </div>
-                                                <div class="row">
-                                                    <!-- Menu de acoes da Modal -->
-                                                    <div class="modal-fixed-footer fixed-action-btn vertical click-to-toggle">
-                                                        <a class="btn-floating btn-short secundaria1_bg">
-                                                            <i class="fa fa-bars" aria-hidden="true"></i>
-                                                        </a>
-                                                        <ul>
-                                                            <li><a class="btn-floating secundaria1_bg"><i class="fa fa-ban" aria-hidden="true"></i></a></li>
-                                                            <li><a class="btn-floating secundaria1_bg"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Fim da estrutura do Modal -->
-
-                        </td>
-                        <!-- <td class="fixed-action-btn horizontal click-to-toggle" style="bottom: 330px; right: 190px; height: 5px; width: 7px;">
-                             <a class="btn-floating btn-short secundaria1_bg">
-                                 <i class="fa fa-bars" aria-hidden="true"></i>
-                             </a>
-                             <ul>
-                                 <li><a class="btn-floating secundaria1_bg"><i class="fa fa-key" aria-hidden="true"></i></a></li>
-                                 <li><a class="btn-floating secundaria1_bg"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                 <li><a class="btn-floating secundaria1_bg"><i class="fa fa-ban" aria-hidden="true"></i></a></li>
-                                 <li><a class="btn-floating secundaria1_bg"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
-                             </ul>
-
-                         </td>-->
-                    </tr>
-
-                    <tr>
-                        <td>iCarly</td>
-                        <td>46.558.478/0001-32</td>
-                        <td>Alan Camargo</td>
-                        <td>
-                            <!-- Botao que chama Modal -->
-                                <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#estabelecimento4"><i class="fa fa-eye" aria-hidden="true"></i></a>
-
-                                <!-- Inicio da estrutura do Modal -->
-                                <div id="estabelecimento4" class="modal white-text">
-                                    <div class="modal-content">
-
-                                        <div class="row modal-padding">
-                                            <div class="col s8">
-
-                                                <!-- Dados do estabelecimento -->
-                                                <div class="row">
-                                                    <div class="col s2">
-                                                        <i class="fa fa-building fa-3x" aria-hidden="true"></i>
-                                                    </div>
-                                                    <div class="col s10">
-                                                        <h5>iCarly</h5>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">Matriz:</span>
-                                                    </div>
-                                                    <div class="col s7">
-                                                        <span class="font18 white-text">xxxxxxxxxxx</span>
-                                                    </div>
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">CNPJ:</span>
-                                                    </div>
-                                                    <div class="col s1">
-                                                        <span class="font18 white-text">xxxxxxxxxxx</span>
-                                                     </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">Rua:</span>
-                                                    </div>
-                                                    <div class="col s7">
-                                                        <span class="font18 white-text">xxxxxxxxxxx</span>
-                                                    </div>
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">Bairro:</span>
-                                                        </div>
-                                                     <div class="col s1">
-                                                        <span class="font18 white-text">xxxx</span>
-                                                        </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">Número:</span>
-                                                    </div>
-                                                    <div class="col s7">
-                                                        <span class="font18 white-text">xx</span>
-                                                    </div>
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">Cidade:</span>
-                                                    </div>
-                                                     <div class="col s1">
-                                                        <span class="font18 white-text">xxxxxxxxxxx</span>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">UF:</span>
-                                                    </div>
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">xx</span>
-                                                    </div>
-                                                    <div class="col s4">
-                                                        <span class="font18 white-text">Responsável:</span>
-                                                    </div>
-                                                    <div class="col s4">
-                                                        <span class="font18 white-text">xxxxxxxxxxx</span>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">Cargo:</span>
-                                                    </div>
-                                                    <div class="col s5">
-                                                        <span class="font18 white-text">xxxxxxxxxxx</span>
-                                                    </div>
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">CPF:</span>
-                                                    </div>
-                                                    <div class="col s3">
-                                                        <span class="font18 white-text">xxxxx</span>
-                                                    </div>
-                                                </div>
-
-
-                                            </div>
-                                            <div class="col s4 right">
-                                                <!-- Botao que fecha Modal -->
-                                                <div class="row">
-                                                    <a href="#!" class="modal-action modal-close btn-floating secundaria1_bg right"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
-                                                </div>
-                                                <div class="row">
-                                                    <!-- Menu de acoes da Modal -->
-                                                    <div class="modal-fixed-footer fixed-action-btn vertical click-to-toggle">
-                                                        <a class="btn-floating btn-short secundaria1_bg">
-                                                            <i class="fa fa-bars" aria-hidden="true"></i>
-                                                        </a>
-                                                        <ul>
-                                                            <li><a class="btn-floating secundaria1_bg"><i class="fa fa-ban" aria-hidden="true"></i></a></li>
-                                                           <li><a class="btn-floating secundaria1_bg"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Fim da estrutura do Modal -->
-
-                        </td>
-                        <!--<td class="fixed-action-btn horizontal click-to-toggle" style="bottom: 280px; right: 190px; height: 5px; width: 7px;">
-                            <a class="btn-floating btn-short secundaria1_bg">
-                                <i class="fa fa-bars" aria-hidden="true"></i>
-                            </a>
-                            <ul>
-                                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-key" aria-hidden="true"></i></a></li>
-                                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-ban" aria-hidden="true"></i></a></li>
-                                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
-                            </ul>
-
-                        </td>-->
-                    </tr>
-
-                    <tr>
-                        <td>Banco CCD</td>
-                        <td>64.976.192/0001-59</td>
-                        <td>Ana Maria Santos</td>
-                        <td>
-                           <!-- Botao que chama Modal -->
-                                <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#estabelecimento5"><i class="fa fa-eye" aria-hidden="true"></i></a>
-
-                                <!-- Inicio da estrutura do Modal -->
-                                <div id="estabelecimento5" class="modal white-text">
-                                    <div class="modal-content">
-
-                                        <div class="row modal-padding">
-                                            <div class="col s8">
-
-                                                <!-- Dados do estabelecimento -->
-                                                <div class="row">
-                                                    <div class="col s2">
-                                                        <i class="fa fa-building fa-3x" aria-hidden="true"></i>
-                                                    </div>
-                                                    <div class="col s10">
-                                                        <h5>Banco CCD</h5>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">Matriz:</span>
-                                                    </div>
-                                                    <div class="col s7">
-                                                        <span class="font18 white-text">xxxxxxxxxxx</span>
-                                                    </div>
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">CNPJ:</span>
-                                                    </div>
-                                                    <div class="col s1">
-                                                        <span class="font18 white-text">xxxxxxxxxxx</span>
-                                                     </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">Rua:</span>
-                                                    </div>
-                                                    <div class="col s7">
-                                                        <span class="font18 white-text">xxxxxxxxxxx</span>
-                                                    </div>
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">Bairro:</span>
-                                                        </div>
-                                                     <div class="col s1">
-                                                        <span class="font18 white-text">xxxx</span>
-                                                        </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">Número:</span>
-                                                    </div>
-                                                    <div class="col s7">
-                                                        <span class="font18 white-text">xx</span>
-                                                    </div>
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">Cidade:</span>
-                                                    </div>
-                                                     <div class="col s1">
-                                                        <span class="font18 white-text">xxxxxxxxxxx</span>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">UF:</span>
-                                                    </div>
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">xx</span>
-                                                    </div>
-                                                    <div class="col s4">
-                                                        <span class="font18 white-text">Responsável:</span>
-                                                    </div>
-                                                    <div class="col s4">
-                                                        <span class="font18 white-text">xxxxxxxxxxx</span>
-                                                    </div>
-                                                </div>
-
-                                                <div class="row">
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">Cargo:</span>
-                                                    </div>
-                                                    <div class="col s5">
-                                                        <span class="font18 white-text">xxxxxxxxxxx</span>
-                                                    </div>
-                                                    <div class="col s2">
-                                                        <span class="font18 white-text">CPF:</span>
-                                                    </div>
-                                                    <div class="col s3">
-                                                        <span class="font18 white-text">xxxxx</span>
-                                                    </div>
-                                                </div>
-
-
-                                            </div>
-                                            <div class="col s4 right">
-                                                <!-- Botao que fecha Modal -->
-                                                <div class="row">
-                                                    <a href="#!" class="modal-action modal-close btn-floating secundaria1_bg right"><i class="fa fa-times-circle" aria-hidden="true"></i></a>
-                                                </div>
-                                                <div class="row">
-                                                    <!-- Menu de acoes da Modal -->
-                                                    <div class="modal-fixed-footer fixed-action-btn vertical click-to-toggle">
-                                                        <a class="btn-floating btn-short secundaria1_bg">
-                                                            <i class="fa fa-bars" aria-hidden="true"></i>
-                                                        </a>
-                                                        <ul>
-                                                            <li><a class="btn-floating secundaria1_bg"><i class="fa fa-ban" aria-hidden="true"></i></a></li>
-                                                            <li><a class="btn-floating secundaria1_bg"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Fim da estrutura do Modal -->
-
-
-                        </td>
-                        <!-- <td class="fixed-action-btn horizontal click-to-toggle" style="bottom: 230px; right: 190px; height: 5px; width: 7px;">
-                             <a class="btn-floating btn-short secundaria1_bg" >
-                                 <i class="fa fa-bars" aria-hidden="true"></i>
-                             </a>
-                             <ul>
-                                 <li><a class="btn-floating secundaria1_bg"><i class="fa fa-key" aria-hidden="true"></i></a></li>
-                                 <li><a class="btn-floating secundaria1_bg"><i class="fa fa-eye" aria-hidden="true"></i></a></li>
-                                 <li><a class="btn-floating secundaria1_bg"><i class="fa fa-ban" aria-hidden="true"></i></a></li>
-                                 <li><a class="btn-floating secundaria1_bg"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
-                             </ul>
-
-                         </td>-->
-                    </tr>
-
-
-
-                    </tbody>
-                </table>
-
-                <!--Fim da tabela-->
-                <br />
-
-                <!--Começo da páginação da tabela-->
-                <div class="row" align="Right">
-
-                    <ul class="pagination">
-                        <li class="disabled"><a href="#!"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></a></li>
-                        <li class="active"><a href="#!">1</a></li>
-                        <li class="waves-effect"><a href="#!">2</a></li>
-                        <li class="waves-effect"><a href="#!">3</a></li>
-                        <li class="waves-effect"><a href="#!">4</a></li>
-                        <li class="waves-effect"><a href="#!">5</a></li>
-                        <li class="waves-effect"><a href="#!"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></li>
-                    </ul>
-
+                <div class="card white">
+                    <div class="card-content texto_text">
+                        <span id="table" class="card-title small">Lista de Estabelecimentos</span>
+                    </div>
+                    <div class="card-action">
+                        <!--Começo da Tabela-->
+                        <table class="highlight responsive-table">
+                            <thead>
+                            <tr>
+                                <th data-field="nome">Nome Fantasia</th>
+                                <th data-field="cnpj">CNPJ</th>
+                                <th data-field="rua">Responsável</th>
+                                <th data-field="acoes">Vizualizar</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Ciclope SA</td>
+                                <td>26.390.093/1997-06</td>
+                                <td>Pedro Ribeiro</td>
+                                <td>
+                                    <!-- Botao que chama Modal -->
+                                    <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#estabelecimento1"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Calçados SA</td>
+                                <td>38.812.161/0001-52</td>
+                                <td>Mylena Santos</td>
+                                <td>
+                                    <!-- Botao que chama Modal -->
+                                    <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#estabelecimento1"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Roupas LTDA</td>
+                                <td>26.828.316/0001-60</td>
+                                <td>Camila Corá</td>
+                                <td>
+                                    <!-- Botao que chama Modal -->
+                                    <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#estabelecimento1"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>iCarly</td>
+                                <td>46.558.478/0001-32</td>
+                                <td>Alan Camargo</td>
+                                <td>
+                                    <!-- Botao que chama Modal -->
+                                    <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#estabelecimento1"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Banco CCD</td>
+                                <td>64.976.192/0001-59</td>
+                                <td>Ana Maria Santos</td>
+                                <td>
+                                    <!-- Botao que chama Modal -->
+                                    <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#estabelecimento1"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <!--Fim da tabela-->
+                    </div>
+                    <!--Começo da páginação da tabela-->
+                    <div class="row" align="Right">
+                        <ul class="pagination">
+                            <li class="disabled"><a href="#!"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></a></li>
+                            <li class="active"><a href="#!">1</a></li>
+                            <li class="waves-effect"><a href="#!">2</a></li>
+                            <li class="waves-effect"><a href="#!">3</a></li>
+                            <li class="waves-effect"><a href="#!">4</a></li>
+                            <li class="waves-effect"><a href="#!">5</a></li>
+                            <li class="waves-effect"><a href="#!"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></li>
+                        </ul>
+                        <!--Fim da páginação da tabela-->
+                    </div>
                 </div>
-                <br />
             </div>
-
         </div>
     </div>
-     <!--Fim da páginação da tabela-->
+    <!-- Inicio da estrutura do Modal -->
+    <div id="estabelecimento1" class="modal modal-fixed-footer base_text">
+        <div class="modal-content">
+            <div class="row">
+                <div class="col s8">
+                    <h5 class="light valign-wrapper form-title" ><i class="fa fa-building fa-2x" aria-hidden="true"></i><span> Ciclope SA <small>Scott Summers SA</small> </span></h5>
+                </div>
+                <div class="col s4"><a href="" class="modal-action modal-close btn-flat base_text right"> esc <i class="right fa fa-times" aria-hidden="true"></i></a></div>
+            </div>
+            <div class="row">
+                <!-- Dados do estabelecimento -->
+                <div class="col s12">
+                    <div class="row">
+                        <div class="row small-title">
+                            <small class="secundaria1_v_text">Empresa</small>
+                        </div>
+                        <div class="col s2">
+                            <span class="font18 white-text">Matriz:</span>
+                        </div>
+                        <div class="col s4">
+                            <span class="font18 white-text">Xavier LTDA.</span>
+                        </div>
+                        <div class="col s2">
+                            <span class="font18 white-text">CNPJ:</span>
+                        </div>
+                        <div class="col s4">
+                            <span class="font18 white-text">26.390.093/1997-06</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12">
+                    <div class="row">
+                        <div class="row small-title">
+                            <small class="secundaria1_v_text">Endereço</small>
+                        </div>
+                        <div class="col s6">
+                            <span class="font18 white-text">Beco Diagonal, nº 42 - Bolsão - AB</span>
+                        </div>
+                        <div class="col s2">
+                            <span class="font18 white-text">CEP:</span>
+                        </div>
+                        <div class="col s4">
+                            <span class="font18 white-text">31.415-926</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12">
+                    <div class="row">
+                        <div class="row small-title">
+                            <small class="secundaria1_v_text">Contato</small>
+                        </div>
+                        <div class="col s2">
+                            <span class="font18 white-text">Telefone:</span>
+                        </div>
+                        <div class="col s4">
+                            <span class="font18 white-text">(42) 9353-7390</span>
+                        </div>
+                        <div class="col s2">
+                            <span class="font18 white-text">email:</span>
+                        </div>
+                        <div class="col s4">
+                            <span class="font18 white-text">ciclope@xavier.com.br</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col s12">
+                    <div class="row">
+                        <div class="row small-title">
+                            <small class="secundaria1_v_text">Responsável</small>
+                        </div>
+                        <div class="col s6">
+                            <span class="font18 white-text">Pedro Ribeiro</span>
+                        </div>
 
+                        <div class="col s1">
+                            <span class="font18 white-text">CPF:</span>
+                        </div>
+                        <div class="col s5">
+                            <span class="font18 white-text">207.946.034-7</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <!-- Menu de acoes da Modal -->
+            <div class="fixed-action-btn horizontal">
+                <a class="btn-floating btn-short secundaria1_bg">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </a>
+                <ul>
+                    <li><a class="btn-floating secundaria1_bg"><i class="fa fa-ban" aria-hidden="true"></i></a></li>
+                    <li><a class="btn-floating secundaria1_bg"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Fim da estrutura do Modal -->
 {% endblock %}
