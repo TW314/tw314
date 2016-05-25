@@ -1,12 +1,25 @@
 /*************
 ** Genérico **
 *************/
+html {
+    height: 100%;
+}
 body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
     background-color: #fff6f6 !important;
     color: #564949;
+    height: 100%;
+}
+.bg-login{
+    background: url(../img/ampulheta4.jpg) no-repeat;
+    width: 100%;
+    height:auto;
+    min-height:100%;
+    -moz-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
 }
 main {flex: 1 0 auto;}
 .flow-text_2 {
@@ -899,6 +912,15 @@ textarea.materialize-textarea:focus.invalid + label:after {
 
 /** Tablet/Telas menores **/
 @media (max-width: 992px){
+    .fixed-footer{
+        position: relative;
+        right: auto;
+        bottom: auto;
+        padding-top: 15px;
+        margin-bottom: auto;
+        width: 100%;
+        height: auto !important;
+    }
     .fixed-footer2{
         position: relative;
         right: auto;

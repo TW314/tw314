@@ -42,7 +42,8 @@
     <link rel="stylesheet" href="{% static "css/style.css" %}">
 </head>
 <body>
-<main>
+
+<!--<main>
     <div class="row">
         <div class="parallax-container" style="padding-top: 23px;">
             <div class="parallax"><img src="{% static "img/ampulheta4.jpg" %}"></div>
@@ -112,31 +113,75 @@
             © 2016 Ticket Web TW314 V1.0
         </div>
     </div>
-</footer>
-<!-- Inicio da estrutura do Modal
-<div id="modal1" class="modal base_text modal-fixed-footer">
-    <div class="modal-content">
-        <h4><i class="fa fa-key" aria-hidden="true"></i> Enviar senha</h4>
-        <p></p>
-        <span class="card-title">Informe seu e-mail abaixo e receberá um link para alterar sua senha:</span>
-        <form class="col s12">
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="email" type="email" class="validate">
-                    <label for="email">Last Name</label>
+</footer>-->
+<section class="bg-login">
+    <nav style="background: transparent; box-shadow: none; margin: 0.5rem auto;">
+        <div class="nav-wrapper master">
+            <a href="/" class="brand-logo center"><img src="{% static "img/logo-certa.png" %}" class="responsive-img" alt="logo TW314"><span class=""> </span></a>
+        </div>
+        <div class="center" style="margin-bottom: 100px;">
+            <span id="he" class="card-title texto_text flow-text_3">Faça seu Login no TW314!</span>
+        </div>
+    </nav>
+    <main style="margin-top: 80px;">
+        <div class="row margin-form texto_text ">
+            <div class="col s12 m6 l4 offset-m3 offset-l4">
+                <div class="card hoverable">
+                    <div class="card-action">
+                        <form class="col s12" id="login">
+                            <span class="card-title">Insira seus dados para acessar sua conta:</span>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="login" type="text" class="validate">
+                                    <label for="login">Login:</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="senha" type="password" class="validate">
+                                    <label for="senha">Senha:</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12 m6">
+                                    <button id="ir-reset" type="button" class="font12 secundaria1_text btn-flat" style="padding: 0; ">Esqueci minha senha</button>
+                                </div>
+                                <div class="input-field col s12 m6">
+                                    <a href="funcionario/principal" class="flow-text waves-effect waves-light btn secundaria1_bg right"><i class="material-icons right fa fa-sign-in" aria-hidden="true"></i> Entrar</a>
+                                </div>
+                            </div>
+                        </form>
+                        <form class="col s12" hidden id="reset">
+                            <span class="card-title">Informe seu e-mail abaixo e receberá um link para alterar sua senha:</span>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="email" type="email" class="validate">
+                                    <label for="email">E-mail</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <button id="ir-login" type="button" class="font12 secundaria1_text btn-flat" style="padding: 0; ">Entrar com minha conta</button>
+                                </div>
+                                <div class="input-field col s6">
+                                    <a class="flow-text waves-effect waves-light btn secundaria1_bg right"><i class="material-icons right fa fa-paper-plane" aria-hidden="true"></i> Enviar</a>
+                                </div>
+                            </div>
+                        </form>
+                        <a href=""></a>
+                    </div>
                 </div>
             </div>
-        </form>
+        </div>
+    </main>
+    <footer class="master fixed-footer2">
+    <div class="footer-copyright">
+        <div class="col s12 base_text">
+            © 2016 Ticket Web TW314 V1.0
+        </div>
     </div>
-    <div class="modal-footer">
-        <!-- <button class="btn waves-effect waves-light right col s4 modal-action modal-close" type="reset" name="cancelar">Cancelar
-                <i class="fa fa-times-circle" aria-hidden="true"></i>
-            </button>
-        <button class="btn sucesso_bg waves-effect waves-light right col s4 modal-action modal-close" type="submit" name="enviar">Enviar <i class="fa fa-check-circle right" aria-hidden="true"></i>
-        </button>
-    </div>
-</div>-->
-
+</footer>
+</section>
 <!--  Scripts-->
 <script src="{% static "js/jquery-2.1.1.min.js" %}"></script>
 <script src="{% static "js/materialize.min.js" %}"></script>
