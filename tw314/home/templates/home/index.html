@@ -48,7 +48,7 @@
             <div class="nav-wrapper fixed">
                 <a href="/"style="margin-left: 15px;" class="wow fadeInLeft brand-logo base_text margin-title master"><img src="{% static "img/logo-certa.png" %}" class="responsive-img margin-icons icon"> </a>
                 <ul style="margin-left: 80px;" class="wow fadeInLeft hide-on-small-only">
-                    <li class="flow-text_3"><span class="margin-title">TW314</span></li>
+                    <li class="flow-text_2"><span class="margin-title">TW314</span></li>
                 </ul>
                 <ul class="wow fadeInRight right hide-on-small-only">
                     <li><a href="/login" class="modal-trigger waves-effect waves-light btn white brown-text">
@@ -119,9 +119,9 @@
     </div>
 </header>
 <main>
-    <div class="section base_bg">
+    <section class="section base_bg scrollspy" id="section_bus">
         <!-- Institucional -->
-        <h4 class="wow fadeIn light valign-wrapper scrollspy" id="section_bus"><i class="fa fa-question-circle medium" aria-hidden="true"></i></i> Quem somos?</h4>
+        <h4 class="wow fadeIn light valign-wrapper"><i class="fa fa-question-circle medium" aria-hidden="true"></i></i> Quem somos?</h4>
         <div class="row container">
             <div class="col l4 m6 s12 wow fadeInLeft">
                 <div class="hoverable card">
@@ -151,6 +151,8 @@
                 </div>
             </div>
         </div>
+    </section>
+    <div class="section base_bg">
         <!-- Animacao -->
         <div class="row border-how">
             <h4 class="wow fadeIn light valign-wrapper scrollspy" id="section_how"><i class="fa fa-info-circle medium" aria-hidden="true"></i> Como funciona?</h4>
@@ -227,14 +229,14 @@
                 <div class="wow fadeInLeft item">
                     <div class="card small hoverable">
                         <div class="card-image waves-effect waves-block waves-light">
-                            <img class="activator" src="{% static "img/4.jpg" %}">
+                            <img class="activator" src="{% static "img/cpa-vale" %}">
                         </div>
                         <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">Cliente 4<i class="right fa fa-ellipsis-v" aria-hidden="true"></i> </span>
+                            <span class="card-title activator grey-text text-darken-4">CPA - Vale<i class="right fa fa-ellipsis-v" aria-hidden="true"></i> </span>
                         </div>
                         <div class="card-reveal">
-                            <span class="card-title grey-text text-darken-4">Cliente 4<i class="right fa fa-times" aria-hidden="true"></i> </span>
-                            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                            <span class="card-title grey-text text-darken-4">CPA - Vale<i class="right fa fa-times" aria-hidden="true"></i> </span>
+                            <p>Controle na produção de Arroz</p>
                         </div>
                     </div>
                 </div>
@@ -334,9 +336,9 @@
                 <div class="row">
                     <footer  class="page-footer fixed-footer wow fadeInUp">
                         <a href="#0" class="cd-top">Top</a>
-                        <div class="footer-copyright bolder uppercase master">
-                            <a class="base_text left">© 2016 Ticket Web 314 V1.0</a>
-                            <a class="logo-footer right-align"><img src="{% static "img/logo-certa.png" %}" class="responsive-img" alt="logo"></a>
+                        <div class="footer-copyright bolder uppercase master-footer">
+                            <span class="base_text left">© 2016 Ticket Web 314 V1.0</span>
+                            <a href="/" class="logo-footer right-align"><img src="{% static "img/logo-certa.png" %}" class="responsive-img" alt="logo"></a>
                             <a class="base_text right" href="#section_contract">Contratar</a>
                             <a class="base_text right" href="#section_contact">Contato</a>
                             <a class="base_text right" href="#section_clients">Clientes</a>

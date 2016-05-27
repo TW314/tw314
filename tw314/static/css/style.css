@@ -359,11 +359,17 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul 
 ** MasterPage **
 ***************/
 
-.master img.responsive-img, video.responsive-video {
+.master img.responsive-img{
     max-width: 100%;
-    height: 56px;
+    height: 50px;
+    margin: 5px;
+}
+.master-footer img.responsive-img{
+    max-width: 100%;
+    height: 45px;
     margin-top: 5px;
 }
+
 .master aside {
     position: fixed;
     z-index: 1000;
