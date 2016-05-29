@@ -21,6 +21,21 @@ body {
     -webkit-background-size: 100% 100%;
     background-size: 100% 100%;
 }
+.table-disabled{
+    color: #a2a2a2;
+}
+.table-disabled i{
+    background-color: #db3d34;
+}
+.table-disabled p:after{
+    content: " inativo";
+    font-size: 10px;
+    color: rgba(219, 61, 52, 0.5);
+}.table-disabled span:after{
+    content: " inativo";
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.5);
+}
 main {flex: 1 0 auto;}
 .flow-text_2 {
     font-size: 2rem !important;
@@ -677,8 +692,9 @@ i.medium {
 **    Estrutura Modal   **
 *************************/
 .small-title{
-    border-bottom: 1px solid #00809c;
+    border-bottom: 1px solid rgba(255, 246, 246, 0.60);
     margin-bottom: 2px;
+    color: rgba(255, 246, 246, 0.60);
 }
 .modal {
     display: none;
