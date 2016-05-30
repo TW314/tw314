@@ -21,6 +21,21 @@ body {
     -webkit-background-size: 100% 100%;
     background-size: 100% 100%;
 }
+.table-disabled{
+    color: #a2a2a2;
+}
+.table-disabled i{
+    background-color: #db3d34;
+}
+.table-disabled p:after{
+    content: " inativo";
+    font-size: 10px;
+    color: rgba(219, 61, 52, 0.5);
+}.table-disabled span:after{
+     content: " inativo";
+     font-size: 10px;
+     color: rgba(255, 255, 255, 0.5);
+ }
 main {flex: 1 0 auto;}
 .flow-text_2 {
     font-size: 2rem !important;
@@ -224,7 +239,7 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons{ display: 
     margin: 0px auto;
 }
 .menu_circle i{ margin: 0 auto; }
-.icon{ font-size: 4em !important; }
+.icon{ font-size: 3em !important; }
 .menu{ margin: auto 20%; }
 .menu ul li { margin: auto 15px; }
 footer.page-footer {
@@ -257,7 +272,6 @@ nav { background-color: #ee692e; }
 .nav-align{
     position: absolute;
     margin-top: 64px;
-    padding: 20px 21%;
     background: rgba(0, 128, 156, 0.35);
     z-index: 1;
     width: 100%;
@@ -275,9 +289,9 @@ nav { background-color: #ee692e; }
 nav ul a:hover {background: #f74f30;}
 
 .btn-floating.btn-large {
-    width: 6em;
-    height: 6em;
-    padding-top: 13%;
+    width: 4.81em;
+    height: 4.81em;
+    padding-top: 6%;
 }
 nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul a.btn-floating {margin-left: 22px;}
 
@@ -308,9 +322,6 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul 
     margin:auto 0 ;
 }
 
-.border-how{
-    border-top: solid 1px #eeeeee;
-}
 .section-parallax{margin-top: -40em;}
 
 .item{
@@ -359,11 +370,17 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul 
 ** MasterPage **
 ***************/
 
-.master img.responsive-img, video.responsive-video {
+.master img.responsive-img{
     max-width: 100%;
-    height: 56px;
+    height: 50px;
+    margin: 5px;
+}
+.master-footer img.responsive-img{
+    max-width: 100%;
+    height: 45px;
     margin-top: 5px;
 }
+
 .master aside {
     position: fixed;
     z-index: 1000;
@@ -671,8 +688,9 @@ i.medium {
 **    Estrutura Modal   **
 *************************/
 .small-title{
-    border-bottom: 1px solid #00809c;
+    border-bottom: 1px solid rgba(255, 246, 246, 0.60);
     margin-bottom: 2px;
+    color: rgba(255, 246, 246, 0.60);
 }
 .modal {
     display: none;

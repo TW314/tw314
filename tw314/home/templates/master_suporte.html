@@ -48,13 +48,12 @@
             <div class="nav-wrapper">
                 <ul>
                     <li>
-                        <a href="suporte_principal" class="white-text">
-                            <img src="{% static "img/logo-certa.png" %}" class="responsive-img" alt="logo TW314">
+                        <a href="principal" class="white-text valign-wrapper ">
+                            <img src="{% static "img/logo-certa.png" %}" class="responsive-img" alt="logo TW314"> <span class="flow-text_2 valign">TW314 </span>
                         </a>
                     </li>
-                    <li><span class="flow-text_2">TW314 </span></li>
                 </ul>
-                <a href="#" class="flow-text_3 light hide-on-med-and-down brand-logo center">{% block titulo %}{% endblock %}</a>
+                <span class="flow-text_3 light hide-on-med-and-down brand-logo center">{% block titulo %}{% endblock %}</span>
                 <ul class="right">
                     <li class="hide-on-small-only">Bem-vindo, Suporte</li>
                     <li><a class="white-text flow-text_3 light" href="../login"><i class="fa fa-sign-out" aria-hidden="true"></i><span class="hide-on-small-and-down"> SAIR </span></a></li>
@@ -68,17 +67,17 @@
 
     {% endblock %}
 </main>
-<footer class="master page-footer fixed-footer2">
+<footer class="master master-footer page-footer fixed-footer2">
     <div class="row show-on-medium-and-down hide-on-large-only">
         <div class="col s6">
             <span class="logo-footer"><img src="{% static "img/logo-certa.png" %}" class="responsive-img" alt="logo TW314"></span>
         </div>
         <div class="col s6 right-align">
             <ul>
-                <li><a class="text-lighten-4 base_text" href="suporte_principal">Principal</a></li>
-                <li><a class="text-lighten-4 base_text" href="suporte_cadastro_admin">Administrador</a></li>
-                <li><a class="text-lighten-4 base_text" href="suporte_cadastro_estabelecimento">Estabelecimento</a></li>
-                <li><a class="text-lighten-4 base_text" href="suporte_atendimento">Atendimento</a></li>
+                <li><a class="text-lighten-4 base_text" href="principal">Principal</a></li>
+                <li><a class="text-lighten-4 base_text" href="cadastro_admin">Administrador</a></li>
+                <li><a class="text-lighten-4 base_text" href="cadastro_estabelecimento">Estabelecimento</a></li>
+                <li><a class="text-lighten-4 base_text" href="atendimento">Atendimento</a></li>
             </ul>
         </div>
     </div>
@@ -90,10 +89,10 @@
             © 2016 Ticket Web 314 V1.0 <span class="hide-on-med-and-down">- Todos os direitos reservados.</span>
         </div>
         <span class="logo-footer hide-on-med-and-down"><img src="{% static "img/logo-certa.png" %}" class="responsive-img" alt="logo TW314"></span>
-        <a class="text-lighten-4 right hide-on-med-and-down" href="suporte_cadastro_admin">Atendimento</a>
-        <a class="text-lighten-4 right hide-on-med-and-down" href="suporte_cadastro_estabelecimento">Estabelecimento</a>
-        <a class="text-lighten-4 right hide-on-med-and-down" href="suporte_cadastro_admin">Administradores</a>
-        <a class="text-lighten-4 right hide-on-med-and-down" href="suporte_principal">Principal</a>
+        <a class="text-lighten-4 right hide-on-med-and-down" href="atendimento">Atendimento</a>
+        <a class="text-lighten-4 right hide-on-med-and-down" href="cadastro_estabelecimento">Estabelecimento</a>
+        <a class="text-lighten-4 right hide-on-med-and-down" href="cadastro_admin">Administradores</a>
+        <a class="text-lighten-4 right hide-on-med-and-down" href="principal">Principal</a>
     </div>
 </footer>
 
@@ -115,8 +114,9 @@
 <script src="{% static "js/init.js" %}"></script>
 <script type="text/javascript" src="{% static "js/backtotop.js " %}"></script>
 <script type="application/javascript">
-    $(".button-collapse").sideNav();
     $(document).ready(function(){
+        $('.tooltipped').tooltip({delay: 50});
+        $(".button-collapse").sideNav();
         $('.scrollspy').scrollSpy();
         $(".owl-carousel").owlCarousel({
                     center: true,
@@ -137,12 +137,5 @@
         );
     });
 </script>
-<script>
-    // Initialize collapse button
-    $(".button-collapse").sideNav({closeOnClick: true});
-    // Initialize collapsible (uncomment the line below if you use the dropdown variation)
-    //$('.collapsible').collapsible();
-</script>
-
 </body>
 </html>

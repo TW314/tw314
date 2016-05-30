@@ -48,7 +48,7 @@
             <div class="nav-wrapper fixed">
                 <a href="/"style="margin-left: 15px;" class="wow fadeInLeft brand-logo base_text margin-title master"><img src="{% static "img/logo-certa.png" %}" class="responsive-img margin-icons icon"> </a>
                 <ul style="margin-left: 80px;" class="wow fadeInLeft hide-on-small-only">
-                    <li class="flow-text_3"><span class="margin-title">TW314</span></li>
+                    <li class="flow-text_2"><span class="margin-title">TW314</span></li>
                 </ul>
                 <ul class="wow fadeInRight right hide-on-small-only">
                     <li><a href="/login" class="modal-trigger waves-effect waves-light btn white brown-text">
@@ -56,39 +56,44 @@
                         Entrar</a>
                     </li>
                 </ul>
-                <ul class="center-align nav-align hide-on-small-only section">
-                    <li>
-                        <a href="#home" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="HOME">
-                            <i class="fa fa-home icon" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#section_bus" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Quem somos?">
-                            <i class="fa fa-question-circle icon" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#section_how" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Como funciona?">
-                            <i class="fa fa-info-circle icon" aria-hidden="true"></i>
-                        </a>
-                    </li>
+                <div class="row nav-align section hide-on-med-and-down">
+                    <div class="col s6 offset-s3">
+                        <ul class="center-align">
+                            <li>
+                                <a href="#home" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Home">
+                                    <i class="fa fa-home icon" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#section_bus" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Quem somos?">
+                                    <i class="fa fa-question-circle icon" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#section_how" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Como funciona?">
+                                    <i class="fa fa-info-circle icon" aria-hidden="true"></i>
+                                </a>
+                            </li>
 
-                    <li>
-                        <a href="#section_clients" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Clientes">
-                            <i class="fa fa-users icon" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#section_contact" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Contato">
-                            <i class="fa fa-comments icon" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#section_contract" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Contratar">
-                            <i class="fa fa-thumbs-up icon" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                </ul>
+                            <li>
+                                <a href="#section_clients" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Clientes">
+                                    <i class="fa fa-users icon" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#section_contact" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Contato">
+                                    <i class="fa fa-comments icon" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#section_contract" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Contratar">
+                                    <i class="fa fa-thumbs-up icon" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
                 <a class="button-collapse black-text" href="#" data-activates='nav-mobile'><i class="fa fa-bars margin-icons base_text" aria-hidden="true"></i></a>
                 <ul class="right side-nav"  id="nav-mobile">
                     <li class="valign-wrapper"><a href="#home"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
@@ -119,9 +124,9 @@
     </div>
 </header>
 <main>
-    <div class="section base_bg">
+    <section class="section base_bg scrollspy" id="section_bus">
         <!-- Institucional -->
-        <h4 class="wow fadeIn light valign-wrapper scrollspy" id="section_bus"><i class="fa fa-question-circle medium" aria-hidden="true"></i></i> Quem somos?</h4>
+        <h4 class="wow fadeIn light valign-wrapper"><i class="fa fa-question-circle medium" aria-hidden="true"></i></i> Quem somos?</h4>
         <div class="row container">
             <div class="col l4 m6 s12 wow fadeInLeft">
                 <div class="hoverable card">
@@ -151,34 +156,54 @@
                 </div>
             </div>
         </div>
+    </section>
+    <section class="section base_bg scrollspy" id="section_how">
         <!-- Animacao -->
-        <div class="row border-how">
-            <h4 class="wow fadeIn light valign-wrapper scrollspy" id="section_how"><i class="fa fa-info-circle medium" aria-hidden="true"></i> Como funciona?</h4>
+        <div class="row">
+            <h4 class="wow fadeIn light valign-wrapper"><i class="fa fa-info-circle medium" aria-hidden="true"></i> Como funciona?</h4>
             <div class="animation-wrapper" id="flexible-animation">
-                <!-- TODO: Adicionar animacao
-                <div class="row">
-                    <div class="col s12 flow-text_4" style="position: absolute">
-                        <i id="fa-mobile" class="wow bounceInLeft fa fa-mobile" aria-hidden="true"></i>
-                        <i class="fa fa-arrows-h" aria-hidden="true"></i>
-                        <i class="fa fa-cloud" aria-hidden="true"></i>
-                        <i class="fa fa-desktop" aria-hidden="true"></i>
-                        <i class="fa fa-tablet" aria-hidden="true"></i>
-                        <i class="fa fa-smile-o" aria-hidden="true"></i>
-                        <i class="fa fa-heart" aria-hidden="true"></i>
-                        <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
-                    </div>
+                <!-- TODO: Adicionar animacao  -->
+                <div class="slider">
+                    <ul class="slides">
+                        <li>
+                            <img src="http://lorempixel.com/580/250/nature/1"> <!-- random image -->
+                            <div class="caption center-align">
+                                <h3>This is our big Tagline!</h3>
+                                <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="http://lorempixel.com/580/250/nature/2"> <!-- random image -->
+                            <div class="caption left-align">
+                                <h3>Left Aligned Caption</h3>
+                                <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="http://lorempixel.com/580/250/nature/3"> <!-- random image -->
+                            <div class="caption right-align">
+                                <h3>Right Aligned Caption</h3>
+                                <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="http://lorempixel.com/580/250/nature/4"> <!-- random image -->
+                            <div class="caption center-align">
+                                <h3>This is our big Tagline!</h3>
+                                <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-                <br><br><br><br><br> -->
-                <img src="{% static "img/tuto.png" %}" class="responsive-img center-block" alt="animation">
             </div>
         </div>
-    </div>
-    <div class="row">
+    </section>
+    <section class="row scrollspy" id="section_clients">
         <div class="parallax-container" style="height: 40em;">
             <div class="parallax"><img src="{% static "img/ampulheta-3.jpg" %}"></div>
         </div>
         <div class="row section-parallax">
-            <h4 class="wow fadeIn light valign-wrapper scrollspy texto_text" id="section_clients"><i class="fa fa-users medium" aria-hidden="true"></i> Clientes</h4>
+            <h4 class="wow fadeIn light valign-wrapper texto_text"><i class="fa fa-users medium" aria-hidden="true"></i> Clientes</h4>
         </div>
         <div class="container">
             <div class="owl-carousel center-align">
@@ -227,23 +252,23 @@
                 <div class="wow fadeInLeft item">
                     <div class="card small hoverable">
                         <div class="card-image waves-effect waves-block waves-light">
-                            <img class="activator" src="{% static "img/4.jpg" %}">
+                            <img class="activator" src="{% static "img/cpa-vale" %}">
                         </div>
                         <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">Cliente 4<i class="right fa fa-ellipsis-v" aria-hidden="true"></i> </span>
+                            <span class="card-title activator grey-text text-darken-4">CPA - Vale<i class="right fa fa-ellipsis-v" aria-hidden="true"></i> </span>
                         </div>
                         <div class="card-reveal">
-                            <span class="card-title grey-text text-darken-4">Cliente 4<i class="right fa fa-times" aria-hidden="true"></i> </span>
-                            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+                            <span class="card-title grey-text text-darken-4">CPA - Vale<i class="right fa fa-times" aria-hidden="true"></i> </span>
+                            <p>Controle na produção de Arroz</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="section base_bg">
+    </section>
+    <section class="section base_bg scrollspy" id="section_contact">
         <div class="row">
-            <h4 class="wow fadeIn light valign-wrapper scrollspy" id="section_contact"><i class="fa fa-comments medium" aria-hidden="true"></i> Contato</h4>
+            <h4 class="wow fadeIn light valign-wrapper"><i class="fa fa-comments medium" aria-hidden="true"></i> Contato</h4>
             <div class="container">
                 <div class="row ">
                     <div class="col s12 m6 margin-contact">
@@ -286,7 +311,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 </main>
 <footer>
     <div class="row" style="margin: 0;">
@@ -334,9 +359,9 @@
                 <div class="row">
                     <footer  class="page-footer fixed-footer wow fadeInUp">
                         <a href="#0" class="cd-top">Top</a>
-                        <div class="footer-copyright bolder uppercase master">
-                            <a class="base_text left">© 2016 Ticket Web 314 V1.0</a>
-                            <a class="logo-footer right-align"><img src="{% static "img/logo-certa.png" %}" class="responsive-img" alt="logo"></a>
+                        <div class="footer-copyright bolder uppercase master-footer">
+                            <span class="base_text left">© 2016 Ticket Web 314 V1.0</span>
+                            <a href="/" class="logo-footer right-align"><img src="{% static "img/logo-certa.png" %}" class="responsive-img" alt="logo"></a>
                             <a class="base_text right" href="#section_contract">Contratar</a>
                             <a class="base_text right" href="#section_contact">Contato</a>
                             <a class="base_text right" href="#section_clients">Clientes</a>
@@ -351,16 +376,6 @@
     </div>
 </footer>
 
-<!-- Modal Structure -->
-<div id="modal1" class="modal modal-fixed-footer base_bg">
-    <div class="modal-content">
-        <h4>Modal Header</h4>
-        <p>A bunch of text</p>
-    </div>
-    <div class="modal-footer">
-        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
-    </div>
-</div>
 <!--  Scripts-->
 
 <script src="{% static "js/jquery-2.1.1.min.js" %}"></script>
@@ -376,8 +391,6 @@
     $(document).ready(function(){
         $(".button-collapse").sideNav();
         $('.tooltipped').tooltip({delay: 50});
-        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-        $('.modal-trigger').leanModal();
         $('.scrollspy').scrollSpy();
         $(".owl-carousel").owlCarousel({
                     center: true,
