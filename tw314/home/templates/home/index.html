@@ -56,39 +56,44 @@
                         Entrar</a>
                     </li>
                 </ul>
-                <ul class="center-align nav-align hide-on-small-only section">
-                    <li>
-                        <a href="#home" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="HOME">
-                            <i class="fa fa-home icon" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#section_bus" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Quem somos?">
-                            <i class="fa fa-question-circle icon" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#section_how" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Como funciona?">
-                            <i class="fa fa-info-circle icon" aria-hidden="true"></i>
-                        </a>
-                    </li>
+                <div class="row nav-align section hide-on-med-and-down">
+                    <div class="col s6 offset-s3">
+                        <ul class="center-align">
+                            <li>
+                                <a href="#home" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Home">
+                                    <i class="fa fa-home icon" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#section_bus" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Quem somos?">
+                                    <i class="fa fa-question-circle icon" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#section_how" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Como funciona?">
+                                    <i class="fa fa-info-circle icon" aria-hidden="true"></i>
+                                </a>
+                            </li>
 
-                    <li>
-                        <a href="#section_clients" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Clientes">
-                            <i class="fa fa-users icon" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#section_contact" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Contato">
-                            <i class="fa fa-comments icon" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#section_contract" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Contratar">
-                            <i class="fa fa-thumbs-up icon" aria-hidden="true"></i>
-                        </a>
-                    </li>
-                </ul>
+                            <li>
+                                <a href="#section_clients" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Clientes">
+                                    <i class="fa fa-users icon" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#section_contact" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Contato">
+                                    <i class="fa fa-comments icon" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#section_contract" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Contratar">
+                                    <i class="fa fa-thumbs-up icon" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
                 <a class="button-collapse black-text" href="#" data-activates='nav-mobile'><i class="fa fa-bars margin-icons base_text" aria-hidden="true"></i></a>
                 <ul class="right side-nav"  id="nav-mobile">
                     <li class="valign-wrapper"><a href="#home"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
@@ -152,10 +157,10 @@
             </div>
         </div>
     </section>
-    <div class="section base_bg">
+    <section class="section base_bg scrollspy" id="section_how">
         <!-- Animacao -->
-        <div class="row border-how">
-            <h4 class="wow fadeIn light valign-wrapper scrollspy" id="section_how"><i class="fa fa-info-circle medium" aria-hidden="true"></i> Como funciona?</h4>
+        <div class="row">
+            <h4 class="wow fadeIn light valign-wrapper"><i class="fa fa-info-circle medium" aria-hidden="true"></i> Como funciona?</h4>
             <div class="animation-wrapper" id="flexible-animation">
                 <!-- TODO: Adicionar animacao  -->
                 <div class="slider">
@@ -192,13 +197,13 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
+    </section>
+    <section class="row scrollspy" id="section_clients">
         <div class="parallax-container" style="height: 40em;">
             <div class="parallax"><img src="{% static "img/ampulheta-3.jpg" %}"></div>
         </div>
         <div class="row section-parallax">
-            <h4 class="wow fadeIn light valign-wrapper scrollspy texto_text" id="section_clients"><i class="fa fa-users medium" aria-hidden="true"></i> Clientes</h4>
+            <h4 class="wow fadeIn light valign-wrapper texto_text"><i class="fa fa-users medium" aria-hidden="true"></i> Clientes</h4>
         </div>
         <div class="container">
             <div class="owl-carousel center-align">
@@ -260,10 +265,10 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="section base_bg">
+    </section>
+    <section class="section base_bg scrollspy" id="section_contact">
         <div class="row">
-            <h4 class="wow fadeIn light valign-wrapper scrollspy" id="section_contact"><i class="fa fa-comments medium" aria-hidden="true"></i> Contato</h4>
+            <h4 class="wow fadeIn light valign-wrapper"><i class="fa fa-comments medium" aria-hidden="true"></i> Contato</h4>
             <div class="container">
                 <div class="row ">
                     <div class="col s12 m6 margin-contact">
@@ -306,7 +311,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 </main>
 <footer>
     <div class="row" style="margin: 0;">
@@ -371,16 +376,6 @@
     </div>
 </footer>
 
-<!-- Modal Structure -->
-<div id="modal1" class="modal modal-fixed-footer base_bg">
-    <div class="modal-content">
-        <h4>Modal Header</h4>
-        <p>A bunch of text</p>
-    </div>
-    <div class="modal-footer">
-        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
-    </div>
-</div>
 <!--  Scripts-->
 
 <script src="{% static "js/jquery-2.1.1.min.js" %}"></script>
@@ -396,8 +391,6 @@
     $(document).ready(function(){
         $(".button-collapse").sideNav();
         $('.tooltipped').tooltip({delay: 50});
-        // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
-        $('.modal-trigger').leanModal();
         $('.scrollspy').scrollSpy();
         $(".owl-carousel").owlCarousel({
                     center: true,
