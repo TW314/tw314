@@ -59,6 +59,12 @@ def suporte_cadastro_estabelecimento(request):
     return render(request, 'home/suporte/suporte_cadastro_estabelecimento.html', {})
 
 
+
+# Cadastro de Serviço
+def suporte_cadastro_servico(request):
+    return render(request, 'home/suporte/suporte_cadastro_servico.html', {})
+
+
 # Atendimento
 def suporte_atendimento(request):
     return render(request, 'home/suporte/suporte_atendimento.html', {})
