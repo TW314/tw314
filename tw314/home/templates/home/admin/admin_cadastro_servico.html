@@ -8,25 +8,24 @@
             <!--Começo do formulário-->
             <div class="card">
                 <div class="card-content">
-                    <span class="card-title">Insira os dados para cadastrar um Serviço:</span>
+                    <span class="card-title">Selecione os Serviços Prestados para o sistema:</span>
                 </div>
                 <div class="card-action">
                     <form class="col s12">
-                        <h6 class="light valign-wrapper form-title secundaria2_text" style="margin-top: 10px;"><i class="fa fa-briefcase small" aria-hidden="true"></i><span> Dados do Serviço </span></h6>
+                        <h6 class="light valign-wrapper form-title secundaria2_text" style="margin-top: 10px;"><i class="fa fa-hand-pointer-o small" aria-hidden="true"></i><span> Escolher Serviço </span></h6>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="last_name" type="text" class="validate">
-                                <label for="last_name">Nome</label>
+                                <select multiple>
+                                    <option value="" disabled selected>Escolha os serviços</option>
+                                    <option value="1">Venda</option>
+                                    <option value="2">Entrega</option>
+                                    <option value="3">Pagamento</option>
+                                </select>
+                                <label>Serviços</label>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="input-field col s12">
-                                <input id="last_name" type="text" class="validate">
-                                <label for="last_name">Descrição</label>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <small class="small right">ATENÇÃO: Todos os campos são obrigatórios</small>
+                            <small class="small right">ATENÇÃO: Escolha pelo menos um serviço</small>
                         </div>
                         <div class="row">
                             <!--Botão Cancelar-->
@@ -38,11 +37,26 @@
                             <!--Fim do botão cancelar-->
                             <!--Botão Cadastrar-->
                             <div class="col s12 m6">
-                                <button class="btn waves-effect waves-light right col s12 sucesso_bg" type="submit" name="action">Cadastrar
-                                    <i class="fa fa-check-circle right" aria-hidden="true"></i>
+                                <button class="btn waves-effect waves-light right col s12 sucesso_bg" type="submit" name="action">Adicionar
+                                    <i class="fa fa-plus-circle right" aria-hidden="true"></i>
                                 </button>
                             </div>
                             <!--Fim do Botão Cadastrar-->
+                        </div>
+                        <h6 class="light valign-wrapper form-title secundaria2_text"><i class="fa fa-bell-o small" aria-hidden="true"></i><span> Solicitar um Serviço </span></h6>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <p>Não encontrou o que procurava? Solicite um novo serviço:</p>
+                            </div>
+                            <div class="input-field col s12 m8">
+                                <input id="a-servico" type="text" class="validate">
+                                <label for="a-servico">Nome do novo Serviço</label>
+                            </div>
+                            <div class="input-field col s12 m4">
+                                <button class="btn btn-large waves-effect waves-light right col s12" type="submit" name="action">Solicitar
+                                    <i class="fa fa-bell right" aria-hidden="true"></i>
+                                </button>
+                            </div>
                         </div>
                     </form>
                     <a href=""></a>
@@ -68,51 +82,57 @@
                             </thead>
                             <tbody>
                             <tr>
-                                <td>Pagamento</td>
+                                <td><p>Pagamento</p></td>
                                 <td><h6 class="truncate">Pagamentos realizados de faturas...</h6></td>
                                 <td class="center">
                                     <!-- Botao que chama Modal -->
-                                    <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#servico1"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                    <a class=" btn-floating btn-short waves-light btn tooltipped modal-trigger" data-position="left" data-delay="50" data-tooltip="Remover Serviço" href="#servico-inativo"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                    <a class=" btn-floating btn-short waves-light btn tooltipped modal-trigger" data-position="left" data-delay="50" data-tooltip="Vizualizar Serviço" href="#servico1"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                 </td>
                             </tr>
                             <tr>
-                                <td>Venda</td>
+                                <td><p>Venda</p></td>
                                 <td><h6 class="truncate">Vendas de mercadorias, serviços ...</h6></td>
                                 <td class="center">
                                     <!-- Botao que chama Modal -->
-                                    <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#servico1"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                    <a class=" btn-floating btn-short waves-light btn tooltipped modal-trigger" data-position="left" data-delay="50" data-tooltip="Remover Serviço" href="#servico1"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                    <a class=" btn-floating btn-short waves-light btn tooltipped modal-trigger" data-position="left" data-delay="50" data-tooltip="Vizualizar Serviço" href="#servico1"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>Serviço de envio espresso</td>
+                            <tr >
+                                <td><p>Serviço de envio espresso</p></td>
                                 <td><h6 class="truncate">Serviço de prioriade para envio de ...</h6></td>
                                 <td class="center">
                                     <!-- Botao que chama Modal -->
-                                    <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#servico1"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                    <a class=" btn-floating btn-short waves-light btn tooltipped modal-trigger" data-position="left" data-delay="50" data-tooltip="Remover Serviço" href="#servico1"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                    <a class=" btn-floating btn-short waves-light btn tooltipped modal-trigger" data-position="left" data-delay="50" data-tooltip="Vizualizar Serviço" href="#servico1"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                 </td>
                             </tr>
                             <tr>
-                                <td>Envio</td>
+                                <td><p>Envio</p></td>
                                 <td><h6 class="truncate">Envio de encomendas e correspondencias ...</h6></td>
                                 <td class="center">
                                     <!-- Botao que chama Modal -->
-                                    <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#servico1"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                    <a class=" btn-floating btn-short waves-light btn tooltipped modal-trigger" data-position="left" data-delay="50" data-tooltip="Remover Serviço" href="#servico1"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                    <a class=" btn-floating btn-short waves-light btn tooltipped modal-trigger" data-position="left" data-delay="50" data-tooltip="Vizualizar Serviço" href="#servico1"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                 </td>
                             </tr>
                             <tr>
-                                <td>Carta</td>
+                                <td><p>Carta</p></td>
                                 <td><h6 class="truncate">Serviço de prioriade para envio de ...</h6></td>
                                 <td class="center">
                                     <!-- Botao que chama Modal -->
-                                    <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#servico1"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                    <a class=" btn-floating btn-short waves-light btn tooltipped modal-trigger" data-position="left" data-delay="50" data-tooltip="Remover Serviço" href="#servico1"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                    <a class=" btn-floating btn-short waves-light btn tooltipped modal-trigger" data-position="left" data-delay="50" data-tooltip="Vizualizar Serviço" href="#servico1"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                 </td>
                             </tr>
                             <tr>
-                                <td>Recebimento de Encomendas</td>
+                                <td><p>Recebimento de Encomendas</p></td>
                                 <td><h6 class="truncate">Serviço de entrega de encomendas e ...</h6></td>
                                 <td class="center">
                                     <!-- Botao que chama Modal -->
-                                    <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#servico1"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                    <a class=" btn-floating btn-short waves-light btn tooltipped modal-trigger" data-position="left" data-delay="50" data-tooltip="Remover Serviço" href="#servico1"><i class="fa fa-times" aria-hidden="true"></i></a>
+                                    <a class=" btn-floating btn-short waves-light btn tooltipped modal-trigger" data-position="left" data-delay="50" data-tooltip="Vizualizar Serviço" href="#servico1"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                 </td>
                             </tr>
                             </tbody>
@@ -141,7 +161,7 @@
         <div class="modal-content ">
             <div class="row">
                 <div class="col s8">
-                    <h5 class="light valign-wrapper form-title" ><i class="fa fa-briefcase fa-2x" aria-hidden="true"></i><span> Pagamento <small></small> </span></h5>
+                    <h5 class="light valign-wrapper form-title" ><i class="fa fa-briefcase fa-2x" aria-hidden="true"></i><span> Venda <small></small> </span></h5>
                 </div>
                 <div class="col s4"><a href="" class="modal-action modal-close btn-flat base_text right">  <i class="right fa fa-times" aria-hidden="true"></i></a></div>
             </div>
@@ -150,10 +170,10 @@
                 <div class="col s12">
                     <div class="row">
                         <div class="row small-title">
-                            <small class="secundaria1_v_text">Descrição</small>
+                            <small>Descrição</small>
                         </div>
                         <div class="col s12">
-                            <span class="font18 white-text">Pagamentos realizados de faturas, boletos, cartões, entre outros.</span>
+                            <span class="font18 white-text">Vendas de mercadorias, serviços, boletos, cartões, entre outros.</span>
                         </div>
                     </div>
                 </div>
@@ -162,13 +182,7 @@
         <div class="modal-footer">
             <!-- Menu de acoes da Modal -->
             <div class="fixed-action-btn horizontal">
-                <a class="btn-floating btn-short secundaria1_bg">
-                    <i class="fa fa-bars" aria-hidden="true"></i>
-                </a>
-                <ul>
-                    <li><a class="btn-floating secundaria1_bg"><i class="fa fa-ban" aria-hidden="true"></i></a></li>
-                    <li><a class="btn-floating secundaria1_bg"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
-                </ul>
+                <a class="btn-floating secundaria1_bg tooltipped" data-position="top" data-delay="50" data-tooltip="Remover Serviço"><i class="fa fa-times" aria-hidden="true"></i></a>
             </div>
         </div>
     </div>

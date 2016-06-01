@@ -39,7 +39,7 @@
     <link rel="stylesheet" href="{% static "css/hover-min.css" %}">
     <link rel="stylesheet" href="{% static "css/backtotop.css" %}">
     <link rel="stylesheet" href="{% static "font-awesome-4.6.2/css/font-awesome.min.css" %}">
-    <link rel="stylesheet" href="{% static "css/style.css" %}">
+    <link rel="stylesheet" type="text/css" media="all" href="{% static "css/style.css" %}">
 </head>
 <body>
 <header class="master">
@@ -48,13 +48,12 @@
             <div class="nav-wrapper">
                 <ul>
                     <li>
-                        <a href="principal" class="white-text">
-                            <img src="{% static "img/logo-certa.png" %}" class="responsive-img" alt="logo TW314">
+                        <a href="principal" class="white-text valign-wrapper ">
+                            <img src="{% static "img/logo-certa.png" %}" class="responsive-img" alt="logo TW314"> <span class="flow-text_2 valign">TW314 </span>
                         </a>
                     </li>
-                    <li><span class="flow-text_2">TW314 </span></li>
                 </ul>
-                <a href="#" class="flow-text_3 light hide-on-med-and-down brand-logo center">{% block titulo %}{% endblock %}</a>
+                <span class="flow-text_3 light hide-on-med-and-down brand-logo center">{% block titulo %}{% endblock %}</span>
                 <ul class="right">
                     <li class="hide-on-small-only">Bem-vindo, Administrador</li>
                     <li><a class="white-text flow-text_3 light" href="../login"><i class="fa fa-sign-out" aria-hidden="true"></i><span class="hide-on-small-and-down"> SAIR </span></a></li>
@@ -68,7 +67,7 @@
 
     {% endblock %}
 </main>
-<footer class="master page-footer fixed-footer2">
+<footer class="master master-footer page-footer fixed-footer2">
     <div class="row show-on-medium-and-down hide-on-large-only">
         <div class="col s6">
             <span class="logo-footer"><img src="{% static "img/logo-certa.png" %}" class="responsive-img" alt="logo TW314"></span>
@@ -119,8 +118,9 @@
 <script src="{% static "js/init.js" %}"></script>
 <script type="text/javascript" src="{% static "js/backtotop.js " %}"></script>
 <script type="application/javascript">
-    $(".button-collapse").sideNav();
     $(document).ready(function(){
+        $('.tooltipped').tooltip({delay: 50});
+        $(".button-collapse").sideNav();
         $('.scrollspy').scrollSpy();
         $(".owl-carousel").owlCarousel({
                     center: true,
@@ -140,12 +140,6 @@
                 }
         );
     });
-</script>
-<script>
-    // Initialize collapse button
-    $(".button-collapse").sideNav({closeOnClick: true});
-    // Initialize collapsible (uncomment the line below if you use the dropdown variation)
-    //$('.collapsible').collapsible();
 </script>
 
 <!--Relatorio inicio-->
