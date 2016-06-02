@@ -70,6 +70,11 @@ def suporte_atendimento(request):
     return render(request, 'home/suporte/suporte_atendimento.html', {})
 
 
+# Cadastro de Serviço
+def suporte_cadastro_ramo(request):
+    return render(request, 'home/suporte/suporte_cadastro_ramo.html', {})
+
+
 # ???
 def demo_chart(request):
     return render(request, 'home/demo_chart.html', {})
