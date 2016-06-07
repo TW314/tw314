@@ -89,6 +89,7 @@ class PFL_PERFIL(models.Model):
 class SVC_SERVICO(models.Model):
     SVC_NOME = models.CharField(max_length=45)
     SVC_DESCRICAO =  models.TextField()
+    RMO_ID = models.ForeignKey('RMO_RAMO_ATIVIDADE', on_delete=models.CASCADE)
 
     def publish(self):
         """self.published_date = timezone.now()"""
@@ -122,8 +123,7 @@ class REL_EMPRESA_SERVICO():
 
 
 class TCK_TICKET(models.Model):
-    TCK_DT_EMISSAO = models.DateField(default=timezone.now())
-    TCK_HR_EMISSAO = models.TimeField(default=timezone.now())
+    TCK_DTHR_EMISSAO = models.DateTimeField(default=timezone.now())
 
     EMP_ID = models.ForeignKey('EMP_EMPRESA', on_delete=models.CASCADE)
     SVC_ID = models.ForeignKey('SVC_SERVICO', on_delete=models.CASCADE)
