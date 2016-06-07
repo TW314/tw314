@@ -14,7 +14,7 @@
                     <form class="col s12">
                         <h6 class="light valign-wrapper form-title secundaria2_text" style="margin-top: 10px;"><i class="fa fa-hand-pointer-o small" aria-hidden="true"></i><span> Escolher Serviço </span></h6>
                         <div class="row">
-                            <div class="input-field col s12">
+                            <!--<div class="input-field col s12">
                                 <select multiple>
                                     <option value="" disabled selected>Escolha os serviços</option>
                                     <option value="1">Venda</option>
@@ -22,26 +22,35 @@
                                     <option value="3">Pagamento</option>
                                 </select>
                                 <label>Serviços</label>
+                            </div>-->
+                            <!-- Tags para adicionar serviços -->
+                            <div class="chip">
+                                Venda
+                                <i class="fa fa-times material-icons"></i>
+                            </div>
+                            <div class="chip">
+                                Entrega
+                                <i class="fa fa-times material-icons"></i>
+                            </div>
+                            <div class="chip">
+                                Pagamento
+                                <i class="fa fa-times material-icons"></i>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12 m8">
+                                <input id="a-servico" type="text" class="validate">
+                                <label for="a-servico">Adicionar Novo Serviço</label>
+                            </div>
+                            <!-- Botão Adicionar-->
+                            <div class="input-field col s12 m4">
+                                <button class="btn btn-large waves-effect waves-light right col s12 sucesso_bg" type="submit" name="action">Adicionar
+                                    <i class="fa fa-plus-circle right" aria-hidden="true"></i>
+                                </button>
                             </div>
                         </div>
                         <div class="row">
                             <small class="small right">ATENÇÃO: Escolha pelo menos um serviço</small>
-                        </div>
-                        <div class="row">
-                            <!--Botão Cancelar-->
-                            <div class="col s12 m6">
-                                <button class="btn waves-effect waves-light right col s12 alerta_bg" type="reset" name="action">Cancelar
-                                    <i class="fa fa-times-circle right" aria-hidden="true"></i>
-                                </button>
-                            </div>
-                            <!--Fim do botão cancelar-->
-                            <!--Botão Cadastrar-->
-                            <div class="col s12 m6">
-                                <button class="btn waves-effect waves-light right col s12 sucesso_bg" type="submit" name="action">Adicionar
-                                    <i class="fa fa-plus-circle right" aria-hidden="true"></i>
-                                </button>
-                            </div>
-                            <!--Fim do Botão Cadastrar-->
                         </div>
                         <h6 class="light valign-wrapper form-title secundaria2_text"><i class="fa fa-bell-o small" aria-hidden="true"></i><span> Solicitar um Serviço </span></h6>
                         <div class="row">
