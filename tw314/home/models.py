@@ -123,10 +123,13 @@ class REL_EMPRESA_SERVICO():
 
 
 class TCK_TICKET(models.Model):
+    TCK_NR_TICKET = models.IntegerField()
     TCK_DTHR_EMISSAO = models.DateTimeField(default=timezone.now())
+    TCK_CD_ACESSO = models.CharField(max_length=8)
+
 
     EMP_ID = models.ForeignKey('EMP_EMPRESA', on_delete=models.CASCADE)
-    SVC_ID = models.ForeignKey('SVC_SERVICO', on_delete=models.CASCADE)
+    SVC_ID = models.ForeignKey('SVC_SERVICO', on_delete=models.CASCADE, max_length=2)
 
     def publish(self):
         """self.published_date = timezone.now()"""
