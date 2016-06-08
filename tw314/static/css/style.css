@@ -12,6 +12,7 @@ body {
     color: #564949;
     height: 100%;
 }
+
 .bg-login{
     background: url(../img/ampulheta4.jpg) no-repeat;
     width: 100%;
@@ -217,6 +218,50 @@ input[type="number"]::-webkit-inner-spin-button {
     -moz-appearance: textfield;
     appearance: textfield;
 }
+
+/* icon suffix */
+.input-field.suffix i {
+  position: absolute;
+  width: 3rem;
+  font-size: 2rem;
+  transition: color .2s;
+  top: 0px;
+  right: 0px;
+}
+
+.input-field.suffix i.active {
+  color: #ee692e;
+}
+
+.input-field.suffix input,
+.input-field.suffix textarea {
+  margin-right: 3rem;
+  width: 92%;
+  width: calc(100% - 3rem);
+}
+
+.input-field.suffix textarea {
+  padding-top: .8rem;
+}
+
+.input-field.suffix label {
+  margin-right: 3rem;
+}
+
+@media only screen and (max-width: 992px) {
+  .input-field.suffix input {
+    width: 86%;
+    width: calc(100% - 3rem);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .input-field.suffix input {
+    width: 80%;
+    width: calc(100% - 3rem);
+  }
+}
+
 /************
 ** OnePage **
 ************/
