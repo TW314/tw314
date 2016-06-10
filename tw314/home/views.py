@@ -1,7 +1,7 @@
 import post as post
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import StsForm
-from  .models import STS_STATUS
+from .models import STS_STATUS
 
 # Index
 def index(request):
@@ -78,6 +78,19 @@ def suporte_cadastro_status(request):
         form = StsForm()
 
     return render(request, 'home/suporte/suporte_cadastro_status.html', {'form': form, 'status': status})
+
+
+def suporte_editar_status(request, pk):
+    edit_status = get_object_or_404(STS_STATUS, pk=pk)
+    if request.method == "POST":
+        form = StsForm(request.POST, instance=edit_status)
+        if form.is_valid():
+            edit_status = form.save(commit=False)
+            post.save()
+            return redirect('blog.views.suporte_editar_status', pk=edit_status.pk)
+    else:
+        form = StsForm(instance=post)
+    return render(request, 'home/suporte/suporte_cadastro_status.html', {'form': form})
 
 
 # Atendimento

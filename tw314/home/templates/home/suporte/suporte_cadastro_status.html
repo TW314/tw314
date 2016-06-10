@@ -78,11 +78,11 @@
                                     <td><h6 class="truncate">{{ sts.STS_DESCRICAO|linebreaks }}</h6></td>
                                     <td class="center">
                                         <!-- Botao que chama Modal -->
-                                        <a class=" btn-floating btn-short waves-light btn btn tooltipped modal-trigger" data-position="left" data-delay="50" data-tooltip="Vizualizar Serviço" href="#servico1"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                        <a class=" btn-floating btn-short waves-light btn btn tooltipped modal-trigger" data-position="left" data-delay="50" data-tooltip="Vizualizar Serviço" href="#servico{{ sts.id }}"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                     </td>
                                 </tr>
                                 <!-- Inicio da estrutura do Modal -->
-                                <div id="servico1" class="modal modal-fixed-footer base_text">
+                                <div id="servico{{ sts.id }}" class="modal modal-fixed-footer base_text">
                                     <div class="modal-content ">
                                         <div class="row">
                                             <div class="col s8">
@@ -112,7 +112,7 @@
                                             </a>
                                             <ul>
                                                 <li><a class="btn-floating secundaria1_bg tooltipped" data-position="top" data-delay="50" data-tooltip="Inativar"><i class="fa fa-ban" aria-hidden="true"></i></a></li>
-                                                <li><a class="btn-floating secundaria1_bg tooltipped" data-position="top" data-delay="50" data-tooltip="Editar"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                                                <li><a href="" class="btn-floating secundaria1_bg tooltipped" data-position="top" data-delay="50" data-tooltip="Editar"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>
