@@ -1,5 +1,7 @@
+import post as post
 from django.shortcuts import render
-
+from .forms import StsForm
+from  .models import STS_STATUS
 
 # Index
 def index(request):
@@ -63,6 +65,19 @@ def suporte_cadastro_estabelecimento(request):
 # Cadastro de Serviço
 def suporte_cadastro_servico(request):
     return render(request, 'home/suporte/suporte_cadastro_servico.html', {})
+
+
+# Cadastro de Status
+def suporte_cadastro_status(request):
+    status = STS_STATUS.objects.order_by('STS_NOME')
+    if request.method == "POST":
+        form = StsForm(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form = StsForm()
+
+    return render(request, 'home/suporte/suporte_cadastro_status.html', {'form': form, 'status': status})
 
 
 # Atendimento
