@@ -96,7 +96,7 @@ class SVC_SERVICO(models.Model):
         self.save()
 
     def __str__(self):
-        return self.titlez
+        return self.title
 
 
 class CHA_CHAMADO(models.Model):

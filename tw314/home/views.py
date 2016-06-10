@@ -1,4 +1,5 @@
 import post as post
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, redirect, get_object_or_404
 from .forms import StsForm
 from .models import STS_STATUS
@@ -69,7 +70,20 @@ def suporte_cadastro_servico(request):
 
 # Cadastro de Status
 def suporte_cadastro_status(request):
-    status = STS_STATUS.objects.order_by('STS_NOME')
+    """Lista"""
+    list_status = STS_STATUS.objects.order_by('STS_NOME') # listagem de status ordenado por nome
+    paginator = Paginator(list_status, 5)  # 5 dados por pagina
+    page = request.GET.get('page') # quantidade de painas retornadas
+    try:
+        status = paginator.page(page)
+    except PageNotAnInteger:
+        # Se página retornar um
+        status = paginator.page(1)
+    except EmptyPage:
+        # Se ficarem muitas paginas
+        status = paginator.page(paginator.num_pages)
+        
+    """Cadastro"""
     if request.method == "POST":
         form = StsForm(request.POST)
         if form.is_valid():

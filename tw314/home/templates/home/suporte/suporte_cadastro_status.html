@@ -119,30 +119,45 @@
                                 </div>
                                 <!-- Fim da estrutura do Modal -->
                             {% endfor %}
-                            <tr class="table-disabled">
+                            <!-- <tr class="table-disabled">
                                 <td><p>Pagamento</p></td>
                                 <td><h6 class="truncate">Pagamentos realizados de faturas...</h6></td>
                                 <td class="center">
-                                    <!-- Botao que chama Modal -->
-                                    <a class=" btn-floating btn-short waves-light btn btn tooltipped modal-trigger" data-position="left" data-delay="50" data-tooltip="Vizualizar Serviço" href="#servico-inativo"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                                </td>
-                            </tr>
+                                    <!-- Botao que chama Modal
+                            <a class=" btn-floating btn-short waves-light btn btn tooltipped modal-trigger" data-position="left" data-delay="50" data-tooltip="Vizualizar Serviço" href="#servico-inativo"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                            </td>
+                            </tr> -->
                             </tbody>
                         </table>
                         <!--Fim da Tabela-->
                     </div>
-                    <!--Começo da páginação da tabela-->
+                    <!--Começo da páginação da tabela -->
                     <div class="row" align="right">
                         <ul class="pagination">
-                            <li class="disabled"><a href="#!"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></a></li>
-                            <li class="active"><a href="#!">1</a></li>
-                            <li class="waves-effect"><a href="#!">2</a></li>
-                            <li class="waves-effect"><a href="#!">3</a></li>
-                            <li class="waves-effect"><a href="#!">4</a></li>
-                            <li class="waves-effect"><a href="#!">5</a></li>
-                            <li class="waves-effect"><a href="#!"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></li>
+                        <span class="step-links">
+                            <li class="disabled"><a href="{% if status.has_previous %}?page={{ status.previous_page_number }}{% endif %}"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></a></li>
+                            <span class="current">
+                                <li class="waves-effect">{{ status.paginator.num_pages }}</li>
+                            </span>
+                            <li class="waves-effect {% if status.has_next %}disabled{% endif %}"><a href="{% if status.has_next %}?page={{ status.next_page_number }}{% endif %}"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></li>
+                        </span>
                         </ul>
-                        <!--Fim da páginação da tabela-->
+                        <!--Fim da paginacao da tabela-->
+                        <!-- <div class="pagination">
+                        <span class="step-links">
+                            {% if status.has_previous %}
+                                <a href="?page={{ status.previous_page_number }}">previous</a>
+                            {% endif %}
+
+                            <span class="current">
+                                Page {{ status.number }} of {{ status.paginator.num_pages }}.
+                            </span>
+
+                            {% if status.has_next %}
+                                <a href="?page={{ status.next_page_number }}">next</a>
+                            {% endif %}
+                        </span>
+                        </div>-->
                     </div>
                 </div>
             </div>
