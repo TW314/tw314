@@ -1,10 +1,12 @@
+from datetime import date
+
 from django.db import models
 from django.utils import timezone
 
 
-class STS_STATUS(models.Model):
-    STS_NOME = models.CharField(max_length=45)
-    STS_DESCRICAO = models.TextField()
+class Status(models.Model):
+    nome = models.CharField(max_length=45)
+    descricao = models.TextField()
 
     def publish(self):
         self.save()
@@ -13,143 +15,142 @@ class STS_STATUS(models.Model):
         return self.title
 
 
-class EMP_EMPRESA(models.Model):
-    EMP_NOME_FANTASIA = models.CharField(max_length=80)
-    EMP_RAZAO_SOCIAL = models.CharField(max_length=80)
-    EMP_NR_CNPJ = models.CharField(max_length=14)
-    EMP_LOGRADOURO = models.CharField(max_length=255)
-    EMP_NR_LOGRADOURO = models.CharField(max_length=255)
-    EMP_CIDADE = models.CharField(max_length=100)
-    EMP_UF = models.CharField(max_length=2)
-    EMP_PAIS = models.CharField(max_length=100)
-    EMP_TELEFONE = models.CharField(max_length=11)
-    EMP_EMAIL = models.EmailField(max_length=100)
-    EMP_NOME_RESPONSAVEL = models.CharField(max_length=80)
-    EMP_CARGO_RESPONSAVEL = models.CharField(max_length=45)
-    EMP_CPF_RESPONSAVEL = models.CharField(max_length=11)
-    EMP_DT_ABERTURA = models.DateField(default=timezone.now())
-    EMP_DT_ATIVACAO = models.DateField(default=timezone.now())
-    EMP_DT_INATIVACAO = models.DateField().null
+class Empresa(models.Model):
+    nome_fantasia = models.CharField(max_length=80)
+    razao_social = models.CharField(max_length=80)
+    nr_cnpj = models.CharField(max_length=14)
+    logradouro = models.CharField(max_length=255)
+    nr_logradouro = models.CharField(max_length=255)
+    cidade = models.CharField(max_length=100)
+    uf = models.CharField(max_length=2)
+    pais = models.CharField(max_length=100)
+    telefone = models.CharField(max_length=11)
+    email = models.EmailField(max_length=100)
+    nome_responsavel = models.CharField(max_length=80)
+    cargo_responsavel = models.CharField(max_length=45)
+    cpf_responsavel = models.CharField(max_length=11)
+    data_abertura = models.DateField(default=date.today)
+    data_ativacao = models.DateField(default=date.today)
+    data_inativacao = models.DateField().null
 
-    STS_ID = models.ForeignKey('RMO_RAMO_ATIVIDADE', on_delete=models.CASCADE)
-    RMO_ID = models.ForeignKey('STS_STATUS', on_delete=models.CASCADE)
+    ramo_atividade_id = models.ForeignKey('RamoAtividade', on_delete=models.CASCADE)
+    status_id = models.ForeignKey('Status', on_delete=models.CASCADE)
 
     def publish(self):
-        """self.published_date = timezone.now()"""
+        """self.published_date = timezone.now"""
         self.save()
 
     def __str__(self):
         return self.title
 
 
-class RMO_RAMO_ATIVIDADE(models.Model):
-    RMO_NOME = models.CharField(max_length=45)
-    STS_ID = models.ForeignKey('RMO_RAMO_ATIVIDADE', on_delete=models.CASCADE)
+class RamoAtividade(models.Model):
+    nome = models.CharField(max_length=45)
+    ramo_atividade_id = models.ForeignKey('RamoAtividade', on_delete=models.CASCADE)
 
     def publish(self):
-        """self.published_date = timezone.now()"""
+        """self.published_date = timezone.now"""
         self.save()
 
     def __str__(self):
         return self.title
 
 
-class USU_USUARIO(models.Model):
-    USU_NOME = models.CharField(max_length=80)
-    USU_EMAIL = models.EmailField(max_length=100)
-    USU_LOGIN = models.CharField(max_length=45)
-    USU_SENHA = models.CharField(max_length=45)
-    USU_DT_ATIVACAO = models.DateField(default=timezone.now())
-    USU_DT_INATIVACAO = models.DateField().null
+class Usuario(models.Model):
+    nome = models.CharField(max_length=80)
+    email = models.EmailField(max_length=100)
+    login = models.CharField(max_length=45)
+    senha = models.CharField(max_length=45)
+    data_ativacao = models.DateField(default=date.today)
+    data_inativacao = models.DateField().null
 
-    STS_ID = models.ForeignKey('RMO_RAMO_ATIVIDADE', on_delete=models.CASCADE)
-    EMP_ID = models.ForeignKey('EMP_EMPRESA', on_delete=models.CASCADE)
-    PFL_ID = models.ForeignKey('PFL_PERFIL', on_delete=models.CASCADE)
+    ramo_atividade_id = models.ForeignKey('RamoAtividade', on_delete=models.CASCADE)
+    empresa_id = models.ForeignKey('Empresa', on_delete=models.CASCADE)
+    perfil_id = models.ForeignKey('Perfil', on_delete=models.CASCADE)
 
     def publish(self):
-        """self.published_date = timezone.now()"""
+        """self.published_date = timezone.now"""
         self.save()
 
     def __str__(self):
         return self.title
 
 
-class PFL_PERFIL(models.Model):
-    PFL_NOME = models.CharField(max_length=80)
-    PFL_DESCRICAO = models.TextField()
+class Perfil(models.Model):
+    nome = models.CharField(max_length=80)
+    descricao = models.TextField()
 
     def publish(self):
-        """self.published_date = timezone.now()"""
+        """self.published_date = timezone.now"""
         self.save()
 
     def __str__(self):
         return self.title
 
 
-class SVC_SERVICO(models.Model):
-    SVC_NOME = models.CharField(max_length=45)
-    SVC_DESCRICAO =  models.TextField()
-    RMO_ID = models.ForeignKey('RMO_RAMO_ATIVIDADE', on_delete=models.CASCADE)
+class Servico(models.Model):
+    nome = models.CharField(max_length=45)
+    descricao = models.TextField()
+    ramo_atividade_id = models.ForeignKey('RamoAtividade', on_delete=models.CASCADE)
 
     def publish(self):
-        """self.published_date = timezone.now()"""
+        """self.published_date = timezone.now"""
         self.save()
 
     def __str__(self):
         return self.title
 
 
-class CHA_CHAMADO(models.Model):
-    CHA_DT_ABERTURA = models.DateField(default=timezone.now())
-    CHA_DT_ATUALIZACAO = models.DateField().null
-    CHA_ASSUNTO = models.CharField(max_length=255)
-    CHA_MENSAGEM = models.TextField()
+class Chamado(models.Model):
+    data_abertura = models.DateField(default=date.today)
+    data_atualizacao = models.DateField().null
+    assunto = models.CharField(max_length=255)
+    mensagem = models.TextField()
 
-    STS_ID = models.ForeignKey('STS_STATUS', on_delete=models.CASCADE)
-    USU_ID_ABERTURA = models.ForeignKey('USU_USUARIO', on_delete=models.CASCADE)
-    USU_ID_RESPOSTA = models.ForeignKey('USU_USUARIO', on_delete=models.CASCADE).null
+    status_id = models.ForeignKey('Status', on_delete=models.CASCADE)
+    usuario_id_abertura = models.ForeignKey('Usuario', on_delete=models.CASCADE)
+    usuario_id_resposta = models.ForeignKey('Usuario', on_delete=models.CASCADE).null
 
     def publish(self):
-        """self.published_date = timezone.now()"""
+        """self.published_date = timezone.now"""
         self.save()
 
     def __str__(self):
         return self.title
 
 
-class REL_EMPRESA_SERVICO():
-    SVC_ID = models.ForeignKey('RMO_RAMO_ATIVIDADE', on_delete=models.CASCADE).primary_key
-    EMP_ID = models.ForeignKey('EMP_EMPRESA', on_delete=models.CASCADE).primary_key
+class RelacionamentoEmpresaServico:
+    ramo_atividade_id = models.ForeignKey('RamoAtividade', on_delete=models.CASCADE).primary_key
+    empresa_id = models.ForeignKey('Empresa', on_delete=models.CASCADE).primary_key
 
 
-class TCK_TICKET(models.Model):
-    TCK_NR_TICKET = models.IntegerField()
-    TCK_DTHR_EMISSAO = models.DateTimeField(default=timezone.now())
-    TCK_CD_ACESSO = models.CharField(max_length=8)
+class Ticket(models.Model):
+    nr_ticket = models.IntegerField()
+    data_hora_emissao = models.DateTimeField(default=timezone.now)
+    cd_acesso = models.CharField(max_length=8)
 
-
-    EMP_ID = models.ForeignKey('EMP_EMPRESA', on_delete=models.CASCADE)
-    SVC_ID = models.ForeignKey('SVC_SERVICO', on_delete=models.CASCADE, max_length=2)
+    empresa_id = models.ForeignKey('Empresa', on_delete=models.CASCADE)
+    servico_id = models.ForeignKey('Servico', on_delete=models.CASCADE, max_length=2)
 
     def publish(self):
-        """self.published_date = timezone.now()"""
+        """self.published_date = timezone.now"""
         self.save()
 
     def __str__(self):
         return self.title
 
 
-class ATD_ATENDIMENTO(models.Model):
-    ATD_DTHR_INICIO = models.DateTimeField(default=timezone.now())
-    ATD_DTHR_FIM = models.DateTimeField(default=timezone.now()).null
+class Atendimento(models.Model):
+    data_hora_inicio = models.DateTimeField(default=timezone.now)
+    data_hora_fim = models.DateTimeField(default=timezone.now).null
 
-    TCK_ID = models.ForeignKey('TCK_TICKET', on_delete=models.CASCADE).primary_key
+    ticket_id = models.ForeignKey('Ticket', on_delete=models.CASCADE).primary_key
 
-    STS_ID = models.ForeignKey('STS_STATUS', on_delete=models.CASCADE)
-    USU_ID = models.ForeignKey('USU_USUARIO', on_delete=models.CASCADE)
+    status_id = models.ForeignKey('Status', on_delete=models.CASCADE)
+    usuario_id = models.ForeignKey('Usuario', on_delete=models.CASCADE)
 
     def publish(self):
-        """self.published_date = timezone.now()"""
+        """self.published_date = timezone.now"""
         self.save()
 
     def __str__(self):
