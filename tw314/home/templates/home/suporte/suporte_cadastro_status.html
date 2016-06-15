@@ -14,15 +14,15 @@
                         <h6 class="light valign-wrapper form-title secundaria2_text" style="margin-top: 10px;"><i class="fa fa-check small" aria-hidden="true"></i><span> Dados do Status </span></h6>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="STS_NOME" name="STS_NOME" maxlength="45" type="text" >
-                                {{ form.STS_NOME.errors }}
-                                <label for="STS_NOME">Nome</label>
+                                <input id="nome" name="nome" maxlength="45" type="text" >
+                                {{ form.nome.errors }}
+                                <label for="nome">Nome</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <textarea type="text" id="ss_descricao" class="materialize-textarea" cols="30" rows="5" name="STS_DESCRICAO"></textarea>
-                                {{ form.STS_DESCRICAO.errors }}
+                                <textarea type="text" id="ss_descricao" class="materialize-textarea" cols="30" rows="5" name="descricao"></textarea>
+                                {{ form.descricao.errors }}
                                 <label for="ss_descricao" class="validate">Descrição</label>
                             </div>
                         </div>
@@ -74,8 +74,8 @@
                             <tbody>
                             {% for sts in status %}
                                 <tr>
-                                    <td><p>{{ sts.STS_NOME }}</p></td>
-                                    <td><h6 class="truncate">{{ sts.STS_DESCRICAO|linebreaks }}</h6></td>
+                                    <td><p>{{ sts.nome }}</p></td>
+                                    <td><h6 class="truncate">{{ sts.descricao|linebreaks }}</h6></td>
                                     <td class="center">
                                         <!-- Botao que chama Modal -->
                                         <a class=" btn-floating btn-short waves-light btn btn tooltipped modal-trigger" data-position="left" data-delay="50" data-tooltip="Vizualizar Serviço" href="#servico{{ sts.id }}"><i class="fa fa-eye" aria-hidden="true"></i></a>
@@ -86,7 +86,7 @@
                                     <div class="modal-content ">
                                         <div class="row">
                                             <div class="col s8">
-                                                <h5 class="light valign-wrapper form-title" ><i class="fa fa-briefcase fa-2x" aria-hidden="true"></i><span> {{ sts.STS_NOME }} <small></small> </span></h5>
+                                                <h5 class="light valign-wrapper form-title" ><i class="fa fa-briefcase fa-2x" aria-hidden="true"></i><span> {{ sts.nome }} <small></small> </span></h5>
                                             </div>
                                             <div class="col s4"><a href="" class="modal-action modal-close btn-flat base_text right">  <i class="right fa fa-times" aria-hidden="true"></i></a></div>
                                         </div>
@@ -98,7 +98,7 @@
                                                         <small>Descrição</small>
                                                     </div>
                                                     <div class="col s12">
-                                                        <span class="font18 white-text">{{ sts.STS_DESCRICAO }}</span>
+                                                        <span class="font18 white-text">{{ sts.descricao }}</span>
                                                     </div>
                                                 </div>
                                             </div>
