@@ -103,43 +103,38 @@ def suporte_status(request):
         form = StsForm(instance=edit_status)
     """
 
-    if request.method == "POST":
-        return suporte_cadastro_status(request)
-
-    # suporte_editar_status(request, pk)
-
-    return suporte_listar_status(request)
+    return render(request, 'home/suporte/suporte_cadastro_status.html',
+                  {'form': suporte_cadastro_status(request), 'status': suporte_listar_status(request)})
 
 
 def suporte_cadastro_status(request):
     # Cadastro
-
-    form = StsForm(request.POST)
-    if form.is_valid():
-        form.save()
+    if request.method == "POST":
+        form = StsForm(request.POST)
+        if form.is_valid():
+            form.save()
     else:
         form = StsForm()
 
-    return render(request, 'home/suporte/suporte_cadastro_status.html',
-                  {'form': form})
+    return form
 
 
 def suporte_listar_status(request):
     # Lista
     list_status = Status.objects.order_by('nome')  # listagem de status ordenado por nome
     paginator = Paginator(list_status, 5)  # 5 dados por pagina
-    page = request.GET.get('page')  # quantidade de painas retornadas
+
+    page = 1
     try:
         status = paginator.page(page)
     except PageNotAnInteger:
-        # Se página retornar um
+        # Se página não for inteiro, irá retornar a primeira pagina
         status = paginator.page(1)
     except EmptyPage:
         # Se ficarem muitas paginas
         status = paginator.page(paginator.num_pages)
 
-    return render(request, 'home/suporte/suporte_cadastro_status.html',
-                  {'status': status})
+    return status
 
 
 def suporte_editar_status(request, pk):
