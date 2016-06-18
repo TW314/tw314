@@ -12,7 +12,7 @@ class Status(models.Model):
         self.save()
 
     def __str__(self):
-        return self.title
+        return self.nome
 
 
 class Empresa(models.Model):
@@ -33,8 +33,8 @@ class Empresa(models.Model):
     data_ativacao = models.DateField(default=date.today)
     data_inativacao = models.DateField().null
 
-    ramo_atividade_id = models.ForeignKey('RamoAtividade', on_delete=models.CASCADE)
-    status_id = models.ForeignKey('Status', on_delete=models.CASCADE)
+    ramo_atividade = models.ForeignKey('RamoAtividade', on_delete=models.CASCADE)
+    status = models.ForeignKey('Status', on_delete=models.CASCADE)
 
     def publish(self):
         """self.published_date = timezone.now"""
@@ -47,13 +47,13 @@ class Empresa(models.Model):
 class RamoAtividade(models.Model):
     nome = models.CharField(max_length=45)
 
-    status = models.ForeignKey('Status', on_delete=models.CASCADE)
+    status = models.ForeignKey('Status', on_delete=models.CASCADE, default=1)
 
     def publish(self):
         self.save()
 
     def __str__(self):
-        return self.title
+        return self.nome
 
 
 class Usuario(models.Model):

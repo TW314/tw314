@@ -16,7 +16,7 @@ class EmpForm(forms.ModelForm):
                   'nr_logradouro', 'cidade', 'uf', 'pais', 'telefone', 'email',
                   'nome_responsavel', 'cargo_responsavel', 'cpf_responsavel',
                   'data_abertura', 'data_ativacao', #'data_inativacao'
-                  'ramo_atividade_id', 'status_id')
+                  'ramo_atividade', 'status')
 
 
 class RamForm(forms.ModelForm):
