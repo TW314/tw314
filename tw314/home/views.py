@@ -1,5 +1,8 @@
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, redirect, get_object_or_404
+
+from home.forms import RamForm
+from home.models import RamoAtividade
 from .forms import StsForm
 from .models import Status
 
@@ -125,8 +128,8 @@ def suporte_cadastro_status(request):
 
 def suporte_listar_status(request):
     # Lista
-    list_status = Status.objects.order_by('nome')  # listagem de status ordenado por nome
-    paginator = Paginator(list_status, 5)  # 5 dados por pagina
+    list_status = Status.objects.order_by('nome')   # listagem de status ordenado por nome
+    paginator = Paginator(list_status, 5)           # 5 dados por pagina
 
     page = request.GET.get('page')
 
@@ -157,6 +160,41 @@ def suporte_editar_status(request, pk):
 
     suporte_listar_status(request)
     return {'pk': pk}
+
+
+def suporte_cadastro_ramo(request):
+    # Cadastro
+
+    if request.method == "POST":
+        form = RamForm(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form = RamForm()
+
+    ramos = suporte_listar_ramo(request)
+
+    return render(request, 'home/suporte/suporte_cadastro_ramo.html',
+                  {'ramos': ramos, 'form': form})
+
+
+def suporte_listar_ramo(request):
+    # Lista
+    list_ramo = RamoAtividade.objects.order_by('nome')      # listagem de ramo ordenado por nome
+    paginator = Paginator(list_ramo, 5)                     # 5 dados por pagina
+
+    page = request.GET.get('page')
+
+    try:
+        ramos = paginator.page(page)
+    except PageNotAnInteger:
+        # Se página não for inteiro, irá retornar a primeira pagina
+        ramos = paginator.page(1)
+    except EmptyPage:
+        # Se ficarem muitas paginas
+        ramos = paginator.page(paginator.num_pages)
+
+    return ramos
 
 
 # Atendimento
