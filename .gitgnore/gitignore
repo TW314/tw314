@@ -53,3 +53,5 @@ fabric.properties
 # *.iml
 # modules.xml
 
+# BANCO #
+db.sqlite3
