@@ -41,7 +41,7 @@ class Empresa(models.Model):
         self.save()
 
     def __str__(self):
-        return self.title
+        return self.nome_fantasia
 
 
 class RamoAtividade(models.Model):
@@ -73,7 +73,7 @@ class Usuario(models.Model):
         self.save()
 
     def __str__(self):
-        return self.title
+        return self.nome
 
 
 class Perfil(models.Model):
@@ -85,7 +85,7 @@ class Perfil(models.Model):
         self.save()
 
     def __str__(self):
-        return self.title
+        return self.nome
 
 
 class Servico(models.Model):
@@ -98,7 +98,7 @@ class Servico(models.Model):
         self.save()
 
     def __str__(self):
-        return self.title
+        return self.nome
 
 
 class Chamado(models.Model):
@@ -116,12 +116,19 @@ class Chamado(models.Model):
         self.save()
 
     def __str__(self):
-        return self.title
+        return self.assunto
 
 
 class RelacionamentoEmpresaServico:
     ramo_atividade = models.ForeignKey('RamoAtividade', on_delete=models.CASCADE).primary_key
     empresa = models.ForeignKey('Empresa', on_delete=models.CASCADE).primary_key
+
+    def publish(self):
+        """self.published_date = timezone.now"""
+        self.save()
+
+    def __str__(self):
+        return self.empresa
 
 
 class Ticket(models.Model):
@@ -137,7 +144,7 @@ class Ticket(models.Model):
         self.save()
 
     def __str__(self):
-        return self.title
+        return self.nr_ticket
 
 
 class Atendimento(models.Model):
@@ -154,4 +161,4 @@ class Atendimento(models.Model):
         self.save()
 
     def __str__(self):
-        return self.title
+        return self.usuario

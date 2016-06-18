@@ -69,45 +69,6 @@ def suporte_cadastro_servico(request):
     return render(request, 'home/suporte/suporte_cadastro_servico.html', {})
 
 
-# Cadastro de Status
-def suporte_status(request):
-    """Lista
-    list_status = Status.objects.order_by('nome')  # listagem de status ordenado por nome
-    paginator = Paginator(list_status, 5)  # 5 dados por pagina
-    page = request.GET.get('page')  # quantidade de painas retornadas
-    try:
-        status = paginator.page(page)
-    except PageNotAnInteger:
-        # Se página retornar um
-        status = paginator.page(1)
-    except EmptyPage:
-        # Se ficarem muitas paginas
-        status = paginator.page(paginator.num_pages)
-    """
-    """Cadastro
-    if request.method == "POST":
-        form = StsForm(request.POST)
-        if form.is_valid():
-            form.save()
-    else:
-        form = StsForm()"""
-    """Editar
-    edit_status = get_object_or_404(Status, pk=pk)
-    if request.method == "POST":
-        form = StsForm(request.POST, instance=edit_status)
-        if form.is_valid():
-            edit_status = form.save(commit=False)
-            edit_status.save()
-            pk = edit_status.pk
-            return render('home/suporte/suporte_cadastro_status.html', {'pk': pk})
-    else:
-        form = StsForm(instance=edit_status)
-    """
-
-    return render(request, 'home/suporte/suporte_cadastro_status.html',
-                  {'form': suporte_cadastro_status(request), 'status': suporte_listar_status(request)})
-
-
 def suporte_cadastro_status(request):
     # Cadastro
 
@@ -167,7 +128,6 @@ def suporte_cadastro_ramo(request):
         form = RamForm(request.POST)
         if form.is_valid():
             ramo = form.save(commit=False)
-            ramo.status_id = Status.objects.get(nome="Ativado")
             ramo.save()
     else:
         form = RamForm()
