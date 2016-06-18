@@ -109,6 +109,7 @@ def suporte_status(request):
 
 def suporte_cadastro_status(request):
     # Cadastro
+
     if request.method == "POST":
         form = StsForm(request.POST)
         if form.is_valid():
@@ -116,7 +117,10 @@ def suporte_cadastro_status(request):
     else:
         form = StsForm()
 
-    return form
+    status = suporte_listar_status(request)
+
+    return render(request, 'home/suporte/suporte_cadastro_status.html',
+                  {'status': status, 'form': form})
 
 
 def suporte_listar_status(request):
@@ -124,7 +128,8 @@ def suporte_listar_status(request):
     list_status = Status.objects.order_by('nome')  # listagem de status ordenado por nome
     paginator = Paginator(list_status, 5)  # 5 dados por pagina
 
-    page = 1
+    page = request.GET.get('page')
+
     try:
         status = paginator.page(page)
     except PageNotAnInteger:
