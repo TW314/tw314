@@ -46,10 +46,10 @@ class Empresa(models.Model):
 
 class RamoAtividade(models.Model):
     nome = models.CharField(max_length=45)
-    ramo_atividade_id = models.ForeignKey('RamoAtividade', on_delete=models.CASCADE)
+
+    status = models.ForeignKey('Status', on_delete=models.CASCADE)
 
     def publish(self):
-        """self.published_date = timezone.now"""
         self.save()
 
     def __str__(self):
@@ -64,9 +64,9 @@ class Usuario(models.Model):
     data_ativacao = models.DateField(default=date.today)
     data_inativacao = models.DateField().null
 
-    ramo_atividade_id = models.ForeignKey('RamoAtividade', on_delete=models.CASCADE)
-    empresa_id = models.ForeignKey('Empresa', on_delete=models.CASCADE)
-    perfil_id = models.ForeignKey('Perfil', on_delete=models.CASCADE)
+    ramo_atividade = models.ForeignKey('RamoAtividade', on_delete=models.CASCADE)
+    empresa = models.ForeignKey('Empresa', on_delete=models.CASCADE)
+    perfil = models.ForeignKey('Perfil', on_delete=models.CASCADE)
 
     def publish(self):
         """self.published_date = timezone.now"""
@@ -91,7 +91,7 @@ class Perfil(models.Model):
 class Servico(models.Model):
     nome = models.CharField(max_length=45)
     descricao = models.TextField()
-    ramo_atividade_id = models.ForeignKey('RamoAtividade', on_delete=models.CASCADE)
+    ramo_atividade = models.ForeignKey('RamoAtividade', on_delete=models.CASCADE)
 
     def publish(self):
         """self.published_date = timezone.now"""
@@ -107,9 +107,9 @@ class Chamado(models.Model):
     assunto = models.CharField(max_length=255)
     mensagem = models.TextField()
 
-    status_id = models.ForeignKey('Status', on_delete=models.CASCADE)
-    usuario_id_abertura = models.ForeignKey('Usuario', on_delete=models.CASCADE)
-    usuario_id_resposta = models.ForeignKey('Usuario', on_delete=models.CASCADE).null
+    status = models.ForeignKey('Status', on_delete=models.CASCADE)
+    usuario_abertura = models.ForeignKey('Usuario', on_delete=models.CASCADE)
+    usuario_resposta = models.ForeignKey('Usuario', on_delete=models.CASCADE).null
 
     def publish(self):
         """self.published_date = timezone.now"""
@@ -120,8 +120,8 @@ class Chamado(models.Model):
 
 
 class RelacionamentoEmpresaServico:
-    ramo_atividade_id = models.ForeignKey('RamoAtividade', on_delete=models.CASCADE).primary_key
-    empresa_id = models.ForeignKey('Empresa', on_delete=models.CASCADE).primary_key
+    ramo_atividade = models.ForeignKey('RamoAtividade', on_delete=models.CASCADE).primary_key
+    empresa = models.ForeignKey('Empresa', on_delete=models.CASCADE).primary_key
 
 
 class Ticket(models.Model):
@@ -129,8 +129,8 @@ class Ticket(models.Model):
     data_hora_emissao = models.DateTimeField(default=timezone.now)
     cd_acesso = models.CharField(max_length=8)
 
-    empresa_id = models.ForeignKey('Empresa', on_delete=models.CASCADE)
-    servico_id = models.ForeignKey('Servico', on_delete=models.CASCADE, max_length=2)
+    empresa = models.ForeignKey('Empresa', on_delete=models.CASCADE)
+    servico = models.ForeignKey('Servico', on_delete=models.CASCADE, max_length=2)
 
     def publish(self):
         """self.published_date = timezone.now"""
@@ -144,10 +144,10 @@ class Atendimento(models.Model):
     data_hora_inicio = models.DateTimeField(default=timezone.now)
     data_hora_fim = models.DateTimeField(default=timezone.now).null
 
-    ticket_id = models.ForeignKey('Ticket', on_delete=models.CASCADE).primary_key
+    ticket = models.ForeignKey('Ticket', on_delete=models.CASCADE).primary_key
 
-    status_id = models.ForeignKey('Status', on_delete=models.CASCADE)
-    usuario_id = models.ForeignKey('Usuario', on_delete=models.CASCADE)
+    status = models.ForeignKey('Status', on_delete=models.CASCADE)
+    usuario = models.ForeignKey('Usuario', on_delete=models.CASCADE)
 
     def publish(self):
         """self.published_date = timezone.now"""

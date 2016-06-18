@@ -1,10 +1,8 @@
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, redirect, get_object_or_404
 
-from home.forms import RamForm
-from home.models import RamoAtividade
-from .forms import StsForm
-from .models import Status
+from .forms import *
+from .models import *
 
 
 # Index
@@ -168,7 +166,9 @@ def suporte_cadastro_ramo(request):
     if request.method == "POST":
         form = RamForm(request.POST)
         if form.is_valid():
-            form.save()
+            ramo = form.save(commit=False)
+            ramo.status_id = Status.objects.get(nome="Ativado")
+            ramo.save()
     else:
         form = RamForm()
 
@@ -200,11 +200,6 @@ def suporte_listar_ramo(request):
 # Atendimento
 def suporte_atendimento(request):
     return render(request, 'home/suporte/suporte_atendimento.html', {})
-
-
-# Cadastro de Serviço
-def suporte_cadastro_ramo(request):
-    return render(request, 'home/suporte/suporte_cadastro_ramo.html', {})
 
 
 # ???

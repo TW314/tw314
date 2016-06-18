@@ -18,6 +18,7 @@ class EmpForm(forms.ModelForm):
                   'data_abertura', 'data_ativacao', #'data_inativacao'
                   'ramo_atividade_id', 'status_id')
 
+
 class RamForm(forms.ModelForm):
     class Meta:
         model = models.RamoAtividade
