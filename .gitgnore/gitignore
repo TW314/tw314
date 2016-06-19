@@ -55,3 +55,4 @@ fabric.properties
 
 # BANCO #
 db.sqlite3
+*.sqlite3
