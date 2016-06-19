@@ -63,3 +63,6 @@ target/
 
 #Pasta PyCharm
 *.idea
+
+#Banco
+*.sqlite3
