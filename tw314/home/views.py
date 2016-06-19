@@ -61,7 +61,38 @@ def suporte_cadastro_admin(request):
 
 # Cadastro de Estabelecimento
 def suporte_cadastro_estabelecimento(request):
-    return render(request, 'home/suporte/suporte_cadastro_estabelecimento.html', {})
+    # Cadastro
+
+    if request.method == "POST":
+        form = EmpForm(request.POST)
+        if form.is_valid():
+            emp = form.save(commit=False)
+            emp.save()
+    else:
+        form = EmpForm()
+
+    empresas = suporte_listar_empresas(request)
+
+    return render(request, 'home/suporte/suporte_cadastro_estabelecimento.html', {'empresas': empresas, 'form': form})
+
+
+def suporte_listar_empresas(request):
+    # Lista
+    list_status = Status.objects.order_by('nome')   # listagem de status ordenado por nome
+    paginator = Paginator(list_status, 5)           # 5 dados por pagina
+
+    page = request.GET.get('page')
+
+    try:
+        status = paginator.page(page)
+    except PageNotAnInteger:
+        # Se página não for inteiro, irá retornar a primeira pagina
+        status = paginator.page(1)
+    except EmptyPage:
+        # Se ficarem muitas paginas
+        status = paginator.page(paginator.num_pages)
+
+    return status
 
 
 # Cadastro de Serviço

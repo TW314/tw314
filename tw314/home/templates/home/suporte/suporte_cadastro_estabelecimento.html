@@ -10,59 +10,68 @@
                     <span class="card-title">Insira os dados para cadastrar o estabelecimento:</span>
                 </div>
                 <div class="card-action">
-                    <form class="col s12">
+                    <form method="POST" class="post-form col s12">{% csrf_token %}
                         <h6 class="light valign-wrapper form-title secundaria2_text" style="margin-top: 10px;"><i class="fa fa-building small" aria-hidden="true"></i><span> Empresa </span></h6>
                         <div class="row">
                             <div class="col s12 suffix input-field">
                                 <i class="fa fa-search material-icons secundaria2_text"></i>
-                                <input id="s-ramo" type="text" class="validate" >
-                                <label for="s-ramo">Ramo de Atividade</label>
+                                <input id="ramo_atividade" name="ramo_atividade" type="text" class="validate" >
+                                {{ form.ramo_atividade.errors }}
+                                <label for="ramo_atividade">Ramo de Atividade</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s6">
-                                <input id="s-cnpj" type="number" class="validate" >
-                                <label for="s-cnpj" data-error="Insira somente números" >CNPJ</label>
+                                <input id="nr_cnpj" name="nr_cnpj" type="number" class="validate" >
+                                {{ form.nr_cnpj.errors }}
+                                <label for="nr_cnpj" data-error="Insira somente números" >CNPJ</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="s-nome-fantasia" type="text" class="validate">
-                                <label for="s-nome-fantasia">Nome Fantasia</label>
+                                <input id="nome_fantasia" name="nome_fantasia" type="text" class="validate">
+                                {{ form.nome_fantasia.errors }}
+                                <label for="nome_fantasia">Nome Fantasia</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s6">
-                                <input id="s-razao-social" type="text" class="validate">
-                                <label for="s-razao-social">Razão Social</label>
+                                <input id="razao_social" name="razao_social" type="text" class="validate">
+                                {{ form.razao_social.errors }}
+                                <label for="razao_social">Razão Social</label>
                             </div>
                         </div>
                         <h6 class="light valign-wrapper form-title secundaria2_text"><i class="fa fa-map-marker small" aria-hidden="true"></i><span> Endereço </span></h6>
                         <div class="row">
                             <div class="input-field col s4">
-                                <input id="s-cep" type="text" class="validate">
-                                <label for="s-cep" data-error="Insira somente números">CEP</label>
+                                <input id="cep" name="cep" type="text" class="validate">
+                                {{ form.cep.errors }}
+                                <label for="cep" data-error="Insira somente números">CEP</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="s-rua" type="text" class="validate">
-                                <label for="s-rua">Rua</label>
+                                <input id="logradouro" name="logradouro" type="text" class="validate">
+                                {{ form.logradouro.errors }}
+                                <label for="logradouro">Rua</label>
                             </div>
                             <div class="input-field col s2">
-                                <input id="s-numero" type="number" class="validate">
-                                <label for="s-numero" data-error="Insira somente números">Número</label>
+                                <input id="nr_logradouro" name="nr_logradouro" type="number" class="validate">
+                                {{ form.nr_logradouro.errors }}
+                                <label for="nr_logradouro" data-error="Insira somente números">Número</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s8">
-                                <input id="s-bairro" type="text" class="validate">
-                                <label for="s-bairro">Bairro</label>
+                                <input id="bairro" name="bairro" type="text" class="validate">
+                                {{ form.bairro.errors }}
+                                <label for="bairro">Bairro</label>
                             </div>
                             <div class="input-field col s4">
-                                <input id="s-cidade" type="text" class="validate">
-                                <label for="s-cidade">Cidade</label>
+                                <input id="cidade" name="cidade" type="text" class="validate">
+                                {{ form.cidade.errors }}
+                                <label for="cidade">Cidade</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s4">
-                                <select id="s-estado">
+                                <select id="uf" name="uf">
                                     <option value="" disabled selected>Selecione</option>
                                     <option value="1">AC</option>
                                     <option value="2">AL</option>
@@ -92,33 +101,39 @@
                                     <option value="26">SP</option>
                                     <option value="27">TO</option>
                                 </select>
-                                <label for="s-estado">UF</label>
+                                {{ form.uf.errors }}
+                                <label for="uf">Estado</label>
                             </div>
                         </div>
                         <h6 class="light valign-wrapper form-title secundaria2_text"><i class="small fa fa-comment" aria-hidden="true"></i><span> Contato </span></h6>
                         <div class="row">
                             <div class="input-field col s6">
-                                <input id="s-email" type="email" class="validate">
-                                <label for="s-email" data-error="E-mail inválido">E-mail</label>
+                                <input id="email" name="email" type="email" class="validate">
+                                {{ form.email.errors }}
+                                <label for="email" data-error="E-mail inválido">E-mail</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="s-tel" type="tel" class="validate">
-                                <label for="s-tel" data-error="Insira somente números">Telefone</label>
+                                <input id="telefone" name="telefone" type="tel" class="validate">
+                                {{ form.telefone.errors }}
+                                <label for="telefone" data-error="Insira somente números">Telefone</label>
                             </div>
                         </div>
                         <h6 class="light valign-wrapper form-title secundaria2_text"><i class="small fa fa-user" aria-hidden="true"></i><span> Responsável </span></h6>
                         <div class="row">
                             <div class="input-field col s6">
-                                <input id="s-responsavel" type="text" class="validate">
-                                <label for="s-responsavel">Responsável</label>
+                                <input id="nome_responsavel" name="nome_responsavel" type="text" class="validate">
+                                {{ form.nome_responsavel.errors }}
+                                <label for="nome_responsavel">Responsável</label>
                             </div>
-                            <!--<div class="input-field col s6">
-                                <input id="last_name" type="text" class="validate">
-                                <label for="last_name">Cargo</label>
-                            </div> -->
                             <div class="input-field col s6">
-                                <input id="s-cpf" type="number" class="validate">
-                                <label for="s-cpf" data-error="Insira somente números">CPF</label>
+                                <input id="cargo_responsavel" name="cargo_responsavel" type="text" class="validate">
+                                {{ form.cargo_responsavel.errors }}
+                                <label for="cargo_responsavel">Cargo</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="cpf" name="cpf" type="number" class="validate">
+                                {{ form.cpf_responsavel.errors }}
+                                <label for="cpf" data-error="Insira somente números">CPF</label>
                             </div>
                         </div>
                         <div class="row">
@@ -127,14 +142,14 @@
                         <div class="row">
                             <!--Botão Cancelar-->
                             <div class="col s12 m6">
-                                <button class="btn waves-effect waves-light right col s12 alerta_bg" type="reset" name="action">Cancelar
-                                    <i class="fa fa-times-circle right" aria-hidden="true"></i>
+                                <button class="btn waveeffect wavelight right col s12 alerta_bg" type="reset" name="action">Cancelar
+                                    <i class="fa fa-timecircle right" aria-hidden="true"></i>
                                 </button>
                             </div>
                             <!--Fim do botão cancelar-->
                             <!--Botão Cadastrar-->
                             <div class="col s12 m6">
-                                <button class="btn waves-effect waves-light right col s12 sucesso_bg" type="submit" name="action">Cadastrar
+                                <button class="btn waveeffect wavelight right col s12 sucesso_bg" type="submit" name="action">Cadastrar
                                     <i class="fa fa-check-circle right" aria-hidden="true"></i>
                                 </button>
                             </div>
@@ -170,7 +185,7 @@
                                 <td>Pedro Ribeiro</td>
                                 <td class="center">
                                     <!-- Botao que chama Modal -->
-                                    <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#estabelecimento-inativo"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                    <a class=" btn-floating btn-short wavelight btn btn modal-trigger" href="#estabelecimento-inativo"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                 </td>
                             </tr>
                             <tr>
@@ -179,7 +194,7 @@
                                 <td>Mylena Santos</td>
                                 <td class="center">
                                     <!-- Botao que chama Modal -->
-                                    <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#estabelecimento1"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                    <a class=" btn-floating btn-short wavelight btn btn modal-trigger" href="#estabelecimento1"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                 </td>
                             </tr>
                             <tr>
@@ -188,7 +203,7 @@
                                 <td>Camila Corá</td>
                                 <td class="center">
                                     <!-- Botao que chama Modal -->
-                                    <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#estabelecimento1"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                    <a class=" btn-floating btn-short wavelight btn btn modal-trigger" href="#estabelecimento1"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                 </td>
                             </tr>
                             <tr>
@@ -197,7 +212,7 @@
                                 <td>Alan Camargo</td>
                                 <td class="center">
                                     <!-- Botao que chama Modal -->
-                                    <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#estabelecimento1"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                    <a class=" btn-floating btn-short wavelight btn btn modal-trigger" href="#estabelecimento1"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                 </td>
                             </tr>
                             <tr>
@@ -206,7 +221,7 @@
                                 <td>Ana Maria Santos</td>
                                 <td class="center">
                                     <!-- Botao que chama Modal -->
-                                    <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#estabelecimento1"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                    <a class=" btn-floating btn-short wavelight btn btn modal-trigger" href="#estabelecimento1"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                 </td>
                             </tr>
                             </tbody>
@@ -218,11 +233,11 @@
                         <ul class="pagination">
                             <li class="disabled"><a href="#!"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></a></li>
                             <li class="active"><a href="#!">1</a></li>
-                            <li class="waves-effect"><a href="#!">2</a></li>
-                            <li class="waves-effect"><a href="#!">3</a></li>
-                            <li class="waves-effect"><a href="#!">4</a></li>
-                            <li class="waves-effect"><a href="#!">5</a></li>
-                            <li class="waves-effect"><a href="#!"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></li>
+                            <li class="waveeffect"><a href="#!">2</a></li>
+                            <li class="waveeffect"><a href="#!">3</a></li>
+                            <li class="waveeffect"><a href="#!">4</a></li>
+                            <li class="waveeffect"><a href="#!">5</a></li>
+                            <li class="waveeffect"><a href="#!"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></li>
                         </ul>
                         <!--Fim da páginação da tabela-->
                     </div>

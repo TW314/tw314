@@ -22,8 +22,10 @@ class Empresa(models.Model):
     logradouro = models.CharField(max_length=255)
     nr_logradouro = models.CharField(max_length=255)
     cidade = models.CharField(max_length=100)
+    bairro = models.CharField(max_length=100)
     uf = models.CharField(max_length=2)
     pais = models.CharField(max_length=100)
+    cep = models.CharField(max_length=8)
     telefone = models.CharField(max_length=11)
     email = models.EmailField(max_length=100)
     nome_responsavel = models.CharField(max_length=80)
@@ -34,7 +36,7 @@ class Empresa(models.Model):
     data_inativacao = models.DateField().null
 
     ramo_atividade = models.ForeignKey('RamoAtividade', on_delete=models.CASCADE)
-    status = models.ForeignKey('Status', on_delete=models.CASCADE)
+    status = models.ForeignKey('Status', on_delete=models.CASCADE, default=1)
 
     def publish(self):
         """self.published_date = timezone.now"""
