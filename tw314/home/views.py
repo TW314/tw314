@@ -134,18 +134,22 @@ def suporte_listar_empresas(request):
 # Cadastro de Servico
 def suporte_cadastro_servico(request):
     #Cadastro
-
     if request.method == "POST":
         form = SvcForm(request.POST)
+        select_ramo = get_object_or_404(RamoAtividade, pk=request.POST.get('select_ramo'))
         if form.is_valid():
-            form.save()
+            svc = form.save()
+            svc.ramo_atividade = select_ramo
+            svc.status = 1
+            svc.save()
     else:
         form = SvcForm()
 
     servico = suporte_listar_servico(request)
+    ramos = RamoAtividade.objects.order_by('nome')
 
     return render(request, 'home/suporte/suporte_cadastro_servico.html',
-                  {'servico': servico, 'form': form})
+                  {'servico': servico, 'form': form, 'ramos': ramos})
 
 
 def suporte_listar_servico(request):
