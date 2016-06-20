@@ -28,3 +28,10 @@ class UsuForm(forms.ModelForm):
     class Meta:
         model = models.Usuario
         fields = ('nome', 'empresa', 'email')
+
+
+class SvcForm(forms.ModelForm):
+    class Meta:
+        model = models.Servico
+        fields = ('nome', 'descricao', 'ramo_atividade',)
+
