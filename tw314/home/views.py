@@ -90,10 +90,9 @@ def suporte_cadastro_estabelecimento(request):
 
     if request.method == "POST":
         form = EmpForm(request.POST)
-        select_ramo = get_object_or_404(RamoAtividade, pk=request.POST.get('select_ramo'))
+        #select_ramo = get_object_or_404(RamoAtividade, pk=request.POST.get('select_ramo'))
         if form.is_valid():
             emp = form.save(commit=False)
-            emp.ramo_atividade = select_ramo
             emp.status = 1
             emp.save()
     else:
@@ -131,11 +130,9 @@ def suporte_cadastro_servico(request):
     #Cadastro
     if request.method == "POST":
         form = SvcForm(request.POST)
-        select_ramo = get_object_or_404(Servico, pk=request.POST.get('servico'))
+        #select_ramo = get_object_or_404(Servico, pk=request.POST.get('servico'))
         if form.is_valid():
             svc = form.save()
-            svc.ramo_atividade = select_ramo
-            svc.status = 1
             svc.save()
     else:
         form = SvcForm()
