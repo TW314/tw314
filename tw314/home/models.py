@@ -67,7 +67,7 @@ class Usuario(models.Model):
 
     status = models.ForeignKey('Status', default=2)
     empresa = models.ForeignKey('Empresa', on_delete=models.CASCADE)
-    perfil = models.ForeignKey('Perfil', on_delete=models.CASCADE)
+    perfil = models.ForeignKey('Perfil', on_delete=models.CASCADE, default=1)
 
     def publish(self):
         """self.published_date = timezone.now"""

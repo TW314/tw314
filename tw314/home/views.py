@@ -84,27 +84,21 @@ def suporte_princpal(request):
     return render(request, 'home/suporte/suporte_principal.html', {})
 
 
-# Cadastro de Administrador
-def suporte_cadastro_admin(request):
-    return render(request, 'home/suporte/suporte_cadastro_admin.html', {})
-
-
 # Cadastro de Estabelecimento
 def suporte_cadastro_estabelecimento(request):
     # Cadastro
 
-    ramos = RamoAtividade.objects.filter(status=1)
     if request.method == "POST":
         form = EmpForm(request.POST)
-        # select_ramo = get_object_or_404(RamoAtividade, pk=request.POST.get('select_ramo'))
+        #select_ramo = get_object_or_404(RamoAtividade, pk=request.POST.get('select_ramo'))
         if form.is_valid():
             emp = form.save(commit=False)
-            emp.ramos = 4  # request.POST['select_ramo']
             emp.status = 1
             emp.save()
     else:
         form = EmpForm()
 
+    ramos = RamoAtividade.objects.filter(status=1)
     empresas = suporte_listar_empresas(request)
 
     # get the user you want (connect for example) in the var "user"
@@ -134,24 +128,26 @@ def suporte_listar_empresas(request):
 # Cadastro de Servico
 def suporte_cadastro_servico(request):
     #Cadastro
-
     if request.method == "POST":
         form = SvcForm(request.POST)
+        #select_ramo = get_object_or_404(Servico, pk=request.POST.get('servico'))
         if form.is_valid():
-            form.save()
+            svc = form.save()
+            svc.save()
     else:
         form = SvcForm()
 
-    servico = suporte_listar_servico(request)
+    servicos = suporte_listar_servico(request)
+    ramos = RamoAtividade.objects.filter(status=1)
 
     return render(request, 'home/suporte/suporte_cadastro_servico.html',
-                  {'servico': servico, 'form': form})
+                  {'servicos': servicos, 'form': form, 'ramos': ramos})
 
 
 def suporte_listar_servico(request):
     # Lista
     list_servico = Servico.objects.order_by('nome')  # listagem de servico ordenado por nome
-    paginator = Paginator(list_servico, 5)  # 5 dados por pagina
+    paginator = Paginator(list_servico, 5)           # 5 dados por pagina
 
     page = request.GET.get('page')
 
@@ -253,6 +249,48 @@ def suporte_listar_ramo(request):
         ramos = paginator.page(paginator.num_pages)
 
     return ramos
+
+
+def suporte_cadastro_usuario(request):
+    # Cadastro
+
+    if request.method == "POST":
+        form = UsuForm(request.POST)
+        if form.is_valid():
+
+            empresaUsuario = get_object_or_404(Empresa, pk=request.POST['empresa'])
+            form.save(commit=False)
+            form.empresa = empresaUsuario
+            form.perfil = Perfil.objects.filter(nome="Administrador")
+            form.save()
+    else:
+        form = UsuForm()
+
+    usuarios = suporte_listar_usuario(request)
+
+    estabelecimentos = Empresa.objects.filter(status=1)
+
+    return render(request, 'home/suporte/suporte_cadastro_admin.html',
+                  {'usuarios': usuarios, 'form': form, 'estabelecimentos': estabelecimentos})
+
+
+def suporte_listar_usuario(request):
+    # Lista
+    list_usuario = Usuario.objects.order_by('nome')  # listagem de ramo ordenado por nome
+    paginator = Paginator(list_usuario, 5)                 # 5 dados por pagina
+
+    page = request.GET.get('page')
+
+    try:
+        usuario = paginator.page(page)
+    except PageNotAnInteger:
+        # Se página não for inteiro, irá retornar a primeira pagina
+        usuario = paginator.page(1)
+    except EmptyPage:
+        # Se ficarem muitas paginas
+        usuario = paginator.page(paginator.num_pages)
+
+    return usuario
 
 
 # Atendimento

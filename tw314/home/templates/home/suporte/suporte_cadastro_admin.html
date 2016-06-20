@@ -10,57 +10,64 @@
                     <span class="card-title">Insira os dados para cadastrar um Administrador:</span>
                 </div>
                 <div class="card-action">
-                    <form class="col s12">
-                        <h6 class="light valign-wrapper form-title secundaria2_text" style="margin-top: 10px;"><i class="fa fa-user small" aria-hidden="true"></i><span> Dados de Acesso </span></h6>
+                    <form method="POST" class="col s12"> {% csrf_token %}
+                        <h6 class="light valign-wrapper form-title secundaria2_text" style="margin-top: 10px;"><i
+                                class="fa fa-user small" aria-hidden="true"></i><span> Dados de Acesso </span></h6>
                         <div class="row">
                             <div class="input-field col s12">
-                                <select id="a-estabelecimento">
+                                <select id="empresa" name="empresa">
                                     <option value="" disabled selected>Estabelecimento</option>
-                                    <option value="1">Ciclope SA</option>
-                                    <option value="2">Calçados SA</option>
-                                    <option value="3">iCarly</option>
+                                    {% for estabelecimento in estabelecimentos %}
+                                        <option value="{{ estabelecimento.id }}">{{ estabelecimento.nome_fantasia }}</option>
+                                    {% endfor %}
                                 </select>
-                                <label for="a-estabelecimento">Estabelecimento</label>
+                                <label for="empresa">Estabelecimento</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="a-nome" type="text" class="validate">
-                                <label for="a-nome">Nome</label>
+                                <input id="nome" name="nome" type="text" class="validate">
+                                {{ form.nome.errors }}
+                                <label for="nome">Nome</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="a-email" type="text" class="validate">
-                                <label for="a-email">E-mail</label>
+                                <input id="email" name="email" type="text" class="validate">
+                                {{ form.email.errors }}
+                                <label for="email">E-mail</label>
                             </div>
                         </div>
+                        <!-- Campo 'Login'
                         <div class="row">
                             <div class="input-field col s12">
                                 <input id="a-login" type="text" class="validate">
                                 <label for="a-login">Login</label>
                             </div>
-                        </div>
+                        </div> -->
+                        <!-- Campo 'Senha'
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="a-senha" type="password" class="validate">
-                                <label for="a-senha">Senha</label>
+                                <input id="a-password" type="password" class="validate">
+                                <label for="a-password">Senha</label>
                             </div>
-                        </div>
+                        </div>-->
                         <div class="row">
                             <small class="small right">ATENÇÃO: Todos os campos são obrigatórios</small>
                         </div>
                         <div class="row">
                             <!--Botão Cancelar-->
                             <div class="col s12 m6">
-                                <button class="btn waves-effect waves-light right col s12 alerta_bg" type="reset" name="action">Cancelar
+                                <button class="btn waves-effect waves-light right col s12 alerta_bg" type="reset"
+                                        name="action">Cancelar
                                     <i class="fa fa-times-circle right" aria-hidden="true"></i>
                                 </button>
                             </div>
                             <!--Fim do botão cancelar-->
                             <!--Botão Cadastrar-->
                             <div class="col s12 m6">
-                                <button class="btn waves-effect waves-light right col s12 sucesso_bg" type="submit" name="action">Cadastrar
+                                <button class="btn waves-effect waves-light right col s12 sucesso_bg" type="submit"
+                                        name="action">Cadastrar
                                     <i class="fa fa-check-circle right" aria-hidden="true"></i>
                                 </button>
                             </div>
@@ -76,7 +83,7 @@
             <div class="col s12">
                 <div class="card white">
                     <div class="card-content texto_text">
-                        <span id="table" class="card-title small">Lista de Estabelecimentos</span>
+                        <span id="table" class="card-title small">Lista de Administradores</span>
                     </div>
                     <div class="card-action">
                         <!--Começo da Tabela-->
@@ -84,51 +91,93 @@
                             <thead>
                             <tr>
                                 <th data-field="nome">Nome</th>
-                                <th data-field="login">Login</th>
+                                <th data-field="email">Login</th>
                                 <th data-field="acoes">Visualizar</th>
                             </tr>
                             </thead>
                             <tbody>
+                            <!--
                             <tr class="table-disabled">
                                 <td><p>Mylena Maria Silva dos Santos</p></td>
                                 <td>mylena_admin</td>
                                 <td class="center">
-                                    <!-- Botao que chama Modal -->
-                                    <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#admin-inativo"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                    <!-- Botao que chama Modal --
+                                    <a class=" btn-floating btn-short waves-light btn btn modal-trigger"
+                                       href="#admin-inativo"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td><p>Pedro Miguel Scian Ribeiro</p></td>
-                                <td>pedro_admin</td>
-                                <td class="center">
-                                    <!-- Botao que chama Modal -->
-                                    <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#admin1"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                                </td>
-                            </tr>
-                            <tr class="table-disabled">
-                                <td><p>Haluane de Cássia Pereira Amâncio</p></td>
-                                <td>haluane@admin</td>
-                                <td class="center">
-                                    <!-- Botao que chama Modal -->
-                                    <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#admin1"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><p>Camila Corá Novaes</p></td>
-                                <td>camila_admin</td>
-                                <td class="center">
-                                    <!-- Botao que chama Modal -->
-                                    <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#admin1"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><p>Alan Henrique de Camargo</p></td>
-                                <td>alan_admin</td>
-                                <td class="center">
-                                    <!-- Botao que chama Modal -->
-                                    <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#admin1"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                                </td>
-                            </tr>
+                            -->
+                            {% for usuario in usuarios %}
+                                <tr>
+                                    <td><p>{{ usuario.nome }}</p></td>
+                                    <td>{{ usuario.email }}</td>
+                                    <td class="center">
+                                        <!-- Botao que chama Modal -->
+                                        <a class=" btn-floating btn-short waves-light btn btn modal-trigger"
+                                           href="#admin"><i
+                                                class="fa fa-eye" aria-hidden="true"></i></a>
+                                    </td>
+                                </tr>
+
+                                <!-- Inicio da estrutura do Modal -->
+                                <div id="admin" class="modal modal-fixed-footer base_text">
+                                    <div class="modal-content modal-padding">
+                                        <div class="row">
+                                            <div class="col s8">
+                                                <h5 class="light valign-wrapper form-title"><i class="fa fa-user fa-2x"
+                                                                                               aria-hidden="true"></i><span> {{ usuario.nome }} <small></small> </span>
+                                                </h5>
+                                            </div>
+                                            <div class="col s4"><a href=""
+                                                                   class="modal-action modal-close btn-flat base_text right">
+                                                <i
+                                                        class="right fa fa-times" aria-hidden="true"></i></a></div>
+                                        </div>
+                                        <div class="row">
+                                            <!-- Dados -->
+                                            <div class="col s12">
+                                                <div class="row">
+                                                    <div class="row small-title">
+                                                        <small class="secundaria1_v_text">Dados</small>
+                                                    </div>
+                                                    <div class="col s3">
+                                                        <span class="font18 white-text">Estabelecimento:</span>
+                                                    </div>
+                                                    <div class="col s9">
+                                                        <span class="font18 white-text">{{ usuario.empresa }}</span>
+                                                    </div>
+                                                    <div class="col s3">
+                                                        <span class="font18 white-text">Email:</span>
+                                                    </div>
+                                                    <div class="col s9">
+                                                        <span class="font18 white-text">{{ usuario.email }}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <!-- Menu de acoes da Modal -->
+                                        <div class="fixed-action-btn horizontal">
+                                            <a class="btn-floating btn-short secundaria1_bg">
+                                                <i class="fa fa-bars" aria-hidden="true"></i>
+                                            </a>
+                                            <ul>
+                                                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-ban"
+                                                                                              aria-hidden="true"></i></a>
+                                                </li>
+                                                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-key"
+                                                                                              aria-hidden="true"></i></a>
+                                                </li>
+                                                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-pencil"
+                                                                                              aria-hidden="true"></i></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Fim da estrutura do Modal -->
+                            {% endfor %}
                             </tbody>
                         </table>
                         <!--Fim da tabela-->
@@ -136,75 +185,32 @@
                     <!--Começo da páginação da tabela-->
                     <div class="row" align="right">
                         <ul class="pagination">
-                            <li class="disabled"><a href="#!"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></a></li>
-                            <li class="active"><a href="#!">1</a></li>
-                            <li class="waves-effect"><a href="#!">2</a></li>
-                            <li class="waves-effect"><a href="#!">3</a></li>
-                            <li class="waves-effect"><a href="#!">4</a></li>
-                            <li class="waves-effect"><a href="#!">5</a></li>
-                            <li class="waves-effect"><a href="#!"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></li>
+                        <span class="step-links">
+                            <li class="disabled"><a href="{% if usuarios.has_previous %}?page={{ usuarios.previous_page_number }}{% endif %}"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></a></li>
+                            <span class="current">
+                                <li class="waves-effect">{{ usuarios.paginator.num_pages }}</li>
+                            </span>
+                            <li class="waves-effect {% if usuarios.has_next %}disabled{% endif %}"><a href="{% if usuarios.has_next %}?page={{ usuarios.next_page_number }}{% endif %}"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></li>
+                        </span>
                         </ul>
-                        <!--Fim da páginação da tabela-->
+                        <!--Fim da paginacao da tabela-->
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Inicio da estrutura do Modal -->
-    <div id="admin1" class="modal modal-fixed-footer base_text">
+    <div id="admin-inativo" class="modal modal-fixed-footer base_text"
+         style="background-color: rgba(219, 61, 52, 0.90)">
         <div class="modal-content modal-padding">
             <div class="row">
                 <div class="col s8">
-                    <h5 class="light valign-wrapper form-title" ><i class="fa fa-user fa-2x" aria-hidden="true"></i><span> Pedro Miguel Scian Ribeiro <small></small> </span></h5>
+                    <h5 class="light valign-wrapper form-title table-disabled base_text"><i class="fa fa-user fa-2x"
+                                                                                            aria-hidden="true"></i><span> Mylena Maria Silva dos Santos <small></small> </span>
+                    </h5>
                 </div>
-                <div class="col s4"><a href="" class="modal-action modal-close btn-flat base_text right"> <i class="right fa fa-times" aria-hidden="true"></i></a></div>
-            </div>
-            <div class="row">
-                <!-- Dados -->
-                <div class="col s12">
-                    <div class="row">
-                        <div class="row small-title">
-                            <small class="secundaria1_v_text">Dados</small>
-                        </div>
-                        <div class="col s3">
-                            <span class="font18 white-text">Estabelecimento:</span>
-                        </div>
-                        <div class="col s9">
-                            <span class="font18 white-text">Ciclope SA.</span>
-                        </div>
-                        <div class="col s3">
-                            <span class="font18 white-text">Login:</span>
-                        </div>
-                        <div class="col s9">
-                            <span class="font18 white-text">pedro_admin</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <!-- Menu de acoes da Modal -->
-            <div class="fixed-action-btn horizontal">
-                <a class="btn-floating btn-short secundaria1_bg">
-                    <i class="fa fa-bars" aria-hidden="true"></i>
-                </a>
-                <ul>
-                    <li><a class="btn-floating secundaria1_bg"><i class="fa fa-ban" aria-hidden="true"></i></a></li>
-                    <li><a class="btn-floating secundaria1_bg"><i class="fa fa-key" aria-hidden="true"></i></a></li>
-                    <li><a class="btn-floating secundaria1_bg"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- Fim da estrutura do Modal -->
-    <!-- Inicio da estrutura do Modal -->
-    <div id="admin-inativo" class="modal modal-fixed-footer base_text" style="background-color: rgba(219, 61, 52, 0.90)">
-        <div class="modal-content modal-padding">
-            <div class="row">
-                <div class="col s8">
-                    <h5 class="light valign-wrapper form-title table-disabled base_text" ><i class="fa fa-user fa-2x" aria-hidden="true"></i><span> Mylena Maria Silva dos Santos <small></small> </span></h5>
-                </div>
-                <div class="col s4"><a href="" class="modal-action modal-close btn-flat base_text right"> <i class="right fa fa-times" aria-hidden="true"></i></a></div>
+                <div class="col s4"><a href="" class="modal-action modal-close btn-flat base_text right"> <i
+                        class="right fa fa-times" aria-hidden="true"></i></a></div>
             </div>
             <div class="row">
                 <!-- Dados -->
@@ -236,9 +242,12 @@
                     <i class="fa fa-bars" aria-hidden="true"></i>
                 </a>
                 <ul>
-                    <li><a class="btn-floating alerta_bg tooltipped" data-position="top" data-delay="50" data-tooltip="Ativar"><i class="fa fa-check" aria-hidden="true"></i></a></li>
-                    <li><a class="btn-floating alerta_bg tooltipped" data-position="top" data-delay="50" data-tooltip="Redefinir Senha"><i class="fa fa-key" aria-hidden="true"></i></a></li>
-                    <li><a class="btn-floating alerta_bg tooltipped" data-position="top" data-delay="50" data-tooltip="Editar"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                    <li><a class="btn-floating alerta_bg tooltipped" data-position="top" data-delay="50"
+                           data-tooltip="Ativar"><i class="fa fa-check" aria-hidden="true"></i></a></li>
+                    <li><a class="btn-floating alerta_bg tooltipped" data-position="top" data-delay="50"
+                           data-tooltip="Redefinir Senha"><i class="fa fa-key" aria-hidden="true"></i></a></li>
+                    <li><a class="btn-floating alerta_bg tooltipped" data-position="top" data-delay="50"
+                           data-tooltip="Editar"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
                 </ul>
             </div>
         </div>
