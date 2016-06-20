@@ -13,7 +13,7 @@ urlpatterns = [
     url(r'^admin/sobre', views.admin_sobre),
     # suporte
     url(r'^suporte/principal', views.suporte_princpal),
-    url(r'^suporte/cadastro_admin', views.suporte_cadastro_admin),
+    url(r'^suporte/cadastro_admin', views.suporte_cadastro_usuario),
     url(r'^suporte/cadastro_estabelecimento', views.suporte_cadastro_estabelecimento),
     url(r'^suporte/atendimento', views.suporte_atendimento),
     url(r'^suporte/cadastro_servico', views.suporte_cadastro_servico),
