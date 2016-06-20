@@ -62,7 +62,9 @@ def suporte_cadastro_admin(request):
 # Cadastro de Estabelecimento
 def suporte_cadastro_estabelecimento(request):
     # Cadastro
+
     ramos = RamoAtividade.objects.all().filter(status=1)
+
     if request.method == "POST":
         form = EmpForm(request.POST)
         select_ramo = get_object_or_404(RamoAtividade, pk=request.POST.get('select_ramo'))
@@ -75,27 +77,29 @@ def suporte_cadastro_estabelecimento(request):
         form = EmpForm()
 
     empresas = suporte_listar_empresas(request)
+
     # get the user you want (connect for example) in the var "user"
-    return render(request, 'home/suporte/suporte_cadastro_estabelecimento.html', {'empresas': empresas, 'form': form, 'ramos': ramos})
+    return render(request, 'home/suporte/suporte_cadastro_estabelecimento.html',
+                  {'empresas': empresas, 'form': form, 'ramos': ramos})
 
 
 def suporte_listar_empresas(request):
     # Lista
-    list_status = Status.objects.order_by('nome')   # listagem de status ordenado por nome
-    paginator = Paginator(list_status, 5)           # 5 dados por pagina
+    list_empresa = Empresa.objects.order_by('nome_fantasia')     # listagem de status ordenado por nome
+    paginator = Paginator(list_empresa, 5)                       # 5 dados por pagina
 
     page = request.GET.get('page')
 
     try:
-        status = paginator.page(page)
+        empresas = paginator.page(page)
     except PageNotAnInteger:
         # Se página não for inteiro, irá retornar a primeira pagina
-        status = paginator.page(1)
+        empresas = paginator.page(1)
     except EmptyPage:
         # Se ficarem muitas paginas
-        status = paginator.page(paginator.num_pages)
+        empresas = paginator.page(paginator.num_pages)
 
-    return status
+    return empresas
 
 
 # Cadastro de Servico
@@ -174,8 +178,8 @@ def suporte_cadastro_ramo(request):
 
 def suporte_listar_ramo(request):
     # Lista
-    list_ramo = RamoAtividade.objects.order_by('nome')      # listagem de ramo ordenado por nome
-    paginator = Paginator(list_ramo, 5)                     # 5 dados por pagina
+    list_ramo = RamoAtividade.objects.order_by('nome')  # listagem de ramo ordenado por nome
+    paginator = Paginator(list_ramo, 5)                 # 5 dados por pagina
 
     page = request.GET.get('page')
 
