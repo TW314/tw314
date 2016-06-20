@@ -104,7 +104,38 @@ def suporte_listar_empresas(request):
 
 # Cadastro de Servico
 def suporte_cadastro_servico(request):
-    return render(request, 'home/suporte/suporte_cadastro_servico.html', {})
+    #Cadastro
+
+    if request.method == "POST":
+        form = SvcForm(request.POST)
+        if form.is_valid():
+            form.save()
+    else:
+        form = SvcForm()
+
+    servico = suporte_listar_servico(request)
+
+    return render(request, 'home/suporte/suporte_cadastro_servico.html',
+                  {'servico': servico, 'form': form})
+
+
+def suporte_listar_servico(request):
+    # Lista
+    list_servico = Servico.objects.order_by('nome')  # listagem de servico ordenado por nome
+    paginator = Paginator(list_servico, 5)  # 5 dados por pagina
+
+    page = request.GET.get('page')
+
+    try:
+        servico = paginator.page(page)
+    except PageNotAnInteger:
+        # Se página não for inteiro, irá retornar a primeira pagina
+        servico = paginator.page(1)
+    except EmptyPage:
+        # Se ficarem muitas paginas
+        servico = paginator.page(paginator.num_pages)
+
+    return servico
 
 
 def suporte_cadastro_status(request):
