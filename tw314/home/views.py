@@ -62,18 +62,21 @@ def suporte_cadastro_admin(request):
 # Cadastro de Estabelecimento
 def suporte_cadastro_estabelecimento(request):
     # Cadastro
-
+    ramos = RamoAtividade.objects.all().filter(status=1)
     if request.method == "POST":
         form = EmpForm(request.POST)
+        select_ramo = get_object_or_404(RamoAtividade, pk=request.POST.get('select_ramo'))
         if form.is_valid():
             emp = form.save(commit=False)
+            emp.ramo_atividade = select_ramo
+            emp.status = 1
             emp.save()
     else:
         form = EmpForm()
 
     empresas = suporte_listar_empresas(request)
-
-    return render(request, 'home/suporte/suporte_cadastro_estabelecimento.html', {'empresas': empresas, 'form': form})
+    # get the user you want (connect for example) in the var "user"
+    return render(request, 'home/suporte/suporte_cadastro_estabelecimento.html', {'empresas': empresas, 'form': form, 'ramos': ramos})
 
 
 def suporte_listar_empresas(request):
@@ -95,7 +98,7 @@ def suporte_listar_empresas(request):
     return status
 
 
-# Cadastro de Serviço
+# Cadastro de Servico
 def suporte_cadastro_servico(request):
     return render(request, 'home/suporte/suporte_cadastro_servico.html', {})
 
