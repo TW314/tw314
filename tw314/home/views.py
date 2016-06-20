@@ -63,8 +63,6 @@ def suporte_cadastro_admin(request):
 def suporte_cadastro_estabelecimento(request):
     # Cadastro
 
-    ramos = RamoAtividade.objects.all().filter(status=1)
-
     if request.method == "POST":
         form = EmpForm(request.POST)
         select_ramo = get_object_or_404(RamoAtividade, pk=request.POST.get('select_ramo'))
@@ -76,6 +74,7 @@ def suporte_cadastro_estabelecimento(request):
     else:
         form = EmpForm()
 
+    ramos = RamoAtividade.objects.order_by('nome')
     empresas = suporte_listar_empresas(request)
 
     # get the user you want (connect for example) in the var "user"
