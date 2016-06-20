@@ -24,7 +24,37 @@ def admin_principal(request):
 
 # Cadastro de Usuario
 def admin_cadastro_usuario(request):
-    return render(request, 'home/admin/admin_cadastro_usuario.html', {})
+    # Cadastro
+    if request.method == "POST":
+        form = UsuForm(request.POST)
+        if form.is_valid():
+            usu = form.save(commit=False)
+            usu.status = 2
+            usu.save()
+    else:
+        form = UsuForm()
+
+    usuarios = suporte_listar_usuarios(request)
+    return render(request, 'home/admin/admin_cadastro_usuario.html', {'form': form, 'usuarios': usuarios})
+
+
+def suporte_listar_usuarios(request):
+    # Lista
+    list = Usuario.objects.order_by('nome') # listagem de status ordenado por nome se for inativo
+    paginator = Paginator(list, 5)  # 5 dados por pagina
+
+    page = request.GET.get('page')
+
+    try:
+        usuarios = paginator.page(page)
+    except PageNotAnInteger:
+        # Se página não for inteiro, irá retornar a primeira pagina
+        usuarios = paginator.page(1)
+    except EmptyPage:
+        # Se ficarem muitas paginas
+        usuarios = paginator.page(paginator.num_pages)
+
+    return usuarios
 
 
 # Relatorio

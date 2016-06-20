@@ -9,35 +9,37 @@
                     <span class="card-title">Insira os dados para cadastrar um Usuário:</span>
                 </div>
                 <div class="card-action">
-                    <form class="col s12">
+                    <form class="col s12 post-form" method="post">{% csrf_token %}
                         <h6 class="light valign-wrapper form-title secundaria2_text" style="margin-top: 10px;"><i class="fa fa-user small" aria-hidden="true"></i><span> Dados de Acesso </span></h6>
                         <!-- Campo 'Nome' -->
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="last_name" type="text" class="validate">
-                                <label for="last_name">Nome</label>
+                                <input id="nome" name="nome" type="text" class="validate">
+                                {{ form.nome.errors }}
+                                <label for="nome">Nome</label>
                             </div>
                         </div>
-                        <!-- Campo 'Login' -->
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="a-email" type="email" class="validate">
-                                <label for="a-email">E-mail</label>
+                                <input id="email" name="email" type="email" class="validate">
+                                {{ form.email.errors }}
+                                <label for="email">E-mail</label>
                             </div>
                         </div>
+                        <!-- Campo 'Login'
                         <div class="row">
                             <div class="input-field col s12">
                                 <input id="a-login" type="text" class="validate">
                                 <label for="a-login">Login</label>
                             </div>
-                        </div>
-                        <!-- Campo 'Senha' -->
+                        </div> -->
+                        <!-- Campo 'Senha'
                         <div class="row">
                             <div class="input-field col s12">
                                 <input id="a-password" type="password" class="validate">
                                 <label for="a-password">Senha</label>
                             </div>
-                        </div>
+                        </div>-->
                         <!-- Select 'Perfil' -->
                         <div class="row">
                             <div class="input-field col s12">

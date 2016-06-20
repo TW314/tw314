@@ -22,3 +22,9 @@ class RamForm(forms.ModelForm):
     class Meta:
         model = models.RamoAtividade
         fields = ('nome',)
+
+
+class UsuForm(forms.ModelForm):
+    class Meta:
+        model = models.Usuario
+        fields = ('nome', 'empresa', 'email')
