@@ -49,8 +49,7 @@
                                 <label for="razao_social">Razão Social</label>
                             </div>
                         </div>
-                        <h6 class="light valign-wrapper form-title secundaria2_text"><i class="fa fa-map-marker small"
-                                                                                        aria-hidden="true"></i><span> Endereço </span>
+                        <h6 class="light valign-wrapper form-title secundaria2_text"><i class="fa fa-map-marker small" aria-hidden="true"></i><span> Endereço </span>
                         </h6>
                         <div class="row">
                             <div class="input-field col s4">
@@ -147,7 +146,7 @@
                                 <label for="cargo_responsavel">Cargo</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="cpf" name="cpf" type="number" class="validate">
+                                <input id="cpf_responsavel" name="cpf_responsavel" type="number" class="validate">
                                 {{ form.cpf_responsavel.errors }}
                                 <label for="cpf" data-error="Insira somente números">CPF</label>
                             </div>
@@ -214,7 +213,7 @@
                                         <div class="row">
                                             <div class="col s8">
                                                 <h5 class="light valign-wrapper form-title"><i
-                                                        class="fa fa-building fa-2x" aria-hidden="true"></i><span> Ciclope SA <small>Scott Summers SA</small> </span>
+                                                        class="fa fa-building fa-2x" aria-hidden="true"></i><span> {{ empresa.nome_fantasia }} <small>{{ empresa.razao_social }}</small> </span>
                                                 </h5>
                                             </div>
                                             <div class="col s4"><a href=""
@@ -229,16 +228,10 @@
                                                         <small class="secundaria1_v_text">Empresa</small>
                                                     </div>
                                                     <div class="col s2">
-                                                        <span class="font18 white-text">Matriz:</span>
-                                                    </div>
-                                                    <div class="col s4">
-                                                        <span class="font18 white-text">Xavier LTDA.</span>
-                                                    </div>
-                                                    <div class="col s2">
                                                         <span class="font18 white-text">CNPJ:</span>
                                                     </div>
                                                     <div class="col s4">
-                                                        <span class="font18 white-text">26.390.093/1997-06</span>
+                                                        <span class="font18 white-text">{{ empresa.nr_cnpj }}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -248,13 +241,13 @@
                                                         <small class="secundaria1_v_text">Endereço</small>
                                                     </div>
                                                     <div class="col s6">
-                                                        <span class="font18 white-text">Beco Diagonal, nº 42 - Bolsão - AB</span>
+                                                        <span class="font18 white-text">{{ empresa.logradouro }}</span>
                                                     </div>
                                                     <div class="col s2">
                                                         <span class="font18 white-text">CEP:</span>
                                                     </div>
                                                     <div class="col s4">
-                                                        <span class="font18 white-text">31.415-926</span>
+                                                        <span class="font18 white-text">{{ empresa.cep }}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -267,13 +260,13 @@
                                                         <span class="font18 white-text">Telefone:</span>
                                                     </div>
                                                     <div class="col s4">
-                                                        <span class="font18 white-text">(42) 9353-7390</span>
+                                                        <span class="font18 white-text">{{ empresa.telefone }}</span>
                                                     </div>
                                                     <div class="col s2">
-                                                        <span class="font18 white-text">email:</span>
+                                                        <span class="font18 white-text">Email:</span>
                                                     </div>
                                                     <div class="col s4">
-                                                        <span class="font18 white-text">ciclope@xavier.com.br</span>
+                                                        <span class="font18 white-text">{{ empresa.email }}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -283,14 +276,14 @@
                                                         <small class="secundaria1_v_text">Responsável</small>
                                                     </div>
                                                     <div class="col s6">
-                                                        <span class="font18 white-text">Pedro Ribeiro</span>
+                                                        <span class="font18 white-text">{{ empresa.nome_responsavel }}</span>
                                                     </div>
 
                                                     <div class="col s1">
                                                         <span class="font18 white-text">CPF:</span>
                                                     </div>
                                                     <div class="col s5">
-                                                        <span class="font18 white-text">207.946.034-7</span>
+                                                        <span class="font18 white-text">{{ empresa.cpf_responsavel }}</span>
                                                     </div>
                                                 </div>
                                             </div>
