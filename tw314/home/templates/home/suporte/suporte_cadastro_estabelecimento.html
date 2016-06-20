@@ -11,24 +11,23 @@
                 </div>
                 <div class="card-action">
                     <form method="POST" class="post-form col s12">{% csrf_token %}
-                        <h6 class="light valign-wrapper form-title secundaria2_text" style="margin-top: 10px;"><i
-                                class="fa fa-building small" aria-hidden="true"></i><span> Empresa </span></h6>
+                        <h6 class="light valign-wrapper form-title secundaria2_text" style="margin-top: 10px;"><i class="fa fa-building small" aria-hidden="true"></i><span> Empresa </span></h6>
                         <div class="row">
-                            <div class="input-field col s4">
+                            <!--<div class="input-field col s12">
                                 <select id="ramo" name="select_ramo">
+                                    <option value="" disabled selected>Selecione seu ramo</option>
                                     {% for entry in ramos %}
                                         <option value="{{ entry.id }}">{{ entry.nome }}</option>
                                     {% endfor %}
                                 </select>
-                                {{ form.ramo_atividade.errors }}
-                                <label for="uf">Ramo</label>
+                                <label>Ramo</label>
                             </div>
                             <div class="col s12 suffix input-field">
                                 <i class="fa fa-search material-icons secundaria2_text"></i>
                                 <input id="ramo_atividade" name="ramo_atividade" type="text" class="validate">
                                 {{ form.ramo_atividade.errors }}
                                 <label for="ramo_atividade">Ramo de Atividade</label>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="row">
                             <div class="input-field col s6">
@@ -49,8 +48,7 @@
                                 <label for="razao_social">Razão Social</label>
                             </div>
                         </div>
-                        <h6 class="light valign-wrapper form-title secundaria2_text"><i class="fa fa-map-marker small"
-                                                                                        aria-hidden="true"></i><span> Endereço </span>
+                        <h6 class="light valign-wrapper form-title secundaria2_text"><i class="fa fa-map-marker small" aria-hidden="true"></i><span> Endereço </span>
                         </h6>
                         <div class="row">
                             <div class="input-field col s4">
@@ -117,8 +115,7 @@
                                 <label for="uf">Estado</label>
                             </div>
                         </div>
-                        <h6 class="light valign-wrapper form-title secundaria2_text"><i class="small fa fa-comment"
-                                                                                        aria-hidden="true"></i><span> Contato </span>
+                        <h6 class="light valign-wrapper form-title secundaria2_text"><i class="small fa fa-comment" aria-hidden="true"></i><span> Contato </span>
                         </h6>
                         <div class="row">
                             <div class="input-field col s6">
@@ -132,8 +129,7 @@
                                 <label for="telefone" data-error="Insira somente números">Telefone</label>
                             </div>
                         </div>
-                        <h6 class="light valign-wrapper form-title secundaria2_text"><i class="small fa fa-user"
-                                                                                        aria-hidden="true"></i><span> Responsável </span>
+                        <h6 class="light valign-wrapper form-title secundaria2_text"><i class="small fa fa-user" aria-hidden="true"></i><span> Responsável </span>
                         </h6>
                         <div class="row">
                             <div class="input-field col s6">
@@ -147,9 +143,9 @@
                                 <label for="cargo_responsavel">Cargo</label>
                             </div>
                             <div class="input-field col s6">
-                                <input id="cpf" name="cpf" type="number" class="validate">
+                                <input id="cpf_responsavel" name="cpf_responsavel" type="number" class="validate">
                                 {{ form.cpf_responsavel.errors }}
-                                <label for="cpf" data-error="Insira somente números">CPF</label>
+                                <label for="cpf_responsavel" data-error="Insira somente números">CPF</label>
                             </div>
                         </div>
                         <div class="row">
@@ -213,12 +209,10 @@
                                     <div class="modal-content">
                                         <div class="row">
                                             <div class="col s8">
-                                                <h5 class="light valign-wrapper form-title"><i
-                                                        class="fa fa-building fa-2x" aria-hidden="true"></i><span> Ciclope SA <small>Scott Summers SA</small> </span>
+                                                <h5 class="light valign-wrapper form-title"><i class="fa fa-building fa-2x" aria-hidden="true"></i><span> Ciclope SA <small>Scott Summers SA</small> </span>
                                                 </h5>
                                             </div>
-                                            <div class="col s4"><a href=""
-                                                                   class="modal-action modal-close btn-flat base_text right">
+                                            <div class="col s4"><a href="" class="modal-action modal-close btn-flat base_text right">
                                                 <i class="right fa fa-times" aria-hidden="true"></i></a></div>
                                         </div>
                                         <div class="row">
@@ -303,11 +297,9 @@
                                                 <i class="fa fa-bars" aria-hidden="true"></i>
                                             </a>
                                             <ul>
-                                                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-ban"
-                                                                                              aria-hidden="true"></i></a>
+                                                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-ban" hidden="true"></i></a>
                                                 </li>
-                                                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-pencil"
-                                                                                              aria-hidden="true"></i></a>
+                                                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -329,8 +321,7 @@
                             <li class="waveeffect"><a href="#!">3</a></li>
                             <li class="waveeffect"><a href="#!">4</a></li>
                             <li class="waveeffect"><a href="#!">5</a></li>
-                            <li class="waveeffect"><a href="#!"><i class="fa fa-chevron-circle-right"
-                                                                   aria-hidden="true"></i></a></li>
+                            <li class="waveeffect"><a href="#!"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></li>
                         </ul>
                         <!--Fim da páginação da tabela-->
                     </div>
@@ -434,10 +425,8 @@
                     <i class="fa fa-bars" aria-hidden="true"></i>
                 </a>
                 <ul>
-                    <li><a class="btn-floating alerta_bg tooltipped" data-position="top" data-delay="50"
-                           data-tooltip="Ativar"><i class="fa fa-check" aria-hidden="true"></i></a></li>
-                    <li><a class="btn-floating alerta_bg tooltipped" data-position="top" data-delay="50"
-                           data-tooltip="Editar"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                    <li><a class="btn-floating alerta_bg tooltipped" data-position="top" data-delay="50" data-tooltip="Ativar"><i class="fa fa-check" aria-hidden="true"></i></a></li>
+                    <li><a class="btn-floating alerta_bg tooltipped" data-position="top" data-delay="50" data-tooltip="Editar"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
                 </ul>
             </div>
         </div>
