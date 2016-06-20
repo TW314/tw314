@@ -74,7 +74,7 @@ def suporte_cadastro_estabelecimento(request):
     else:
         form = EmpForm()
 
-    ramos = RamoAtividade.objects.order_by('nome')
+    ramos = RamoAtividade.objects.filter(status=1)
     empresas = suporte_listar_empresas(request)
 
     # get the user you want (connect for example) in the var "user"
