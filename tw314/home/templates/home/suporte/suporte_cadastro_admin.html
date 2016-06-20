@@ -190,7 +190,7 @@
                             <span class="current">
                                 <li class="waves-effect">{{ usuarios.paginator.num_pages }}</li>
                             </span>
-                            <li class="waves-effect {% if administradores.has_next %}disabled{% endif %}"><a href="{% if usuarios.has_next %}?page={{ usuarios.next_page_number }}{% endif %}"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></li>
+                            <li class="waves-effect {% if usuarios.has_next %}disabled{% endif %}"><a href="{% if usuarios.has_next %}?page={{ usuarios.next_page_number }}{% endif %}"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></li>
                         </span>
                         </ul>
                         <!--Fim da paginacao da tabela-->

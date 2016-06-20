@@ -84,11 +84,6 @@ def suporte_princpal(request):
     return render(request, 'home/suporte/suporte_principal.html', {})
 
 
-# Cadastro de Administrador
-def suporte_cadastro_admin(request):
-    return render(request, 'home/suporte/suporte_cadastro_admin.html', {})
-
-
 # Cadastro de Estabelecimento
 def suporte_cadastro_estabelecimento(request):
     # Cadastro
@@ -136,7 +131,7 @@ def suporte_cadastro_servico(request):
     #Cadastro
     if request.method == "POST":
         form = SvcForm(request.POST)
-        select_ramo = get_object_or_404(RamoAtividade, pk=request.POST.get('select_ramo'))
+        select_ramo = get_object_or_404(Servico, pk=request.POST.get('servico'))
         if form.is_valid():
             svc = form.save()
             svc.ramo_atividade = select_ramo
@@ -145,11 +140,11 @@ def suporte_cadastro_servico(request):
     else:
         form = SvcForm()
 
-    servico = suporte_listar_servico(request)
-    ramos = RamoAtividade.objects.order_by('nome')
+    servicos = suporte_listar_servico(request)
+    ramos = RamoAtividade.objects.filter(status=1)
 
     return render(request, 'home/suporte/suporte_cadastro_servico.html',
-                  {'servico': servico, 'form': form, 'ramos': ramos})
+                  {'servicos': servicos, 'form': form, 'ramos': ramos})
 
 
 def suporte_listar_servico(request):
