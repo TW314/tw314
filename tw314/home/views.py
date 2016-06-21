@@ -25,19 +25,16 @@ def admin_principal(request):
 # Cadastro de Usuario
 def admin_cadastro_usuario(request):
     if request.method == "POST":
-        form = UsuForm2(request.POST)
+        form = UsuFormAdmin(request.POST)
         if form.is_valid():
-            perfilUsuario = get_object_or_404(Empresa, pk=request.POST['perfil'])
-            form.save(commit=False)
-            form.perfil = perfilUsuario
-            form.empresa = Empresa.objects.filter(id=1)
             form.save()
     else:
-        form = UsuForm2()
+        form = UsuFormAdmin()
 
     usuarios = suporte_listar_usuario(request)
     perfis = Perfil.objects.all().exclude(id=1)
-    return render(request, 'home/admin/admin_cadastro_usuario.html', {'usuarios': usuarios, 'form': form, 'perfis': perfis})
+    return render(request, 'home/admin/admin_cadastro_usuario.html',
+                  {'usuarios': usuarios, 'form': form, 'perfis': perfis})
 
 
 # Relatorio
@@ -73,8 +70,7 @@ def suporte_cadastro_estabelecimento(request):
     if request.method == "POST":
         form = EmpForm(request.POST)
         if form.is_valid():
-            emp = form.save()
-            emp.save()
+            form.save()
     else:
         form = EmpForm()
 
@@ -108,10 +104,8 @@ def suporte_cadastro_servico(request):
     #Cadastro
     if request.method == "POST":
         form = SvcForm(request.POST)
-        #select_ramo = get_object_or_404(Servico, pk=request.POST.get('servico'))
         if form.is_valid():
-            svc = form.save()
-            svc.save()
+            form.save()
     else:
         form = SvcForm()
 
@@ -199,8 +193,7 @@ def suporte_cadastro_ramo(request):
     if request.method == "POST":
         form = RamForm(request.POST)
         if form.is_valid():
-            ramo = form.save(commit=False)
-            ramo.save()
+            form.save()
     else:
         form = RamForm()
 
@@ -233,16 +226,11 @@ def suporte_cadastro_usuario(request):
     # Cadastro
 
     if request.method == "POST":
-        form = UsuForm(request.POST)
+        form = UsuFormSuporte(request.POST)
         if form.is_valid():
-
-            empresaUsuario = get_object_or_404(Empresa, pk=request.POST['empresa'])
-            form.save(commit=False)
-            form.empresa = empresaUsuario
-            form.perfil = Perfil.objects.filter(nome="Administrador")
             form.save()
     else:
-        form = UsuForm()
+        form = UsuFormSuporte()
 
     usuarios = suporte_listar_usuario(request)
 
@@ -254,7 +242,7 @@ def suporte_cadastro_usuario(request):
 
 def suporte_listar_usuario(request):
     # Lista
-    list_usuario = Usuario.objects.order_by('nome').filter(perfil=not 1)  # listagem de ramo ordenado por nome
+    list_usuario = Usuario.objects.order_by('nome').exclude(perfil=1)  # listagem de ramo ordenado por nome
     paginator = Paginator(list_usuario, 5)  # 5 dados por pagina
 
     page = request.GET.get('page')
