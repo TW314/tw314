@@ -24,7 +24,6 @@ class Empresa(models.Model):
     cidade = models.CharField(max_length=100)
     bairro = models.CharField(max_length=100)
     uf = models.CharField(max_length=2)
-    pais = models.CharField(max_length=100)
     cep = models.CharField(max_length=8)
     telefone = models.CharField(max_length=11)
     email = models.EmailField(max_length=100)
@@ -36,7 +35,7 @@ class Empresa(models.Model):
     data_inativacao = models.DateField().null
 
     ramo_atividade = models.ForeignKey('RamoAtividade', on_delete=models.CASCADE)
-    status = models.ForeignKey('Status', on_delete=models.CASCADE, default=1)
+    status = models.ForeignKey('Status', default=1)
 
     def publish(self):
         """self.published_date = timezone.now"""
@@ -61,12 +60,12 @@ class RamoAtividade(models.Model):
 class Usuario(models.Model):
     nome = models.CharField(max_length=80)
     email = models.EmailField(max_length=100)
-    senha = models.CharField(max_length=45)
+    senha = models.CharField(max_length=45).null
     data_ativacao = models.DateField(default=date.today)
     data_inativacao = models.DateField().null
 
     status = models.ForeignKey('Status', default=2)
-    empresa = models.ForeignKey('Empresa', on_delete=models.CASCADE)
+    empresa = models.ForeignKey('Empresa', on_delete=models.CASCADE, default=1)
     perfil = models.ForeignKey('Perfil', on_delete=models.CASCADE, default=1)
 
     def publish(self):
