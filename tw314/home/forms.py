@@ -12,10 +12,7 @@ class StsForm(forms.ModelForm):
 class EmpForm(forms.ModelForm):
     class Meta:
         model = models.Empresa
-        fields = ('nome_fantasia', 'razao_social', 'nr_cnpj', 'logradouro',
-                  'nr_logradouro', 'cidade', 'uf', 'pais', 'telefone', 'email',
-                  'nome_responsavel', 'cargo_responsavel', 'cpf_responsavel',
-                  'ramo_atividade', 'status', 'cep', 'bairro',)
+        fields = ('nome_fantasia', 'razao_social', 'nr_cnpj', 'logradouro', 'nr_logradouro', 'cidade', 'bairro', 'uf', 'cep', 'telefone', 'email', 'nome_responsavel', 'cargo_responsavel', 'cpf_responsavel', 'ramo_atividade')
 
 
 class RamForm(forms.ModelForm):
@@ -28,6 +25,12 @@ class UsuForm(forms.ModelForm):
     class Meta:
         model = models.Usuario
         fields = ('nome', 'empresa', 'email')
+
+
+class UsuForm2(forms.ModelForm):
+    class Meta:
+        model = models.Usuario
+        fields = ('nome', 'empresa', 'email', 'perfil')
 
 
 class SvcForm(forms.ModelForm):

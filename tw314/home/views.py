@@ -24,37 +24,20 @@ def admin_principal(request):
 
 # Cadastro de Usuario
 def admin_cadastro_usuario(request):
-    # Cadastro
     if request.method == "POST":
-        form = UsuForm(request.POST)
+        form = UsuForm2(request.POST)
         if form.is_valid():
-            usu = form.save(commit=False)
-            usu.status = 2
-            usu.save()
+            perfilUsuario = get_object_or_404(Empresa, pk=request.POST['perfil'])
+            form.save(commit=False)
+            form.perfil = perfilUsuario
+            form.empresa = Empresa.objects.filter(id=1)
+            form.save()
     else:
-        form = UsuForm()
+        form = UsuForm2()
 
-    usuarios = suporte_listar_usuarios(request)
-    return render(request, 'home/admin/admin_cadastro_usuario.html', {'form': form, 'usuarios': usuarios})
-
-
-def suporte_listar_usuarios(request):
-    # Lista
-    list = Usuario.objects.order_by('nome') # listagem de status ordenado por nome se for inativo
-    paginator = Paginator(list, 5)  # 5 dados por pagina
-
-    page = request.GET.get('page')
-
-    try:
-        usuarios = paginator.page(page)
-    except PageNotAnInteger:
-        # Se página não for inteiro, irá retornar a primeira pagina
-        usuarios = paginator.page(1)
-    except EmptyPage:
-        # Se ficarem muitas paginas
-        usuarios = paginator.page(paginator.num_pages)
-
-    return usuarios
+    usuarios = suporte_listar_usuario(request)
+    perfis = Perfil.objects.all().exclude(id=1)
+    return render(request, 'home/admin/admin_cadastro_usuario.html', {'usuarios': usuarios, 'form': form, 'perfis': perfis})
 
 
 # Relatorio
@@ -87,21 +70,16 @@ def suporte_princpal(request):
 # Cadastro de Estabelecimento
 def suporte_cadastro_estabelecimento(request):
     # Cadastro
-
     if request.method == "POST":
         form = EmpForm(request.POST)
-        #select_ramo = get_object_or_404(RamoAtividade, pk=request.POST.get('select_ramo'))
         if form.is_valid():
-            emp = form.save(commit=False)
-            emp.status = 1
+            emp = form.save()
             emp.save()
     else:
         form = EmpForm()
 
-    ramos = RamoAtividade.objects.filter(status=1)
     empresas = suporte_listar_empresas(request)
-
-    # get the user you want (connect for example) in the var "user"
+    ramos = RamoAtividade.objects.filter(status=1)
     return render(request, 'home/suporte/suporte_cadastro_estabelecimento.html',
                   {'empresas': empresas, 'form': form, 'ramos': ramos})
 
@@ -276,8 +254,8 @@ def suporte_cadastro_usuario(request):
 
 def suporte_listar_usuario(request):
     # Lista
-    list_usuario = Usuario.objects.order_by('nome')  # listagem de ramo ordenado por nome
-    paginator = Paginator(list_usuario, 5)                 # 5 dados por pagina
+    list_usuario = Usuario.objects.order_by('nome').filter(perfil=not 1)  # listagem de ramo ordenado por nome
+    paginator = Paginator(list_usuario, 5)  # 5 dados por pagina
 
     page = request.GET.get('page')
 

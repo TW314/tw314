@@ -15,12 +15,13 @@
                         <div class="row">
                             <div class="input-field col s4">
                                 <select id="ramo_atividade" name="ramo_atividade">
-                                    {% for entry in ramos %}
-                                        <option value="{{ entry.id }}">{{ entry.nome }}</option>
+                                    <option value="" disable selected>Ramo de Atividade</option>
+                                    {% for ramo in ramos %}
+                                        <option value="{{ ramo.id }}">{{ ramo.nome }}</option>
                                     {% endfor %}
                                 </select>
                                 {{ form.ramo_atividade.errors }}
-                                <label for="uf">Ramo</label>
+                                <label for="ramo_atividade">Ramo de Atividade</label>
                             </div>
                             <!--<div class="col s12 suffix input-field">
                                 <i class="fa fa-search material-icons secundaria2_text"></i>
