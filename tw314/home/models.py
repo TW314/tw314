@@ -92,6 +92,7 @@ class Servico(models.Model):
     nome = models.CharField(max_length=45)
     descricao = models.TextField()
     ramo_atividade = models.ForeignKey('RamoAtividade', on_delete=models.CASCADE)
+    sigla = models.CharField(max_length=2)
 
     def publish(self):
         """self.published_date = timezone.now"""
