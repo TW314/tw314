@@ -11,17 +11,17 @@
                 </div>
                 <div class="card-action">
                     <form method="POST" class="post-form col s12">{% csrf_token %}
-                        <h6 class="light valign-wrapper form-title secundaria2_text" style="margin-top: 10px;"><i
-                                class="fa fa-building small" aria-hidden="true"></i><span> Empresa </span></h6>
+                        <h6 class="light valign-wrapper form-title secundaria2_text" style="margin-top: 10px;"><i class="fa fa-building small" aria-hidden="true"></i><span> Empresa </span></h6>
                         <div class="row">
                             <div class="input-field col s4">
                                 <select id="ramo_atividade" name="ramo_atividade">
-                                    {% for entry in ramos %}
-                                        <option value="{{ entry.id }}">{{ entry.nome }}</option>
+                                    <option value="" disable selected>Ramo de Atividade</option>
+                                    {% for ramo in ramos %}
+                                        <option value="{{ ramo.id }}">{{ ramo.nome }}</option>
                                     {% endfor %}
                                 </select>
                                 {{ form.ramo_atividade.errors }}
-                                <label for="uf">Ramo</label>
+                                <label for="ramo_atividade">Ramo de Atividade</label>
                             </div>
                             <!--<div class="col s12 suffix input-field">
                                 <i class="fa fa-search material-icons secundaria2_text"></i>
@@ -116,8 +116,7 @@
                                 <label for="uf">Estado</label>
                             </div>
                         </div>
-                        <h6 class="light valign-wrapper form-title secundaria2_text"><i class="small fa fa-comment"
-                                                                                        aria-hidden="true"></i><span> Contato </span>
+                        <h6 class="light valign-wrapper form-title secundaria2_text"><i class="small fa fa-comment" aria-hidden="true"></i><span> Contato </span>
                         </h6>
                         <div class="row">
                             <div class="input-field col s6">
@@ -131,8 +130,7 @@
                                 <label for="telefone" data-error="Insira somente números">Telefone</label>
                             </div>
                         </div>
-                        <h6 class="light valign-wrapper form-title secundaria2_text"><i class="small fa fa-user"
-                                                                                        aria-hidden="true"></i><span> Responsável </span>
+                        <h6 class="light valign-wrapper form-title secundaria2_text"><i class="small fa fa-user" aria-hidden="true"></i><span> Responsável </span>
                         </h6>
                         <div class="row">
                             <div class="input-field col s6">
@@ -148,7 +146,7 @@
                             <div class="input-field col s6">
                                 <input id="cpf_responsavel" name="cpf_responsavel" type="number" class="validate">
                                 {{ form.cpf_responsavel.errors }}
-                                <label for="cpf" data-error="Insira somente números">CPF</label>
+                                <label for="cpf_responsavel" data-error="Insira somente números">CPF</label>
                             </div>
                         </div>
                         <div class="row">
@@ -216,8 +214,7 @@
                                                         class="fa fa-building fa-2x" aria-hidden="true"></i><span> {{ empresa.nome_fantasia }} <small>{{ empresa.razao_social }}</small> </span>
                                                 </h5>
                                             </div>
-                                            <div class="col s4"><a href=""
-                                                                   class="modal-action modal-close btn-flat base_text right">
+                                            <div class="col s4"><a href="" class="modal-action modal-close btn-flat base_text right">
                                                 <i class="right fa fa-times" aria-hidden="true"></i></a></div>
                                         </div>
                                         <div class="row">
@@ -296,11 +293,9 @@
                                                 <i class="fa fa-bars" aria-hidden="true"></i>
                                             </a>
                                             <ul>
-                                                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-ban"
-                                                                                              aria-hidden="true"></i></a>
+                                                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-ban" hidden="true"></i></a>
                                                 </li>
-                                                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-pencil"
-                                                                                              aria-hidden="true"></i></a>
+                                                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -322,8 +317,7 @@
                             <li class="waveeffect"><a href="#!">3</a></li>
                             <li class="waveeffect"><a href="#!">4</a></li>
                             <li class="waveeffect"><a href="#!">5</a></li>
-                            <li class="waveeffect"><a href="#!"><i class="fa fa-chevron-circle-right"
-                                                                   aria-hidden="true"></i></a></li>
+                            <li class="waveeffect"><a href="#!"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></li>
                         </ul>
                         <!--Fim da páginação da tabela-->
                     </div>
@@ -427,10 +421,8 @@
                     <i class="fa fa-bars" aria-hidden="true"></i>
                 </a>
                 <ul>
-                    <li><a class="btn-floating alerta_bg tooltipped" data-position="top" data-delay="50"
-                           data-tooltip="Ativar"><i class="fa fa-check" aria-hidden="true"></i></a></li>
-                    <li><a class="btn-floating alerta_bg tooltipped" data-position="top" data-delay="50"
-                           data-tooltip="Editar"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                    <li><a class="btn-floating alerta_bg tooltipped" data-position="top" data-delay="50" data-tooltip="Ativar"><i class="fa fa-check" aria-hidden="true"></i></a></li>
+                    <li><a class="btn-floating alerta_bg tooltipped" data-position="top" data-delay="50" data-tooltip="Editar"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
                 </ul>
             </div>
         </div>
