@@ -21,16 +21,16 @@ class RamForm(forms.ModelForm):
         fields = ('nome',)
 
 
-class UsuForm(forms.ModelForm):
+class UsuFormSuporte(forms.ModelForm):
     class Meta:
         model = models.Usuario
         fields = ('nome', 'empresa', 'email')
 
 
-class UsuForm2(forms.ModelForm):
+class UsuFormAdmin(forms.ModelForm):
     class Meta:
         model = models.Usuario
-        fields = ('nome', 'empresa', 'email', 'perfil')
+        fields = ('nome', 'email', 'perfil')
 
 
 class SvcForm(forms.ModelForm):
