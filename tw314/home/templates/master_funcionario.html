@@ -40,8 +40,9 @@
     <link rel="stylesheet" href="{% static "css/backtotop.css" %}">
     <link rel="stylesheet" href="{% static "font-awesome-4.6.2/css/font-awesome.min.css" %}">
     <link rel="stylesheet" href="{% static "css/style.css" %}" type="text/css">
+    <link rel="stylesheet" href="{% static "intro.js-2.1.0/introjs.css" %}">
 </head>
-<body  onload="startTime()">
+<body onload="startTime()">
 <header class="master">
     <div class="navbar-fixed">
         <nav>
@@ -85,6 +86,7 @@
         <ul class="line-side">
             <li><a href="relatorio" class="collection-item texto_text light waves-effect btn-flat"><i class="fa fa-clipboard" aria-hidden="true"></i> Relatório</a></li>
             <li><a href="#modal1" class="modal-trigger collection-item texto_text light waves-effect btn-flat"><i class="fa fa-user" aria-hidden="true"></i> Perfil</a></li>
+            <li><a href="javascript:void(0);" onclick="javascript:introJs().setOption('showProgress', true).start();" class="collection-item texto_text light waves-effect btn-flat"><i class="fa fa-info-circle" aria-hidden="true"></i> Introdução Sistema</a></li>
         </ul>
         <ul class="side-bottom line-side">
             <li><a href="sobre" class="collection-item texto_text light waves-effect btn-flat"><i class="fa fa-info-circle" aria-hidden="true"></i> Sobre</a></li>
@@ -172,6 +174,10 @@
 <script src="{% static "highcharts/js/modules/exporting.js" %}"></script>
 <script src="{% static "highcharts/js/modules/data.js" %}"></script>
 <script src="{% static "highcharts/js/modules/drilldown.js" %}"></script>
+
+<!--IntroJs Inicio-->
+<script type="text/javascript" src="{% static "intro.js-2.1.0/intro.js" %}"></script>
+
 
 </body>
 </html>
