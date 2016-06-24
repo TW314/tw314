@@ -20,7 +20,8 @@
             </div>
             <div class="col s12 m6">
                 <!--Filtro para relatório inicio-->
-                <div class="input-field col s12 m6">
+                <div class="input-field col s12 m6" data-step="3"
+                     data-intro="Selecione qual tipo de filto será usado para o relatório">
                     <select id="filtro">
                         <option value="" disabled selected>Selecione os filtros</option>
                         <option value="servico">Serviço</option>
@@ -30,13 +31,22 @@
                 </div>
                 <!--Filtro para relatório fim-->
                 <!-- Tipo de gráfico inicio-->
-                <div class="input-field col s12 m6">
+                <div class="input-field col s12 m6" data-step="4"
+                     data-intro="Para melhor visualização, selecione um dos varios tipos de graficos">
                     <select class="icons" id="grafico">
                         <option value="" disabled selected>Selecione um tipo de gráfico</option>
-                        <option value="areaspline" class="left circle"  data-icon="{% static "img/fa-area-chart.png" %}" > Área</option>
-                        <option value="column" data-icon="{% static "img/fa-bar-chart.png" %}" class="left circle"> Coluna</option>
-                        <option value="column_drilldown" data-icon="{% static "img/fa-bar-chart.png" %}" class="left circle"> Coluna Drilldown</option>
-                        <option value="pie_drilldown" data-icon="{% static "img/fa-pie-chart.png" %}" class="left circle"> Pizza</option>
+                        <option value="areaspline" class="left circle" data-icon="{% static "img/fa-area-chart.png" %}">
+                            Área
+                        </option>
+                        <option value="column" data-icon="{% static "img/fa-bar-chart.png" %}" class="left circle">
+                            Coluna
+                        </option>
+                        <option value="column_drilldown" data-icon="{% static "img/fa-bar-chart.png" %}"
+                                class="left circle"> Coluna Drilldown
+                        </option>
+                        <option value="pie_drilldown" data-icon="{% static "img/fa-pie-chart.png" %}"
+                                class="left circle"> Pizza
+                        </option>
                         <!--
                         <option value="container" data-icon="images/office.jpg" class="left circle">Áreas</option> -->
                     </select>
@@ -44,18 +54,19 @@
                 </div>
                 <!-- Tipo de gráfico fim-->
             </div>
-            <div class="col s12 m6">
+            <div class="col s12 m6" data-step="5"
+                 data-intro="Selecione o Periodo Inicial e o Periodo Final para melhor controle do periodo desejado">
                 <div class="input-field col s12 m6">
                     <!-- Date Picker do Periodo Inicial inicio-->
                     <i class="fa fa-calendar-o prefix" aria-hidden="true"></i>
-                    <label for="data-inicial" class="active" >Periodo Inicial</label>
-                    <input id="data-inicial" type="date" class="datepicker" >
+                    <label for="data-inicial" class="active">Periodo Inicial</label>
+                    <input id="data-inicial" type="date" class="datepicker">
                     <!-- Date Picker do Periodo Inicial fim-->
                 </div>
                 <!-- Date Picker do Periodo Inicial inicio-->
                 <div class="input-field col s12 m6">
                     <i class="fa fa-calendar prefix" aria-hidden="true"></i>
-                    <label for="data-final" class="active" >Periodo Final</label>
+                    <label for="data-final" class="active">Periodo Final</label>
                     <input id="data-final" type="date" class="datepicker">
                 </div>
                 <!-- Date Picker do Periodo Inicial fim-->
@@ -67,13 +78,15 @@
                 -->
             </div>
         </div>
-        <div class="col s12">
-            <div class="col s12 m6">
+        <div class="col s12" data-step="6"
+             data-intro="Após selecionar as informações desejadas, visualize o resultado pelos cards">
+            <div class="col s12 m6" data-step="7" data-intro="Obtenha informações desejadas por meio de tabela">
                 <div class="row">
                     <div class="card white">
                         <div class="card-content texto_text">
                             <span id="table" class="card-title">Tabela</span>
-                            <h4 id="table-u" class="center light">Selecione um tipo de filtro para exibir uma tabela</h4>
+                            <h4 id="table-u" class="center light">Selecione um tipo de filtro para exibir uma
+                                tabela</h4>
                             <!-- Tabela para Servicos inicio-->
                             <table hidden id="servico" class="highlight responsive-table">
                                 <thead>
@@ -151,25 +164,29 @@
                         <div class="row">
                             <!-- Componente de paginação inicio-->
                             <ul id="pag" hidden class="right pagination">
-                                <li class="disabled"><a href="#!"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></a></li>
+                                <li class="disabled"><a href="#!"><i class="fa fa-chevron-circle-left"
+                                                                     aria-hidden="true"></i></a></li>
                                 <li class="active"><a href="#!">1</a></li>
                                 <li class="waves-effect"><a href="#!">2</a></li>
                                 <li class="waves-effect"><a href="#!">3</a></li>
                                 <li class="waves-effect"><a href="#!">4</a></li>
                                 <li class="waves-effect"><a href="#!">5</a></li>
-                                <li class="waves-effect"><a href="#!"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></li>
+                                <li class="waves-effect"><a href="#!"><i class="fa fa-chevron-circle-right"
+                                                                         aria-hidden="true"></i></a></li>
                             </ul>
                             <!-- Componente de paginação fim-->
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col s12 m6">
+            <div class="col s12 m6" data-step="8"
+                 data-intro="Para melhor visualização, obtenha informações por meio de graficos">
                 <div class="row">
                     <div class="card white">
                         <div class="card-content texto_text">
                             <span id="chart" class="card-title">Gráfico</span>
-                            <h4 id="chart-u" class="center light">Selecione um tipo de Gráfico para exibir um gráfico</h4>
+                            <h4 id="chart-u" class="center light">Selecione um tipo de Gráfico para exibir um
+                                gráfico</h4>
                             <!--Grafico-->
                             <div id="areaspline" hidden style="height: 60%; margin: 0 auto"></div>
                             <div id="column" hidden style="height: 60%; margin: 0 auto"></div>
@@ -190,11 +207,11 @@
             $('#filtro').change(function () {
                 $('#table-u').hide("slow");
                 $('#pag').show("slow");
-                if($('#filtro').val() == 'servico'){
+                if ($('#filtro').val() == 'servico') {
                     $('#table').html("Tabela de Serviços");
                     $('#servico').show("slow");
                     $('#funcionario').hide("slow");
-                }else if($('#filtro').val() == 'funcionario'){
+                } else if ($('#filtro').val() == 'funcionario') {
                     $('#table').html("Tabela de Funcionários");
                     $('#servico').hide("slow");
                     $('#funcionario').show("slow");
@@ -240,18 +257,18 @@
             });
             $('#grafico').change(function () {
                 $('#chart-u').hide("slow");
-                if($('#grafico').val() == 'container'){
+                if ($('#grafico').val() == 'container') {
                     $('#container').show("slow");
                     $('#chart').html("Gráfico de Pizza");
-                }else {
+                } else {
                     $('#container').hide("slow");
                 }
             });
 
             $('#filtro').change(function () {
-                if($('#filtro').val() == 'none'){
+                if ($('#filtro').val() == 'none') {
                     document.getElementById("#grafico").disabled = true;
-                }else {
+                } else {
                     document.getElementById("#grafico").disabled = true;
                 }
             });

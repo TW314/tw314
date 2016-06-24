@@ -4,7 +4,8 @@
     <div class="row margin-form texto_text">
         <div class="col s12 m6">
             <!--Começo do formulário-->
-            <div class="card" data-step="3" data-intro="Preencha os campos do formulario adequadamente para cadastrar um usuario">
+            <div class="card" data-step="3"
+                 data-intro="Preencha os campos do formulario adequadamente para cadastrar um usuario">
                 <div class="card-content">
                     <span class="card-title">Insira os dados para cadastrar um Usuário:</span>
                 </div>
@@ -54,7 +55,8 @@
                             </div>
                             <!--Fim do botão cancelar-->
                             <!--Botão Cadastrar-->
-                            <div class="col s12 m6" data-step="5" data-intro="Após preencher todo os campos, clique em CADASTRAR para efetivar o cadastro">
+                            <div class="col s12 m6" data-step="5"
+                                 data-intro="Após preencher todo os campos, clique em CADASTRAR para efetivar o cadastro">
                                 <button class="btn waves-effect waves-light right col s12 sucesso_bg" type="submit"
                                         name="action">Cadastrar
                                     <i class="fa fa-check-circle right" aria-hidden="true"></i>
@@ -102,7 +104,8 @@
                                     <td>{{ usuario.email }}</td>
                                     <td class="center">
                                         <!-- Botao que chama Modal -->
-                                        <a class=" btn-floating btn-short waves-light btn btn modal-trigger" data-step="8" data-intro="Visualize mais informações em relação ao usuario"
+                                        <a class=" btn-floating btn-short waves-light btn btn modal-trigger"
+                                           data-step="8" data-intro="Visualize mais informações em relação ao usuario"
                                            href="#admin"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                     </td>
                                 </tr>
@@ -215,11 +218,15 @@
                     <div class="row" align="right" data-step="9" data-intro="Navegue entre os usuario cadastados">
                         <ul class="pagination">
                         <span class="step-links">
-                            <li class="disabled"><a href="{% if usuarios.has_previous %}?page={{ usuarios.previous_page_number }}{% endif %}"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></a></li>
+                            <li class="disabled"><a
+                                    href="{% if usuarios.has_previous %}?page={{ usuarios.previous_page_number }}{% endif %}"><i
+                                    class="fa fa-chevron-circle-left" aria-hidden="true"></i></a></li>
                             <span class="current">
                                 <li class="waves-effect">{{ usuarios.paginator.num_pages }}</li>
                             </span>
-                            <li class="waves-effect {% if usuarios.has_next %}disabled{% endif %}"><a href="{% if usuarios.has_next %}?page={{ usuarios.next_page_number }}{% endif %}"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></li>
+                            <li class="waves-effect {% if usuarios.has_next %}disabled{% endif %}"><a
+                                    href="{% if usuarios.has_next %}?page={{ usuarios.next_page_number }}{% endif %}"><i
+                                    class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></li>
                         </span>
                         </ul>
                         <!--Fim da paginacao da tabela-->
