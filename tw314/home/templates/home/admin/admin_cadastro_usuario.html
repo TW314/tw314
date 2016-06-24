@@ -4,7 +4,7 @@
     <div class="row margin-form texto_text">
         <div class="col s12 m6">
             <!--Começo do formulário-->
-            <div class="card">
+            <div class="card" data-step="3" data-intro="Preencha os campos do formulario adequadamente para cadastrar um usuario">
                 <div class="card-content">
                     <span class="card-title">Insira os dados para cadastrar um Usuário:</span>
                 </div>
@@ -28,7 +28,7 @@
                             </div>
                         </div>
                         <!-- Select 'Perfil' -->
-                        <div class="row">
+                        <div class="row" data-step="4" data-intro="Selecione qual perfil esta sendo cadastrado">
                             <div class="input-field col s12">
                                 <!-- Inicio da estrutura do Select -->
                                 <select id="perfil" name="perfil">
@@ -46,7 +46,7 @@
                         </div>
                         <div class="row">
                             <!--Botão Cancelar-->
-                            <div class="col s12 m6">
+                            <div class="col s12 m6" data-step="6" data-intro="Ou limpe os campos clicando em CANCELAR">
                                 <button class="btn waves-effect waves-light right col s12 alerta_bg" type="reset"
                                         name="action">Cancelar
                                     <i class="fa fa-times-circle right" aria-hidden="true"></i>
@@ -54,7 +54,7 @@
                             </div>
                             <!--Fim do botão cancelar-->
                             <!--Botão Cadastrar-->
-                            <div class="col s12 m6">
+                            <div class="col s12 m6" data-step="5" data-intro="Após preencher todo os campos, clique em CADASTRAR para efetivar o cadastro">
                                 <button class="btn waves-effect waves-light right col s12 sucesso_bg" type="submit"
                                         name="action">Cadastrar
                                     <i class="fa fa-check-circle right" aria-hidden="true"></i>

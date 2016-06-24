@@ -40,6 +40,20 @@
     <link rel="stylesheet" href="{% static "css/backtotop.css" %}">
     <link rel="stylesheet" href="{% static "font-awesome-4.6.2/css/font-awesome.min.css" %}">
     <link rel="stylesheet" type="text/css" media="all" href="{% static "css/style.css" %}">
+    <link rel="stylesheet" href="{% static "intro.js-2.1.0/introjs.css" %}">
+
+
+    <script>
+		function startTour() {
+			var tour = introJs()
+			tour.setOption('tooltipPosition', 'auto');
+			tour.setOption('positionPrecedence', ['left', 'right', 'bottom', 'top'])
+            tour.setOption('showProgress', true)
+			tour.start()
+		}
+
+	</script>
+
 </head>
 <body>
 <header class="master">
@@ -48,33 +62,39 @@
             <div class="nav-wrapper">
                 <ul>
                     <li>
-                        <a href="principal" class="white-text valign-wrapper ">
-                            <img src="{% static "img/logo-certa.png" %}" class="responsive-img" alt="logo TW314"> <span class="flow-text_2 valign">TW314 </span>
+                        <a href="principal" class="white-text valign-wrapper" data-step="1" data-intro="Clique no Logo para voltar à página principal">
+                            <img src="{% static "img/logo-certa.png" %}" class="responsive-img" alt="logo TW314"> <span
+                                class="flow-text_2 valign">TW314 </span>
                         </a>
                     </li>
                 </ul>
                 <span class="flow-text_3 light hide-on-med-and-down brand-logo center">{% block titulo %}{% endblock %}</span>
                 <ul class="right">
                     <li class="hide-on-small-only">Bem-vindo, Administrador</li>
-                    <li><a class="white-text flow-text_3 light" href="../login"><i class="fa fa-sign-out" aria-hidden="true"></i><span class="hide-on-small-and-down"> SAIR </span></a></li>
+                    <li><a class="white-text flow-text_3 light" href="../login"><i class="fa fa-sign-out"
+                                                                                   aria-hidden="true"></i><span
+                            class="hide-on-small-and-down"> SAIR </span></a></li>
                 </ul>
             </div>
         </nav>
     </div>
 </header>
 <main class="content base_bg" style="margin-bottom: 70px ;">
-    {%  block master %}
+    {% block master %}
 
     {% endblock %}
 </main>
 <footer class="master master-footer page-footer fixed-footer2">
     <div class="row show-on-medium-and-down hide-on-large-only">
         <div class="col s6">
-            <span class="logo-footer"><img src="{% static "img/logo-certa.png" %}" class="responsive-img" alt="logo TW314"></span>
+            <span class="logo-footer"><img src="{% static "img/logo-certa.png" %}" class="responsive-img"
+                                           alt="logo TW314"></span>
         </div>
         <div class="col s6 right-align">
             <ul>
                 <li><a class="text-lighten-4 base_text" href="sobre">Sobre</a></li>
+                <li><a id="startButton" class="text-lighten-4 base_text" href="javascript:void(0);"
+                       onclick="startTour();">Como funciona?</a></li>
                 <li><a class="text-lighten-4 base_text" href="suporte">Suporte</a></li>
                 <li><a class="text-lighten-4 base_text" href="cadastro_servico">Serviços</a></li>
                 <li><a class="text-lighten-4 base_text" href="cadastrar_usuario">Usuários</a></li>
@@ -83,15 +103,18 @@
             </ul>
         </div>
     </div>
-    <div class="footer-copyright">
+    <div class="footer-copyright" data-step="2" data-intro="Navegue entre os modulos rapidamente pelo rodapé">
         <div class="col s12 m4 center hide-on-large-only">
             © 2016 Ticket Web 314 V1.0 <span class="hide-on-med-and-down">- Todos os direitos reservados.</span>
         </div>
         <div class="col s12 m4 left show-on-large">
             © 2016 Ticket Web 314 V1.0 <span class="hide-on-med-and-down">- Todos os direitos reservados.</span>
         </div>
-        <span class="logo-footer hide-on-med-and-down"><img src="{% static "img/logo-certa.png" %}" class="responsive-img" alt="logo TW314"></span>
+        <span class="logo-footer hide-on-med-and-down"><img src="{% static "img/logo-certa.png" %}"
+                                                            class="responsive-img" alt="logo TW314"></span>
         <a class="text-lighten-4 right hide-on-med-and-down" href="sobre">Sobre</a>
+        <a id="startButton" class="text-lighten-4 right hide-on-med-and-down" href="javascript:void(0);"
+           onclick="startTour();">Como funciona?</a>
         <a class="text-lighten-4 right hide-on-med-and-down" href="suporte">Suporte</a>
         <a class="text-lighten-4 right hide-on-med-and-down" href="relatorio">Relatórios</a>
         <a class="text-lighten-4 right hide-on-med-and-down" href="cadastrar_usuario">Usuários</a>
@@ -103,11 +126,11 @@
 <!--  Scripts-->
 <script src="{% static "js/jquery-2.1.1.min.js" %}"></script>
 <script type="text/javascript">
-    (function() {
+    (function () {
         var bodyEl = $('body'),
                 navToggleBtn = bodyEl.find('.nav-toggle-btn');
 
-        navToggleBtn.on('click', function(e) {
+        navToggleBtn.on('click', function (e) {
             bodyEl.toggleClass('active-nav');
             e.preventDefault();
         });
@@ -118,22 +141,22 @@
 <script src="{% static "js/init.js" %}"></script>
 <script type="text/javascript" src="{% static "js/backtotop.js " %}"></script>
 <script type="application/javascript">
-    $(document).ready(function(){
+    $(document).ready(function () {
         $('.tooltipped').tooltip({delay: 50});
         $(".button-collapse").sideNav();
         $('.scrollspy').scrollSpy();
         $(".owl-carousel").owlCarousel({
                     center: true,
-                    loop:true,
-                    margin:10,
-                    autoplay:true,
-                    autoplayTimeout:3000,
-                    autoplayHoverPause:true,
-                    responsive:{
-                        260:{
+                    loop: true,
+                    margin: 10,
+                    autoplay: true,
+                    autoplayTimeout: 3000,
+                    autoplayHoverPause: true,
+                    responsive: {
+                        260: {
                             items: 1
                         },
-                        600:{
+                        600: {
                             items: 3
                         }
                     }
@@ -149,6 +172,22 @@
 <script src="{% static "highcharts/js/modules/data.js" %}"></script>
 <script src="{% static "highcharts/js/modules/drilldown.js" %}"></script>
 
+<!--IntroJs Inicio-->
+<script type="text/javascript" src="{% static "intro.js-2.1.0/intro.js" %}"></script>
+
+<script type="text/javascript">
+    document.getElementById('startButton').onclick = function () {
+        introJs().setOption('doneLabel', 'Next page').start().oncomplete(function () {
+            window.location.href = 'home/admin/admin_principal.html?multipage=true';
+        });
+    };
+</script>
+
+<script type="text/javascript">
+    if (RegExp('multipage', 'gi').test(window.location.search)) {
+        introJs().start();
+    }
+</script>
 
 </body>
 </html>
