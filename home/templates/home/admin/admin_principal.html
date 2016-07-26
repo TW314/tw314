@@ -2,7 +2,7 @@
 {% load staticfiles %}
 {% block titulo %} Principal {% endblock %}
 {% block master %}
-    <div class="row">
+    <div class="row" data-step="3" data-intro="Obtenha informações dos modulos clicando nos cards">
         <!-- Inicio da secao de cartoes da pagina principal -->
         <div class="container col s12 m6 l4 card-margin">
             <!-- Inicio do cartao de acesso a Gerencia de Usuarios -->
@@ -11,7 +11,9 @@
                     <img class="activator" src="{% static "img/usuario.jpg" %}">
                 </div>
                 <div class="card-content">
-                    <span class="card-title activator texto_text"><i class="fa fa-male margin-icons" aria-hidden="true"></i> Gerência de Usuários<i class="fa fa-ellipsis-v material-icons right" aria-hidden="true"></i></span>
+                    <span class="card-title activator texto_text"><i class="fa fa-male margin-icons"
+                                                                     aria-hidden="true"></i> Gerência de Usuários<i
+                            class="fa fa-ellipsis-v material-icons right" aria-hidden="true"></i></span>
                     <p><a href="cadastrar_usuario" class="secundaria1_text">Ir para</a></p>
                 </div>
                 <div class="card-reveal">
@@ -39,7 +41,8 @@
                     <img class="activator" src="{% static "img/relatorio.jpg" %}">
                 </div>
                 <div class="card-content">
-                    <span class="card-title activator texto_text"><i class="fa fa-clipboard margin-icons"></i> Relatórios<i class="fa fa-ellipsis-v material-icons right" aria-hidden="true"></i></span>
+                    <span class="card-title activator texto_text"><i class="fa fa-clipboard margin-icons"></i> Relatórios<i
+                            class="fa fa-ellipsis-v material-icons right" aria-hidden="true"></i></span>
                     <p><a href="relatorio" class="secundaria1_text">Ir para</a></p>
                 </div>
                 <div class="card-reveal">
@@ -65,7 +68,9 @@
                     <img class="activator" src="{% static "img/servicos.jpg" %}">
                 </div>
                 <div class="card-content">
-                    <span class="card-title activator texto_text"><i class="fa fa-briefcase margin-icons"></i> Serviços<i class="fa fa-ellipsis-v material-icons right" aria-hidden="true"></i></span>
+                    <span class="card-title activator texto_text"><i
+                            class="fa fa-briefcase margin-icons"></i> Serviços<i
+                            class="fa fa-ellipsis-v material-icons right" aria-hidden="true"></i></span>
                     <p><a href="cadastro_servico" class="secundaria1_text">Ir para</a></p>
                 </div>
                 <div class="card-reveal">
