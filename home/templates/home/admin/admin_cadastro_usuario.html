@@ -1,0 +1,287 @@
+{% extends "master_admin.html" %}
+{% block titulo %} Cadastrar Usuário {% endblock %}
+{% block master %}
+    <div class="row margin-form texto_text">
+        <div class="col s12 m6">
+            <!--Começo do formulário-->
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">Insira os dados para cadastrar um Usuário:</span>
+                </div>
+                <div class="card-action">
+                    <form class="col s12 post-form" method="post">{% csrf_token %}
+                        <h6 class="light valign-wrapper form-title secundaria2_text" style="margin-top: 10px;"><i
+                                class="fa fa-user small" aria-hidden="true"></i><span> Dados de Acesso </span></h6>
+                        <!-- Campo 'Nome' -->
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="nome" name="nome" type="text" class="validate">
+                                {{ form.nome.errors }}
+                                <label for="nome">Nome</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="email" name="email" type="email" class="validate">
+                                {{ form.email.errors }}
+                                <label for="email">E-mail</label>
+                            </div>
+                        </div>
+                        <!-- Select 'Perfil' -->
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <!-- Inicio da estrutura do Select -->
+                                <select id="perfil" name="perfil">
+                                    <option value="" disabled selected>Perfil</option>
+                                    {% for perfil in perfis %}
+                                        <option value="{{ perfil.id }}">{{ perfil.nome }}</option>
+                                    {% endfor %}
+                                </select>
+                                <label for="perfil">Perfil</label>
+                                <!-- Fim da estrutura do Select -->
+                            </div>
+                        </div>
+                        <div class="row">
+                            <small class="small right">ATENÇÃO: Todos os campos são obrigatórios</small>
+                        </div>
+                        <div class="row">
+                            <!--Botão Cancelar-->
+                            <div class="col s12 m6">
+                                <button class="btn waves-effect waves-light right col s12 alerta_bg" type="reset"
+                                        name="action">Cancelar
+                                    <i class="fa fa-times-circle right" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <!--Fim do botão cancelar-->
+                            <!--Botão Cadastrar-->
+                            <div class="col s12 m6">
+                                <button class="btn waves-effect waves-light right col s12 sucesso_bg" type="submit"
+                                        name="action">Cadastrar
+                                    <i class="fa fa-check-circle right" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <!--Fim do Botão Cadastrar-->
+                        </div>
+                    </form>
+                    <a href=""></a>
+                </div>
+            </div>
+            <!--Fim do formulário-->
+        </div>
+        <div class="col s12 m6">
+            <div class="col s12">
+                <div class="card white">
+                    <div class="card-content texto_text">
+                        <span id="table" class="card-title small">Lista de Usuários</span>
+                    </div>
+                    <div class="card-action">
+                        <!--Começo da Tabela-->
+                        <table class="highlight">
+                            <thead>
+                            <tr>
+                                <th data-field="nome">Nome</th>
+                                <th data-field="email">Login</th>
+                                <th data-field="acoes">Visualizar</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <!--
+                            <tr class="table-disabled">
+                                <td><p>Mylena Maria Silva dos Santos</p></td>
+                                <td>mylena_admin</td>
+                                <td class="center">
+                                    <!-- Botao que chama Modal --
+                                    <a class=" btn-floating btn-short waves-light btn btn modal-trigger"
+                                       href="#admin-inativo"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                </td>
+                            </tr>
+                            -->
+                            {% for usuario in usuarios %}
+                                <tr>
+                                    <td><p>{{ usuario.nome }}</p></td>
+                                    <td>{{ usuario.email }}</td>
+                                    <td class="center">
+                                        <!-- Botao que chama Modal -->
+                                        <a class=" btn-floating btn-short waves-light btn btn modal-trigger"
+                                           href="#admin"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                    </td>
+                                </tr>
+
+                                <!-- Inicio da estrutura do Modal -->
+                                <div id="admin" class="modal modal-fixed-footer base_text">
+                                    <div class="modal-content modal-padding">
+                                        <div class="row">
+                                            <div class="col s8">
+                                                <h5 class="light valign-wrapper form-title"><i class="fa fa-user fa-2x"
+                                                                                               aria-hidden="true"></i><span> {{ usuario.nome }} <small></small> </span>
+                                                </h5>
+                                            </div>
+                                            <div class="col s4"><a href=""
+                                                                   class="modal-action modal-close btn-flat base_text right">
+                                                <i class="right fa fa-times" aria-hidden="true"></i></a></div>
+                                        </div>
+                                        <div class="row">
+                                            <!-- Dados -->
+                                            <div class="col s12">
+                                                <div class="row">
+                                                    <div class="row small-title">
+                                                        <small class="secundaria1_v_text">Dados</small>
+                                                    </div>
+                                                    <div class="col s3">
+                                                        <span class="font18 white-text">Estabelecimento:</span>
+                                                    </div>
+                                                    <div class="col s9">
+                                                        <span class="font18 white-text">{{ usuario.empresa }}</span>
+                                                    </div>
+                                                    <div class="col s3">
+                                                        <span class="font18 white-text">Email:</span>
+                                                    </div>
+                                                    <div class="col s9">
+                                                        <span class="font18 white-text">{{ usuario.email }}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <!-- Menu de acoes da Modal -->
+                                        <div class="fixed-action-btn horizontal">
+                                            <a class="btn-floating btn-short secundaria1_bg">
+                                                <i class="fa fa-bars" aria-hidden="true"></i>
+                                            </a>
+                                            <ul>
+                                                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-ban"
+                                                                                              aria-hidden="true"></i></a>
+                                                </li>
+                                                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-key"
+                                                                                              aria-hidden="true"></i></a>
+                                                </li>
+                                                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-pencil"
+                                                                                              aria-hidden="true"></i></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Fim da estrutura do Modal -->
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                        <!--Fim da tabela-->
+                        <!-- Inicio da tabela
+                        <table class="highlight responsive-table">
+                            <!-- Inicio do cabecalho da tabela
+                            <thead>
+                            <!-- Cabecalho da tabela --
+                            <tr>
+                                <!-- Colunas do cabecalho --
+                                <th data-field="nome">Nome</th>
+                                <th data-field="login">Login</th>
+                                <th data-field="perfil">Perfil</th>
+                                <th data-field="acoes">Visualizar</th>
+                            </tr>
+                            </thead>
+                            <!-- Fim do cabecalho da tabela --
+                            <!-- Inicio dos dados da tabela --
+                            <tbody>
+                            <!-- Primeira linha da tabela --
+                            <tr class="table-disabled">
+                                <!-- Colunas da linha --
+                                <td><p>Mylena Maria Silva dos Santos</p></td>
+                                <td>mylena_admin</td>
+                                <td>Administrador</td>
+                                <td class="center">
+                                    <!-- Botao que chama Modal --
+                                    <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#usuario-inativo"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                </td>
+                            </tr>
+                            <!-- Segunda linha da tabela --
+                            <tr class="center">
+                                <!-- Colunas da linha --
+                                <td><p>Pedro Miguel Scian Ribeiro</p></td>
+                                <td>pedro_admin</td>
+                                <td>Administrador</td>
+                                <td class="center">
+                                    <!-- Botao que chama Modal --
+                                    <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#usuario1"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                </td>
+                            </tr>
+                            </tbody>
+                            <!-- Fim dos dados da tabela --
+                        </table>
+                         Fim da tabela -->
+                    </div>
+                    <!--Começo da páginação da tabela-->
+                    <div class="row" align="right">
+                        <ul class="pagination">
+                            <li class="disabled"><a href="#!"><i class="fa fa-chevron-circle-left"
+                                                                 aria-hidden="true"></i></a></li>
+                            <li class="active"><a href="#!">1</a></li>
+                            <li class="waves-effect"><a href="#!">2</a></li>
+                            <li class="waves-effect"><a href="#!">3</a></li>
+                            <li class="waves-effect"><a href="#!">4</a></li>
+                            <li class="waves-effect"><a href="#!">5</a></li>
+                            <li class="waves-effect"><a href="#!"><i class="fa fa-chevron-circle-right"
+                                                                     aria-hidden="true"></i></a></li>
+                        </ul>
+                        <!--Fim da páginação da tabela-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Inicio da estrutura do Modal -->
+    <div id="usuario-inativo" class="modal modal-fixed-footer base_text"
+         style="background-color: rgba(219, 61, 52, 0.90)">
+        <div class="modal-content modal-padding">
+            <div class="row">
+                <div class="col s8">
+                    <h5 class="light valign-wrapper form-title table-disabled base_text"><i class="fa fa-user fa-2x"
+                                                                                            aria-hidden="true"></i><span> Mylena Maria Silva dos Santos <small></small> </span>
+                    </h5>
+                </div>
+                <div class="col s4"><a href="" class="modal-action modal-close btn-flat base_text right"> <i
+                        class="right fa fa-times" aria-hidden="true"></i></a></div>
+            </div>
+            <div class="row">
+                <!-- Dados -->
+                <div class="col s12">
+                    <div class="row">
+                        <div class="row small-title">
+                            <small>Dados</small>
+                        </div>
+                        <div class="col s3">
+                            <span class="font18 white-text">Perfil:</span>
+                        </div>
+                        <div class="col s9">
+                            <span class="font18 white-text">Administrador.</span>
+                        </div>
+                        <div class="col s3">
+                            <span class="font18 white-text">Login:</span>
+                        </div>
+                        <div class="col s9">
+                            <span class="font18 white-text">mylena_admin</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <!-- Menu de acoes da Modal -->
+            <div class="fixed-action-btn horizontal">
+                <a class="btn-floating btn-short alerta_bg">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </a>
+                <ul>
+                    <li><a class="btn-floating alerta_bg tooltipped" data-position="top" data-delay="50"
+                           data-tooltip="Ativar"><i class="fa fa-check" aria-hidden="true"></i></a></li>
+                    <li><a class="btn-floating alerta_bg tooltipped" data-position="top" data-delay="50"
+                           data-tooltip="Redefinir senha"><i class="fa fa-key" aria-hidden="true"></i></a></li>
+                    <li><a class="btn-floating alerta_bg tooltipped" data-position="top" data-delay="50"
+                           data-tooltip="Editar"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- Fim da estrutura do Modal -->
+{% endblock %}

@@ -1,0 +1,705 @@
+{% extends "master_funcionario.html" %}
+{% load staticfiles %}
+{% block titulo %} Relatório {% endblock %}
+{% block master %}
+
+    <!--Script highchart inicio-->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <style type="text/css">
+        ${demo.css}
+    </style>
+    <!--Script highchart fim-->
+
+    <div class="row">
+        <div class="col s12">
+            <div class="row">
+                <div class="col s12">
+                    <div class="input-field col s12">
+                        <small class="secundaria2_text">Filtros</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6">
+                <!-- Tipo de gráfico inicio-->
+                <div class="input-field col s12">
+                    <select class="icons" id="grafico">
+                        <option value="" disabled selected>Selecione um tipo de gráfico</option>
+                        <option value="areaspline" class="left circle"  data-icon="{% static "img/fa-area-chart.png" %}" > Área</option>
+                        <option value="column" data-icon="{% static "img/fa-bar-chart.png" %}" class="left circle"> Coluna</option>
+                        <option value="column_drilldown" data-icon="{% static "img/fa-bar-chart.png" %}" class="left circle"> Coluna Drilldown</option>
+                        <option value="pie_drilldown" data-icon="{% static "img/fa-pie-chart.png" %}" class="left circle"> Pizza</option>
+                        <!--
+                        <option value="container" data-icon="images/office.jpg" class="left circle">Áreas</option> -->
+                    </select>
+                    <label>Tipo de Gráfico</label>
+                </div>
+                <!-- Tipo de gráfico fim-->
+            </div>
+            <div class="col s12 m6">
+                <div class="input-field col s12 m6">
+                    <!-- Date Picker do Periodo Inicial inicio-->
+                    <i class="fa fa-calendar-o prefix" aria-hidden="true"></i>
+                    <label for="data-inicial" class="active" >Periodo Inicial</label>
+                    <input id="data-inicial" type="date" class="datepicker" >
+                    <!-- Date Picker do Periodo Inicial fim-->
+                </div>
+                <!-- Date Picker do Periodo Inicial inicio-->
+                <div class="input-field col s12 m6">
+                    <i class="fa fa-calendar prefix" aria-hidden="true"></i>
+                    <label for="data-final" class="active" >Periodo Final</label>
+                    <input id="data-final" type="date" class="datepicker">
+                </div>
+                <!-- Date Picker do Periodo Inicial fim-->
+            </div>
+        </div>
+        <div class="col s12">
+            <div class="col s12 m6">
+                <div class="row">
+                    <div class="card white">
+                        <div class="card-content texto_text">
+                            <span id="table" class="card-title">Tabela de Serviços</span>
+                            <!-- Tabela para Servicos inicio-->
+                            <table id="servico" class="highlight responsive-table">
+                                <thead>
+                                <tr>
+                                    <th data-field="id">Serviço</th>
+                                    <th data-field="name">Quantidade de Clientes</th>
+                                    <th data-field="price">Tempo médio de atendimento</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>Recebimento de Encomendas</td>
+                                    <td class="center">16</td>
+                                    <td class="center">5 min.</td>
+                                </tr>
+                                <tr>
+                                    <td>Carta</td>
+                                    <td class="center">56</td>
+                                    <td class="center">4 min.</td>
+                                </tr>
+                                <tr>
+                                    <td>Envio</td>
+                                    <td class="center">9</td>
+                                    <td class="center">7 min.</td>
+                                </tr>
+                                <tr>
+                                    <td>Venda</td>
+                                    <td class="center">23</td>
+                                    <td class="center">15 min.</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <!-- Tabela para Servicos fim-->
+                        </div>
+                        <div class="row">
+                            <!-- Componente de paginação inicio-->
+                            <ul id="pag" class="right pagination">
+                                <li class="disabled"><a href="#!"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></a></li>
+                                <li class="active"><a href="#!">1</a></li>
+                                <li class="waves-effect"><a href="#!">2</a></li>
+                                <li class="waves-effect"><a href="#!">3</a></li>
+                                <li class="waves-effect"><a href="#!">4</a></li>
+                                <li class="waves-effect"><a href="#!">5</a></li>
+                                <li class="waves-effect"><a href="#!"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></li>
+                            </ul>
+                            <!-- Componente de paginação fim-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6">
+                <div class="row">
+                    <div class="card white">
+                        <div class="card-content texto_text">
+                            <span id="chart" class="card-title">Gráfico</span>
+                            <h4 id="chart-u" class="center light">Selecione um tipo de Gráfico para exibir um gráfico</h4>
+                            <!--Grafico-->
+                            <div id="areaspline" hidden style="height: 60%; margin: 0 auto"></div>
+                            <div id="column" hidden style="height: 60%; margin: 0 auto"></div>
+                            <div id="column_drilldown" hidden style="height: 60%; margin: 0 auto"></div>
+                            <div id="pie_drilldown" hidden style="height: 60%; margin: 0 auto"></div>
+                            <div id="container" hidden style="height: 60%; margin: 0 auto"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts inicio -->
+    <script type="text/javascript">
+        $(function () {
+            // ** Graficos ** //
+            $('#grafico').change(function () {
+                $('#chart-u').hide("slow");
+                if ($('#grafico').val() == 'areaspline') {
+                    $('#areaspline').show("slow");
+                    $('#chart').html("Gráfico de Área");
+                } else {
+                    $('#areaspline').hide("slow");
+                }
+            });
+            $('#grafico').change(function () {
+                $('#chart-u').hide("slow");
+                if ($('#grafico').val() == 'column') {
+                    $('#column').show("slow");
+                    $('#chart').html("Gráfico de Coluna");
+                } else {
+                    $('#column').hide("slow");
+                }
+            });
+            $('#grafico').change(function () {
+                $('#chart-u').hide("slow");
+                if ($('#grafico').val() == 'column_drilldown') {
+                    $('#column_drilldown').show("slow");
+                    $('#chart').html("Gráfico de Coluna Drilldown");
+                } else {
+                    $('#column_drilldown').hide("slow");
+                }
+            });
+            $('#grafico').change(function () {
+                $('#chart-u').hide("slow");
+                if ($('#grafico').val() == 'pie_drilldown') {
+                    $('#pie_drilldown').show("slow");
+                    $('#chart').html("Gráfico de Pizza");
+                } else {
+                    $('#pie_drilldown').hide("slow");
+                }
+            });
+            $('#grafico').change(function () {
+                $('#chart-u').hide("slow");
+                if($('#grafico').val() == 'container'){
+                    $('#container').show("slow");
+                    $('#chart').html("Gráfico de Pizza");
+                }else {
+                    $('#container').hide("slow");
+                }
+            });
+
+            $('#filtro').change(function () {
+                if($('#filtro').val() == 'none'){
+                    document.getElementById("#grafico").disabled = true;
+                }else {
+                    document.getElementById("#grafico").disabled = true;
+                }
+            });
+
+            //Graficos inicio
+
+            // Grafico tipo areaspline
+            $('#areaspline').highcharts({
+                chart: {
+                    type: 'areaspline'
+                },
+                title: {
+                    text: 'Média de Atendimento de Serviços por Funcionários'
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'left',
+                    verticalAlign: 'top',
+                    x: 150,
+                    y: 100,
+                    floating: true,
+                    borderWidth: 1,
+                    backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#fff6f6'
+                },
+                xAxis: {
+                    categories: [
+                        'Recebimento de Encomendas',
+                        'Carta',
+                        'Envio',
+                        'Venda'
+                    ],
+                    plotBands: [{ // visualize the weekend
+                        from: 4.5,
+                        to: 6.5,
+                        color: 'rgba(68, 170, 213, 0.2)'
+                    }]
+                },
+                yAxis: {
+                    title: {
+                        text: 'Média de Atendimento'
+                    }
+                },
+                tooltip: {
+                    shared: true,
+                    valueSuffix: ' min.'
+                },
+                credits: {
+                    enabled: false
+                },
+                plotOptions: {
+                    areaspline: {
+                        fillOpacity: 0.5
+                    }
+                },
+                series: [{
+                    name: 'Alan Henrique',
+                    data: [3, 4, 10, 5]
+                }]
+            });
+
+            //Grafico tipo Column-basic
+            $('#column').highcharts({
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Clientes Atendidos X Serviços prestados'
+                },
+                xAxis: {
+                    categories: [
+                        'Alan Henrique',
+                        'Camila Corá',
+                        'Haluane de Cássia',
+                        'Mylena Maria',
+                        'Pedro Miguel'
+                    ],
+                    crosshair: true
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: 'Clientes Atendidos'
+                    }
+                },
+                tooltip: {
+                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} Clientes</b></td></tr>',
+                    footerFormat: '</table>',
+                    shared: true,
+                    useHTML: true
+                },
+                plotOptions: {
+                    column: {
+                        pointPadding: 0.2,
+                        borderWidth: 0
+                    }
+                },
+                series: [{
+                    name: 'Recebimento de Encomendas',
+                    data: [3, 7, 3, 4, 3]
+
+                }, {
+                    name: 'Carta',
+                    data: [8, 5, 7, 3, 4]
+
+                }, {
+                    name: 'Envio',
+                    data: [6, 6, 2, 6, 7]
+
+                }, {
+                    name: 'Venda',
+                    data: [7, 4, 4, 7, 5]
+
+                }]
+            });
+
+            //Grafico tipo Column-drilldown
+            $('#column_drilldown').highcharts({
+                chart: {
+                    type: 'column'
+                },
+                title: {
+                    text: 'Média de Atendimento por Serviço'
+                },
+                xAxis: {
+                    type: 'category'
+                },
+                yAxis: {
+                    title: {
+                        text: 'Média de Atendimento'
+                    }
+
+                },
+                legend: {
+                    enabled: false
+                },
+                plotOptions: {
+                    series: {
+                        borderWidth: 0,
+                        dataLabels: {
+                            enabled: true,
+                            format: '{point.y:.1f} min.'
+                        }
+                    }
+                },
+
+                tooltip: {
+                    headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+                    pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f} min.</b> <br/>'
+                },
+
+                series: [{
+                    name: 'Brands',
+                    colorByPoint: true,
+                    data: [{
+
+                        name: 'Recebimento de Encomendas',
+                        y: 5,
+                        drilldown: 'Recebimento de Encomendas'
+                    }, {
+                        name: 'Carta',
+                        y: 4,
+                        drilldown: 'Carta'
+                    }, {
+                        name: 'Envio',
+                        y: 7,
+                        drilldown: 'Envio'
+                    }, {
+                        name: 'Venda',
+                        y: 15,
+                        drilldown: 'Venda'
+                    }]
+                }],
+                drilldown: {
+                    series: [{
+                        name: 'Recebimento de Encomendas',
+                        id: 'Recebimento de Encomendas',
+                        data: [
+                            [
+                                'Alan Henrique',
+                                3
+                            ],
+                            [
+                                'Camila Corá',
+                                6
+                            ],
+                            [
+                                'Haluane de Cássia',
+                                3
+                            ],
+                            [
+                                'Mylena Maria',
+                                4
+                            ],
+                            [
+                                'Pedro Miguel',
+                                5
+                            ]
+                        ]
+                    }, {
+                        name: 'Carta',
+                        id: 'Carta',
+                        data: [
+                            [
+                                'Alan Henrique',
+                                7
+                            ],
+                            [
+                                'Camila Corá',
+                                10
+                            ],
+                            [
+                                'Haluane de Cássia',
+                                6
+                            ],
+                            [
+                                'Mylena Maria',
+                                4
+                            ],
+                            [
+                                'Pedro Miguel',
+                                8
+                            ]
+                        ]
+                    }, {
+                        name: 'Envio',
+                        id: 'Envio',
+                        data: [
+                            [
+                                'Alan Henrique',
+                                3
+                            ],
+                            [
+                                'Camila Corá',
+                                5
+                            ],
+                            [
+                                'Haluane de Cássia',
+                                1
+                            ],
+                            [
+                                'Mylena Maria',
+                                4
+                            ],
+                            [
+                                'Pedro Miguel',
+                                6
+                            ]
+                        ]
+                    }, {
+                        name: 'Venda',
+                        id: 'Venda',
+                        data: [
+                            [
+                                'Alan Henrique',
+                                14
+                            ],
+                            [
+                                'Camila Corá',
+                                15
+                            ],
+                            [
+                                'Haluane de Cássia',
+                                13
+                            ],
+                            [
+                                'Mylena Maria',
+                                17
+                            ],
+                            [
+                                'Pedro Miguel',
+                                12
+                            ]
+                        ]
+                    }]
+                }
+            });
+
+            //Grafico tipo pie-drilldown
+
+            $('#pie_drilldown').highcharts({
+                chart: {
+                    type: 'pie'
+                },
+                title: {
+                    text: 'Média de Atendimento por Funcionário'
+                },
+                plotOptions: {
+                    series: {
+                        dataLabels: {
+                            enabled: true,
+                            format: '{point.name}: {point.y:.1f} min.'
+                        }
+                    }
+                },
+
+                tooltip: {
+                    headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+                    pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f} min.</b> <br/>'
+                },
+                series: [{
+                    name: 'Brands',
+                    colorByPoint: true,
+                    data: [{
+                        name: 'Alan Henrique',
+                        y: 5,
+                        drilldown: 'Alan Henrique'
+                    }, {
+                        name: 'Camila Corá',
+                        y: 18,
+                        drilldown: 'Camila Corá'
+                    }, {
+                        name: 'Haluane de Cássia',
+                        y: 13,
+                        drilldown: 'Haluane de Cássia'
+                    }, {
+                        name: 'Mylena Maria',
+                        y: 15,
+                        drilldown: 'Mylena Maria'
+                    }, {
+                        name: 'Pedro Miguel',
+                        y: 10,
+                        drilldown: 'Pedro Miguel'
+                    }]
+                }],
+                drilldown: {
+                    series: [{
+                        name: 'Alan Henrique',
+                        id: 'Alan Henrique',
+                        data: [
+                            ['Recebimento de Encomendas', 3],
+                            ['Carta', 7],
+                            ['Envio', 3],
+                            ['Venda', 14]
+                        ]
+                    }, {
+                        name: 'Camila Corá',
+                        id: 'Camila Corá',
+                        data: [
+                            ['Recebimento de Encomendas', 6],
+                            ['Carta', 10],
+                            ['Envio', 5],
+                            ['Venda', 15]
+                        ]
+                    }, {
+                        name: 'Haluane de Cássia',
+                        id: 'Haluane de Cássia',
+                        data: [
+                            ['Recebimento de Encomendas', 3],
+                            ['Carta', 6],
+                            ['Envio', 1],
+                            ['Venda', 13]
+                        ]
+                    }, {
+                        name: 'Mylena Maria',
+                        id: 'Mylena Maria',
+                        data: [
+                            ['Recebimento de Encomendas', 4],
+                            ['Carta', 4],
+                            ['Envio', 4],
+                            ['Venda', 17]
+                        ]
+                    }, {
+                        name: 'Pedro Miguel',
+                        id: 'Pedro Miguel',
+                        data: [
+                            ['Recebimento de Encomendas', 5],
+                            ['Carta', 8],
+                            ['Envio', 6],
+                            ['Venda', 12]
+                        ]
+                    }]
+                }
+            });
+
+            // Grafico tipo Gauge-activity
+
+            Highcharts.chart('container', {
+
+                        chart: {
+                            type: 'solidgauge',
+                            marginTop: 50
+                        },
+
+                        title: {
+                            text: 'Activity',
+                            style: {
+                                fontSize: '24px'
+                            }
+                        },
+
+                        tooltip: {
+                            borderWidth: 0,
+                            backgroundColor: 'none',
+                            shadow: false,
+                            style: {
+                                fontSize: '16px'
+                            },
+                            pointFormat: '{series.name}<br><span style="font-size:2em; color: {point.color}; font-weight: bold">{point.y}%</span>',
+                            positioner: function (labelWidth, labelHeight) {
+                                return {
+                                    x: 200 - labelWidth / 2,
+                                    y: 180
+                                };
+                            }
+                        },
+
+                        pane: {
+                            startAngle: 0,
+                            endAngle: 360,
+                            background: [{ // Track for Move
+                                outerRadius: '112%',
+                                innerRadius: '88%',
+                                backgroundColor: Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0.3).get(),
+                                borderWidth: 0
+                            }, { // Track for Exercise
+                                outerRadius: '87%',
+                                innerRadius: '63%',
+                                backgroundColor: Highcharts.Color(Highcharts.getOptions().colors[1]).setOpacity(0.3).get(),
+                                borderWidth: 0
+                            }, { // Track for Stand
+                                outerRadius: '62%',
+                                innerRadius: '38%',
+                                backgroundColor: Highcharts.Color(Highcharts.getOptions().colors[2]).setOpacity(0.3).get(),
+                                borderWidth: 0
+                            }]
+                        },
+
+                        yAxis: {
+                            min: 0,
+                            max: 100,
+                            lineWidth: 0,
+                            tickPositions: []
+                        },
+
+                        plotOptions: {
+                            solidgauge: {
+                                borderWidth: '34px',
+                                dataLabels: {
+                                    enabled: false
+                                },
+                                linecap: 'round',
+                                stickyTracking: false
+                            }
+                        },
+
+                        series: [{
+                            name: 'Move',
+                            borderColor: Highcharts.getOptions().colors[0],
+                            data: [{
+                                color: Highcharts.getOptions().colors[0],
+                                radius: '100%',
+                                innerRadius: '100%',
+                                y: 80
+                            }]
+                        }, {
+                            name: 'Exercise',
+                            borderColor: Highcharts.getOptions().colors[1],
+                            data: [{
+                                color: Highcharts.getOptions().colors[1],
+                                radius: '75%',
+                                innerRadius: '75%',
+                                y: 65
+                            }]
+                        }, {
+                            name: 'Stand',
+                            borderColor: Highcharts.getOptions().colors[2],
+                            data: [{
+                                color: Highcharts.getOptions().colors[2],
+                                radius: '50%',
+                                innerRadius: '50%',
+                                y: 50
+                            }]
+                        }]
+                    },
+
+                    /**
+                     * In the chart load callback, add icons on top of the circular shapes
+                     */
+                    function callback() {
+
+                        // Move icon
+                        this.renderer.path(['M', -8, 0, 'L', 8, 0, 'M', 0, -8, 'L', 8, 0, 0, 8])
+                                .attr({
+                                    'stroke': '#303030',
+                                    'stroke-linecap': 'round',
+                                    'stroke-linejoin': 'round',
+                                    'stroke-width': 2,
+                                    'zIndex': 10
+                                })
+                                .translate(190, 26)
+                                .add(this.series[2].group);
+
+                        // Exercise icon
+                        this.renderer.path(['M', -8, 0, 'L', 8, 0, 'M', 0, -8, 'L', 8, 0, 0, 8, 'M', 8, -8, 'L', 16, 0, 8, 8])
+                                .attr({
+                                    'stroke': '#303030',
+                                    'stroke-linecap': 'round',
+                                    'stroke-linejoin': 'round',
+                                    'stroke-width': 2,
+                                    'zIndex': 10
+                                })
+                                .translate(190, 61)
+                                .add(this.series[2].group);
+
+                        // Stand icon
+                        this.renderer.path(['M', 0, 8, 'L', 0, -8, 'M', -8, 0, 'L', 0, -8, 8, 0])
+                                .attr({
+                                    'stroke': '#303030',
+                                    'stroke-linecap': 'round',
+                                    'stroke-linejoin': 'round',
+                                    'stroke-width': 2,
+                                    'zIndex': 10
+                                })
+                                .translate(190, 96)
+                                .add(this.series[2].group);
+                    });
+        });
+    </script>
+    <!-- Scripts fim -->
+{% endblock %}

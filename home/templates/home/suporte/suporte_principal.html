@@ -1,0 +1,139 @@
+{% extends "master_suporte.html" %}
+{% load staticfiles %}
+{% block titulo %} Principal {% endblock %}
+{% block master %}
+    <div class="row">
+        <div class="col s12 m6 l4 card-margin">
+            <div class="card hoverable">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="{% static "img/admin.jpg" %}">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator texto_text"><i class="fa fa-male margin-icons" aria-hidden="true"></i> Gerência de Administradores<i class="fa fa-ellipsis-v material-icons right" aria-hidden="true"></i> </span>
+                    <p><a href="cadastro_admin">Ir para</a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title texto_text">Gerência de Administradores<i class="right fa fa-times" aria-hidden="true"></i></span>
+                    <p class="texto_text">Nesse espaço, será possível realizar as seguintes ações:
+                    <div class="container">
+                        <ul class="list-style">
+                            <li>Cadastrar</li>
+                            <li>Editar</li>
+                            <li>Listar</li>
+                            <li>Vizualizar</li>
+                            <li>Ativar/Inativar</li>
+                        </ul>
+                    </div>
+                    </p>
+                    <p><a href="cadastro_admin" class="right">Ir para</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="container col s12 m6 l4 card-margin">
+            <div class="card hoverable">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="{% static "img/estabelecimento.jpg" %}">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator texto_text"><i class="fa fa-building margin-icons" aria-hidden="true"></i>Gerência de Estabelecimentos<i class="fa fa-ellipsis-v material-icons right" aria-hidden="true"></i> </span>
+                    <p><a href="cadastro_estabelecimento">Ir para</a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title texto_text">Gerência de Estabelecimentos<i class="right fa fa-times" aria-hidden="true"></i></span>
+                    <p class="texto_text">Nesse espaço, será possível realizar as seguintes ações:
+                    <div class="container">
+                        <ul class="list-style">
+                            <li>Cadastrar</li>
+                            <li>Editar</li>
+                            <li>Listar</li>
+                            <li>Vizualizar</li>
+                            <li>Ativar/Inativar</li>
+                        </ul>
+                    </div>
+                    </p>
+                    <p><a href="cadastro_estabelecimento" class="right">Ir para</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="container col s12 m6 l4 card-margin">
+            <div class="card hoverable">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="{% static "img/servicos.jpg" %}">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator texto_text"><i class="fa fa-comments-o margin-icons" aria-hidden="true"></i> Gerência de Novos Serviços<i class="fa fa-ellipsis-v material-icons right" aria-hidden="true"></i> </span>
+                    <p><a href="cadastro_servico">Ir para</a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title texto_text">Gerência de Novos Serviços<i class="right fa fa-times" aria-hidden="true"></i></span>
+                    <p class="texto_text">Nesse espaço, será possível realizar as seguintes ações:
+                    <div class="container">
+                        <ul class="list-style">
+                            <li>Atender solicitações de serviço</li>
+                            <li>Cadastrar Serviços</li>
+                            <li>Vizualizar Serviços</li>
+                            <li>Editar Serviços</li>
+                            <li>Bloquear/Desbloquear Serviço</li>
+                        </ul>
+                    </div>
+                    </p>
+                    <p><a href="cadastro_servico" class="right">Ir para</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row container" style="margin-bottom: 100px;">
+        <div class="container col s12 m6 card-margin">
+            <div class="card hoverable">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="{% static "img/contato.jpg" %}">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator texto_text"><i class="fa fa-comments-o margin-icons" aria-hidden="true"></i> Solicitações de atendimento<i class="fa fa-ellipsis-v material-icons right" aria-hidden="true"></i> </span>
+                    <p><a href="atendimento">Ir para</a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title texto_text">Solicitações de atendimento<i class="right fa fa-times" aria-hidden="true"></i></span>
+                    <p class="texto_text">Nesse espaço, será possível realizar as seguintes ações:
+                    <div class="container">
+                        <ul class="list-style">
+                            <li>Responder</li>
+                            <li>Listar</li>
+                            <li>Vizualizar</li>
+                            <li>Vloquear/Desbloquear</li>
+                        </ul>
+                    </div>
+                    </p>
+                    <p><a href="atendimento" class="right">Ir para</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="container col s12 m6 card-margin">
+            <div class="card hoverable">
+                <div class="card-image waves-effect waves-block waves-light">
+                    <img class="activator" src="{% static "img/ramos.jpg" %}">
+                </div>
+                <div class="card-content">
+                    <span class="card-title activator texto_text"><i class="fa fa-puzzle-piece margin-icons" aria-hidden="true"></i> Gerência de Ramos<i class="fa fa-ellipsis-v material-icons right" aria-hidden="true"></i> </span>
+                    <p><a href="cadastro_ramos">Ir para</a></p>
+                </div>
+                <div class="card-reveal">
+                    <span class="card-title texto_text">Gerência de Ramos<i class="right fa fa-times" aria-hidden="true"></i></span>
+                    <p class="texto_text">Nesse espaço, será possível realizar as seguintes ações:
+                    <div class="container">
+                        <ul class="list-style">
+                            <li>Cadastrar</li>
+                            <li>Editar</li>
+                            <li>Listar</li>
+                            <li>Vizualizar</li>
+                            <li>Ativar/Inativar</li>
+                        </ul>
+                    </div>
+                    </p>
+                    <p><a href="cadastro_ramos" class="right">Ir para</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

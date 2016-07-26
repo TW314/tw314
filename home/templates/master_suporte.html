@@ -1,0 +1,148 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="description" content="TW314 é um sistema de acompanhamento de fila feito para o século 21">
+    <title>TW314</title>
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="57x57" href="{% static "img/favicons/apple-touch-icon-57x57.png" %}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{% static "img/favicons/apple-touch-icon-60x60.png" %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static "img/favicons/apple-touch-icon-72x72.png" %}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{% static "img/favicons/apple-touch-icon-76x76.png" %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static "img/favicons/apple-touch-icon-114x114.png" %}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static "img/favicons/apple-touch-icon-120x120.png" %}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{% static "img/favicons/apple-touch-icon-144x144.png" %}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{% static "img/favicons/apple-touch-icon-152x152.png" %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static "img/favicons/apple-touch-icon-180x180.png" %}">
+    <link rel="icon" type="image/png" href="{% static "img/favicons/favicon-32x32.png" %}" sizes="32x32">
+    <link rel="icon" type="image/png" href="{% static "img/favicons/android-chrome-192x192.png" %}" sizes="192x192">
+    <link rel="icon" type="image/png" href="{% static "img/favicons/favicon-96x96.png" %}" sizes="96x96">
+    <link rel="icon" type="image/png" href="{% static "img/favicons/favicon-16x16.png" %}" sizes="16x16">
+    <link rel="manifest" href="{% static "img/favicons/manifest.json" %}">
+    <link rel="mask-icon" href="{% static "img/favicons/safari-pinned-tab.svg" %}" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-TileImage" content="{% static "img/favicons/mstile-144x144.png" %}">
+    <meta name="theme-color" content="#f16000">
+
+    <!-- CSS-->
+
+    <link href="{% static "css/materialize.min.css" %}" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "css/owl.carousel.css" %}">
+    <link rel="stylesheet" href="{% static "css/hover-min.css" %}">
+    <link rel="stylesheet" href="{% static "css/backtotop.css" %}">
+    <link rel="stylesheet" href="{% static "font-awesome-4.6.2/css/font-awesome.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
+</head>
+<body>
+<header class="master">
+    <div class="page-header">
+        <a href="{% url 'home.views.suporte_cadastro_status' %}" class="top-menu"></a>
+    </div>
+    <div class="navbar-fixed">
+        <nav>
+            <div class="nav-wrapper">
+                <ul>
+                    <li>
+                        <a href="principal" class="white-text valign-wrapper ">
+                            <img src="{% static "img/logo-certa.png" %}" class="responsive-img" alt="logo TW314"> <span class="flow-text_2 valign">TW314 </span>
+                        </a>
+                    </li>
+                </ul>
+                <span class="flow-text_3 light hide-on-med-and-down brand-logo center">{% block titulo %}{% endblock %}</span>
+                <ul class="right">
+                    <li class="hide-on-small-only">Bem-vindo, Suporte</li>
+                    <li><a class="white-text flow-text_3 light" href="../login"><i class="fa fa-sign-out" aria-hidden="true"></i><span class="hide-on-small-and-down"> SAIR </span></a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+<main class="content base_bg" style="margin-bottom: 70px;">
+    {%  block master %}
+
+    {% endblock %}
+</main>
+<footer class="master master-footer page-footer fixed-footer2">
+    <div class="row show-on-medium-and-down hide-on-large-only">
+        <div class="col s6">
+            <span class="logo-footer"><img src="{% static "img/logo-certa.png" %}" class="responsive-img" alt="logo TW314"></span>
+        </div>
+        <div class="col s6 right-align">
+            <ul>
+                <li><a class="text-lighten-4 base_text" href="principal">Principal</a></li>
+                <li><a class="text-lighten-4 base_text" href="cadastro_admin">Administrador</a></li>
+                <li><a class="text-lighten-4 base_text" href="cadastro_estabelecimento">Estabelecimento</a></li>
+                <li><a class="text-lighten-4 base_text" href="atendimento">Atendimento</a></li>
+                <li><a class="text-lighten-4 base_text" href="cadastro_servico">Serviço</a></li>
+                <li><a class="text-lighten-4 base_text" href="cadastro_ramos">Ramo</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-copyright">
+        <div class="col s12 m4 center hide-on-large-only">
+            © 2016 Ticket Web 314 V1.0
+        </div>
+        <div class="col s12 m4 left show-on-large">
+            © 2016 Ticket Web 314 V1.0
+        </div>
+        <span class="logo-footer hide-on-med-and-down"><img src="{% static "img/logo-certa.png" %}" class="responsive-img" alt="logo TW314"></span>
+        <a class="text-lighten-4 right hide-on-med-and-down" href="cadastro_ramos">Ramos</a>
+        <a class="text-lighten-4 right hide-on-med-and-down" href="cadastro_servico">Serviços</a>
+        <a class="text-lighten-4 right hide-on-med-and-down" href="atendimento">Atendimento</a>
+        <a class="text-lighten-4 right hide-on-med-and-down" href="cadastro_estabelecimento">Estabelecimento</a>
+        <a class="text-lighten-4 right hide-on-med-and-down" href="cadastro_admin">Administradores</a>
+        <a class="text-lighten-4 right hide-on-med-and-down" href="principal">Principal</a>
+    </div>
+</footer>
+
+<!--  Scripts-->
+<script src="{% static "js/jquery-2.1.1.min.js" %}"></script>
+<script type="text/javascript">
+    (function() {
+        var bodyEl = $('body'),
+                navToggleBtn = bodyEl.find('.nav-toggle-btn');
+
+        navToggleBtn.on('click', function(e) {
+            bodyEl.toggleClass('active-nav');
+            e.preventDefault();
+        });
+    })();
+</script>
+<script src="{% static "js/owl.carousel.min.js" %}"></script>
+<script src="{% static "js/materialize.min.js" %}"></script>
+<script src="{% static "js/init.js" %}"></script>
+<script type="text/javascript" src="{% static "js/backtotop.js " %}"></script>
+<script type="application/javascript">
+    $(document).ready(function(){
+        $('.tooltipped').tooltip({delay: 50});
+        $(".button-collapse").sideNav();
+        $('.scrollspy').scrollSpy();
+        $(".owl-carousel").owlCarousel({
+                    center: true,
+                    loop:true,
+                    margin:10,
+                    autoplay:true,
+                    autoplayTimeout:3000,
+                    autoplayHoverPause:true,
+                    responsive:{
+                        260:{
+                            items: 1
+                        },
+                        600:{
+                            items: 3
+                        }
+                    }
+                }
+        );
+    });
+</script>
+</body>
+</html>
