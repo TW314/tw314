@@ -76,6 +76,7 @@ WSGI_APPLICATION = 'tw314.wsgi.application'
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
 """
+# SQLITE3
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -83,7 +84,8 @@ DATABASES = {
     }
 } 
 """
-"""
+# """
+# LOCAL
 DATABASES = {
     'default': {
         'NAME': 'tw314',
@@ -94,6 +96,7 @@ DATABASES = {
     }
 }
 """
+# SERVER
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
