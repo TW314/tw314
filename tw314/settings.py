@@ -97,8 +97,8 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'tw314$tw314$',
-        'USER': 'tw314$',
+        'NAME': 'tw314$tw314',
+        'USER': 'tw314',
         'PASSWORD': 'fatec@pi_tw314',
         'HOST': 'tw314.mysql.pythonanywhere-services.com',
         'OPTIONS': {'autocommit': True, },
