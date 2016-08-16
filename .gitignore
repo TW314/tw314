@@ -64,5 +64,8 @@ target/
 #Pasta PyCharm
 *.idea
 
+#Pasta VS Code
+*.vscode
+
 #Banco
 *.sqlite3
