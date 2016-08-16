@@ -284,7 +284,7 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons{ display: 
     margin: 0px auto;
 }
 .menu_circle i{ margin: 0 auto; }
-.icon{ font-size: 3em !important; }
+.icon{ font-size: 2.5em !important; }
 .menu{ margin: auto 20%; }
 .menu ul li { margin: auto 15px; }
 footer.page-footer {
@@ -311,7 +311,7 @@ footer.page-footer .footer-copyright a:hover {
 
 nav { background-color: #ee692e; }
 .margin-title{ margin: auto; }
-.margin-icons{ margin: 0 3px 0 0; }
+.margin-icons{ margin: 0 25px; }
 
 .entrar{ margin-top: -15px; }
 .nav-align{
@@ -328,22 +328,26 @@ nav { background-color: #ee692e; }
 
 .hvr-reveal::before {
     border-radius: 50%;
-    border-color: #00809c;
+    border-color: #34a4fd;
 }
 
 nav ul a:hover {background: #f74f30;}
 
 .btn-floating.btn-large {
-    width: 4.81em;
-    height: 4.81em;
-    padding-top: 6%;
+    width: 3.81em;
+    height: 3.81em;
+    padding-top: 1%;
 }
-nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul a.btn-floating {margin-left: 22px;}
+nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul a.btn-floating {margin-left: -1px;}
 
 .flow-text {
     font-size: 1rem;
 }
-
+@media only screen and (max-width: 992px){
+    .flow-text {
+        font-size: 1.608rem;
+    }
+}
 .margin-parallax{
     margin: 20em 5em;
 }

@@ -9,7 +9,6 @@
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="description" content="TW314 é um sistema de acompanhamento de fila feito para o século 21">
     <title>TW314</title>
-
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="57x57" href="{% static "img/favicons/apple-touch-icon-57x57.png" %}">
     <link rel="apple-touch-icon" sizes="60x60" href="{% static "img/favicons/apple-touch-icon-60x60.png" %}">
@@ -48,13 +47,12 @@
 
     <script>
         function startTour() {
-            var tour = introJs()
+            var tour = introJs();
             tour.setOption('tooltipPosition', 'auto');
-            tour.setOption('positionPrecedence', ['left', 'right', 'bottom', 'top'])
-            tour.setOption('showProgress', true)
+            tour.setOption('positionPrecedence', ['left', 'right', 'bottom', 'top']);
+            tour.setOption('showProgress', true);
             tour.start()
         }
-
     </script>
 
 </head>
@@ -75,9 +73,7 @@
                 <span class="flow-text_3 light hide-on-med-and-down brand-logo center">{% block titulo %}{% endblock %}</span>
                 <ul class="right">
                     <li class="hide-on-small-only">Bem-vindo, Administrador</li>
-                    <li><a class="white-text flow-text_3 light" href="../login"><i class="fa fa-sign-out"
-                                                                                   aria-hidden="true"></i><span
-                            class="hide-on-small-and-down"> SAIR </span></a></li>
+                    <li><a class="white-text flow-text_3 light" href="../login"><i class="fa fa-sign-out" aria-hidden="true"></i><span class="hide-on-small-and-down"> SAIR </span></a></li>
                 </ul>
             </div>
         </nav>
