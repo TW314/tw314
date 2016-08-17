@@ -90,7 +90,7 @@ def suporte_listar_empresas(request):
     try:
         empresas = paginator.page(page)
     except PageNotAnInteger:
-        # Se página não for inteiro, irá retornar a primeira pagina
+        # Se pagina nao for inteiro, ira retornar a primeira pagina
         empresas = paginator.page(1)
     except EmptyPage:
         # Se ficarem muitas paginas
@@ -126,7 +126,7 @@ def suporte_listar_servico(request):
     try:
         servico = paginator.page(page)
     except PageNotAnInteger:
-        # Se página não for inteiro, irá retornar a primeira pagina
+        # Se pagina nao for inteiro, ira retornar a primeira pagina
         servico = paginator.page(1)
     except EmptyPage:
         # Se ficarem muitas paginas
@@ -161,7 +161,7 @@ def suporte_listar_status(request):
     try:
         status = paginator.page(page)
     except PageNotAnInteger:
-        # Se página não for inteiro, irá retornar a primeira pagina
+        # Se pagina nao for inteiro, ira retornar a primeira pagina
         status = paginator.page(1)
     except EmptyPage:
         # Se ficarem muitas paginas
@@ -213,7 +213,7 @@ def suporte_listar_ramo(request):
     try:
         ramos = paginator.page(page)
     except PageNotAnInteger:
-        # Se página não for inteiro, irá retornar a primeira pagina
+        # Se pagina nao for inteiro, ira retornar a primeira pagina
         ramos = paginator.page(1)
     except EmptyPage:
         # Se ficarem muitas paginas
@@ -250,7 +250,7 @@ def suporte_listar_usuario(request):
     try:
         usuario = paginator.page(page)
     except PageNotAnInteger:
-        # Se página não for inteiro, irá retornar a primeira pagina
+        # Se pagina nao for inteiro, ira retornar a primeira pagina
         usuario = paginator.page(1)
     except EmptyPage:
         # Se ficarem muitas paginas
