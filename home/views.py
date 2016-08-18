@@ -170,9 +170,9 @@ def suporte_listar_status(request):
     return status
 
 
-def suporte_editar_status(request, pk):
+def suporte_editar_status(request):
     # Editar
-    edit_status = get_object_or_404(Status, pk=pk)
+    """edit_status = get_object_or_404(Status, pk=pk)
     if request.method == "POST":
         form = StsForm(request.POST, instance=edit_status)
         if form.is_valid():
@@ -184,7 +184,8 @@ def suporte_editar_status(request, pk):
         form = StsForm(instance=edit_status)
 
     suporte_listar_status(request)
-    return {'pk': pk}
+    return {'pk': pk}"""
+    return render(request, 'home/suporte/suporte_editar_status.html', {})
 
 
 def suporte_cadastro_ramo(request):
