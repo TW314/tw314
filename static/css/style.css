@@ -749,7 +749,7 @@ i.medium {
     background-color: rgba(0, 160, 194, 0.9);
     padding: 0;
     max-height: 70%;
-    width: 55%;
+    width: 100%;
     margin: auto;
     overflow-y: auto;
     border-radius: 2px;
@@ -762,7 +762,7 @@ i.medium {
 
 
 .fixed-action-btn ul li {
-    margin: auto auto auto 15px !important;
+    margin: auto auto auto 15px; !important;
 }
 
 /*******************************
