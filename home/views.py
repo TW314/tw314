@@ -170,22 +170,17 @@ def suporte_listar_status(request):
     return status
 
 
-def suporte_editar_status(request):
+def suporte_editar_status(request, pk):
     # Editar
-    """edit_status = get_object_or_404(Status, pk=pk)
-    if request.method == "POST":
-        form = StsForm(request.POST, instance=edit_status)
-        if form.is_valid():
-            edit_status = form.save(commit=False)
-            edit_status.save()
-            pk = edit_status.pk
-            return render('home/suporte/suporte_cadastro_status.html', {'pk': pk})
-    else:
-        form = StsForm(instance=edit_status)
+    status = get_object_or_404(Status, pk=pk)
 
-    suporte_listar_status(request)
-    return {'pk': pk}"""
-    return render(request, 'home/suporte/suporte_editar_status.html', {})
+    if request.method == "POST":
+        form = StsForm(request.POST, instance=status)
+        if form.is_valid():
+            status = form
+            status.save()
+
+    return render(request, 'home/suporte/suporte_editar_status.html', {'status': status})
 
 
 def suporte_cadastro_ramo(request):

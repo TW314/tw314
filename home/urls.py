@@ -19,8 +19,8 @@ urlpatterns = [
     url(r'^suporte/cadastro_servico', views.suporte_cadastro_servico),
     url(r'^suporte/cadastro_ramos', views.suporte_cadastro_ramo),
     url(r'^suporte/status/$', views.suporte_cadastro_status),
-    url(r'^suporte/editar_status/$', views.suporte_editar_status),
-    # url(r'^suporte/(?P<pk>[0-9]+)/editar_status/$', views.suporte_listar_status, views.suporte_cadastro_status),
+    # url(r'^suporte/editar_status/$', views.suporte_editar_status),
+    url(r'^suporte/editar_status/(?P<pk>[0-9]+)/$', views.suporte_editar_status),
     # funcionario
     url(r'^funcionario/principal', views.funcionario_principal),
     url(r'^funcionario/relatorio', views.funcionario_relatorio),
