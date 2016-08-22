@@ -179,7 +179,7 @@ def suporte_editar_status(request, pk):
         if form.is_valid():
             status = form
             status.save()
-            render(request, 'home/suporte/suporte_editar_status.html')
+            return redirect('/suporte/status/')
 
     status = get_object_or_404(Status, pk=pk)
 
