@@ -107,8 +107,8 @@ main {flex: 1 0 auto;}
 }
 
 html{font-family: 'lato', sans-serif;}
-.parallax-container { height: 39em; }
-.parallax-container2 {height: 45em;}
+.parallax-container { height: 100%; }
+
 
 /** Formularios **/
 h5.form-title{
@@ -354,11 +354,7 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul 
 
 .card .card-image p {
     position: absolute;
-    top: 3em;
     color: #fff6f6;
-    text-align: justify;
-    margin: auto 5%;
-    font-weight: 500;
 }
 .card .card-image img {
     opacity: 0.6;
@@ -824,7 +820,7 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
 }
 
 /***************************************************************
-** TODO: USAR ESSAS 2 PROPRIEDADES ABAIXO PARA TEXTO SUCESSO **
+** todo: USAR ESSAS 2 PROPRIEDADES ABAIXO PARA TEXTO SUCESSO **
 ***************************************************************/
 
 input:not([type]).valid, input:not([type]):focus.valid,
@@ -884,7 +880,7 @@ textarea.materialize-textarea:focus.valid + label:after {
 }
 
 /***************************************************************
-**   TODO: USAR ESSAS 2 PROPRIEDADES ABAIXO PARA TEXTO ERRO   **
+**   USAR ESSAS 2 PROPRIEDADES ABAIXO PARA TEXTO ERRO   **
 ***************************************************************/
 
 input:not([type]).invalid, input:not([type]):focus.invalid,

@@ -38,19 +38,19 @@
     <link rel="stylesheet" href="{% static "css/hover-min.css" %}">
     <link rel="stylesheet" href="{% static "css/backtotop.css" %}">
     <link rel="stylesheet" href="{% static "css/animate.css" %}">
-    <link rel="stylesheet" href="{% static "font-awesome-4.6.2/css/font-awesome.min.css" %}">
+    <link rel="stylesheet" href="{% static "font-awesome/css/font-awesome.min.css" %}">
     <link rel="stylesheet" href="{% static "css/style.css" %}">
 </head>
 <body>
 <header id="home" class="scrollspy">
-    <div class="navbar-fixed">
+    <div class="navbar-fixed wow fadeInLeft">
         <nav>
-            <div class="nav-wrapper fixed">
-                <a href="/"style="margin-left: 15px;" class="wow fadeInLeft brand-logo base_text margin-title master"><img src="{% static "img/logo-certa.png" %}" class="responsive-img margin-icons icon"> </a>
+            <div class="nav-wrapper fixed ">
+                <a href="/"style="margin-left: 15px;" class="brand-logo base_text margin-title master"><img src="{% static "img/logo-certa.png" %}" class="responsive-img margin-icons icon"> </a>
                 <ul style="margin-left: 80px;" class="wow fadeInLeft hide-on-med-only">
                     <li class="flow-text_2"><span class="margin-title">TW314</span></li>
                 </ul>
-                <ul class="wow fadeInRight right hide-on-small-only">
+                <ul class="right hide-on-small-only">
                     <li><a href="/login" class="modal-trigger waves-effect waves-light btn white brown-text">
                         <i class="material-icons right entrar fa fa-sign-in" aria-hidden="true"></i>
                         Entrar</a>
@@ -162,7 +162,7 @@
         <div class="row">
             <h4 class="wow fadeIn light valign-wrapper"><i class="fa fa-info-circle medium" aria-hidden="true"></i> Como funciona?</h4>
             <div class="animation-wrapper" id="flexible-animation">
-                <!-- TODO: Adicionar animacao  -->
+                <!-- todo: Adicionar animacao  -->
                 <div class="slider">
                     <ul class="slides">
                         <li>
@@ -355,13 +355,14 @@
                     </div>
                 </div>
             </div>
-            <div class="caption left-align margin-parallax">
+            <div class="left-align ">
                 <div class="row">
                     <footer  class="page-footer fixed-footer wow fadeInUp">
                         <a href="#0" class="cd-top">Top</a>
                         <div class="footer-copyright bolder uppercase master-footer">
-                            <span class="base_text left">© 2016 Ticket Web 314 V1.0</span>
-                            <a href="/" class="logo-footer right-align"><img src="{% static "img/logo-certa.png" %}" class="responsive-img" alt="logo"></a>
+                            <span class="base_text left">© 2016 TW314 V1.0</span>
+                            <a href="/" class="logo-footer hide-on-med-and-down right-align"><img src="{% static "img/logo-certa.png" %}" class="responsive-img" alt="logo"></a>
+
                             <a class="base_text right" href="#section_contract">Contratar</a>
                             <a class="base_text right" href="#section_contact">Contato</a>
                             <a class="base_text right" href="#section_clients">Clientes</a>
