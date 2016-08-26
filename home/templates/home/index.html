@@ -43,54 +43,56 @@
 </head>
 <body>
 <header id="home" class="scrollspy">
-    <div class="navbar-fixed wow fadeInLeft">
+    <div class="navbar-fixed fadeInLeft">
         <nav>
             <div class="nav-wrapper fixed ">
-                <a href="/"style="margin-left: 15px;" class="brand-logo base_text margin-title master"><img src="{% static "img/logo-certa.png" %}" class="responsive-img margin-icons icon"> </a>
-                <ul style="margin-left: 80px;" class="wow fadeInLeft hide-on-med-only">
+                <a href="/" class="brand-logo base_text margin-title master"><img src="{% static "img/logo-certa.png" %}" class="responsive-img margin-icons icon"> </a>
+                <ul style="margin-left: 80px;" class="hide-on-med-and-down">
                     <li class="flow-text_2"><span class="margin-title">TW314</span></li>
                 </ul>
-                <ul class="right hide-on-small-only">
-                    <li><a href="/login" class="modal-trigger waves-effect waves-light btn white brown-text">
+                <ul class="right">
+                    <li><a href="/login" data-position="left" data-delay="50" data-tooltip="Entrar" class="tooltipped modal-trigger waves-effect waves-light btn-flat base_text">
                         <i class="material-icons right entrar fa fa-sign-in" aria-hidden="true"></i>
-                        Entrar</a>
+                        <span class="hide-on-med-and-down ">Entrar</span></a>
                     </li>
                 </ul>
                 <div class="row nav-align section hide-on-med-and-down">
-                    <div class="col l4 push-l4">
-                        <ul class="center-align">
-                            <li>
-                                <a href="#home" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Home">
-                                    <i class="fa fa-home icon" aria-hidden="true"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#section_bus" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Quem somos?">
-                                    <i class="fa fa-question-circle icon" aria-hidden="true"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#section_how" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Como funciona?">
-                                    <i class="fa fa-info-circle icon" aria-hidden="true"></i>
-                                </a>
-                            </li>
+                    <div class="container center-block">
+                        <div class="col s8 push-s2">
+                            <ul>
+                                <li>
+                                    <a href="#home" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Home">
+                                        <i class="fa fa-home icon" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#section_bus" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Quem somos?">
+                                        <i class="fa fa-question-circle icon" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#section_how" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Como funciona?">
+                                        <i class="fa fa-info-circle icon" aria-hidden="true"></i>
+                                    </a>
+                                </li>
 
-                            <li>
-                                <a href="#section_clients" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Clientes">
-                                    <i class="fa fa-users icon" aria-hidden="true"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#section_contact" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Contato">
-                                    <i class="fa fa-comments icon" aria-hidden="true"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#section_contract" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Contratar">
-                                    <i class="fa fa-thumbs-up icon" aria-hidden="true"></i>
-                                </a>
-                            </li>
-                        </ul>
+                                <li>
+                                    <a href="#section_clients" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Clientes">
+                                        <i class="fa fa-users icon" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#section_contact" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Contato">
+                                        <i class="fa fa-comments icon" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#section_contract" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Contratar">
+                                        <i class="fa fa-thumbs-up icon" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
 
@@ -112,12 +114,12 @@
         <div class="parallax"><img src="{% static "img/ampulheta.jpg" %}"></div>
         <div class="caption left-align margin-parallax">
             <div class="row wow fadeIn">
-                <div class="col s2">
-                    <img style="height: 10rem" src="{% static "img/logo-certa.png" %}" alt="logo" class="responsive-img">
-                </div>
-                <div class="col s10">
-                    <h1 class="base_text"> TW314</h1>
-                    <h5 class="light base_text text-lighten-3">Solução para filas</h5>
+                <div class="container">
+                    <div class="col s12 center-block">
+                        <img style="height: 10em" src="{% static "img/logo-certa.png" %}" alt="logo" class="responsive-img center-block">
+                        <h2 class="base_text  center">TW<span class="principal_text">314</span></h2>
+                        <h5 class="light base_text text-lighten-3 center">Não perca seu tempo</h5>
+                    </div>
                 </div>
             </div>
         </div>
@@ -271,7 +273,7 @@
             <h4 class="wow fadeIn light valign-wrapper"><i class="fa fa-comments medium" aria-hidden="true"></i> Contato</h4>
             <div class="container">
                 <div class="row ">
-                    <div class="col s12 m6 margin-contact">
+                    <div class="col s8 push-s2 ">
                         <div class="wow fadeIn card hoverable  base_bg">
                             <div class="card-content center-block">
                                 <span class="card-title">Ainda com dúvidas? Tire-as agora!</span>
@@ -319,7 +321,7 @@
             <div class="parallax"><img src="{% static "img/ampulheta-2.jpg" %}"></div>
             <h4 class="wow fadeIn light valign-wrapper base_text scrollspy" id="section_contract"><i class="fa fa-thumbs-up medium" aria-hidden="true"></i>Contratar</h4>
             <div class="row">
-                <div class="col s12 m6 margin-contact">
+                <div class="col s8 push-s2">
                     <div class="container">
                         <div class="row ">
                             <div class="wow fadeIn card hoverable">
@@ -358,11 +360,25 @@
             <div class="left-align ">
                 <div class="row">
                     <footer  class="page-footer fixed-footer wow fadeInUp">
+                        <div class="container hide-on-large-only">
+                            <div class="row">
+                                <div class="col s12">
+                                    <h5 class="white-text">Mapa</h5>
+                                    <ul class="uppercase">
+                                        <li><a class="base_text" href="#home">Home</a></li>
+                                        <li><a class="base_text" href="#section_bus">Quem somos?</a></li>
+                                        <li><a class="base_text" href="#section_how">Como Funciona?</a></li>
+                                        <li><a class="base_text" href="#section_clients">Clientes</a></li>
+                                        <li><a class="base_text" href="#section_contact">Contato</a></li>
+                                        <li><a class="base_text" href="#section_contract">Contratar</a></li>
+                                    </ul>
+                                    <div class="col s12 center-align"><span class="base_text center">© 2016 TW314 V1.0</span></div>
+                                </div>
+                            </div>
+                        </div>
                         <a href="#0" class="cd-top">Top</a>
-                        <div class="footer-copyright bolder uppercase master-footer">
+                        <div class="footer-copyright hide-on-med-and-down bolder uppercase master-footer">
                             <span class="base_text left">© 2016 TW314 V1.0</span>
-                            <a href="/" class="logo-footer hide-on-med-and-down right-align"><img src="{% static "img/logo-certa.png" %}" class="responsive-img" alt="logo"></a>
-
                             <a class="base_text right" href="#section_contract">Contratar</a>
                             <a class="base_text right" href="#section_contact">Contato</a>
                             <a class="base_text right" href="#section_clients">Clientes</a>
@@ -404,7 +420,13 @@
                         260:{
                             items: 1
                         },
-                        600:{
+                        599:{
+                            items: 1
+                        },
+                        992:{
+                            items: 2
+                        },
+                        993:{
                             items: 3
                         }
                     }

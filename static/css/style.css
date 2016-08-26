@@ -221,45 +221,45 @@ input[type="number"]::-webkit-inner-spin-button {
 
 /* icon suffix */
 .input-field.suffix i {
-  position: absolute;
-  width: 3rem;
-  font-size: 2rem;
-  transition: color .2s;
-  top: 0px;
-  right: 0px;
+    position: absolute;
+    width: 3rem;
+    font-size: 2rem;
+    transition: color .2s;
+    top: 0px;
+    right: 0px;
 }
 
 .input-field.suffix i.active {
-  color: #ee692e;
+    color: #ee692e;
 }
 
 .input-field.suffix input,
 .input-field.suffix textarea {
-  margin-right: 3rem;
-  width: 92%;
-  width: calc(100% - 3rem);
+    margin-right: 3rem;
+    width: 92%;
+    width: calc(100% - 3rem);
 }
 
 .input-field.suffix textarea {
-  padding-top: .8rem;
+    padding-top: .8rem;
 }
 
 .input-field.suffix label {
-  margin-right: 3rem;
+    margin-right: 3rem;
 }
 
 @media only screen and (max-width: 992px) {
-  .input-field.suffix input {
-    width: 86%;
-    width: calc(100% - 3rem);
-  }
+    .input-field.suffix input {
+        width: 86%;
+        width: calc(100% - 3rem);
+    }
 }
 
 @media only screen and (max-width: 600px) {
-  .input-field.suffix input {
-    width: 80%;
-    width: calc(100% - 3rem);
-  }
+    .input-field.suffix input {
+        width: 80%;
+        width: calc(100% - 3rem);
+    }
 }
 
 /************
@@ -348,9 +348,7 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul 
         font-size: 1.608rem;
     }
 }
-.margin-parallax{
-    margin: 20em 5em;
-}
+.margin-parallax{margin: 10em;}
 
 .card .card-image p {
     position: absolute;
@@ -378,10 +376,6 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul 
 }
 .card > .card-action > form > div{
     margin-bottom: 5px;
-}
-.margin-contact{
-    margin: 0 25% !important;
-    padding: unset !important;
 }
 
 .btn-xlarge{
@@ -943,6 +937,9 @@ textarea.materialize-textarea:focus.invalid + label:after {
 **    Responsividade    **
 *************************/
 
+@media (max-width: 480px) {
+    .flow-text {font-size: 1rem; }
+}
 /** Mobile - celular pequeno **/
 @media (max-width: 600px) {
     .center-form{
@@ -968,13 +965,12 @@ textarea.materialize-textarea:focus.invalid + label:after {
     .margin-contact{
         margin: auto !important;
     }
-    .rodape-funcionario {
-        margin-top: 32rem;
-    }
 }
 
 /** Tablet/Telas menores **/
 @media (max-width: 992px){
+    footer.page-footer {bottom: -20px;}
+    .cd-top {bottom: 5px; }
     .fixed-footer{
         position: relative;
         right: auto;
@@ -1003,7 +999,4 @@ textarea.materialize-textarea:focus.invalid + label:after {
         margin-top: 32rem;
     }
 }
-@media (min-width: 1366px){
-    .parallax-container { height: 51.1em; }
-    .parallax-container2 {height: 50em;}
-}
+
