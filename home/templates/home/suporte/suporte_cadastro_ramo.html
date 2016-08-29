@@ -2,56 +2,9 @@
 
 {% block titulo %} Cadastrar Ramo {% endblock %}
 {% block master %}
-    <div class="row margin-form texto_text">
-        <div class="col s12 m6">
-            <!--Começo do formulário-->
-            <div class="card">
-                <div class="card-content">
-                    <span class="card-title">Insira os dados para cadastrar um Ramo:</span>
-                </div>
-                <div class="card-action">
-                    <form method="POST" class="col s12"> {% csrf_token %}
-                        <h6 class="light valign-wrapper form-title secundaria2_text" style="margin-top: 10px;"><i
-                                class="fa fa-puzzle-piece small" aria-hidden="true"></i><span> Ramo</span></h6>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input id="nome" name="nome" maxlength="45" type="text">
-                                {{ form.nome.errors }}
-                                <label for="nome">Nome do Ramo</label>
-                            </div>
-                        </div>
-                        <!--
-                        {{ form.as_table }}
-                         -->
-                        <div class="row">
-                            <small class="small right">ATENÇÃO: O campo é obrigatório</small>
-                        </div>
-                        <div class="row">
-                            <!--Botão Cancelar-->
-                            <div class="col s12 m6">
-                                <button class="btn waves-effect waves-light right col s12 alerta_bg" type="reset"
-                                        name="action">Cancelar
-                                    <i class="fa fa-times-circle right" aria-hidden="true"></i>
-                                </button>
-                            </div>
-                            <!--Fim do botão cancelar-->
-                            <!--Botão Cadastrar-->
-                            <div class="col s12 m6">
-                                <button class="btn waves-effect waves-light right col s12 sucesso_bg" type="submit"
-                                        name="action">Cadastrar
-                                    <i class="fa fa-check-circle right" aria-hidden="true"></i>
-                                </button>
-                            </div>
-                            <!--Fim do Botão Cadastrar-->
-                        </div>
-                    </form>
-                    <a href=""></a>
-                </div>
-            </div>
-            <!--Fim do formulário-->
-        </div>
-        <div class="col s12 m6">
-            <div class="col s12">
+    <div class=" row margin-form texto_text">
+        <div class="col s12 offset-s3">
+            <div class="col s6">
                 <div class="card white">
                     <div class="card-content texto_text">
                         <span id="table" class="card-title small">Lista de Ramos</span>
@@ -117,35 +70,27 @@
 
                                         <!-- Menu de acoes da Modal -->
 
-
-
-
-
-                                            <div class="fixed-action-btn">
-                                            <a  class="btn-floating  secundaria1_bg"><i class="fa fa-ban" aria-hidden="true"></i></a>
-
-
-
-
-                                                <a href="cadastro_servico"
-                                                       class="btn-floating secundaria1_bg tooltipped"
-                                                       data-position="top"
-                                                       data-delay="50" data-tooltip="Ir para Serviços"><i
-                                                        class="fa fa-briefcase" aria-hidden="true"></i></a>
-                                                <a href="cadastro_estabelecimento"
-                                                       class="btn-floating secundaria1_bg tooltipped"
-                                                       data-position="top"
-                                                       data-delay="50" data-tooltip="Ir para Estabelecimentos"><i
-                                                        class="fa fa-building" aria-hidden="true"></i></a>
-                                                <a class="btn-floating secundaria1_bg tooltipped"
-                                                       data-position="top"
-                                                       data-delay="50" data-tooltip="Editar"><i class="fa fa-pencil"
-                                                                                                aria-hidden="true"></i></a></div>
+                                        <div class="fixed-action-btn">
+                                            <a  class="btn-floating  secundaria1_bg tooltipped" data-position="top" data-delay="50" data-tooltip="Inativar"><i class="fa fa-ban" aria-hidden="true"></i></a>
+                                            <a href="cadastro_servico"
+                                               class="btn-floating secundaria1_bg tooltipped"
+                                               data-position="top"
+                                               data-delay="50" data-tooltip="Ir para Serviços"><i
+                                                    class="fa fa-briefcase" aria-hidden="true"></i></a>
+                                            <a href="cadastro_estabelecimento"
+                                               class="btn-floating secundaria1_bg tooltipped"
+                                               data-position="top"
+                                               data-delay="50" data-tooltip="Ir para Estabelecimentos"><i
+                                                    class="fa fa-building" aria-hidden="true"></i></a>
+                                            <a class="btn-floating secundaria1_bg tooltipped"
+                                               data-position="top"
+                                               data-delay="50" data-tooltip="Editar"><i class="fa fa-pencil"
+                                                                                        aria-hidden="true"></i></a></div>
 
 
 
                                     </div>
-                                    </div>
+                                </div>
 
                                 <!-- Fim da estrutura do Modal -->
                             {% endfor %}
@@ -153,22 +98,24 @@
                         </table>
                         <!--Fim da tabela-->
                     </div>
+
                     <!--Começo da páginação da tabela-->
                     <div class="row" align="right">
                         <ul class="pagination">
-                        <span class="step-links">
-                            <li class="disabled"><a href="{% if ramos.has_previous %}?page={{ ramos.previous_page_number }}{% endif %}"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></a></li>
-                            <span class="current">
-                                <li class="waves-effect">{{ ramos.paginator.num_pages }}</li>
+                            <span class="step-links">
+                                <li class="disabled"><a href="{% if ramos.has_previous %}?page={{ ramos.previous_page_number }}{% endif %}"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></a></li>
+                                <span class="current">
+                                    <li class="waves-effect">{{ ramos.paginator.num_pages }}</li>
+                                </span>
+                                <li class="waves-effect {% if ramos.has_next %}disabled{% endif %}"><a href="{% if ramos.has_next %}?page={{ ramos.next_page_number }}{% endif %}"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></li>
                             </span>
-                            <li class="waves-effect {% if ramos.has_next %}disabled{% endif %}"><a href="{% if ramos.has_next %}?page={{ ramos.next_page_number }}{% endif %}"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></li>
-                        </span>
                         </ul>
                         <!--Fim da paginacao da tabela-->
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
 
@@ -229,4 +176,65 @@
         </div>
     </div>
     <!-- Fim da estrutura do Modal -->
+
+    <!-- Botao que chama Modal de Cadastro-->
+
+    <a class=" btn-floating btn-large waves-light btn btn modal-trigger fixed-action-btn tooltipped" data-position="top" data-delay="50" data-tooltip="Novo Ramo" href="#cadastrar_ramo"><i class="fa fa-plus" aria-hidden="true"></i></a>
+
+    <div id="cadastrar_ramo" class="modal modal bottom-sheet base_text">
+        <div class="modal-content modal-padding">
+            <div class="row margin-form texto_text">
+                <div class="col s12 m6">
+                    <!--Começo do formulário-->
+
+
+                    <h5 class="light valign-wrapper form-title secundaria2_text" ><i
+                            class="fa fa-puzzle-piece fa-3x" aria-hidden="true"></i><span> Insira os dados para cadastrar um Ramo</span></h5>
+
+
+                    <form method="POST" class="col s12 offset-s6 "> {% csrf_token %}
+
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="nome" name="nome" maxlength="45" type="text">
+                                {{ form.nome.errors }}
+                                <label for="nome">Nome do Ramo</label>
+                            </div>
+                        </div>
+                        <!--
+                        {{ form.as_table }}
+                         -->
+                        <div class="row">
+                            <small class="small right">ATENÇÃO: O campo é obrigatório</small>
+                        </div>
+
+                        <div class=" row ">
+                            <!--Botão Cancelar-->
+                            <div class="col s12 m6">
+                                <button class="btn waves-effect waves-light  col s12 alerta_bg modal-close modal-footer" type="reset"
+                                        name="action">Cancelar
+                                    <i class="fa fa-times-circle right" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <!--Fim do botão cancelar-->
+                            <!--Botão Cadastrar-->
+                            <div class="col s12 m6">
+                                <button class="btn waves-effect waves-light right col s12 sucesso_bg modal-footer" type="submit"
+                                        name="action"  >Cadastrar
+                                    <i class="fa fa-check-circle right" aria-hidden="true"></i>
+                                </button>
+                                </div>
+                            </div>
+
+                            <!--Fim do Botão Cadastrar-->
+
+                    </form>
+                    <a href=""></a>
+
+
+
+                    <!--Fim do formulário-->
+                </div>
+            </div>
+
 {% endblock %}

@@ -336,7 +336,7 @@ nav ul a:hover {background: #f74f30;}
 .btn-floating.btn-large {
     width: 3.81em;
     height: 3.81em;
-    padding-top: 1%;
+    padding-top: 0%;
 }
 nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul a.btn-floating {margin-left: -1px;}
 
@@ -746,16 +746,16 @@ i.medium {
     position: fixed;
     left: 0;
     right: 0;
-    background-color: rgba(0, 160, 194, 0.9);
+    background-color: #fff6f6;
     padding: 0;
     max-height: 70%;
-    width: 100%;
+    width: 90%;
     margin: auto;
     overflow-y: auto;
     border-radius: 2px;
     will-change: top, opacity;
 }
-.modal-footer {
+.modal-footer-cancel {
     background-color: rgba(0, 160, 194, 0.56) !important;
     width: auto !important;
 }
@@ -763,6 +763,7 @@ i.medium {
 
 .fixed-action-btn ul li {
     margin: auto auto auto 15px; !important;
+
 }
 
 /*******************************
@@ -1011,3 +1012,14 @@ textarea.materialize-textarea:focus.invalid + label:after {
     .parallax-container { height: 51.1em; }
     .parallax-container2 {height: 50em;}
 }
+
+/** botões de cadastrar na modal **/
+.btn-margin-modal {
+    margin-left: 20%; !important;
+
+}
+
+
+
+
+
