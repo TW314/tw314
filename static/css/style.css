@@ -1,6 +1,18 @@
 /*************
 ** Genérico **
 *************/
+@font-face {
+    font-family: 'arail-round';
+    src: url('arlrdbd.eot');
+    src: url('arlrdbd.eot?#iefix') format('embedded-opentype'),
+    url('arlrdbd.woff2') format('woff2'),
+    url('arlrdbd.woff') format('woff'),
+    url('ARLRDBD.TTF') format('truetype'),
+    url('arlrdbd.svg#latolight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+.arial_round{font-family: arail-round;}
 html {
     height: 100%;
 }
@@ -318,7 +330,6 @@ nav { background-color: #ee692e; }
     position: absolute;
     margin-top: 64px;
     background: rgba(0, 128, 156, 0.35);
-    z-index: 1;
     width: 100%;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
 }
@@ -336,9 +347,8 @@ nav ul a:hover {background: #f74f30;}
 .btn-floating.btn-large {
     width: 3.81em;
     height: 3.81em;
-    padding-top: 1%;
 }
-nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul a.btn-floating {margin-left: -1px;}
+nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat,  {margin-left: -1px;}
 
 .flow-text {
     font-size: 1rem;
@@ -348,7 +358,7 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul 
         font-size: 1.608rem;
     }
 }
-.margin-parallax{margin: 10em;}
+.margin-parallax{margin: 8em auto;}
 
 .card .card-image p {
     position: absolute;
@@ -932,16 +942,24 @@ textarea.materialize-textarea:focus.invalid + label:after {
     color: #F44336;
     opacity: 1;
 }
-
+.brand-logo{margin-left: 30px;}
+.img-logo{width: 12em;}
 /*************************
 **    Responsividade    **
 *************************/
+.mrg_logo{margin-left: 95px;}
 
 @media (max-width: 480px) {
     .flow-text {font-size: 1rem; }
 }
 /** Mobile - celular pequeno **/
 @media (max-width: 600px) {
+    .mrg_logo{margin-left: 10px;}
+    nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul a.btn-floating {
+        margin-left: auto;
+        margin-right: 4px;
+    }
+    .nav-align{margin-top: 56px;}
     .center-form{
         margin-left: 35% !important;
     }
@@ -969,6 +987,7 @@ textarea.materialize-textarea:focus.invalid + label:after {
 
 /** Tablet/Telas menores **/
 @media (max-width: 992px){
+    .brand-logo{margin-left: auto;}
     footer.page-footer {bottom: -20px;}
     .cd-top {bottom: 5px; }
     .fixed-footer{
@@ -998,5 +1017,25 @@ textarea.materialize-textarea:focus.invalid + label:after {
     .rodape-funcionario {
         margin-top: 32rem;
     }
+    .img-logo{height: auto;}
 }
 
+.wrapper {
+    height: 100%;
+    min-height: 100%;
+
+    /* habilita o flex nos filhos diretos */
+    display: -ms-flex;
+    display: -webkit-flex;
+    display: flex;
+
+    /* centraliza na vertical */
+    -ms-align-items: center;
+    -webkit-align-items: center;
+    align-items: center;
+
+    /* centraliza na horizontal */
+    -ms-justify-content: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+}

@@ -46,56 +46,88 @@
     <div class="navbar-fixed fadeInLeft">
         <nav>
             <div class="nav-wrapper fixed ">
-                <a href="/" class="brand-logo base_text margin-title master"><img src="{% static "img/logo-certa.png" %}" class="responsive-img margin-icons icon"> </a>
-                <ul style="margin-left: 80px;" class="hide-on-med-and-down">
-                    <li class="flow-text_2"><span class="margin-title">TW314</span></li>
+                <a href="/" class="hide-on-small-and-down brand-logo base_text margin-title master"><img src="{% static "img/logo-certa.png" %}" class="responsive-img icon"> </a>
+                <ul class="mrg_logo">
+                    <li class="flow-text_2"><span class="arial_round">TW<span style="color: #FFB181">314</span></span></li>
                 </ul>
                 <ul class="right">
-                    <li><a href="/login" data-position="left" data-delay="50" data-tooltip="Entrar" class="tooltipped modal-trigger waves-effect waves-light btn-flat base_text">
-                        <i class="material-icons right entrar fa fa-sign-in" aria-hidden="true"></i>
-                        <span class="hide-on-med-and-down ">Entrar</span></a>
+                    <li><a href="/login" data-position="left" data-delay="50" data-tooltip="Faça login no Sistema" class="tooltipped modal-trigger waves-effect waves-light btn-flat base_text">
+                        <i class="hide-on-small-and-down material-icons right entrar fa fa-sign-in" aria-hidden="true"></i>
+                        <i class="hide-on-med-and-up right fa fa-sign-in" aria-hidden="true"></i>
+                        <span class="">Entrar</span></a>
                     </li>
                 </ul>
-                <div class="row nav-align section hide-on-med-and-down">
-                    <div class="container center-block">
-                        <div class="col s8 push-s2">
-                            <ul>
-                                <li>
-                                    <a href="#home" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Home">
-                                        <i class="fa fa-home icon" aria-hidden="true"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#section_bus" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Quem somos?">
-                                        <i class="fa fa-question-circle icon" aria-hidden="true"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#section_how" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Como funciona?">
-                                        <i class="fa fa-info-circle icon" aria-hidden="true"></i>
-                                    </a>
-                                </li>
+                <div class="row nav-align section ">
+                    <div class="wrapper">
+                        <ul class="hide-on-small-and-down fadeInDown">
+                            <li>
+                                <a href="#home" class="hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Home">
+                                    <i class="fa fa-home icon" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#section_bus" class="hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Quem somos?">
+                                    <i class="fa fa-question-circle icon" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#section_how" class="hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Como funciona?">
+                                    <i class="fa fa-info-circle icon" aria-hidden="true"></i>
+                                </a>
+                            </li>
 
-                                <li>
-                                    <a href="#section_clients" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Clientes">
-                                        <i class="fa fa-users icon" aria-hidden="true"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#section_contact" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Contato">
-                                        <i class="fa fa-comments icon" aria-hidden="true"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#section_contract" class="wow fadeInDown hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Contratar">
-                                        <i class="fa fa-thumbs-up icon" aria-hidden="true"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
+                            <li>
+                                <a href="#section_clients" class="hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Clientes">
+                                    <i class="fa fa-users icon" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#section_contact" class="hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Contato">
+                                    <i class="fa fa-comments icon" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#section_contract" class="hoverable btn-floating btn-large waves-effect waves-light blue menu_circle hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Contratar">
+                                    <i class="fa fa-thumbs-up icon" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="hide-on-med-and-up fadeInDown">
+                            <li>
+                                <a href="#home" class="hoverable btn-floating waves-effect waves-light blue hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Home">
+                                    <i class="fa fa-home" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#section_bus" class="hoverable btn-floating waves-effect waves-light blue hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Quem somos?">
+                                    <i class="fa fa-question-circle" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#section_how" class="hoverable btn-floating waves-effect waves-light blue hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Como funciona?">
+                                    <i class="fa fa-info-circle " aria-hidden="true"></i>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="#section_clients" class="hoverable btn-floating  waves-effect waves-light blue hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Clientes">
+                                    <i class="fa fa-users " aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#section_contact" class="hoverable btn-floating waves-effect waves-light blue hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Contato">
+                                    <i class="fa fa-comments" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#section_contract" class="hoverable btn-floating waves-effect waves-light blue hvr-reveal tooltipped" data-position="bottom" data-delay="50" data-tooltip="Contratar">
+                                    <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-
+                 <!--
                 <a class="button-collapse black-text" href="#" data-activates='nav-mobile'><i class="fa fa-bars margin-icons base_text" aria-hidden="true"></i></a>
                 <ul class="right side-nav"  id="nav-mobile">
                     <li class="valign-wrapper"><a href="#home"><i class="fa fa-home" aria-hidden="true"></i> Home</a></li>
@@ -105,7 +137,7 @@
                     <li class="valign-wrapper"><a href="#section_contact"><i class="fa fa-comments" aria-hidden="true"></i> Contato</a></li>
                     <li class="valign-wrapper"><a href="#section_contract"><i class="fa fa-thumbs-up" aria-hidden="true"></i> Contratar</a></li>
                     <li class="valign-wrapper"><a href=""><i class="fa fa-sign-in" aria-hidden="true"></i> Entrar</a></li>
-                </ul>
+                </ul> -->
             </div>
         </nav>
     </div>
@@ -113,13 +145,15 @@
     <div class="parallax-container">
         <div class="parallax"><img src="{% static "img/ampulheta.jpg" %}"></div>
         <div class="caption left-align margin-parallax">
-            <div class="row wow fadeIn">
-                <div class="container">
-                    <div class="col s12 center-block">
-                        <img style="height: 10em" src="{% static "img/logo-certa.png" %}" alt="logo" class="responsive-img center-block">
-                        <h2 class="base_text  center">TW<span class="principal_text">314</span></h2>
-                        <h5 class="light base_text text-lighten-3 center">Não perca seu tempo</h5>
+            <div class="row fadeIn">
+                <div class="col s12 wrapper">
+                    <div class="img-logo">
+                        <img src="{% static "img/logo-certa.png" %}" alt="logo" class="responsive-img">
                     </div>
+                </div>
+                <div class="col s12">
+                    <h2 class="base_text arial_round center">TW<span class="principal_text">314</span></h2>
+                    <h5 class="light base_text text-lighten-3 center">Não perca seu tempo</h5>
                 </div>
             </div>
         </div>
