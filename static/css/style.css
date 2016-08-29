@@ -956,7 +956,7 @@ textarea.materialize-textarea:focus.invalid + label:after {
 @media (max-width: 600px) {
     .mrg_logo{margin-left: 10px;}
     nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul a.btn-floating {
-        margin-left: auto;
+        margin-left: 2px;
         margin-right: 4px;
     }
     .nav-align{margin-top: 56px;}
