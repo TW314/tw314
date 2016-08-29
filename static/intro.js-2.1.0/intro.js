@@ -150,7 +150,7 @@
       }
 
       //next add intro items without data-step
-      //todo: we need a cleanup here, two loops are redundant
+      //we need a cleanup here, two loops are redundant
       var nextStep = 0;
       for (var i = 0, elmsLength = allIntroSteps.length; i < elmsLength; i++) {
         var currentElement = allIntroSteps[i];

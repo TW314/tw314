@@ -46,8 +46,8 @@
 			});
 			return previous;
 		},
-		// @todo find correct name for this function. 
-		// @todo Similar to reduce, this function is likely redundant
+		// @tod find correct name for this function.
+		// @tod Similar to reduce, this function is likely redundant
 		recursive = function (item, func, context) {
 			var next;
 			context = context || this;
@@ -208,7 +208,7 @@
 				children: children,
 				level: level,
 				parent: parent,
-				visible: false // @todo move this to better location
+				visible: false // @tod move this to better location
 			};
 			series.nodeMap[node.id] = node;
 			if (point) {
@@ -232,7 +232,7 @@
 				if (!child.ignore) {
 					childrenTotal += child.val;
 				} else {
-					// @todo Add predicate to avoid looping already ignored children
+					// @tod Add predicate to avoid looping already ignored children
 					recursive(child.children, function (children) {
 						var next = false;
 						each(children, function (node) {
@@ -572,7 +572,7 @@
 				arr[item.level] = item;
 				return arr;
 			}, {});
-			tree = this.tree = this.getTree(); // @todo Only if series.isDirtyData is true
+			tree = this.tree = this.getTree(); // @tod Only if series.isDirtyData is true
 
 			// Calculate plotting values.
 			this.axisRatio = (this.xAxis.len / this.yAxis.len);
@@ -700,7 +700,7 @@
 				if (!series[groupKey]) {
 					series[groupKey] = series.chart.renderer.g(groupKey)
 						.attr({
-							zIndex: 1000 - point.node.levelDynamic // @todo Set the zIndex based upon the number of levels, instead of using 1000
+							zIndex: 1000 - point.node.levelDynamic // @tod Set the zIndex based upon the number of levels, instead of using 1000
 						})
 						.add(series.group);
 				}

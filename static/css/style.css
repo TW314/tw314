@@ -1,6 +1,18 @@
 /*************
 ** Genérico **
 *************/
+@font-face {
+    font-family: 'arail-round';
+    src: url('arlrdbd.eot');
+    src: url('arlrdbd.eot?#iefix') format('embedded-opentype'),
+    url('arlrdbd.woff2') format('woff2'),
+    url('arlrdbd.woff') format('woff'),
+    url('ARLRDBD.TTF') format('truetype'),
+    url('arlrdbd.svg#latolight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+.arial_round{font-family: arail-round;}
 html {
     height: 100%;
 }
@@ -107,8 +119,8 @@ main {flex: 1 0 auto;}
 }
 
 html{font-family: 'lato', sans-serif;}
-.parallax-container { height: 39em; }
-.parallax-container2 {height: 45em;}
+.parallax-container { height: 100%; }
+
 
 /** Formularios **/
 h5.form-title{
@@ -221,45 +233,45 @@ input[type="number"]::-webkit-inner-spin-button {
 
 /* icon suffix */
 .input-field.suffix i {
-  position: absolute;
-  width: 3rem;
-  font-size: 2rem;
-  transition: color .2s;
-  top: 0px;
-  right: 0px;
+    position: absolute;
+    width: 3rem;
+    font-size: 2rem;
+    transition: color .2s;
+    top: 0px;
+    right: 0px;
 }
 
 .input-field.suffix i.active {
-  color: #ee692e;
+    color: #ee692e;
 }
 
 .input-field.suffix input,
 .input-field.suffix textarea {
-  margin-right: 3rem;
-  width: 92%;
-  width: calc(100% - 3rem);
+    margin-right: 3rem;
+    width: 92%;
+    width: calc(100% - 3rem);
 }
 
 .input-field.suffix textarea {
-  padding-top: .8rem;
+    padding-top: .8rem;
 }
 
 .input-field.suffix label {
-  margin-right: 3rem;
+    margin-right: 3rem;
 }
 
 @media only screen and (max-width: 992px) {
-  .input-field.suffix input {
-    width: 86%;
-    width: calc(100% - 3rem);
-  }
+    .input-field.suffix input {
+        width: 86%;
+        width: calc(100% - 3rem);
+    }
 }
 
 @media only screen and (max-width: 600px) {
-  .input-field.suffix input {
-    width: 80%;
-    width: calc(100% - 3rem);
-  }
+    .input-field.suffix input {
+        width: 80%;
+        width: calc(100% - 3rem);
+    }
 }
 
 /************
@@ -318,7 +330,6 @@ nav { background-color: #ee692e; }
     position: absolute;
     margin-top: 64px;
     background: rgba(0, 128, 156, 0.35);
-    z-index: 1;
     width: 100%;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
 }
@@ -338,7 +349,7 @@ nav ul a:hover {background: #f74f30;}
     height: 3.81em;
     padding-top: 0%;
 }
-nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul a.btn-floating {margin-left: -1px;}
+nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat,  {margin-left: -1px;}
 
 .flow-text {
     font-size: 1rem;
@@ -348,17 +359,11 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul 
         font-size: 1.608rem;
     }
 }
-.margin-parallax{
-    margin: 20em 5em;
-}
+.margin-parallax{margin: 8em auto;}
 
 .card .card-image p {
     position: absolute;
-    top: 3em;
     color: #fff6f6;
-    text-align: justify;
-    margin: auto 5%;
-    font-weight: 500;
 }
 .card .card-image img {
     opacity: 0.6;
@@ -382,10 +387,6 @@ nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul 
 }
 .card > .card-action > form > div{
     margin-bottom: 5px;
-}
-.margin-contact{
-    margin: 0 25% !important;
-    padding: unset !important;
 }
 
 .btn-xlarge{
@@ -755,7 +756,7 @@ i.medium {
     border-radius: 2px;
     will-change: top, opacity;
 }
-.modal-footer-cancel {
+.modal-footer {
     background-color: rgba(0, 160, 194, 0.56) !important;
     width: auto !important;
 }
@@ -825,7 +826,7 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
 }
 
 /***************************************************************
-** TODO: USAR ESSAS 2 PROPRIEDADES ABAIXO PARA TEXTO SUCESSO **
+** todo: USAR ESSAS 2 PROPRIEDADES ABAIXO PARA TEXTO SUCESSO **
 ***************************************************************/
 
 input:not([type]).valid, input:not([type]):focus.valid,
@@ -885,7 +886,7 @@ textarea.materialize-textarea:focus.valid + label:after {
 }
 
 /***************************************************************
-**   TODO: USAR ESSAS 2 PROPRIEDADES ABAIXO PARA TEXTO ERRO   **
+**   USAR ESSAS 2 PROPRIEDADES ABAIXO PARA TEXTO ERRO   **
 ***************************************************************/
 
 input:not([type]).invalid, input:not([type]):focus.invalid,
@@ -943,13 +944,24 @@ textarea.materialize-textarea:focus.invalid + label:after {
     color: #F44336;
     opacity: 1;
 }
-
+.brand-logo{margin-left: 30px;}
+.img-logo{width: 12em;}
 /*************************
 **    Responsividade    **
 *************************/
+.mrg_logo{margin-left: 95px;}
 
+@media (max-width: 480px) {
+    .flow-text {font-size: 1rem; }
+}
 /** Mobile - celular pequeno **/
 @media (max-width: 600px) {
+    .mrg_logo{margin-left: 10px;}
+    nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul a.btn-floating {
+        margin-left: 2px;
+        margin-right: 4px;
+    }
+    .nav-align{margin-top: 56px;}
     .center-form{
         margin-left: 35% !important;
     }
@@ -973,13 +985,13 @@ textarea.materialize-textarea:focus.invalid + label:after {
     .margin-contact{
         margin: auto !important;
     }
-    .rodape-funcionario {
-        margin-top: 32rem;
-    }
 }
 
 /** Tablet/Telas menores **/
 @media (max-width: 992px){
+    .brand-logo{margin-left: auto;}
+    footer.page-footer {bottom: -20px;}
+    .cd-top {bottom: 5px; }
     .fixed-footer{
         position: relative;
         right: auto;
@@ -1007,10 +1019,27 @@ textarea.materialize-textarea:focus.invalid + label:after {
     .rodape-funcionario {
         margin-top: 32rem;
     }
+    .img-logo{height: auto;}
 }
-@media (min-width: 1366px){
-    .parallax-container { height: 51.1em; }
-    .parallax-container2 {height: 50em;}
+
+.wrapper {
+    height: 100%;
+    min-height: 100%;
+
+    /* habilita o flex nos filhos diretos */
+    display: -ms-flex;
+    display: -webkit-flex;
+    display: flex;
+
+    /* centraliza na vertical */
+    -ms-align-items: center;
+    -webkit-align-items: center;
+    align-items: center;
+
+    /* centraliza na horizontal */
+    -ms-justify-content: center;
+    -webkit-justify-content: center;
+    justify-content: center;
 }
 
 /** botões de cadastrar na modal **/
