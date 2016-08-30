@@ -10613,7 +10613,7 @@ select {
 }
 
 /**
- * The wrapper sets the stage to vertically align the box contents.
+ * The wrapper2 sets the stage to vertically align the box contents.
  */
 .picker__wrap {
   display: table;

@@ -145,7 +145,7 @@
      * An animator object. One instance applies to one property (attribute or style prop) 
      * on one element.
      * 
-     * @param {object} elem    The element to animate. May be a DOM element or a Highcharts SVGElement wrapper.
+     * @param {object} elem    The element to animate. May be a DOM element or a Highcharts SVGElement wrapper2.
      * @param {object} options Animation options, including duration, easing, step and complete.
      * @param {object} prop    The property to animate.
      */
@@ -651,7 +651,7 @@
      * Wrap a method with extended functionality, preserving the original function
      * @param {Object} obj The context object that the method belongs to
      * @param {String} method The name of the method to extend
-     * @param {Function} func A wrapper function callback. This function is called with the same arguments
+     * @param {Function} func A wrapper2 function callback. This function is called with the same arguments
      * as the original function, except that the original function is unshifted and passed as the first
      * argument.
      */
@@ -2073,7 +2073,7 @@
 
 
     /**
-     * A wrapper object for SVG elements
+     * A wrapper2 object for SVG elements
      */
     function SVGElement() {}
 
@@ -2397,7 +2397,7 @@
          * Update the shadow elements with new attributes
          * @param   {String}        key    The attribute name
          * @param   {String|Number} value  The value of the attribute
-         * @param   {Function}      setter The setter function, inherited from the parent wrapper
+         * @param   {Function}      setter The setter function, inherited from the parent wrapper2
          * @returns {undefined}
          */
         updateShadows: function (key, value, setter) {
@@ -2683,7 +2683,7 @@
                 transform.push('rotate(' + rotation + ' ' + (element.getAttribute('x') || 0) + ' ' + (element.getAttribute('y') || 0) + ')');
 
                 // Delete bBox memo when the rotation changes
-                //delete wrapper.bBox;
+                //delete wrapper2.bBox;
             }
 
             // apply scale
@@ -2782,7 +2782,7 @@
          */
         getBBox: function (reload, rot) {
             var wrapper = this,
-                bBox, // = wrapper.bBox,
+                bBox, // = wrapper2.bBox,
                 renderer = wrapper.renderer,
                 width,
                 height,
@@ -2940,7 +2940,7 @@
 
         /**
          * Add the element
-         * @param {Object|Undefined} parent Can be an element, an element wrapper or undefined
+         * @param {Object|Undefined} parent Can be an element, an element wrapper2 or undefined
          *    to append the element to the renderer.box.
          */
         add: function (parent) {
@@ -2995,7 +2995,7 @@
         },
 
         /**
-         * Destroy the element and element wrapper
+         * Destroy the element and element wrapper2
          */
         destroy: function () {
             var wrapper = this,
@@ -3443,7 +3443,7 @@
         },
 
         /**
-         * Create a wrapper for an SVG element
+         * Create a wrapper2 for an SVG element
          * @param {Object} nodeName
          */
         createElement: function (nodeName) {
@@ -3609,7 +3609,7 @@
                                 }
 
                                 /*if (width) {
-                                    renderer.breakText(wrapper, width);
+                                    renderer.breakText(wrapper2, width);
                                 }*/
 
                                 // Check width and apply soft breaks or ellipsis
@@ -3709,9 +3709,9 @@
 
 
         /*
-        breakText: function (wrapper, width) {
-            var bBox = wrapper.getBBox(),
-                node = wrapper.element,
+        breakText: function (wrapper2, width) {
+            var bBox = wrapper2.getBBox(),
+                node = wrapper2.element,
                 textLength = node.textContent.length,
                 pos = mathRound(width * textLength / bBox.width), // try this position first, based on average character width
                 increment = 0,
@@ -4483,7 +4483,7 @@
                     .attr({
                         zIndex: 1
                     }),
-                    //.add(wrapper),
+                    //.add(wrapper2),
                 box,
                 bBox,
                 alignFactor = 0,
@@ -4697,7 +4697,7 @@
             var baseCss = wrapper.css;
             return extend(wrapper, {
                 /**
-                 * Pick up some properties and apply them to the text instead of the wrapper
+                 * Pick up some properties and apply them to the text instead of the wrapper2
                  */
                 css: function (styles) {
                     if (styles) {
@@ -4851,7 +4851,7 @@
             }
 
             // apply inversion
-            if (wrapper.inverted) { // wrapper is a group
+            if (wrapper.inverted) { // wrapper2 is a group
                 each(elem.childNodes, function (child) {
                     renderer.invertChild(child, elem);
                 });
@@ -4994,7 +4994,7 @@
                     fontSize: this.style.fontSize
                 });
 
-            // Keep the whiteSpace style outside the wrapper.styles collection
+            // Keep the whiteSpace style outside the wrapper2.styles collection
             element.style.whiteSpace = 'nowrap';
 
             // Use the HTML specific .css method
@@ -5101,12 +5101,12 @@
     if (!hasSVG && !useCanVG) {
 
     /**
-     * The VML element wrapper.
+     * The VML element wrapper2.
      */
     VMLElement = {
 
         /**
-         * Initialize a new VML element wrapper. It builds the markup as a string
+         * Initialize a new VML element wrapper2. It builds the markup as a string
          * to minimize DOM traffic.
          * @param {Object} renderer
          * @param {Object} nodeName
@@ -6625,7 +6625,7 @@
     };
 
     /**
-     * The object wrapper for plot lines and plot bands
+     * The object wrapper2 for plot lines and plot bands
      * @param {Object} options
      */
     Highcharts.PlotLineOrBand = function (axis, options) {

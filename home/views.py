@@ -184,7 +184,6 @@ def suporte_editar_status(request, pk):
 
 def suporte_cadastro_ramo(request):
     # Cadastro
-
     if request.method == "POST":
         form = RamForm(request.POST)
         if form.is_valid():
@@ -194,8 +193,19 @@ def suporte_cadastro_ramo(request):
 
     ramos = suporte_listar_ramo(request)
 
-    return render(request, 'home/suporte/suporte_cadastro_ramo.html',
-                  {'ramos': ramos, 'form': form})
+    return render(request, 'home/suporte/suporte_cadastro_ramo.html', {'ramos': ramos, 'form': form})
+
+
+def suporte_editar_ramos(request, pk):
+    # Editar
+    ramos = get_object_or_404(RamoAtividade, pk=pk)
+    if request.method == "POST":
+        form = RamForm(request.POST, instance=ramos)
+        if form.is_valid():
+            ramos = form
+            ramos.save()
+            return redirect('/suporte/cadastro_ramos')
+    return render(request, 'home/suporte/suporte_editar_ramos.html', {'ramos': ramos})
 
 
 def suporte_listar_ramo(request):

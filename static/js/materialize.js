@@ -1702,7 +1702,7 @@ $(document).ready(function(){
 
                     // Put element class and style to the specified parent
                     var wrapper = document.createElement('i');
-                    wrapper.className = el.className + ' waves-input-wrapper';
+                    wrapper.className = el.className + ' waves-input-wrapper2';
 
                     var elementStyle = el.getAttribute('style');
 
@@ -2871,7 +2871,7 @@ $(document).ready(function(){
 
       var uniqueID = Materialize.guid();
       $select.data('select-id', uniqueID);
-      var wrapper = $('<div class="select-wrapper"></div>');
+      var wrapper = $('<div class="select-wrapper2"></div>');
       wrapper.addClass($select.attr('class'));
       var options = $('<ul id="select-options-' + uniqueID +'" class="dropdown-content select-dropdown ' + (multiple ? 'multiple-select-dropdown' : '') + '"></ul>'),
           selectChildren = $select.children('option, optgroup'),
@@ -3920,7 +3920,7 @@ function PickerConstructor( ELEMENT, NAME, COMPONENT, OPTIONS ) {
         CLASSES = $.extend( {}, PickerConstructor.klasses(), SETTINGS.klass ),
 
 
-        // The element node wrapper into a jQuery object.
+        // The element node wrapper2 into a jQuery object.
         $ELEMENT = $( ELEMENT ),
 
 
@@ -4417,10 +4417,10 @@ function PickerConstructor( ELEMENT, NAME, COMPONENT, OPTIONS ) {
      */
     function createWrappedComponent() {
 
-        // Create a picker wrapper holder
+        // Create a picker wrapper2 holder
         return PickerConstructor._.node( 'div',
 
-            // Create a picker wrapper node
+            // Create a picker wrapper2 node
             PickerConstructor._.node( 'div',
 
                 // Create a picker frame

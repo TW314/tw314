@@ -819,10 +819,10 @@ $(document).ready( function () {
 			// Disable 
 			var padding,
 			height = $(window).height() - $('#top').height() - $('#footer').height();
-			$("#wrapper").height(height);
-			padding = $("#wrapper .container").innerHeight() - $("#wrapper .container").height();
-			height = $("#wrapper").height() - padding;
-			$("#wrapper-inner").height(height);
+			$("#wrapper2").height(height);
+			padding = $("#wrapper2 .container").innerHeight() - $("#wrapper2 .container").height();
+			height = $("#wrapper2").height() - padding;
+			$("#wrapper2-inner").height(height);
 			$("#nav-wrap").height(height);
 			$("#details-wrap").height(height);
 		} else {

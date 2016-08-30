@@ -70,11 +70,11 @@
                                         <!-- Menu de acoes da Modal -->
                                         <div class="col s12">
                                             <div class="right-align">
-                                                <a  class="btn-floating  secundaria1_bg tooltipped" data-position="top" data-delay="50" data-tooltip="Inativar"><i class="fa fa-ban" aria-hidden="true"></i></a>
+                                                <a  class="btn-floating alerta_bg tooltipped" data-position="top" data-delay="50" data-tooltip="Inativar"><i class="fa fa-ban" aria-hidden="true"></i></a>
                                                 <a href="cadastro_servico" class="btn-floating secundaria1_bg tooltipped" data-position="top" data-delay="50" data-tooltip="Ir para Serviços"><i class="fa fa-briefcase" aria-hidden="true"></i></a>
                                                 <a href="cadastro_estabelecimento"
-                                                   class="btn-floating secundaria1_bg tooltipped" data-position="top" data-delay="50" data-tooltip="Ir para Estabelecimentos"><i class="fa fa-building" aria-hidden="true"></i></a>
-                                                <a class="btn-floating secundaria1_bg tooltipped" data-position="top" data-delay="50" data-tooltip="Editar"><i class="fa fa-pencil" aria-hidden="true"></i></a></div>
+                                                   class="btn-floating tooltipped principal_bg" data-position="top" data-delay="50" data-tooltip="Ir para Estabelecimentos"><i class="fa fa-building" aria-hidden="true"></i></a>
+                                                <a href="editar_ramos/{{ ramo.pk }}" class="btn-floating editar_bg tooltipped z-depth-4" data-position="top" data-delay="50" data-tooltip="Editar"><i class="fa fa-pencil" aria-hidden="true"></i></a></div>
                                         </div>
                                     </div>
                                 </div>
@@ -166,7 +166,7 @@
 
     <!-- Botao que chama Modal de Cadastro-->
 
-    <a class=" btn-floating btn-large waves-light btn btn modal-trigger fixed-action-btn tooltipped" data-position="top" data-delay="50" data-tooltip="Novo Ramo" href="#cadastrar_ramo"><i class="fa fa-plus" aria-hidden="true"></i></a>
+    <a class="sucesso_v_bg btn-floating btn-large waves-light btn btn modal-trigger fixed-action-btn tooltipped" data-position="top" data-delay="50" data-tooltip="Novo Ramo" href="#cadastrar_ramo"><i class="fa fa-plus" aria-hidden="true"></i></a>
 
     <!-- Modal de Cadastro -->
     <div id="cadastrar_ramo" class="modal bottom-sheet">

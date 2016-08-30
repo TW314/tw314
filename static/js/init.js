@@ -33,24 +33,24 @@
     // Floating-Fixed table of contents
     setTimeout(function() {
       var tocWrapperHeight = 260; // Max height of ads.
-      var tocHeight = $('.toc-wrapper .table-of-contents').length ? $('.toc-wrapper .table-of-contents').height() : 0;
+      var tocHeight = $('.toc-wrapper2 .table-of-contents').length ? $('.toc-wrapper2 .table-of-contents').height() : 0;
       var socialHeight = 95; // Height of unloaded social media in footer.
       var bottomOffset = $('footer').offset().top - socialHeight - tocHeight - tocWrapperHeight;
 
       if ($('nav').length) {
-        $('.toc-wrapper').pushpin({
+        $('.toc-wrapper2').pushpin({
           top: $('nav').height(),
           bottom: bottomOffset
         });
       }
       else if ($('#index-banner').length) {
-        $('.toc-wrapper').pushpin({
+        $('.toc-wrapper2').pushpin({
           top: $('#index-banner').height(),
           bottom: bottomOffset
         });
       }
       else {
-        $('.toc-wrapper').pushpin({
+        $('.toc-wrapper2').pushpin({
           top: 0,
           bottom: bottomOffset
         });
