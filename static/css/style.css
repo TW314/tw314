@@ -761,10 +761,19 @@ i.medium {
     width: auto !important;
 }
 
+.modal-footer-cadastro {
+    background-color: #fff6f6;
+    width: 100%;
+}
+
 
 .fixed-action-btn ul li {
     margin: auto auto auto 15px; !important;
 
+}
+
+.fixed-action-btn2 {
+    margin: auto auto auto 15px; !important;
 }
 
 /*******************************
@@ -1044,7 +1053,8 @@ textarea.materialize-textarea:focus.invalid + label:after {
 
 /** botões de cadastrar na modal **/
 .btn-margin-modal {
-    margin-left: 20%; !important;
+    margin-left: 50%; !important;
+    margin-top: 30%; !important;
 
 }
 
