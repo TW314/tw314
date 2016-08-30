@@ -148,7 +148,7 @@
                     <i class="fa fa-bars" aria-hidden="true"></i>
                 </a>
                 <ul>
-                    <li><a class="btn-floating alerta_bg tooltipped" data-position="top" data-delay="50"
+                    <li><a class="btn-floating alerta_bg tooltipped sucesso_text" data-position="top" data-delay="50"
                            data-tooltip="Ativar"><i class="fa fa-check" aria-hidden="true"></i></a></li>
                     <li><a href="cadastro_servico" class="btn-floating alerta_bg tooltipped" data-position="top"
                            data-delay="50" data-tooltip="Ir para Serviços"><i class="fa fa-briefcase"
@@ -168,60 +168,51 @@
 
     <a class=" btn-floating btn-large waves-light btn btn modal-trigger fixed-action-btn tooltipped" data-position="top" data-delay="50" data-tooltip="Novo Ramo" href="#cadastrar_ramo"><i class="fa fa-plus" aria-hidden="true"></i></a>
 
-    <div id="cadastrar_ramo" class="modal modal bottom-sheet base_text">
-        <div class="modal-content modal-padding">
-            <div class="row margin-form texto_text">
-                <div class="col s12 m6">
-                    <!--Começo do formulário-->
-
-
-                    <h5 class="light valign-wrapper form-title secundaria2_text" ><i
-                            class="fa fa-puzzle-piece fa-3x" aria-hidden="true"></i><span> Insira os dados para cadastrar um Ramo</span></h5>
-
-
-                    <form method="POST" class="col s12 offset-s6 "> {% csrf_token %}
-
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <input id="nome" name="nome" maxlength="45" type="text">
-                                {{ form.nome.errors }}
-                                <label for="nome">Nome do Ramo</label>
+    <!-- Modal de Cadastro -->
+    <div id="cadastrar_ramo" class="modal bottom-sheet">
+        <form method="POST" >
+            <div class="modal-content modal-padding">
+                <div class="row texto_text">
+                    <div class="col s12">
+                        <!--Começo do formulário-->
+                        <div class="col s12 m6 push-m3 margin-form">
+                            <h5 class="light valign-wrapper form-title secundaria1_text" ><i class="fa fa-puzzle-piece" aria-hidden="true"></i><span> Insira os dados para cadastrar um Ramo</span></h5>
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="nome" name="nome" maxlength="45" type="text">
+                                    {{ form.nome.errors }}
+                                    <label for="nome">Nome do Ramo</label>
+                                </div>
                             </div>
-                        </div>
-                        <!--
-                        {{ form.as_table }}
-                         -->
-                        <div class="row">
-                            <small class="small right">ATENÇÃO: O campo é obrigatório</small>
-                        </div>
-
-                        <div class="row btn-margin-modal modal-footer-cadastro">
-                            <!--Botão Cancelar-->
-                            <div class="col s12 m6">
-                                <button class="btn waves-effect waves-light  col s12 alerta_bg modal-close " type="reset"
-                                        name="action">Cancelar
-                                    <i class="fa fa-times-circle right" aria-hidden="true"></i>
-                                </button>
+                            <div class="row">
+                                <small class="small right">ATENÇÃO: O campo é obrigatório</small>
                             </div>
-                            <!--Fim do botão cancelar-->
-                            <!--Botão Cadastrar-->
-                            <div class="col s12 m6">
-                                <button class="btn waves-effect waves-light right col s12 sucesso_bg" type="submit"
-                                        name="action">Cadastrar
-                                    <i class="fa fa-check-circle right" aria-hidden="true"></i>
-                                </button>
-                            </div>
+                            <!--Fim do Botão Cadastrar-->
                         </div>
-
-                        <!--Fim do Botão Cadastrar-->
-
-                    </form>
-                    <a href=""></a>
-
-
-
-                    <!--Fim do formulário-->
+                        <!--Fim do formulário-->
+                    </div>
                 </div>
             </div>
-
+            <div class="row modal-footer-cadastro">
+                <div class="col push-m6 m5 s12">
+                    <!--Botão Cancelar-->
+                    <div class="col s12 m6">
+                        <button class="btn waves-effect waves-light  col s12 alerta_bg modal-close " type="reset"
+                                name="action">Cancelar
+                            <i class="fa fa-times-circle right" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <!--Fim do botão cancelar-->
+                    <!--Botão Cadastrar-->
+                    <div class="col s12 m6">
+                        <button class="btn waves-effect waves-light right col s12 sucesso_bg" type="submit"
+                                name="action">Cadastrar
+                            <i class="fa fa-check-circle right" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
 {% endblock %}
