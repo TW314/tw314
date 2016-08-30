@@ -2,9 +2,9 @@
 
 {% block titulo %} Cadastrar Ramo {% endblock %}
 {% block master %}
-    <div class=" row margin-form texto_text">
-        <div class="col s12 offset-s3">
-            <div class="col s6">
+    <div class="row texto_text">
+        <div class="col push-m3 m6 s12">
+            <div class="col s12">
                 <div class="card white">
                     <div class="card-content texto_text">
                         <span id="table" class="card-title small">Lista de Ramos</span>
@@ -27,21 +27,21 @@
                                     <td class="center">
                                         <!-- Botao que chama Modal -->
                                         <a class=" btn-floating btn-short waves-light btn btn modal-trigger"
-                                           href="#ramo"{{ ramo.id }}><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                           href="#ramo{{ ramo.id }}"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                     </td>
                                 </tr>
                                 <!-- Inicio da estrutura do Modal -->
-                                <div id="ramo"{{ ramo.id }} class="modal modal-fixed-footer base_text">
+                                <div id="ramo{{ ramo.id }}" class="modal modal-fixed-footer">
                                     <div class="modal-content modal-padding">
                                         <div class="row">
-                                            <div class="col s8">
-                                                <h5 class="light valign-wrapper form-title"><i
-                                                        class="fa fa-puzzle-piece fa-2x" aria-hidden="true"></i><span> {{ ramo.nome }} <small></small> </span>
-                                                </h5>
+                                            <div class="col s12 texto_text">
+                                                <div class="col s10">
+                                                    <h5><i class="fa fa-puzzle-piece"></i>  Ramo de Atividade "{{ ramo.nome }}"</h5>
+                                                </div>
+                                                <div class="col s2">
+                                                    <a href="" class="modal-action modal-close btn-flat right"><i class="right fa fa-times" aria-hidden="true"></i></a>
+                                                </div>
                                             </div>
-                                            <div class="col s4"><a href=""
-                                                                   class="modal-action modal-close btn-flat base_text right">
-                                                <i class="right fa fa-times" aria-hidden="true"></i></a></div>
                                         </div>
                                         <div class="row">
                                             <!-- Dados -->
@@ -66,29 +66,16 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="modal-footer modal-fixed-footer">
-
+                                    <div class="modal-footer">
                                         <!-- Menu de acoes da Modal -->
-
-                                        <div class="fixed-action-btn2">
-                                            <a  class="btn-floating  secundaria1_bg tooltipped" data-position="top" data-delay="50" data-tooltip="Inativar"><i class="fa fa-ban" aria-hidden="true"></i></a>
-                                            <a href="cadastro_servico"
-                                               class="btn-floating secundaria1_bg tooltipped"
-                                               data-position="top"
-                                               data-delay="50" data-tooltip="Ir para Serviços"><i
-                                                    class="fa fa-briefcase" aria-hidden="true"></i></a>
-                                            <a href="cadastro_estabelecimento"
-                                               class="btn-floating secundaria1_bg tooltipped"
-                                               data-position="top"
-                                               data-delay="50" data-tooltip="Ir para Estabelecimentos"><i
-                                                    class="fa fa-building" aria-hidden="true"></i></a>
-                                            <a class="btn-floating secundaria1_bg tooltipped"
-                                               data-position="top"
-                                               data-delay="50" data-tooltip="Editar"><i class="fa fa-pencil"
-                                                                                        aria-hidden="true"></i></a></div>
-
-
-
+                                        <div class="col s12">
+                                            <div class="right-align">
+                                                <a  class="btn-floating  secundaria1_bg tooltipped" data-position="top" data-delay="50" data-tooltip="Inativar"><i class="fa fa-ban" aria-hidden="true"></i></a>
+                                                <a href="cadastro_servico" class="btn-floating secundaria1_bg tooltipped" data-position="top" data-delay="50" data-tooltip="Ir para Serviços"><i class="fa fa-briefcase" aria-hidden="true"></i></a>
+                                                <a href="cadastro_estabelecimento"
+                                                   class="btn-floating secundaria1_bg tooltipped" data-position="top" data-delay="50" data-tooltip="Ir para Estabelecimentos"><i class="fa fa-building" aria-hidden="true"></i></a>
+                                                <a class="btn-floating secundaria1_bg tooltipped" data-position="top" data-delay="50" data-tooltip="Editar"><i class="fa fa-pencil" aria-hidden="true"></i></a></div>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -223,10 +210,10 @@
                                         name="action">Cadastrar
                                     <i class="fa fa-check-circle right" aria-hidden="true"></i>
                                 </button>
-                                </div>
                             </div>
+                        </div>
 
-                            <!--Fim do Botão Cadastrar-->
+                        <!--Fim do Botão Cadastrar-->
 
                     </form>
                     <a href=""></a>

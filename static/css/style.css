@@ -756,9 +756,9 @@ i.medium {
     border-radius: 2px;
     will-change: top, opacity;
 }
-.modal-footer {
-    background-color: rgba(0, 160, 194, 0.56) !important;
-    width: auto !important;
+.modal .modal-footer {
+    width: 100%;
+    height: auto;
 }
 
 .modal-footer-cadastro {
@@ -770,10 +770,6 @@ i.medium {
 .fixed-action-btn ul li {
     margin: auto auto auto 15px; !important;
 
-}
-
-.fixed-action-btn2 {
-    margin: auto auto auto 15px; !important;
 }
 
 /*******************************

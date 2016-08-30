@@ -172,18 +172,13 @@ def suporte_listar_status(request):
 
 def suporte_editar_status(request, pk):
     # Editar
-
     status = get_object_or_404(Status, pk=pk)
-
     if request.method == "POST":
         form = StsForm(request.POST, instance=status)
         if form.is_valid():
             status = form
             status.save()
             return redirect('/suporte/status/')
-
-
-
     return render(request, 'home/suporte/suporte_editar_status.html', {'status': status})
 
 
