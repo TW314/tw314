@@ -24,6 +24,7 @@ body {
     color: #564949;
     height: 100%;
 }
+main {flex: 1 0 auto;}
 
 .bg-login{
     background: url(../img/ampulheta4.jpg) no-repeat;
@@ -61,18 +62,16 @@ main {flex: 1 0 auto;}
 }
 .uppercase{text-transform: uppercase;}
 /** Cores**/
-/*.brown{ background-color: #564949; }
-.brown-text{ color: #564949; }
-.white{ background-color: #fff6f6; }
-.white-text{ color: #fff6f6; }
-.blue{ background-color: #00a0c2 !important; }
-.blue-text{ color: #00a0c2; }*/
 .editar_bg{background: #ffce20;}
+
 .principal_text{color: #ee692e;}
 .principal_bg{background: #ee692e;}
 
 .principal_v_text{color: #ee4d2e;}
 .principal_v_bg{background: #ee4d2e;}
+
+.principal_v2_text{color: #FFB181;}
+.principal_v2_bg{background: #FFB181;}
 
 .secundaria1_text{color: #00a0c2;}
 .secundaria1_bg{background: #00a0c2;}
@@ -303,26 +302,20 @@ nav i, nav [class^="mdi-"], nav [class*="mdi-"], nav i.material-icons{ display: 
 .menu{ margin: auto 20%; }
 .menu ul li { margin: auto 15px; }
 footer.page-footer {
-    color: #fff6f6;
-    background: rgba(86, 73, 73, 0.15);
-    padding: 0.7em;
+    background: rgba(238, 77, 46, 0.04);
+    padding: 0.1em;
     margin-top: 0;
     border-top: solid 1px #fff6f6;
 }
 footer.master.page-footer {
-    color: #fff6f6;
-    background: #ee4d2e;
+    border-top: solid 1px #564949;
 }
 footer.page-footer .footer-copyright { background: none; }
 footer.page-footer .footer-copyright a {
     padding: 0 1em;
-    color: white;
     background: none;
 }
-footer.page-footer .footer-copyright a:hover {
-    color: #bbbbbb;
-    background: none;
-}
+.hvr-underline-from-left:before {background: #ee4d2e; }
 
 nav { background-color: #ee692e; }
 .margin-title{ margin: auto; }
@@ -579,8 +572,9 @@ aside.menu-padding {margin: 0 25px;}
     z-index: 998;
     width: 100%;
 }
-.fixed-footer2{
-    position: fixed;
+
+.master .fixed-footer{
+    position: relative;
     right: 0;
     bottom: 0;
     padding-top: 15px;
@@ -588,7 +582,6 @@ aside.menu-padding {margin: 0 25px;}
     z-index: 998;
     width: 100%;
 }
-
 .card .card-reveal {
     background-color: rgba(255, 255, 255, 0.97);
 }
