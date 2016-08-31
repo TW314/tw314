@@ -1,79 +1,9 @@
 {% extends "master_admin.html" %}
 
-{% block titulo %} Cadastrar Serviço {% endblock %}
+{% block titulo %} Adicionar Serviços {% endblock %}
 {% block master %}
-    <div class="row margin-form texto_text">
-        <!--Inicio do Formulário-->
-        <div class="col s12 m6">
-            <!--Começo do formulário-->
-            <div class="card">
-                <div class="card-content">
-                    <span class="card-title">Selecione os Serviços Prestados para o sistema:</span>
-                </div>
-                <div class="card-action">
-                    <form class="col s12">
-                        <h6 class="light valign-wrapper form-title secundaria2_text" style="margin-top: 10px;"><i class="fa fa-hand-pointer-o small" aria-hidden="true"></i><span> Escolher Serviço </span></h6>
-                        <div class="row">
-                            <!--<div class="input-field col s12">
-                                <select multiple>
-                                    <option value="" disabled selected>Escolha os serviços</option>
-                                    <option value="1">Venda</option>
-                                    <option value="2">Entrega</option>
-                                    <option value="3">Pagamento</option>
-                                </select>
-                                <label>Serviços</label>
-                            </div>-->
-                            <!-- Tags para adicionar serviços -->
-                            <div class="chip">
-                                Venda
-                                <i class="fa fa-times material-icons"></i>
-                            </div>
-                            <div class="chip">
-                                Entrega
-                                <i class="fa fa-times material-icons"></i>
-                            </div>
-                            <div class="chip">
-                                Pagamento
-                                <i class="fa fa-times material-icons"></i>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s12 m8">
-                                <input id="a-servico" type="text" class="validate">
-                                <label for="a-servico">Adicionar Novo Serviço</label>
-                            </div>
-                            <!-- Botão Adicionar-->
-                            <div class="input-field col s12 m4">
-                                <button class="btn btn-large waves-effect waves-light right col s12 sucesso_bg" type="submit" name="action">Adicionar
-                                    <i class="fa fa-plus-circle right" aria-hidden="true"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <small class="small right">ATENÇÃO: Escolha pelo menos um serviço</small>
-                        </div>
-                        <h6 class="light valign-wrapper form-title secundaria2_text"><i class="fa fa-bell-o small" aria-hidden="true"></i><span> Solicitar um Serviço </span></h6>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <p>Não encontrou o que procurava? Solicite um novo serviço:</p>
-                            </div>
-                            <div class="input-field col s12 m8">
-                                <input id="a-servico" type="text" class="validate">
-                                <label for="a-servico">Nome do novo Serviço</label>
-                            </div>
-                            <div class="input-field col s12 m4">
-                                <button class="btn btn-large waves-effect waves-light right col s12" type="submit" name="action">Solicitar
-                                    <i class="fa fa-bell right" aria-hidden="true"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                    <a href=""></a>
-                </div>
-            </div>
-        </div>
-        <!--Fim do formulário-->
-        <div class="col s12 m6">
+    <div class="row text_text">
+        <div class="col push-m3 m6 s12">
             <div class="col s12">
                 <div class="card white">
                     <div class="card-content texto_text">
@@ -165,6 +95,7 @@
             </div>
         </div>
     </div>
+    </div>
     <!-- Inicio da estrutura do Modal -->
     <div id="servico1" class="modal modal-fixed-footer base_text">
         <div class="modal-content ">
@@ -196,4 +127,74 @@
         </div>
     </div>
     <!-- Fim da estrutura do Modal -->
+
+    <!-- Botao que chama Modal Adicionar Servico-->
+
+    <a class="sucesso_v_bg btn-floating btn-large waves-light btn btn modal-trigger fixed-action-btn tooltipped" data-position="top" data-delay="50" data-tooltip="Adicionar novo Serviço" href="#adicionar_servico"><i class="fa fa-plus" aria-hidden="true"></i></a>
+
+    <!-- Modal de Cadastro -->
+    <div id="adicionar_servico" class="modal bottom-sheet">
+        <form method="POST" >
+            <div class="modal-content modal-padding">
+                <div class="row texto_text">
+                    <div class="row margin-form texto_text">
+                        <!--Inicio do Formulário-->
+                        <div class="col s12 m6 push-m3 margin-form">
+                            <!--Começo do formulário-->
+                            <h5 class="light valign-wrapper form-title secundaria1_text">Selecione os Serviços Prestados para o sistema</h5>
+
+                            <div class="card-action">
+                                <form class="col s12">
+                                    <h6 class="light valign-wrapper form-title secundaria2_text" style="margin-top: 10px;"><i class="fa fa-hand-pointer-o small" aria-hidden="true"></i><span> Escolher Serviço </span></h6>
+                                    <div class="row">
+
+                                        <!-- Tags para adicionar serviços -->
+                                        <div class="chip">
+                                            Venda
+                                            <i class="fa fa-times material-icons"></i>
+                                        </div>
+                                        <div class="chip">
+                                            Entrega
+                                            <i class="fa fa-times material-icons"></i>
+                                        </div>
+                                        <div class="chip">
+                                            Pagamento
+                                            <i class="fa fa-times material-icons"></i>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s12 ">
+                                            <input id="a-servico" type="text" class="validate">
+                                            <label for="a-servico">Adicionar Novo Serviço</label>
+                                        </div>
+                                        <div class="row">
+                                            <small class="small right">ATENÇÃO: Escolha pelo menos um serviço</small>
+                                        </div>
+                                    </div>
+
+                                    <div class="row modal-footer-cadastro">
+                                        <div class="col push-m6 m5 s12">
+                                            <!--Botão Cancelar-->
+                                            <div class="col s12 m6">
+                                                <button class="btn waves-effect waves-light  col s12 alerta_bg modal-close " type="reset"
+                                                        name="action">Cancelar
+                                                    <i class="fa fa-times-circle right" aria-hidden="true"></i>
+                                                </button>
+                                            </div>
+                                            <!--Fim do botão cancelar-->
+                                            <!--Botão Cadastrar-->
+                                            <div class="col s12 m6">
+                                                <button class="btn waves-effect waves-light right col s12 sucesso_bg" type="submit"
+                                                        name="action">Adicionar
+                                                    <i class="fa fa-plus-circle right" aria-hidden="true"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+
+
+
+
+                            </div>
 {% endblock %}
