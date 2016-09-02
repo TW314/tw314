@@ -338,6 +338,11 @@ nav { background-color: #ee692e; }
     border-color: #34a4fd;
 }
 
+.hvr-fade:hover, .hvr-fade:focus, .hvr-fade:active {
+  background-color: #34a4fd;
+  color: #fff6f6;
+}
+
 nav ul a:hover {background: #f74f30;}
 
 .btn-floating.btn-large {

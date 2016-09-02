@@ -22,6 +22,7 @@ urlpatterns = [
     # url(r'^suporte/editar_status/$', views.suporte_editar_status),
     url(r'^suporte/editar_status/(?P<pk>[0-9]+)/$', views.suporte_editar_status),
     url(r'^suporte/editar_ramos/(?P<pk>[0-9]+)/$', views.suporte_editar_ramos),
+    url(r'^suporte/editar_servicos/(?P<pk>[0-9]+)/$', views.suporte_editar_servicos),
     # funcionario
     url(r'^funcionario/principal', views.funcionario_principal),
     url(r'^funcionario/relatorio', views.funcionario_relatorio),

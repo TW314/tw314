@@ -1,0 +1,69 @@
+{% extends "master_suporte.html" %}
+
+{% block titulo %} Editar Serviço {% endblock %}
+{% block master %}
+    <div class="row margin-form texto_text">
+        <div class="container">
+            <!--Começo do formulário-->
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title">Editar Serviço {{ servicos.nome }}</span>
+                </div>
+                <div class="card-action">
+                    <form method="POST" class="post-form">{% csrf_token %}
+                        <h6 class="light valign-wrapper form-title secundaria2_text" style="margin-top: 10px;"><i class="fa fa-briefcase small" aria-hidden="true"></i><span> Editar dados </span></h6>
+                        <div class="row">
+                                <div class="input-field col s12">
+                                    <select id="ramo_atividade" name="ramo_atividade" >
+                                        <option value="" disabled selected>Ramo de Atividade</option>
+                                        {% for ramo in ramos %}
+                                            <option {% if servicos.ramo_atividade_id == ramo.id %} selected {% endif %} value="{{ ramo.id }}">{{ ramo.nome }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <label for="ramo_atividade">Ramo de Atividade</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="nome" name="nome" maxlength="45" type="text" class="validate" value="{{ servicos.nome }}">
+                                    <label for="nome">Nome</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="sigla" name="sigla" maxlength="2" type="text" class="validate" value="{{ servicos.sigla }}">
+                                    <label for="sigla">Sigla</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <textarea type="text" id="ss_descricao" class="materialize-textarea validate" cols="30" rows="5" name="descricao">{{ servicos.descricao }}</textarea>
+                                    <label for="ss_descricao">Descrição</label>
+                                </div>
+                            </div>
+                        <div class="row">
+                            <small class="small right">ATENÇÃO: O campo é obrigatório</small>
+                        </div>
+                        <div class="row">
+                            <!--Botão Cancelar-->
+                            <div class="col s12 m6">
+                                <button class="btn waves-effect waves-light right col s12 alerta_bg" type="reset" name="action">Cancelar
+                                    <i class="fa fa-times-circle right" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <!--Fim do botão cancelar-->
+                            <!--Botão Cadastrar-->
+                            <div class="col s12 m6">
+                                <button class="btn waves-effect waves-light right col s12 sucesso_bg" type="submit" name="action">Editar
+                                    <i class="fa fa-pencil right" aria-hidden="true"></i>
+                                </button>
+                            </div>
+                            <!--Fim do Botão Cadastrar-->
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!--Fim do formulário-->
+        </div>
+    </div>
+{% endblock %}
