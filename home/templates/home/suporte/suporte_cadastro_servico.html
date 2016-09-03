@@ -27,14 +27,14 @@
                                     <td class="center">
                                         <!-- Botao que chama Modal -->
                                         <a class=" btn-floating btn-short wavelight btn btn modal-trigger"
-                                           href="#servico"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                           href="#servico{{ servico.id }}"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                     </td>
                                 </tr>
 
 
 
                                 <!-- Inicio da estrutura do Modal -->
-                                <div id="servico" class="modal modal-fixed-footer texto_text">
+                                <div id="servico{{ servico.id }}" class="modal modal-fixed-footer texto_text">
                                     <div class="modal-content ">
                                         <div class="row">
                                             <div class="col s8">
@@ -80,7 +80,7 @@
                                                data-tooltip="Inativar"><i class="fa fa-ban"
                                                                           aria-hidden="true"></i></a>
 
-                                            <a class="btn-floating  tooltipped editar_bg"
+                                            <a href="editar_servicos/{{ servico.pk }}" class="btn-floating  tooltipped editar_bg"
                                                data-position="top" data-delay="50"
                                                data-tooltip="Editar"><i class="fa fa-pencil"
                                                                         aria-hidden="true"></i></a>
@@ -117,77 +117,7 @@
     </div>
     </div>
     <!-- Inicio da estrutura do Modal -->
-    <div id="solicitacao-servico" class="modal modal-fixed-footer base_text">
-        <div class="modal-content">
-            <div class="row">
-                <div class="col s8">
-                    <h5 class="light valign-wrapper form-title"><i class="fa fa-briefcase fa-2x" aria-hidden="true"></i><span> Serviços Solicitados <small></small> </span>
-                    </h5>
-                </div>
-                <div class="col s4"><a href="" class="modal-action modal-close btn-flat base_text right"> <i
-                        class="right fa fa-times" aria-hidden="true"></i></a></div>
-            </div>
-            <div class="row">
-                <!-- Dados -->
-                <div class="col s12">
-                    <div class="row">
-                        <div class="col s12">
-                            <!--Inicio da tabela-->
-                            <table class="responsive-table">
-                                <thead>
-                                <tr>
-                                    <th data-field="nome">Empresa</th>
-                                    <th data-field="descricao">Serviço Solicitado</th>
-                                    <th data-field="acoes">Adicionar/Remover</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>Ciclope SA</td>
-                                    <td>Compras</td>
-                                    <td class="center">
-                                        <a class=" btn-floating btn-short waves-light btn tooltipped"
-                                           data-position="top" data-delay="50" data-tooltip="Adicionar Serviço"><i
-                                                class="fa fa-plus" aria-hidden="true"></i></a>
-                                        <a class=" btn-floating btn-short waves-light btn tooltipped"
-                                           data-position="top" data-delay="50" data-tooltip="Remover Serviço"><i
-                                                class="fa fa-times" aria-hidden="true"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Ciclope SA</td>
-                                    <td>Compras</td>
-                                    <td class="center">
-                                        <a class=" btn-floating btn-short waves-light btn tooltipped"
-                                           data-position="top" data-delay="50" data-tooltip="Adicionar Serviço"><i
-                                                class="fa fa-plus" aria-hidden="true"></i></a>
-                                        <a class=" btn-floating btn-short waves-light btn tooltipped"
-                                           data-position="top" data-delay="50" data-tooltip="Remover Serviço"><i
-                                                class="fa fa-times" aria-hidden="true"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Ciclope SA</td>
-                                    <td>Compras</td>
-                                    <td class="center">
-                                        <a class=" btn-floating btn-short waves-light btn tooltipped"
-                                           data-position="top" data-delay="50" data-tooltip="Adicionar Serviço"><i
-                                                class="fa fa-plus" aria-hidden="true"></i></a>
-                                        <a class=" btn-floating btn-short waves-light btn tooltipped"
-                                           data-position="top" data-delay="50" data-tooltip="Remover Serviço"><i
-                                                class="fa fa-times" aria-hidden="true"></i></a>
-                                    </td>
-                                </tr>
-                                </tbody>
-                            </table>
-                            <!--Fim da Tabela-->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Fim da estrutura do Modal -->
+
 
     <!-- Inicio da estrutura do Modal -->
     <div id="servico-inativo" class="modal modal-fixed-footer base_text"
@@ -247,88 +177,167 @@
 
     <!-- Modal de Cadastro -->
     <div id="cadastrar_servico" class="modal bottom-sheet">
-        <form method="POST">{% csrf_token %}
-            <div class="modal-content modal-padding">
-                <div class="row texto_text">
-                    <div class="col s12 ">
-                        <div class="col s12 m6 push-m3">
-                            <!--Começo do formulário-->
-
-                            <h5 class="secundaria1_text">Insira os dados para cadastrar um Serviço</h5>
-
-                            <h6 class="light valign-wrapper form-title secundaria2_text"><i class="fa fa-briefcase small" aria-hidden="true"></i><span> Dados do Serviço </span>
-                            </h6>
-                            <div class="row ">
-                                <div class="input-field col s4">
-                                    <select id="ramo_atividade" name="ramo_atividade">
-                                        <option value="" disabled selected>Ramo de Atividade</option>
-                                        {% for ramo in ramos %}
-                                            <option value="{{ ramo.id }}">{{ ramo.nome }}</option>
-                                        {% endfor %}
-                                    </select>
-                                    {{ form.ramo_atividade.errors }}
-                                    <label for="ramo_atividade">Ramo de Atividade</label>
-                                </div>
-
-                                <div class="input-field col s8">
-                                    <input id="nome" name="nome" maxlength="45" type="text" class="validate">
-                                    {{ form.nome.errors }}
-                                    <label for="nome">Nome</label>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="input-field col s2">
-                                    <input id="sigla" name="sigla" maxlength="2" type="text" class="validate">
-                                    {{ form.sigla.errors }}
-                                    <label for="sigla">Sigla</label>
-                                </div>
-
-
-                                <div class="input-field col s10">
-                                    <textarea type="text" id="ss_descricao" class="materialize-textarea validate" cols="30" rows="5" name="descricao"></textarea>
-                                    {{ form.descricao.errors }}
-                                    <label for="ss_descricao">Descrição</label>
-                                </div>
-                                </div>
-
-                            <div class="row">
-                                <small class="small right">ATENÇÃO: Todos os campos são obrigatórios</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="row modal-footer-cadastro">
-                    <div class="col push-m6 m5 s12">
-                        <!--Botão Cancelar-->
-                        <div class="col s12 m6">
-                            <button class="btn waves-effect waves-light right col s12 alerta_bg modal-close" type="reset" name="action">Cancelar
-                                <i class="fa fa-times-circle right" aria-hidden="true"></i>
-                            </button>
-                        </div>
-                        <!--Fim do botão cancelar-->
-                        <!--Botão Cadastrar-->
-                        <div class="col s12 m6">
-                            <button class="btn waves-effect waves-light right col s12 sucesso_bg" type="submit"
-                                    name="action">Cadastrar
-                                <i class="fa fa-check-circle right" aria-hidden="true"></i>
-                            </button>
-                        </div>
-                    </div>
-                    <!--Fim do Botão Cadastrar-->
-                </div>
-
-                <a href=""></a>
-
-
-                <!--Fim do formulário-->
-
-                <div class="col s12">
-                    <a class="waves-effect waves-light btn modal-trigger right" href="#solicitacao-servico">Ver Solicitações
-                        de Novos Serviços</a>
-                </div>
+        <div class="row">
+            <div class="col s12">
+                <ul class="tabs">
+                    <li class="tab col s3"><a href="#cadastrar_servico_tab">Cadastro de Serviços</a></li>
+                    <li class="tab col s3"><a href="#solicitacao_servicos_tab">Solicitações de Serviços</a></li>
+                </ul>
             </div>
-        </form>
+            <div id="cadastrar_servico_tab" class="col s12">
+                <form method="POST">{% csrf_token %}
+                    <div class="modal-content modal-padding">
+                        <div class="row texto_text">
+                            <div class="col s12 ">
+                                <div class="col s12 m6 push-m3">
+                                    <!--Começo do formulário-->
+
+                                    <h5 class="secundaria1_text">Insira os dados para cadastrar um Serviço</h5>
+
+                                    <h6 class="light valign-wrapper form-title secundaria2_text"><i class="fa fa-briefcase small" aria-hidden="true"></i><span> Dados do Serviço </span>
+                                    </h6>
+                                    <div class="row ">
+                                        <div class="input-field col s4">
+                                            <select id="ramo_atividade" name="ramo_atividade">
+                                                <option value="" disabled selected>Ramo de Atividade</option>
+                                                {% for ramo in ramos %}
+                                                    <option value="{{ ramo.id }}">{{ ramo.nome }}</option>
+                                                {% endfor %}
+                                            </select>
+                                            {{ form.ramo_atividade.errors }}
+                                            <label for="ramo_atividade">Ramo de Atividade</label>
+                                        </div>
+
+                                        <div class="input-field col s8">
+                                            <input id="nome" name="nome" maxlength="45" type="text" class="validate">
+                                            {{ form.nome.errors }}
+                                            <label for="nome">Nome</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="input-field col s2">
+                                            <input id="sigla" name="sigla" maxlength="2" type="text" class="validate">
+                                            {{ form.sigla.errors }}
+                                            <label for="sigla">Sigla</label>
+                                        </div>
+
+
+                                        <div class="input-field col s10">
+                                            <textarea type="text" id="ss_descricao" class="materialize-textarea validate" cols="30" rows="5" name="descricao"></textarea>
+                                            {{ form.descricao.errors }}
+                                            <label for="ss_descricao">Descrição</label>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <small class="small right">ATENÇÃO: Todos os campos são obrigatórios</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row modal-footer-cadastro">
+                            <div class="col push-m6 m5 s12">
+                                <!--Botão Cancelar-->
+                                <div class="col s12 m6">
+                                    <button class="btn waves-effect waves-light right col s12 alerta_bg modal-close" type="reset" name="action">Cancelar
+                                        <i class="fa fa-times-circle right" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                                <!--Fim do botão cancelar-->
+                                <!--Botão Cadastrar-->
+                                <div class="col s12 m6">
+                                    <button class="btn waves-effect waves-light right col s12 sucesso_bg" type="submit"
+                                            name="action">Cadastrar
+                                        <i class="fa fa-check-circle right" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <!--Fim do Botão Cadastrar-->
+                        </div>
+
+                        <a href=""></a>
+
+
+                        <!--Fim do formulário-->
+
+                        <div id="solicitacao_servicos_tab" class="col s12">
+
+                            <div class="row">
+                                <div class="col s8">
+                                    <h5 class="light valign-wrapper form-title"><i class="fa fa-briefcase fa-2x" aria-hidden="true"></i><span> Serviços Solicitados <small></small> </span>
+                                    </h5>
+                                </div>
+                                <div class="col s4"><a href="" class="modal-action modal-close btn-flat base_text right"> <i
+                                        class="right fa fa-times" aria-hidden="true"></i></a></div>
+                            </div>
+                            <div class="row">
+                                <!-- Dados -->
+                                <div class="col s12">
+                                    <div class="row">
+                                        <div class="col s12">
+                                            <!--Inicio da tabela-->
+                                            <table class="responsive-table">
+                                                <thead>
+                                                <tr>
+                                                    <th data-field="nome">Empresa</th>
+                                                    <th data-field="descricao">Serviço Solicitado</th>
+                                                    <th data-field="acoes">Adicionar/Remover</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>Ciclope SA</td>
+                                                    <td>Compras</td>
+                                                    <td class="center">
+                                                        <a class=" btn-floating btn-short waves-light btn tooltipped"
+                                                           data-position="top" data-delay="50" data-tooltip="Adicionar Serviço"><i
+                                                                class="fa fa-plus" aria-hidden="true"></i></a>
+                                                        <a class=" btn-floating btn-short waves-light btn tooltipped"
+                                                           data-position="top" data-delay="50" data-tooltip="Remover Serviço"><i
+                                                                class="fa fa-times" aria-hidden="true"></i></a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Ciclope SA</td>
+                                                    <td>Compras</td>
+                                                    <td class="center">
+                                                        <a class=" btn-floating btn-short waves-light btn tooltipped"
+                                                           data-position="top" data-delay="50" data-tooltip="Adicionar Serviço"><i
+                                                                class="fa fa-plus" aria-hidden="true"></i></a>
+                                                        <a class=" btn-floating btn-short waves-light btn tooltipped"
+                                                           data-position="top" data-delay="50" data-tooltip="Remover Serviço"><i
+                                                                class="fa fa-times" aria-hidden="true"></i></a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Ciclope SA</td>
+                                                    <td>Compras</td>
+                                                    <td class="center">
+                                                        <a class=" btn-floating btn-short waves-light btn tooltipped"
+                                                           data-position="top" data-delay="50" data-tooltip="Adicionar Serviço"><i
+                                                                class="fa fa-plus" aria-hidden="true"></i></a>
+                                                        <a class=" btn-floating btn-short waves-light btn tooltipped"
+                                                           data-position="top" data-delay="50" data-tooltip="Remover Serviço"><i
+                                                                class="fa fa-times" aria-hidden="true"></i></a>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                            <!--Fim da Tabela-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+             </form>       <!-- Fim da estrutura do Modal -->
+            </div>
+        </div>
+
+
+    </div>
+
     </div>
 {% endblock %}

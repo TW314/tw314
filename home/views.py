@@ -99,7 +99,7 @@ def suporte_listar_empresas(request):
     return empresas
 
 
-# Cadastro de Servico
+# Cadastro de Servico no suporte
 def suporte_cadastro_servico(request):
     #Cadastro
     if request.method == "POST":
@@ -133,6 +133,18 @@ def suporte_listar_servico(request):
         servico = paginator.page(paginator.num_pages)
 
     return servico
+
+
+def suporte_editar_servicos(request, pk):
+    # Editar
+    servicos = get_object_or_404(Servico, pk=pk)
+    if request.method == "POST":
+        form = SvcForm(request.POST, instance=servicos)
+        if form.is_valid():
+            servicos = form
+            servicos.save()
+            return redirect('/suporte/cadastro_servico/')
+    return render(request, 'home/suporte/suporte_editar_servicos.html', {'servicos': servicos})
 
 
 def suporte_cadastro_status(request):
