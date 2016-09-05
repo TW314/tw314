@@ -61,6 +61,22 @@ main {flex: 1 0 auto;}
     font-size: 4rem !important;
 }
 .uppercase{text-transform: uppercase;}
+select {
+    background-color: transparent;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #00a0c2;
+    height: 3rem;
+}
+select:focus {
+    outline: none;
+    border-bottom: 2px solid #ee692e;
+    transition: border-bottom .28s ease;
+}
+
+.tabs {background-color: transparent; border-bottom: 1px solid #00a0c2; margin-bottom: 20px;}
+.tabs .tab a {color: #564949; transition: color .28s ease; }
+.tabs .tab a:hover {color: #ee4d2e;}
 /** Cores**/
 .editar_bg{background: #ffce20;}
 
@@ -740,8 +756,7 @@ i.medium {
 *************************/
 .small-title{
     border-bottom: 1px solid rgba(255, 246, 246, 0.60);
-    margin-bottom: 2px;
-    color: rgba(255, 246, 246, 0.60);
+    margin: 5px auto;
 }
 .modal {
     display: none;
@@ -760,6 +775,7 @@ i.medium {
 .modal .modal-footer {
     width: 100%;
     height: auto;
+    padding: 15px;
 }
 
 .modal-footer-cadastro {
