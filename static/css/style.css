@@ -772,6 +772,7 @@ i.medium {
     border-radius: 2px;
     will-change: top, opacity;
 }
+.tabs .indicator { background-color: #ee692e; }
 .modal .modal-footer {
     width: 100%;
     height: auto;
