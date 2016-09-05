@@ -135,8 +135,8 @@
                             {% csrf_token %}
                             <div id="cadastrar" class="col s12">
                                 <div class="row">
-                                    <div class="input-field col s12">
-                                        <select id="ramo_atividade" name="ramo_atividade">
+                                    <div class="input-field col s12 m6">
+                                        <select id="ramo_atividade" name="ramo_atividade" class="browser-default">
                                             <option value="" disabled selected>Ramo de Atividade</option>
                                             {% for ramo in ramos %}
                                                 <option value="{{ ramo.id }}">{{ ramo.nome }}</option>
@@ -145,28 +145,26 @@
                                         {{ form.ramo_atividade.errors }}
                                         <label for="ramo_atividade">Ramo de Atividade</label>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="input-field col s12">
+                                <div class="input-field col s12 m6">
                                         <input id="nome" name="nome" maxlength="45" type="text" class="validate">
                                         {{ form.nome.errors }}
                                         <label for="nome">Nome</label>
                                     </div>
                                 </div>
+
                                 <div class="row">
-                                    <div class="input-field col s12">
+                                    <div class="input-field col s12 m2">
                                         <input id="sigla" name="sigla" maxlength="2" type="text" class="validate">
                                         {{ form.sigla.errors }}
                                         <label for="sigla">Sigla</label>
                                     </div>
-                                </div>
-                                <div class="row">
-                                    <div class="input-field col s12">
+                                    <div class="input-field col s12 m10">
                                         <textarea type="text" id="ss_descricao" class="materialize-textarea validate" cols="30" rows="5" name="descricao"></textarea>
                                         {{ form.descricao.errors }}
                                         <label for="ss_descricao">Descrição</label>
                                     </div>
                                 </div>
+
                                 <div class="row">
                                     <small class="small right">ATENÇÃO: O campo é obrigatório</small>
                                 </div>
