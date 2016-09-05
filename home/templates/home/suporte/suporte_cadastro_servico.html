@@ -119,6 +119,12 @@
 
     <!-- Modal de Cadastro -->
     <div id="cadastrar_servico" class="modal bottom-sheet">
+        <div class="col s12">
+            <ul class="tabs">
+                <li class="tab col s3"><a class="active" href="#cadastrar"><i class="fa fa-building" aria-hidden="true"></i> Cadastrar Serviço</a></li>
+                <li class="tab col s3"><a href="#ver"><i class="fa fa-map-marker" aria-hidden="true"></i> Ver Solicitações de Serviços</a></li>
+            </ul>
+        </div>
         <form method="POST" >
             <div class="modal-content modal-padding">
                 <div class="row texto_text">
@@ -127,41 +133,72 @@
                         <div class="col s12 m6 push-m3 margin-form">
                             <h5 class="light valign-wrapper form-title secundaria1_text" ><i class="fa fa-briefcase" aria-hidden="true"></i><span> Insira os dados para cadastrar um Serviço</span></h5>
                             {% csrf_token %}
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <select id="ramo_atividade" name="ramo_atividade">
-                                        <option value="" disabled selected>Ramo de Atividade</option>
-                                        {% for ramo in ramos %}
-                                            <option value="{{ ramo.id }}">{{ ramo.nome }}</option>
-                                        {% endfor %}
-                                    </select>
-                                    {{ form.ramo_atividade.errors }}
-                                    <label for="ramo_atividade">Ramo de Atividade</label>
+                            <div id="cadastrar" class="col s12">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <select id="ramo_atividade" name="ramo_atividade">
+                                            <option value="" disabled selected>Ramo de Atividade</option>
+                                            {% for ramo in ramos %}
+                                                <option value="{{ ramo.id }}">{{ ramo.nome }}</option>
+                                            {% endfor %}
+                                        </select>
+                                        {{ form.ramo_atividade.errors }}
+                                        <label for="ramo_atividade">Ramo de Atividade</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="nome" name="nome" maxlength="45" type="text" class="validate">
+                                        {{ form.nome.errors }}
+                                        <label for="nome">Nome</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="sigla" name="sigla" maxlength="2" type="text" class="validate">
+                                        {{ form.sigla.errors }}
+                                        <label for="sigla">Sigla</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <textarea type="text" id="ss_descricao" class="materialize-textarea validate" cols="30" rows="5" name="descricao"></textarea>
+                                        {{ form.descricao.errors }}
+                                        <label for="ss_descricao">Descrição</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <small class="small right">ATENÇÃO: O campo é obrigatório</small>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <input id="nome" name="nome" maxlength="45" type="text" class="validate">
-                                    {{ form.nome.errors }}
-                                    <label for="nome">Nome</label>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <input id="sigla" name="sigla" maxlength="2" type="text" class="validate">
-                                    {{ form.sigla.errors }}
-                                    <label for="sigla">Sigla</label>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <textarea type="text" id="ss_descricao" class="materialize-textarea validate" cols="30" rows="5" name="descricao"></textarea>
-                                    {{ form.descricao.errors }}
-                                    <label for="ss_descricao">Descrição</label>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <small class="small right">ATENÇÃO: O campo é obrigatório</small>
+                            <div id="ver" class="col s12">
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th data-field="id">Name</th>
+                                        <th data-field="name">Item Name</th>
+                                        <th data-field="price">Item Price</th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    <tr>
+                                        <td>Alvin</td>
+                                        <td>Eclair</td>
+                                        <td>$0.87</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Alan</td>
+                                        <td>Jellybean</td>
+                                        <td>$3.76</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jonathan</td>
+                                        <td>Lollipop</td>
+                                        <td>$7.00</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
                             </div>
                             <!--Fim do Botão Cadastrar-->
                         </div>
