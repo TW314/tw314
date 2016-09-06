@@ -127,7 +127,7 @@ def suporte_editar_servicos(request, pk):
             return redirect('/suporte/cadastro_servico')
 
     ramos = RamoAtividade.objects.filter(status=1)
-    return render(request, 'home/suporte/suporte_editar_servicos.html', {'servicos': servicos, 'ramos':ramos})
+    return render(request, 'home/suporte/suporte_editar_servicos.html', {'servicos': servicos, 'ramos': ramos})
 
 
 def suporte_listar_servico(request):
@@ -149,16 +149,7 @@ def suporte_listar_servico(request):
     return servico
 
 
-def suporte_editar_servicos(request, pk):
-    # Editar
-    servicos = get_object_or_404(Servico, pk=pk)
-    if request.method == "POST":
-        form = SvcForm(request.POST, instance=servicos)
-        if form.is_valid():
-            servicos = form
-            servicos.save()
-            return redirect('/suporte/cadastro_servico/')
-    return render(request, 'home/suporte/suporte_editar_servicos.html', {'servicos': servicos})
+
 
 
 def suporte_cadastro_status(request):
