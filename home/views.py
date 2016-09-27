@@ -80,6 +80,20 @@ def suporte_cadastro_estabelecimento(request):
                   {'empresas': empresas, 'form': form, 'ramos': ramos})
 
 
+def suporte_editar_estabelecimento(request, pk):
+    # Editar
+    empresas = get_object_or_404(Empresa, pk=pk)
+    if request.method == "POST":
+        form = EmpForm(request.POST, instance=empresas)
+        if form.is_valid():
+            empresas = form
+            empresas.save()
+            return redirect('/suporte/cadastro_estabelecimento')
+
+    ramos = RamoAtividade.objects.filter(status=1)
+    return render(request, 'home/suporte/suporte_editar_estabelecimento.html', {'empresas': empresas, 'ramos': ramos})
+
+
 def suporte_listar_empresas(request):
     # Lista
     list_empresa = Empresa.objects.order_by('nome_fantasia')     # listagem de status ordenado por nome

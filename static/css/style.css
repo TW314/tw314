@@ -74,7 +74,7 @@ select:focus {
     transition: border-bottom .28s ease;
 }
 
-.tabs {background-color: transparent; border-bottom: 1px solid #00a0c2; margin-bottom: 20px;}
+.tabs {background-color: transparent; border-bottom: 1px solid #ee692e; margin-bottom: 20px;}
 .tabs .tab a {color: #564949; transition: color .28s ease; }
 .tabs .tab a:hover {color: #ee4d2e;}
 /** Cores**/
@@ -360,7 +360,15 @@ nav { background-color: #ee692e; }
 }
 
 nav ul a:hover {background: #f74f30;}
-
+nav .brand-logo {
+    position: absolute;
+    color: #fff;
+    display: inline-block;
+    font-size: 1.3rem;
+}
+nav ul a.logo:hover {
+    background: transparent;
+}
 .btn-floating.btn-large {
     width: 3.81em;
     height: 3.81em;
@@ -967,19 +975,17 @@ textarea.materialize-textarea:focus.invalid + label:after {
     color: #F44336;
     opacity: 1;
 }
-.brand-logo{margin-left: 30px;}
+
 .img-logo{width: 12em;}
 /*************************
 **    Responsividade    **
 *************************/
-.mrg_logo{margin-left: 95px;}
 
 @media (max-width: 480px) {
     .flow-text {font-size: 1rem; }
 }
 /** Mobile - celular pequeno **/
 @media (max-width: 600px) {
-    .mrg_logo{margin-left: 10px;}
     nav ul a.btn, nav ul a.btn-large, nav ul a.btn-large, nav ul a.btn-flat, nav ul a.btn-floating {
         margin-left: 2px;
         margin-right: 4px;
@@ -1071,8 +1077,3 @@ textarea.materialize-textarea:focus.invalid + label:after {
     margin-top: 30%; !important;
 
 }
-
-
-
-
-

@@ -29,125 +29,71 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-TileImage" content="{% static "img/favicons/mstile-144x144.png" %}">
     <meta name="theme-color" content="#f16000">
-
     <!-- CSS-->
-
     <link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{% static "css/owl.carousel.css" %}">
     <link rel="stylesheet" href="{% static "css/hover-min.css" %}">
     <link rel="stylesheet" href="{% static "css/backtotop.css" %}">
-    <link rel="stylesheet" href="{% static "intro.js-2.1.0/introjs.css" %}">
     <link rel="stylesheet" href="{% static "font-awesome/css/font-awesome.min.css" %}">
     <link href="{% static "css/materialize.min.css" %}" type="text/css" rel="stylesheet" media="screen,projection">
-    <link rel="stylesheet" href="{% static "css/style.css" %}" type="text/css">
+    <link rel="stylesheet" href="{% static "css/style.css" %}" type="text/css" media="screen,projection">
 </head>
-<body onload="startTime()">
+<body>
 <header class="master">
+    <div class="page-header">
+        <a href="{% url 'home.views.suporte_cadastro_status' %}" class="top-menu"></a>
+    </div>
     <div class="navbar-fixed">
         <nav>
             <div class="nav-wrapper">
                 <ul>
-                    <li><a href="#" class="nav-toggle-btn brand-logo"><i class="fa fa-bars fa-2x menu-padding2" aria-hidden="true"></i></a></li>
                     <li>
-                        <a href="principal" class="white-text valign-wrapper ">
-                            <img src="{% static "img/logo-certa.png" %}" class="responsive-img" alt="logo TW314"> <span class="flow-text_2 valign">TW314 </span>
+                        <a href="principal" class="logo white-text valign-wrapper ">
+                            <img src="{% static "img/logo-certa.png" %}" class="responsive-img" alt="logo TW314"> <span class="flow-text_2 arial_round valign">TW<span class="principal_v2_text">314</span></span>
                         </a>
                     </li>
                 </ul>
-                <span class="flow-text_3 light hide-on-med-and-down brand-logo center">{% block titulo %}{% endblock %}</span>
+                <span class="light hide-on-med-and-down brand-logo center">Bem-vindo à página {% block titulo %}{% endblock %}, Funcionário</span>
                 <ul class="right">
-                    <li class="hide-on-small-only">Bem-vindo, Funcionário </li>
-                    <li><a class="white-text flow-text_3 light" href="../login"><i class="fa fa-sign-out" aria-hidden="true"></i><span class="hide-on-small-and-down"> SAIR </span></a></li>
+                    <li><a class="white-text light" href="../login"><span class="hide-on-small-and-down"> SAIR </span> <i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
                 </ul>
             </div>
         </nav>
     </div>
-    <!-- Inicio do menu lateral -->
-    <aside class="collection with-header menu-border base_bg">
-        <a href="#" class="nav-toggle-btn collection-header menu-header principal_text"><span class="font24">TW314</span> <i class="fa fa-chevron-left font24 menu-padding" aria-hidden="true"></i></a>
-        <!-- Inicio da secao de informacoes -->
-        <div class="row info-side">
-            <div class="col s6">
-                <p class="texto_text light uppercase">Tíquete:</p>
-                <p class="texto_text light uppercase">Serviço:</p>
-                <p class="texto_text light uppercase">Média:</p>
-                <p class="texto_text light uppercase">Prioridade:</p>
-            </div>
-            <div class="col s6 right-align">
-                <p class="texto_text light">TW314</p>
-                <p class="texto_text light">Ticket Web</p>
-                <p class="texto_text light">20 min</p>
-                <p class="texto_text light">Normal</p>
-            </div>
-        </div>
-        <!-- Fim da secao de informacoes -->
-        <!-- Inicio da secao de opcoes do menu -->
-        <ul class="line-side">
-            <li><a href="relatorio" class="collection-item texto_text light waves-effect btn-flat"><i class="fa fa-clipboard" aria-hidden="true"></i> Relatório</a></li>
-            <li><a href="#modal1" class="modal-trigger collection-item texto_text light waves-effect btn-flat"><i class="fa fa-user" aria-hidden="true"></i> Perfil</a></li>
-            <li><a href="javascript:void(0);" onclick="javascript:introJs().setOption('showProgress', true).start();" class="collection-item texto_text light waves-effect btn-flat"><i class="fa fa-info-circle" aria-hidden="true"></i> Introdução Sistema</a></li>
-        </ul>
-        <ul class="side-bottom line-side">
-            <li><a href="sobre" class="collection-item texto_text light waves-effect btn-flat"><i class="fa fa-info-circle" aria-hidden="true"></i> Sobre</a></li>
-            <li><a href="suporte" class="collection-item texto_text light waves-effect btn-flat"><i class="fa fa-envelope" aria-hidden="true"></i> Contatar Suporte</a></li>
-        </ul>
-        <!-- Fim da secao de opcoes do menu -->
-    </aside>
-    <!-- Fim do menu lateral -->
 </header>
 <main class="content base_bg">
     {%  block master %}
 
     {% endblock %}
 </main>
-<!-- Inicio da estrutura do Modal -->
-<div id="modal1" class="modal modal-fixed-footer base_text">
-    <div class="modal-content modal-padding">
+<footer  class="master page-footer wow fadeInUp">
+    <div class="container hide-on-large-only">
         <div class="row">
-            <div class="col s8">
-                <h5 class="light valign-wrapper form-title" ><i class="fa fa-user fa-2x" aria-hidden="true"></i><span> Jaílson Vidal Sampaio <small></small> </span></h5>
-            </div>
-            <div class="col s4"><a href="" class="modal-action modal-close btn-flat base_text right"> Sair <i class="right fa fa-times" aria-hidden="true"></i></a></div>
-        </div>
-        <div class="row">
-            <!-- Dados -->
             <div class="col s12">
-                <div class="row">
-                    <div class="row small-title">
-                        <small class="secundaria1_v_text">Dados</small>
-                    </div>
-                    <div class="col s3">
-                        <span class="font18 white-text">Perfil:</span>
-                    </div>
-                    <div class="col s9">
-                        <span class="font18 white-text">Funcionário</span>
-                    </div>
-                    <div class="col s3">
-                        <span class="font18 white-text">Login:</span>
-                    </div>
-                    <div class="col s9">
-                        <span class="font18 white-text">jailson_uni</span>
-                    </div>
-                </div>
+                <h5 class="white-text">Mapa</h5>
+                <ul class="uppercase texto_text">
+                    <li><a href="principal">Principal</a></li>
+                    <li><a href="cadastro_admin">Administrador</a></li>
+                    <li><a href="cadastro_estabelecimento">Estabelecimento</a></li>
+                    <li><a href="atendimento">Atendimento</a></li>
+                    <li><a href="cadastro_servico">Serviço</a></li>
+                    <li><a href="cadastro_ramos">Ramo</a></li>
+                </ul>
+                <div class="col s12 center-align"><span class="texto_text center">© 2016 TW314 V1.0</span></div>
             </div>
         </div>
     </div>
-    <div class="modal-footer">
-        <!-- Menu de acoes da Modal -->
-        <div class="fixed-action-btn horizontal">
-            <a class="btn-floating btn-short secundaria1_bg">
-                <i class="fa fa-bars" aria-hidden="true"></i>
-            </a>
-            <ul>
-                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-key" aria-hidden="true"></i></a></li>
-                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
-                <li><a class="btn-floating secundaria1_bg"><i class="fa fa-clipboard" aria-hidden="true"></i></a></li>
-            </ul>
-        </div>
+    <div class="footer-copyright hide-on-med-and-down uppercase">
+        <span class="texto_text left">© 2016 TW314 V1.0</span>
+        <a class="texto_text right hvr-underline-from-left" href="cadastro_ramos"><i class="fa fa-puzzle-piece" aria-hidden="true"></i> Ramos</a>
+        <a class="texto_text right hvr-underline-from-left" href="atendimento"><i class="fa fa-phone" aria-hidden="true"></i> Atendimento</a>
+        <a class="texto_text right hvr-underline-from-left" href="cadastro_servico"><i class="fa fa-briefcase" aria-hidden="true"></i> Serviços</a>
+        <a class="texto_text right hvr-underline-from-left" href="cadastro_estabelecimento"><i class="fa fa-building" aria-hidden="true"></i> Estabelecimento</a>
+        <a class="texto_text right hvr-underline-from-left" href="cadastro_admin"><i class="fa fa-user" aria-hidden="true"></i> Administradores</a>
+        <a class="texto_text right hvr-underline-from-left" href="principal"><i class="fa fa-home" aria-hidden="true"></i> Principal</a>
     </div>
-</div>
-<!-- Fim da estrutura do Modal -->
+</footer>
 
 <!--  Scripts-->
 <script src="{% static "js/jquery-2.1.1.min.js" %}"></script>
@@ -166,18 +112,30 @@
 <script src="{% static "js/materialize.min.js" %}"></script>
 <script src="{% static "js/init.js" %}"></script>
 <script type="text/javascript" src="{% static "js/backtotop.js " %}"></script>
-
-
-<!--Relatorio inicio-->
-
-<script src="{% static "highcharts/js/highcharts.js" %}"></script>
-<script src="{% static "highcharts/js/modules/exporting.js" %}"></script>
-<script src="{% static "highcharts/js/modules/data.js" %}"></script>
-<script src="{% static "highcharts/js/modules/drilldown.js" %}"></script>
-
-<!--IntroJs Inicio-->
-<script type="text/javascript" src="{% static "intro.js-2.1.0/intro.js" %}"></script>
-
-
+<script type="application/javascript">
+    $(document).ready(function(){
+        $('ul.tabs').tabs();
+        $('.tooltipped').tooltip({delay: 50});
+        $(".button-collapse").sideNav();
+        $('.scrollspy').scrollSpy();
+        $(".owl-carousel").owlCarousel({
+                    center: true,
+                    loop:true,
+                    margin:10,
+                    autoplay:true,
+                    autoplayTimeout:3000,
+                    autoplayHoverPause:true,
+                    responsive:{
+                        260:{
+                            items: 1
+                        },
+                        600:{
+                            items: 3
+                        }
+                    }
+                }
+        );
+    });
+</script>
 </body>
 </html>
