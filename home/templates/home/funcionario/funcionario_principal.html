@@ -8,6 +8,9 @@
     <div class="row valign-wrapper">
         <div class="col s8 valign-wrapper">
             <div class="col s5 ">
+                <div id="CountDownTimer" data-timer="900" style="width: auto; height: 250px;"></div>
+                <button class="btn btn-success startTimer">Start Timer</button>
+                <button class="btn btn-danger stopTimer">Stop Timer</button>
                 <div class="item html">
                     <h2>TW314 </h2>
                     <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
@@ -97,12 +100,46 @@
         }, 1000);
     </script>
     <script>
-        $(document).ready(function(){
-            $('.tooltipped').tooltip({delay: 40});
-        });
-    </script>
-    <script>
         window.onload = function() {
+            $("#CountDownTimer").TimeCircles({
+                "animation": "smooth",
+                "bg_width": 0.9,
+                "fg_width": 0.02,
+                "circle_bg_color": "#60686F",
+                "time": {
+                    "Days": {"show": false},
+                    "Hours": {"show": false},
+                    "Minutes": {"show": false},
+                    "Seconds": {
+                        "text": "Seconds",
+                        "color": "#FF9999",
+                        "show": true
+                    }
+                }
+            });
+            var updateTime = function(){
+                var date = $("#date").val();
+                var time = $("#time").val();
+                var datetime = date + ' ' + time + ':00';
+                $("#DateCountdown").data('date', datetime).TimeCircles().start();
+            };
+            $("#date").change(updateTime).keyup(updateTime);
+            $("#time").change(updateTime).keyup(updateTime);
+
+            // Start and stop are methods applied on the public TimeCircles instance
+            $(".startTimer").click(function() {
+                $("#CountDownTimer").TimeCircles().start();
+            });
+            $(".stopTimer").click(function() {
+                $("#CountDownTimer").TimeCircles().stop();
+            });
+
+
+
+
+
+
+
             var ticket = 313;
             var fila = 11;
             function t() {

@@ -37,6 +37,7 @@
     <link rel="stylesheet" href="{% static "css/backtotop.css" %}">
     <link rel="stylesheet" href="{% static "font-awesome/css/font-awesome.min.css" %}">
     <link href="{% static "css/materialize.min.css" %}" type="text/css" rel="stylesheet" media="screen,projection">
+
     <link rel="stylesheet" href="{% static "css/style.css" %}" type="text/css" media="screen,projection">
 </head>
 <body>
@@ -97,9 +98,7 @@
 <script src="{% static "js/jquery-2.1.1.min.js" %}"></script>
 <script type="text/javascript">
     (function() {
-        var bodyEl = $('body'),
-                navToggleBtn = bodyEl.find('.nav-toggle-btn');
-
+        var bodyEl = $('body'), navToggleBtn = bodyEl.find('.nav-toggle-btn');
         navToggleBtn.on('click', function(e) {
             bodyEl.toggleClass('active-nav');
             e.preventDefault();
@@ -109,30 +108,13 @@
 <script src="{% static "js/owl.carousel.min.js" %}"></script>
 <script src="{% static "js/materialize.min.js" %}"></script>
 <script src="{% static "js/init.js" %}"></script>
-<script type="text/javascript" src="{% static "js/backtotop.js " %}"></script>
+<script src="{% static "js/TimeCircles.js" %}"></script>
 <script type="application/javascript">
     $(document).ready(function(){
         $('ul.tabs').tabs();
         $('.tooltipped').tooltip({delay: 50});
         $(".button-collapse").sideNav();
         $('.scrollspy').scrollSpy();
-        $(".owl-carousel").owlCarousel({
-                    center: true,
-                    loop:true,
-                    margin:10,
-                    autoplay:true,
-                    autoplayTimeout:3000,
-                    autoplayHoverPause:true,
-                    responsive:{
-                        260:{
-                            items: 1
-                        },
-                        600:{
-                            items: 3
-                        }
-                    }
-                }
-        );
     });
 </script>
 </body>
