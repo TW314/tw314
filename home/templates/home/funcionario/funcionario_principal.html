@@ -2,75 +2,100 @@
 {% load staticfiles %}
 {% block titulo %} Principal {% endblock %}
 {% block master %}
-    <div class="row">
-        <div class="col m6 hide-on-small-and-down">
-            <h6 class="uppercase texto_text flow-text_3">há <span id="fila" class="principal_v_text">10 pessoas </span> na fila de espera</h6>
-        </div>
-        <div data-step="1" data-intro="Esse botão tem a função de começar os atendimentos" class="col s12 m6" style="margin-top: 20px;">
-            <button id="play" onclick="Materialize.toast('Chamando cliente', 2000);" class="tooltipped right secundaria2_text btn-flat" data-position="left" data-delay="50" data-tooltip="Iniciar fila"><i class="fa fa-play-circle-o font80" aria-hidden="true"></i></button>
-            <button id="paus" class="hide tooltipped right secundaria2_text btn-flat" data-position="left" data-delay="50" data-tooltip="Pausar fila"><i class="fa fa-pause-circle-o font80" aria-hidden="true"></i></button>
-        </div>
-    </div>
-    <div id="elipse" hidden class="row">
-        <div class="elipse-center">
-            <div class="hide-on-med-and-down col s1 big elipse1 elipse1-l margin-elipse">
-                <h5 id="e1" class="center">TW312</h5>
-            </div>
-            <div class="hide-on-small-and-down col s2 big2 elipse2 elipse2-l margin-elipse">
-                <h3 id="e2" class="center">TW313</h3>
-            </div>
-            <div id="static" style="display: none;" class=" col s3 big3 elipse3 margin-elipse">
-            </div>
-            <h2 id="e5" class="center ticket">TW314</h2>
-            <div id="loader" class="col s3 margin-elipse">
-                <div class="preloader-wrapper big3 active">
-                    <div class="spinner-layer spinner-blue-only">
-                        <div class="circle-clipper left">
-                            <div class="circle"></div>
-                        </div>
-                        <div class="gap-patch">
-                            <div class="circle"></div>
-                        </div>
-                        <div class="circle-clipper right">
-                            <div class="circle"></div>
+    <!----------------------------------------
+    -- NOVA PAGINA PRINCIPAL DO FUNCIONARIO --
+    ----------------------------------------->
+    <div class="row valign-wrapper">
+        <div class="col s8 valign-wrapper">
+            <div class="col s5 ">
+                <div class="item html">
+                    <h2>TW314 </h2>
+                    <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+                        <g>
+                            <title>Layer 1</title>
+                            <circle id="circle" class="circle_animation" r="69.85699" cy="81" cx="81" stroke-width="8" stroke="#00809c" fill="none"/>
+                        </g>
+                    </svg>
+                </div>
+                <!-- <div id="loader" class="col s3 margin-elipse">
+                    <div class="preloader-wrapper big3 active">
+                        <div class="spinner-layer spinner-blue-only">
+                            <div class="circle-clipper left">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="gap-patch">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="circle-clipper right">
+                                <div class="circle"></div>
+                            </div>
                         </div>
                     </div>
+                    <h2 id="e5" class="center ticket">TW314</h2>
+                </div>   -->
+            </div>
+            <div class="col s7 font20 uppercase">
+                <p class="">Serviço: <span class="secundaria1_text">Vendas</span> </p>
+                <p class="">Prioridade: <span class="secundaria1_text">Normal</span> </p>
+            </div>
+        </div>
+        <div class="col s4 valign">
+            <div class="col s12 center-align">
+                <p class="uppercase font18">Progresso do atendimento</p>
+                <i id="hourglass" class="hide-on-small-and-down fa fa-hourglass-o fa-5x fa-fw secundaria1_text" aria-hidden="true"></i>
+                <span class="sr-only">Loading...</span>
+                <input id="clockface" disabled class="secundaria1_text font18 center clockface" placeholder="00:00:000">
+            </div>
+        </div>
+    </div>
+    <div class="row valign-wrapper">
+        <div class="col s5 font18">
+            <div>
+                <div class="valign-wrapper hide-on-med-and-down col s1 big elipse elipse-l margin-elipse">
+                    <p class="center-block ticket_plus">TW315</p>
+                </div>
+                <div class="valign-wrapper hide-on-med-and-down col s1 big elipse elipse-l margin-elipse">
+                    <p class="center-block ticket_plus">TW316</p>
+                </div>
+                <div class="valign-wrapper hide-on-med-and-down col s1 big elipse elipse-l margin-elipse">
+                    <p class="center-block ticket_plus">TW317</p>
+                </div>
+                <div class="valign-wrapper hide-on-med-and-down col s1 big elipse elipse-l margin-elipse">
+                    <p class="center-block ticket_plus">TW318</p>
+                </div>
+                <div class="valign-wrapper hide-on-med-and-down col s1 big elipse elipse-l margin-elipse">
+                    <p class="center-block ticket_plus">TW319</p>
                 </div>
             </div>
-            <div class="hide-on-small-and-down col s2 elipse2 elipse2-r margin-elipse">
-                <h3 id="e4" class="center">TW315</h3>
-            </div>
-            <div class="hide-on-med-and-down col s1 elipse1 elipse1-r margin-elipse">
-                <h5 id="e3" class="center">TW316</h5>
-            </div>
         </div>
-    </div>
-    <div class="row" id="msg">
-        <div class="col s12 margin-first center-align">
-            <h1 style="color: rgba(162, 162, 162, 0.4);" class="flow-text_4 light center-align">Clique em <i class="fa fa-play-circle-o font80" aria-hidden="true"></i> para iniciar a fila </h1>
-        </div>
-    </div>
-    <div class="row rodape-funcionario">
-        <div class="col s12 m6 l8 center-align">
-            <p class="uppercase font18">Progresso do atendimento</p>
-            <i id="hourglass" class="hide-on-small-and-down fa fa-hourglass-o fa-5x fa-fw secundaria1_text" aria-hidden="true"></i>
-            <span class="sr-only">Loading...</span>
-            <input id="clockface" disabled class="secundaria1_text font18 center clockface" placeholder="00:00:000">
-        </div>
-        <div class="col s12 m6 l4 right">
-            <div class="row ">
-                <button id="start" onclick="Materialize.toast('Atendimento Iniciado', 2000)" disabled class="btn btn-large waves-effect waves-light right col s12 m11 l9 font18" type="button" name="action"><span class="center">Iniciar Atendimento</span> <i class="right fa fa-play" aria-hidden="true"></i> </button>
+        <div class="col s7 valign">
+            <div class="col s4">
+                <button id="start" onclick="Materialize.toast('Atendimento Iniciado', 2000)" disabled class="btn waves-effect waves-light" type="button" name="action"><span class="center">Iniciar Atendimento</span> <i class="right fa fa-play" aria-hidden="true"></i> </button>
             </div>
-            <div class="row">
-                <button id="reset" disabled class="btn btn-large waves-effect waves-light right col s12 m11 l9 font18" onclick="Materialize.toast('Atendimento Finalizado', 1500);Materialize.toast('Chamando cliente', 2000);" type="button" name="action"><span class="center">Finalizar Atendimento</span> <i class="right fa fa-stop" aria-hidden="true"></i> </button>
+            <div class="col s4 valign-wrapper">
+                <button id="reset" disabled class="btn waves-effect waves-light" onclick="Materialize.toast('Atendimento Finalizado', 1500)" type="button" name="action"><span class="center">Fim do Atendimento</span> <i class="right fa fa-stop" aria-hidden="true"></i> </button>
+            </div>
+            <div class="col s4 valign-wrapper">
+                <button id="reset" disabled class="btn waves-effect waves-light" onclick="Materialize.toast('Chamando cliente', 2000);" type="button" name="action">Chamar Próximo <i class="right fa fa-stop" aria-hidden="true"></i> </button>
             </div>
         </div>
     </div>
-    <script type="text/javascript" src="{% static "js/tock.js" %}"></script>
     <!-- Scripts -->
-    <!--
-        SOH MEXER NESSES SCRIPTS COM CERTEZA DO QUE ESTA FAZENDO
-     -->
+    <script type="text/javascript" src="{% static "js/tock.js" %}"></script>
+    <!-- SOH TOQUE NESSES SCRIPTS COM CERTEZA DO QUE ESTA FAZENDO -->
+    <script>
+        var time = 10; //quanto tempo vai contar
+        var initialOffset = '440';
+        var i = 1;
+        var interval = setInterval(function() {
+            $('.circle_animation').css('stroke-dashoffset', initialOffset-(i*(initialOffset/time)));  // tempo de animacao
+            $('#ticket').text(i);
+            if (i == time) {
+                clearInterval(interval);
+            }
+            i++; //contador do numero
+        }, 1000);
+    </script>
     <script>
         $(document).ready(function(){
             $('.tooltipped').tooltip({delay: 40});
