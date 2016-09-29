@@ -232,7 +232,87 @@
     <!-- Fim da estrutura do Modal -->
 
     <!-- Botao que chama cadastro de usuario -->
-        <a class="sucesso_v_bg btn-floating btn-large waves-light btn btn modal-trigger fixed-action-btn tooltipped" data-position="top" data-delay="50" data-tooltip="Novo Usuário" href="cadastro_usuario"><i class="fa fa-plus" aria-hidden="true"></i></a>
+    <a class="sucesso_v_bg btn-floating btn-large waves-light btn btn modal-trigger fixed-action-btn tooltipped" data-position="top" data-delay="50" data-tooltip="Novo Usuário" href="#cadastro_usuario"><i class="fa fa-plus" aria-hidden="true"></i></a>
     <!-- Inicio da Modal de Cadastro de usuario -->
+
+    <div id="cadastro_usuario" class="modal bottom-sheet">
+        <div class="modal-content modal-padding">
+            <div class="row texto_text">
+                <!--Comeco do formulario-->
+                <div class="col s12">
+                    <div data-step="3"
+                         data-intro="Preencha os campos do formulario adequadamente para cadastrar um usuario">
+                    </div>
+                    <div class="col s12 m6 push-m3 margin-form">
+
+                        <h5 class="light valign-wrapper form-title secundaria1_text">Insira os dados para cadastrar um Usuário</h5>
+
+                        <form class="col s12 post-form" method="post">{% csrf_token %}
+                            <h6 class="light valign-wrapper form-title secundaria2_text"><i
+                                    class="fa fa-user small" aria-hidden="true"></i><span> Dados de Acesso </span></h6>
+                            <!-- Campo 'Nome' -->
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="nome" name="nome" type="text" class="validate">
+                                    {{ form.nome.errors }}
+                                    <label for="nome">Nome</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="email" name="email" type="email" class="validate">
+                                    {{ form.email.errors }}
+                                    <label for="email">E-mail</label>
+                                </div>
+                            </div>
+                            <!-- Select 'Perfil' -->
+                            <div class="row" data-step="4" data-intro="Selecione qual perfil esta sendo cadastrado">
+                                <div class="input-field col s12">
+                                    <!-- Inicio da estrutura do Select -->
+                                    <select id="perfil" name="perfil">
+                                        <option value="" disabled selected>Perfil</option>
+                                        {% for perfil in perfis %}
+                                            <option value="{{ perfil.id }}">{{ perfil.nome }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <label for="perfil">Perfil</label>
+                                    <!-- Fim da estrutura do Select -->
+                                </div>
+                            </div>
+                            <div class="row">
+                                <small class="small right">ATENÇÃO: Todos os campos são obrigatórios</small>
+                            </div
+
+                    </div>
+                </div>
+            </div>
+            <div class="row modal-footer-cadastro">
+                <!--Botão Cancelar-->
+                <div class="col push-m6 m5 s12">
+                    <div class="col s12 m6" data-step="6" data-intro="Ou limpe os campos clicando em CANCELAR">
+                        <button class="btn waves-effect waves-light right col s12 alerta_bg modal-close" type="reset"
+                                name="action">Cancelar
+                            <i class="fa fa-times-circle right" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                    <!--Fim do botão cancelar-->
+                    <!--Botão Cadastrar-->
+                    <div class="col s12 m6" data-step="5"
+                         data-intro="Após preencher todo os campos, clique em CADASTRAR para efetivar o cadastro">
+                        <button class="btn waves-effect waves-light right col s12 sucesso_bg" type="submit"
+                                name="action">Cadastrar
+                            <i class="fa fa-check-circle right" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+                <!--Fim do Botão Cadastrar-->
+            </div>
+            </form>
+
+
+            <!--Fim do formulario-->
+
+
+        </div>
 
 {% endblock %}
