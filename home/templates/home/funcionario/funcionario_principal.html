@@ -5,50 +5,43 @@
     <!----------------------------------------
     -- NOVA PAGINA PRINCIPAL DO FUNCIONARIO --
     ----------------------------------------->
+
+    <div class="row valign-wrapper center-align uppercase hide-on-med-and-down">
+        <div class="col s12 m5 valign-wrapper">
+            <div class="col s12 ">
+                <p>Tíquete em Atendiemtno</p>
+            </div>
+        </div>
+        <div class="col s12 m4 valign">
+            <div class="col s12 ">
+                <p class="uppercase font12">Progresso do atendimento</p>
+            </div>
+        </div>
+        <div class="col s12 m3 valign ">
+            <div class="col s12 ">
+                <p class="uppercase font12">Guichê</p>
+            </div>
+        </div>
+    </div>
     <div class="row valign-wrapper">
-        <div class="col s8 valign-wrapper">
+        <div class="col s12 m5 valign-wrapper">
             <div class="col s5 ">
                 <div id="CountDownTimer" data-timer="900" style="width: auto; height: 250px;"></div>
-                <button class="btn btn-success startTimer">Start Timer</button>
-                <button class="btn btn-danger stopTimer">Stop Timer</button>
-                <div class="item html">
-                    <h2>TW314 </h2>
-                    <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-                        <g>
-                            <title>Layer 1</title>
-                            <circle id="circle" class="circle_animation" r="69.85699" cy="81" cx="81" stroke-width="8" stroke="#00809c" fill="none"/>
-                        </g>
-                    </svg>
-                </div>
-                <!-- <div id="loader" class="col s3 margin-elipse">
-                    <div class="preloader-wrapper big3 active">
-                        <div class="spinner-layer spinner-blue-only">
-                            <div class="circle-clipper left">
-                                <div class="circle"></div>
-                            </div>
-                            <div class="gap-patch">
-                                <div class="circle"></div>
-                            </div>
-                            <div class="circle-clipper right">
-                                <div class="circle"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <h2 id="e5" class="center ticket">TW314</h2>
-                </div>   -->
             </div>
             <div class="col s7 font20 uppercase">
                 <p class="">Serviço: <span class="secundaria1_text">Vendas</span> </p>
                 <p class="">Prioridade: <span class="secundaria1_text">Normal</span> </p>
             </div>
         </div>
-        <div class="col s4 valign">
+        <div class="col s12 m4 valign">
             <div class="col s12 center-align">
-                <p class="uppercase font18">Progresso do atendimento</p>
-                <i id="hourglass" class="hide-on-small-and-down fa fa-hourglass-o fa-5x fa-fw secundaria1_text" aria-hidden="true"></i>
+                <i id="hourglass" class="hide-on-small-and-down fa fa-hourglass-o fa-3x fa-fw secundaria1_text" aria-hidden="true"></i>
                 <span class="sr-only">Loading...</span>
                 <input id="clockface" disabled class="secundaria1_text font18 center clockface" placeholder="00:00:000">
             </div>
+        </div>
+        <div class="col s12 m3 valign center">
+            <p class="font80 secundaria1_text">02</p>
         </div>
     </div>
     <div class="row valign-wrapper">
@@ -71,15 +64,15 @@
                 </div>
             </div>
         </div>
-        <div class="col s7 valign">
-            <div class="col s4">
-                <button id="start" onclick="Materialize.toast('Atendimento Iniciado', 2000)" disabled class="btn waves-effect waves-light" type="button" name="action"><span class="center">Iniciar Atendimento</span> <i class="right fa fa-play" aria-hidden="true"></i> </button>
+        <div class="col s7 valign font10">
+            <div class="col s4 btn-funcoes valign-wrapper">
+                <button id="reset" disabled class="btn alerta_bg waves-effect waves-light" onclick="Materialize.toast('Atendimento Finalizado', 1500)" type="button" name="action"><span class="center">Finalizar Atendimento</span> <i class="right fa fa-check" aria-hidden="true"></i> </button>
             </div>
-            <div class="col s4 valign-wrapper">
-                <button id="reset" disabled class="btn waves-effect waves-light" onclick="Materialize.toast('Atendimento Finalizado', 1500)" type="button" name="action"><span class="center">Fim do Atendimento</span> <i class="right fa fa-stop" aria-hidden="true"></i> </button>
+            <div class="col s4 btn-funcoes">
+                <button id="start" onclick="Materialize.toast('Atendimento Iniciado', 2000)" disabled class="btn sucesso_bg waves-effect waves-light stopTimer" type="button" name="action"><span class="center">Iniciar Atendimento</span> <i class="right fa fa-play" aria-hidden="true"></i> </button>
             </div>
-            <div class="col s4 valign-wrapper">
-                <button id="reset" disabled class="btn waves-effect waves-light" onclick="Materialize.toast('Chamando cliente', 2000);" type="button" name="action">Chamar Próximo <i class="right fa fa-stop" aria-hidden="true"></i> </button>
+            <div class="col s4 btn-funcoes">
+                <button id="next" class="startTimer btn waves-effect waves-light" onclick="Materialize.toast('Chamando cliente', 2000);" type="button" name="action">Chamar Próximo <i class="right fa fa-bell" aria-hidden="true"></i> </button>
             </div>
         </div>
     </div>
@@ -87,105 +80,28 @@
     <script type="text/javascript" src="{% static "js/tock.js" %}"></script>
     <!-- SOH TOQUE NESSES SCRIPTS COM CERTEZA DO QUE ESTA FAZENDO -->
     <script>
-        var time = 10; //quanto tempo vai contar
-        var initialOffset = '440';
-        var i = 1;
-        var interval = setInterval(function() {
-            $('.circle_animation').css('stroke-dashoffset', initialOffset-(i*(initialOffset/time)));  // tempo de animacao
-            $('#ticket').text(i);
-            if (i == time) {
-                clearInterval(interval);
-            }
-            i++; //contador do numero
-        }, 1000);
-    </script>
-    <script>
         window.onload = function() {
             $("#CountDownTimer").TimeCircles({
                 "animation": "smooth",
                 "bg_width": 0.9,
                 "fg_width": 0.02,
-                "circle_bg_color": "#60686F",
+                "circle_bg_color": "#a2a2a2",
                 "time": {
                     "Days": {"show": false},
                     "Hours": {"show": false},
                     "Minutes": {"show": false},
                     "Seconds": {
                         "text": "Seconds",
-                        "color": "#FF9999",
+                        "color": "#00a0c2",
                         "show": true
                     }
                 }
-            });
-            var updateTime = function(){
-                var date = $("#date").val();
-                var time = $("#time").val();
-                var datetime = date + ' ' + time + ':00';
-                $("#DateCountdown").data('date', datetime).TimeCircles().start();
-            };
-            $("#date").change(updateTime).keyup(updateTime);
-            $("#time").change(updateTime).keyup(updateTime);
-
-            // Start and stop are methods applied on the public TimeCircles instance
-            $(".startTimer").click(function() {
-                $("#CountDownTimer").TimeCircles().start();
-            });
-            $(".stopTimer").click(function() {
-                $("#CountDownTimer").TimeCircles().stop();
-            });
-
-
-
-
-
-
-
+            }).stop();
             var ticket = 313;
             var fila = 11;
             function t() {
                 Materialize.toast('Chamando cliente novamente', 2000);
             }
-            //iniciar fila
-            $('#play').on('click', function () {
-                //Ocultar elementos
-                $("#msg").hide("fast"); //oculpa mensagem inicial
-                $("#play").hide("fast"); //oculta botão iniciar fila
-                //exibir elemntos
-                $("#paus").show("fast"); //exibe botão pausar fila
-                $("#elipse").show("fast"); //exibe fila em elipse
-                $("#paus").removeClass("hide"); //mostrar botão pause
-                //desativar elementos
-                $("#start").prop( "disabled", false );//ativa botao iniciar atendimento
-                $("#sair").prop( "disabled", true );//todo: desativar botao sair
-
-                //contador para mensagem de notificações ao cliente
-                var i = 1;
-                for (;i<=2; i++){ //conta 2x + a primeira chamada
-                    setTimeout(t, (i*30000)); //conta 30 segundos por chamada
-                    //FIXME: arrumar erro logico de soma
-                }
-                if(i == 3){
-                    ticket++; //passa próximo na fila
-                    fila--;
-                    //Adiciona valores aos elipses
-                    $( "#e1" ).html("TW"+(ticket-2));
-                    $( "#e2" ).html("TW"+(ticket-1));
-                    $( "#e5" ).html("TW"+ticket);
-                    $( "#e4" ).html("TW"+(ticket+1));
-                    $( "#e3" ).html("TW"+(ticket+2));
-                    $( "#fila" ).html((fila-1)+" pessoas");
-                }
-            }); //inicia fila
-
-            $('#paus').on('click', function () {
-                $("#play").show("fast"); //exibe play da fila
-                $("#msg").show("fast"); //exibe mensagem iniciapl
-                $("#elipse").hide("fast");//oculta fila em elipses
-                $("#paus").hide("fast"); //oculta botão de pausar fila
-                $("#start").prop( "disabled", true ); //desativar iniciar fila
-                $("#sair").prop( "disabled", false ); //todo: ativa sair
-            }); //para fila
-
             //cronometro
             var timer = new Tock({
                 callback: function () {
@@ -194,6 +110,7 @@
             });
 
             $('#start').on('click', function () {
+                $("#CountDownTimer").TimeCircles().stop();
                 timer.start($('#clockface').val());
                 $("#hourglass").addClass("fa-spin"); //giro da ampulhete
                 $( "#start" ).prop( "disabled", true ); //desativa botão iniciar atendimento
@@ -203,26 +120,16 @@
                 document.getElementById("static").style.display = "inline-block"; //exibe elipse estatico
             }); //inicia atendimento
 
-            /*$('#lap').on('click', function () {
-             $('#laptimes').append(timer.msToTime(timer.lap()) + '<br>');
-             });
-
-             $('#pause').on('click', function () {
-             timer.pause();
-             });
-
-             $('#stop').on('click', function () {
-             timer.stop();
-             }); */ //outras funcoes do cronometro
 
             $('#reset').on('click', function () {
                 timer.reset();
+
                 $('#clockface').val(''); //zera cronometro
                 //$('#laptimes').html(''); zera voltas
                 $("#hourglass").removeClass("fa-spin"); //para gira da ampulheta
-                $( "#start" ).prop( "disabled", false ); //ativa iniciar atendimento
+                $( "#start" ).prop( "disabled", true ); //ativa iniciar atendimento
                 $( "#reset" ).prop( "disabled", true ); //inativa parar atendimento
-                $( "#paus" ).prop( "disabled", false ); //ativa pausar fila
+                $( "#next" ).prop( "disabled", false ); //ativa pausar fila
                 document.getElementById("static").style.display = "none"; //esconde elipse princiapl estático
                 document.getElementById("loader").style.display = "inline-block"; //mostra elipse principal animado
 
@@ -242,6 +149,38 @@
                 $( "#e3" ).html("TW"+(ticket+2));
                 $( "#fila" ).html((fila-1)+" pessoas");
             }); //finaliza atendimento
-        }
+            $('#next').on('click', function () {
+                $( "#start" ).prop( "disabled", false ); //ativa iniciar atendimento
+                $( "#next" ).prop( "disabled", true ); //inativa chamar proximo
+                $("#CountDownTimer").TimeCircles({
+                    "animation": "smooth",
+                    "bg_width": 0.9,
+                    "fg_width": 0.02,
+                    "circle_bg_color": "#a2a2a2",
+                    "time": {
+                        "Days": {"show": false},
+                        "Hours": {"show": false},
+                        "Minutes": {"show": false},
+                        "Seconds": {
+                            "text": "Seconds",
+                            "color": "#00a0c2",
+                            "show": true
+                        }
+                    }
+                }).restart();
+            });
+        };
+        /*$('#lap').on('click', function () {
+         $('#laptimes').append(timer.msToTime(timer.lap()) + '<br>');
+         });
+
+         $('#pause').on('click', function () {
+         timer.pause();
+         });
+
+         $('#stop').on('click', function () {
+         timer.stop();
+         }); */ //outras funcoes do cronometro
     </script>
+
 {% endblock %}

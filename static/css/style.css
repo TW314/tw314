@@ -12,7 +12,7 @@
     font-weight: normal;
     font-style: normal;
 }
-.arial_round{font-family: arail-round;}
+.arial_round{font-family: 'arail-round';}
 html {
     height: 100%;
 }
@@ -579,12 +579,15 @@ aside.menu-padding {margin: 0 25px;}
 **        Botões        **
 *************************/
 
+.btn-funcoes .btn, .btn-funcoes .btn-large, .btn-funcoes .btn-flat{
+    padding: 0 0.9rem;
+}
 .btn, .btn-large {
     text-decoration: none;
     color: #fff;
     background-color: #039be5;
     text-align: center;
-    letter-spacing: .5px;
+    letter-spacing: 0;
     transition: .2s ease-out;
     cursor: pointer;
 }
