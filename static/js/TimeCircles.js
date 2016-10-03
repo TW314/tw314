@@ -78,12 +78,12 @@
         Days: "Years"
     };
     var secondsIn = {
-        Seconds: 1,
-        Minutes: 60,
-        Hours: 3600,
-        Days: 86400,
-        Months: 2678400,
-        Years: 31536000
+        Seconds: 0.5,
+        Minutes: 30,
+        Hours: 1800,
+        Days: 43200,
+        Months: 1339200,
+        Years: 15768000
     };
 
     /**
@@ -395,21 +395,21 @@
 
             var textElement = $("<div>");
             textElement.addClass('textDiv_' + key);
-            textElement.css("top", Math.round(0.35 * this.data.attributes.item_size));
+            textElement.css("top", Math.round(this.data.attributes.item_size));
             textElement.css("left", Math.round(i++ * this.data.attributes.item_size));
             textElement.css("width", this.data.attributes.item_size);
             textElement.appendTo(this.container);
 
             var headerElement = $("<h4>");
             headerElement.text(this.config.time[key].text); // Options
-            headerElement.css("font-size", Math.round(this.config.text_size * this.data.attributes.item_size));
-            headerElement.css("line-height", Math.round(this.config.text_size * this.data.attributes.item_size) + "px");
+            /*headerElement.css("font-size", Math.ound(this.config.text_size * this.data.attributes.item_size));
+            headerElement.css("line-height", Math.round(this.config.text_size * this.data.attributes.item_size) + "px");  */
             headerElement.appendTo(textElement);
 
             var numberElement = $("<span>");
-            numberElement.css("font-size", Math.round(3 * this.config.text_size * this.data.attributes.item_size));
+            /*numberElement.css("font-size", Math.round(3 * this.config.text_size * this.data.attributes.item_size));
             numberElement.css("line-height", Math.round(this.config.text_size * this.data.attributes.item_size) + "px");
-            numberElement.appendTo(textElement);
+            numberElement.appendTo(textElement);//*/
 
             this.data.text_elements[key] = numberElement;
         }
