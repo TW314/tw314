@@ -1,11 +1,11 @@
 from pip._vendor import requests
 
 
-def user_admin(id):
-    params = {'id': id}
-    r = requests.get('http://localhost:3000/consultaUsuariosPorPerfil/2', params=params)
+def user_admin():
+    r = requests.get('http://localhost:3000/consultaUsuariosPorPerfil/2')
     admins = r.json()
-    lista = {'admins': admins}
+    lista = {'admins': admins['usuarios']}
+    return lista
 
 
 def get_books(year, author):
