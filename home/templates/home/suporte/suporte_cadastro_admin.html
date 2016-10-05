@@ -20,76 +20,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <!--
-                            <tr class="table-disabled">
-                                <td><p>Mylena Maria Silva dos Santos</p></td>
-                                <td>mylena_admin</td>
-                                <td class="center">
-                                    <!-- Botao que chama Modal --
-                                    <a class=" btn-floating btn-short waves-light btn btn modal-trigger"
-                                       href="#admin-inativo"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                                </td>
-                            </tr>
 
-                            <tr>
-                                <td><p>Teste</p></td>
-                                <td>teste@static.com</td>
-                                <td class="center">
-                                     Botao que chama Modal
-                                    <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#admin"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                                </td>
-                            </tr> -->
-
-                            <!-- Inicio da estrutura do Modal -->
-                            <div id="admin" class="modal modal-fixed-footer base_text">
-                                <div class="modal-content modal-padding">
-                                    <div class="row">
-                                        <div class="col s8">
-                                            <h5 class="light valign-wrapper form-title"><i class="fa fa-user fa-2x" aria-hidden="true"></i><span> {{ usuario.nome }} <small></small> </span>
-                                            </h5>
-                                        </div>
-                                        <div class="col s4"><a href="" class="modal-action modal-close btn-flat base_text right"> <i class="right fa fa-times" aria-hidden="true"></i></a></div>
-                                    </div>
-                                    <div class="row">
-                                        <!-- Dados -->
-                                        <div class="col s12">
-                                            <div class="row">
-                                                <div class="row small-title">
-                                                    <small class="secundaria1_v_text">Dados</small>
-                                                </div>
-                                                <div class="col s3">
-                                                    <span class="font18 texto_text">Estabelecimento:</span>
-                                                </div>
-                                                <div class="col s9">
-                                                    <span class="font18 texto_text">{{ usuario.empresa.razao_social }}</span>
-                                                </div>
-                                                <div class="col s3">
-                                                    <span class="font18 texto_text">Email:</span>
-                                                </div>
-                                                <div class="col s9">
-                                                    <span class="font18 texto_text">{{ usuario.email }}</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <!-- Menu de acoes da Modal -->
-                                    <div class="col s12">
-                                            <div class="right-align">
-                                            <a class="btn-floating secundaria1_bg alerta_bg"><i class="fa fa-ban"
-                                                                                              aria-hidden="true"></i></a>
-
-                                                <a class="btn-floating secundaria2_bg "><i class="fa fa-key"
-                                                                                              aria-hidden="true"></i></a>
-
-                                                <a class="btn-floating editar_bg"><i class="fa fa-pencil"
-                                                                                              aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                </div>
-                            </div>
-                            <!-- Fim da estrutura do Modal -->
                             {% for usuario in admins.usuarios %}
                                 <tr>
                                     <td><p>{{ usuario.nome }}</p></td>
@@ -99,13 +30,12 @@
                                         <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#admin"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                     </td>
                                 </tr>
-
                                 <!-- Inicio da estrutura do Modal -->
                                 <div id="admin" class="modal modal-fixed-footer base_text">
                                     <div class="modal-content modal-padding">
                                         <div class="row">
                                             <div class="col s8">
-                                                <h5 class="light valign-wrapper  texto_text"><i class="fa fa-user fa-2x" aria-hidden="true"></i><span> {{ usuario.nome }} <small></small> </span>
+                                                <h5 class="light valign-wrapper texto_text form-title"><i class="fa fa-user fa-2x" aria-hidden="true"></i><span> {{ usuario.nome }} <small></small> </span>
                                                 </h5>
                                             </div>
                                             <div class="col s4"><a href="" class="modal-action modal-close btn-flat base_text right"> <i class="right fa fa-times" aria-hidden="true"></i></a></div>
@@ -115,13 +45,13 @@
                                             <div class="col s12">
                                                 <div class="row">
                                                     <div class="row small-title">
-                                                        <small class="secundaria2_v_text">Dados</small>
+                                                        <small class="secundaria1_v_text">Dados</small>
                                                     </div>
                                                     <div class="col s3">
                                                         <span class="font18 texto_text">Estabelecimento:</span>
                                                     </div>
                                                     <div class="col s9">
-                                                        <span class="font18 texto_text ">{{ usuario.empresa.razao_social }}</span>
+                                                        <span class="font18 texto_text">{{ usuario.empresa.razao_social }}</span>
                                                     </div>
                                                     <div class="col s3">
                                                         <span class="font18 texto_text">Email:</span>
@@ -137,14 +67,11 @@
                                         <!-- Menu de acoes da Modal -->
                                         <div class="col s12">
                                             <div class="right-align">
-                                            <a class="btn-floating secundaria1_bg"><i class="fa fa-ban"
-                                                                                              aria-hidden="true"></i></a>
+                                                <a class="btn-floating secundaria1_bg alerta_bg"><i class="fa fa-ban" aria-hidden="true"></i></a>
 
-                                                <a class="btn-floating secundaria1_bg"><i class="fa fa-key"
-                                                                                              aria-hidden="true"></i></a>
+                                                <a class="btn-floating secundaria2_bg "><i class="fa fa-key" aria-hidden="true"></i></a>
 
-                                                <a class="btn-floating secundaria1_bg"><i class="fa fa-pencil"
-                                                                                              aria-hidden="true"></i></a>
+                                                <a class="btn-floating editar_bg"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -213,17 +140,17 @@
         <div class="modal-footer">
             <!-- Menu de acoes da Modal -->
             <div class="col s12">
-                                            <div class="right-align">
-                                            <a class="btn-floating secundaria1_bg"><i class="fa fa-ban"
-                                                                                              aria-hidden="true"></i></a>
+                <div class="right-align">
+                    <a class="btn-floating secundaria1_bg"><i class="fa fa-ban"
+                                                              aria-hidden="true"></i></a>
 
-                                                <a class="btn-floating secundaria1_bg"><i class="fa fa-key"
-                                                                                              aria-hidden="true"></i></a>
+                    <a class="btn-floating secundaria1_bg"><i class="fa fa-key"
+                                                              aria-hidden="true"></i></a>
 
-                                                <a class="btn-floating secundaria1_bg"><i class="fa fa-pencil"
-                                                                                              aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
+                    <a class="btn-floating secundaria1_bg"><i class="fa fa-pencil"
+                                                              aria-hidden="true"></i></a>
+                </div>
+            </div>
         </div>
     </div>
     <!-- Fim da estrutura do Modal -->

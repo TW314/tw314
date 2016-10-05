@@ -63,17 +63,14 @@
             <div class="nav-wrapper">
                 <ul>
                     <li>
-                        <a href="principal" class="white-text valign-wrapper" data-step="1"
-                           data-intro="Clique no Logo para voltar à página principal">
-                            <img src="{% static "img/logo-certa.png" %}" class="responsive-img" alt="logo TW314"> <span
-                                class="flow-text_2 valign">TW314 </span>
+                        <a href="principal" class="logo white-text valign-wrapper ">
+                            <img src="{% static "img/logo-certa.png" %}" class="responsive-img" alt="logo TW314"> <span class="flow-text_2 arial_round valign">TW<span class="principal_v2_text">314</span></span>
                         </a>
                     </li>
                 </ul>
-                <span class="flow-text_3 light hide-on-med-and-down brand-logo center">{% block titulo %}{% endblock %}</span>
+                <span class="light hide-on-med-and-down brand-logo center">Bem-vindo à página {% block titulo %}{% endblock %}, Administrator</span>
                 <ul class="right">
-                    <li class="hide-on-small-only">Bem-vindo, Administrador</li>
-                    <li><a class="white-text light" href="../login"><span class="hide-on-small-and-down"> SAIR </span><i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+                    <li><a class="white-text light" href="../login"><span class="hide-on-small-and-down"> SAIR </span> <i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
                 </ul>
             </div>
         </nav>
@@ -84,42 +81,32 @@
 
     {% endblock %}
 </main>
-<footer class="master master-footer page-footer fixed-footer2">
-    <div class="row show-on-medium-and-down hide-on-large-only">
-        <div class="col s6">
-            <span class="logo-footer"><img src="{% static "img/logo-certa.png" %}" class="responsive-img"
-                                           alt="logo TW314"></span>
-        </div>
-        <div class="col s6 right-align">
-            <ul>
-                <li><a class="text-lighten-4 base_text" href="sobre">Sobre</a></li>
-                <li><a id="startButton" class="text-lighten-4 base_text" href="javascript:void(0);"
-                       onclick="startTour();">Como funciona?</a></li>
-                <li><a class="text-lighten-4 base_text" href="suporte">Suporte</a></li>
-                <li><a class="text-lighten-4 base_text" href="cadastro_servico">Serviços</a></li>
-                <li><a class="text-lighten-4 base_text" href="cadastrar_usuario">Usuários</a></li>
-                <li><a class="text-lighten-4 base_text" href="relatorio">Relatórios</a></li>
-                <!-- <li><a class="text-lighten-4 base_text" href="principal">Principal</a></li> -->
-            </ul>
+<footer  class="master page-footer wow fadeInUp">
+    <div class="container hide-on-large-only">
+        <div class="row">
+            <div class="col s12">
+                <h5 class="white-text">Mapa</h5>
+                <ul class="uppercase texto_text">
+                    <li><a href="principal">Principal</a></li>
+                    <li><a href="javascript:void(0);" onclick="startTour();">Como funciona?</a></li>
+                    <li><a href="cadastro_estabelecimento">Estabelecimento</a></li>
+                    <li><a href="suporte">Suporte</a></li>
+                    <li><a href="cadastro_servico">Serviço</a></li>
+                    <li><a href="relatorio">Relatórios</a></li>
+                    <li><a href="cadastrar_usuario">Usuários</a></li>
+                </ul>
+                <div class="col s12 center-align"><span class="texto_text center">© 2016 TW314 V1.0</span></div>
+            </div>
         </div>
     </div>
-    <div class="footer-copyright" data-step="2" data-intro="Navegue entre os modulos rapidamente pelo rodapé">
-        <div class="col s12 m4 center hide-on-large-only">
-            © 2016 Ticket Web 314 V1.0 <span class="hide-on-med-and-down">- Todos os direitos reservados.</span>
-        </div>
-        <div class="col s12 m4 left show-on-large">
-            © 2016 Ticket Web 314 V1.0 <span class="hide-on-med-and-down">- Todos os direitos reservados.</span>
-        </div>
-        <span class="logo-footer hide-on-med-and-down"><img src="{% static "img/logo-certa.png" %}"
-                                                            class="responsive-img" alt="logo TW314"></span>
-        <a class="text-lighten-4 right hide-on-med-and-down" href="sobre">Sobre</a>
-        <a id="startButton" class="text-lighten-4 right hide-on-med-and-down" href="javascript:void(0);"
-           onclick="startTour();">Como funciona?</a>
-        <a class="text-lighten-4 right hide-on-med-and-down" href="suporte">Suporte</a>
-        <a class="text-lighten-4 right hide-on-med-and-down" href="relatorio">Relatórios</a>
-        <a class="text-lighten-4 right hide-on-med-and-down" href="cadastrar_usuario">Usuários</a>
-        <a class="text-lighten-4 right hide-on-med-and-down" href="cadastro_servico">Serviços</a>
-        <!-- <a class="text-lighten-4 right hide-on-med-and-down" href="principal">Principal</a> -->
+    <div class="footer-copyright hide-on-med-and-down uppercase">
+        <span class="texto_text left">© 2016 TW314 V1.0</span>
+        <a class="texto_text right hvr-underline-from-left" href="cadastrar_usuario"><i class="fa fa-puzzle-piece" aria-hidden="true"></i> Usuários</a>
+        <a class="texto_text right hvr-underline-from-left" href="relatorio"><i class="fa fa-phone" aria-hidden="true"></i> Relatórios</a>
+        <a class="texto_text right hvr-underline-from-left" href="cadastro_servico"><i class="fa fa-briefcase" aria-hidden="true"></i> Serviços</a>
+        <a class="texto_text right hvr-underline-from-left" href="cadastro_estabelecimento"><i class="fa fa-building" aria-hidden="true"></i> Suporte</a>
+        <a class="texto_text right hvr-underline-from-left" href="javascript:void(0);" onclick="startTour();"><i class="fa fa-user" aria-hidden="true"></i> Como funciona?</a>
+        <a class="texto_text right hvr-underline-from-left" href="principal"><i class="fa fa-home" aria-hidden="true"></i> Principal</a>
     </div>
 </footer>
 
