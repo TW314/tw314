@@ -1,7 +1,7 @@
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, redirect, get_object_or_404, render_to_response
 from django.template.context import RequestContext
-from slumber import *
+
 
 from pip._vendor import requests
 from .forms import *
