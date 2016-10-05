@@ -3,9 +3,9 @@ from django.shortcuts import render, redirect, get_object_or_404, render_to_resp
 from django.template.context import RequestContext
 from slumber import *
 
+from pip._vendor import requests
 from .forms import *
 from .models import *
-from .services import *
 
 API = API('http://localhost:3000/consultaUsuariosPorPerfil/1')
 
