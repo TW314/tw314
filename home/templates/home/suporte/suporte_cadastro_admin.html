@@ -32,7 +32,7 @@
                             </tr>
                             -->
 
-                            {% for usuario in usuarios %}
+                            {% for usuario in admins.usuarios %}
                                 <tr>
                                     <td><p>{{ usuario.nome }}</p></td>
                                     <td>{{ usuario.email }}</td>
@@ -63,7 +63,7 @@
                                                         <span class="font18 white-text">Estabelecimento:</span>
                                                     </div>
                                                     <div class="col s9">
-                                                        <span class="font18 white-text">{{ usuario.empresa }}</span>
+                                                        <span class="font18 ">{{ usuario.empresa.razao_social }}</span>
                                                     </div>
                                                     <div class="col s3">
                                                         <span class="font18 white-text">Email:</span>
