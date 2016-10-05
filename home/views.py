@@ -274,7 +274,7 @@ def suporte_cadastro_usuario(request):
     # usuarios = suporte_listar_usuario(request)
 
     estabelecimentos = Empresa.objects.filter(status=1)
-    r = requests.get('http://localhost:3000/consultaUsuariosPorPerfil/2')
+    r = requests.get('http://localhost:3000/consultaInformacoesUsuariosPorPerfil/2')
     admins = r.json()
     return render(request, 'home/suporte/suporte_cadastro_admin.html', {'form': form, 'estabelecimentos': estabelecimentos, 'admins': admins})
 
