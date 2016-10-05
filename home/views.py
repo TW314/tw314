@@ -1,10 +1,18 @@
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-from django.shortcuts import render, redirect, get_object_or_404
-
+from django.shortcuts import render, redirect, get_object_or_404, render_to_response
+from django.template.context import RequestContext
+from slumber import *
 
 from .forms import *
 from .models import *
+from .services import *
 
+API = API('http://localhost:3000/consultaUsuariosPorPerfil/1')
+
+
+def listar(request):
+    lista = API.pessoas.get()
+    return render_to_response('listar.html', {'pessoas':lista}, context_instance=RequestContext(request))
 
 # Index
 def index(request):
@@ -269,15 +277,15 @@ def suporte_cadastro_usuario(request):
     else:
         form = UsuFormSuporte()
 
-    usuarios = suporte_listar_usuario(request)
+    # usuarios = suporte_listar_usuario(request)
 
     estabelecimentos = Empresa.objects.filter(status=1)
-
-    return render(request, 'home/suporte/suporte_cadastro_admin.html',
-                  {'usuarios': usuarios, 'form': form, 'estabelecimentos': estabelecimentos})
+    usuarios = user_admin(2)
+    return render(request, 'home/suporte/suporte_cadastro_admin.html', {'usuarios': usuarios, 'form': form, 'estabelecimentos': estabelecimentos })
 
 
 def suporte_listar_usuario(request):
+    """
     # Lista
     list_usuario = Usuario.objects.order_by('nome').exclude(perfil=1)  # listagem de ramo ordenado por nome
     paginator = Paginator(list_usuario, 5)  # 5 dados por pagina
@@ -292,9 +300,17 @@ def suporte_listar_usuario(request):
     except EmptyPage:
         # Se ficarem muitas paginas
         usuario = paginator.page(paginator.num_pages)
+    """
+    """
+    api = API('http://localhost:3000/consultaUsuariosPorPerfil/2')
+    # lista = API.pessoas.get()
+    list_admin = api.get('consultaUsuariosPorPerfil', 'id')
 
-    return usuario
+    return render_to_response('home/suporte/suporte_cadastro_admin.html', {'list_admin': list_admin}, context_instance=RequestContext(request))
 
+    lista = user_admin(2)
+    return render(request, 'home/suporte/suporte_cadastro_admin.html', lista)
+    """
 
 # Atendimento
 def suporte_atendimento(request):

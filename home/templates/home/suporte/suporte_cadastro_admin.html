@@ -31,15 +31,14 @@
                                 </td>
                             </tr>
                             -->
-                            {% for usuario in usuarios %}
+
+                            {% for usuario in lista %}
                                 <tr>
                                     <td><p>{{ usuario.nome }}</p></td>
                                     <td>{{ usuario.email }}</td>
                                     <td class="center">
                                         <!-- Botao que chama Modal -->
-                                        <a class=" btn-floating btn-short waves-light btn btn modal-trigger"
-                                           href="#admin"><i
-                                                class="fa fa-eye" aria-hidden="true"></i></a>
+                                        <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#admin"><i class="fa fa-eye" aria-hidden="true"></i></a>
                                     </td>
                                 </tr>
 
@@ -48,14 +47,10 @@
                                     <div class="modal-content modal-padding">
                                         <div class="row">
                                             <div class="col s8">
-                                                <h5 class="light valign-wrapper form-title"><i class="fa fa-user fa-2x"
-                                                                                               aria-hidden="true"></i><span> {{ usuario.nome }} <small></small> </span>
+                                                <h5 class="light valign-wrapper form-title"><i class="fa fa-user fa-2x" aria-hidden="true"></i><span> {{ usuario.nome }} <small></small> </span>
                                                 </h5>
                                             </div>
-                                            <div class="col s4"><a href=""
-                                                                   class="modal-action modal-close btn-flat base_text right">
-                                                <i
-                                                        class="right fa fa-times" aria-hidden="true"></i></a></div>
+                                            <div class="col s4"><a href="" class="modal-action modal-close btn-flat base_text right"> <i class="right fa fa-times" aria-hidden="true"></i></a></div>
                                         </div>
                                         <div class="row">
                                             <!-- Dados -->
@@ -222,32 +217,32 @@
                                     <small class="small right">ATENÇÃO: Todos os campos são obrigatórios</small>
                                 </div>
 
-                            </div>
+                        </div>
 
+                    </div>
+                </div>
+
+                <!-- Footer da Modal -->
+                <div class="row modal-footer-cadastro">
+                    <div class="col push-m6 m5 s12">
+                        <!--Botao Cancelar-->
+                        <div class="col s12 m6">
+                            <button class="btn waves-effect waves-light  col s12 alerta_bg modal-close " type="reset"
+                                    name="action">Cancelar
+                                <i class="fa fa-times-circle right" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                        <!--Fim do botão cancelar-->
+                        <!--Botão Cadastrar-->
+                        <div class="col s12 m6">
+                            <button class="btn waves-effect waves-light right col s12 sucesso_bg" type="submit"
+                                    name="action">Cadastrar
+                                <i class="fa fa-check-circle right" aria-hidden="true"></i>
+                            </button>
                         </div>
                     </div>
-
-                    <!-- Footer da Modal -->
-                        <div class="row modal-footer-cadastro">
-                            <div class="col push-m6 m5 s12">
-                                <!--Botao Cancelar-->
-                                <div class="col s12 m6">
-                                    <button class="btn waves-effect waves-light  col s12 alerta_bg modal-close " type="reset"
-                                            name="action">Cancelar
-                                        <i class="fa fa-times-circle right" aria-hidden="true"></i>
-                                    </button>
-                                </div>
-                                <!--Fim do botão cancelar-->
-                                <!--Botão Cadastrar-->
-                                <div class="col s12 m6">
-                                    <button class="btn waves-effect waves-light right col s12 sucesso_bg" type="submit"
-                                            name="action">Cadastrar
-                                        <i class="fa fa-check-circle right" aria-hidden="true"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-        </div>
+                </div>
+            </div>
         </form>
     </div>
 
