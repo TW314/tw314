@@ -7,12 +7,6 @@ from pip._vendor import requests
 from .forms import *
 from .models import *
 
-API = API('http://localhost:3000/consultaUsuariosPorPerfil/1')
-
-
-def listar(request):
-    lista = API.pessoas.get()
-    return render_to_response('listar.html', {'pessoas':lista}, context_instance=RequestContext(request))
 
 # Index
 def index(request):
