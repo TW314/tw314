@@ -6,9 +6,9 @@
     -- NOVA PAGINA PRINCIPAL DO FUNCIONARIO --
     ----------------------------------------->
 
-    <div class="row valign-wrapper center-align uppercase hide-on-med-and-down">
+    <div class="row valign-wrapper uppercase hide-on-med-and-down">
         <div class="col s12 m1">
-            <p class="uppercase font12 right">Guichê: </p>
+            <p class="font12 right">Guichê: </p>
         </div>
         <div class="col s12 m11 ">
             <div class="col s12 ">
@@ -35,21 +35,21 @@
     </div>
     <div style="margin-top: 5%" class="row valign-wrapper">
         <div class="col s12 m5 font18">
-            <div>
+            <div id="fila">
                 <div class="valign-wrapper hide-on-med-and-down col s1 big elipse elipse-l margin-elipse">
-                    <p class="center-block ticket_plus">TW315</p>
+                    <p class="center-block ticket_plus1">TW314</p>
                 </div>
                 <div class="valign-wrapper hide-on-med-and-down col s1 big elipse elipse-l margin-elipse">
-                    <p class="center-block ticket_plus">TW316</p>
+                    <p class="center-block ticket_plus2">TW315</p>
                 </div>
                 <div class="valign-wrapper hide-on-med-and-down col s1 big elipse elipse-l margin-elipse">
-                    <p class="center-block ticket_plus">TW317</p>
+                    <p class="center-block ticket_plus3">TW316</p>
                 </div>
                 <div class="valign-wrapper hide-on-med-and-down col s1 big elipse elipse-l margin-elipse">
-                    <p class="center-block ticket_plus">TW318</p>
+                    <p class="center-block ticket_plus4">TW317</p>
                 </div>
                 <div class="valign-wrapper hide-on-med-and-down col s1 big elipse elipse-l margin-elipse">
-                    <p class="center-block ticket_plus">TW319</p>
+                    <p class="center-block ticket_plus5">TW318</p>
                 </div>
             </div>
         </div>
@@ -81,14 +81,18 @@
                     "Hours": {"show": false},
                     "Minutes": {"show": false},
                     "Seconds": {
-                        "text": "",
+                        "text": "INICIAR",
                         "color": "#00a0c2",
                         "show": true
                     }
                 }
             }).stop();
-            var ticket = 313;
-            var fila = 11;
+            var ticket = 314;
+            var ticket1 = 315;
+            var ticket2 = 316;
+            var ticket3 = 317;
+            var ticket4 = 318;
+            var ticket5 = 319;
             function t() {
                 Materialize.toast('Chamando cliente novamente', 2000);
             }
@@ -109,8 +113,6 @@
                 document.getElementById("loader").style.display = "none"; //oculta elipse animado
                 document.getElementById("static").style.display = "inline-block"; //exibe elipse estatico
             }); //inicia atendimento
-
-
             $('#reset').on('click', function () {
                 timer.reset();
 
@@ -140,6 +142,12 @@
                 $( "#fila" ).html((fila-1)+" pessoas");
             }); //finaliza atendimento
             $('#next').on('click', function () {
+                $('.textDiv_Seconds h4').html("TW"+(ticket++));
+                $('.ticket_plus1').html("TW"+(ticket1++));
+                $('.ticket_plus2').html("TW"+(ticket2++));
+                $('.ticket_plus3').html("TW"+(ticket3++));
+                $('.ticket_plus4').html("TW"+(ticket4++));
+                $('.ticket_plus5').html("TW"+(ticket5++));
                 $( "#start" ).prop( "disabled", false ); //ativa iniciar atendimento
                 $( "#next" ).prop( "disabled", true ); //inativa chamar proximo
                 $("#CountDownTimer").TimeCircles({

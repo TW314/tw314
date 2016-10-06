@@ -1,6 +1,9 @@
 /*************
 ** Genérico **
 *************/
+.textDiv_Seconds h4{
+    margin: -150px 70px !important;
+}
 @font-face {
     font-family: 'arail-round';
     src: url('arlrdbd.eot');
