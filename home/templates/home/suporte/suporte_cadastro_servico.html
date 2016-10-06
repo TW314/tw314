@@ -24,7 +24,7 @@
                         {% for servico in servicos %}
                             <tr>
                                 <td><p>{{ servico.nome }}</p></td>
-                                <td><h6 class="truncate">{{ servico.descricao }}</h6></td>
+                                <td><h6 class="truncate">{{ servico.descricao|truncatewords:10 }}</h6></td>
                                 <td><p>{{ servico.sigla }}</p></td>
                                 <td class="center">
                                     <!-- Botao que chama Modal -->
@@ -39,7 +39,7 @@
                                         <div class="col s12 texto_text">
                                             <div class="col s10">
                                                 <h5><i class="fa fa-puzzle-piece"></i>  Serviço:
-                                                    {{ servico.nome }}</h5>
+                                                    {{ servico.nome }} <small class="sucesso_bg base_text" style="padding: 1px 5px; border-radius: 15px">{{ servico.status_ativacao }}</small></h5>
                                             </div>
                                             <div class="col s2">
                                                 <a href="" class="modal-action modal-close btn-flat right"><i class="right fa fa-times" aria-hidden="true"></i></a>
@@ -50,17 +50,17 @@
                                         <!-- Dados -->
                                         <div class="col s12">
                                             <div class="row">
-                                                <div class="row small-title">
+                                                <div class="row small-title secundaria1_text">
                                                     <small>Ramo</small>
                                                 </div>
                                                 <div class="col s12">
-                                                    <span class="font18">{{ servico.ramo_atividade }}</span>
+                                                    <span class="font18">{{ servico.ramo_atividade.nome }}</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col s12">
                                             <div class="row">
-                                                <div class="row secundaria2_text">
+                                                <div class="row small-title secundaria1_text">
                                                     <small>Descrição</small>
                                                 </div>
                                                 <div class="col s12">
@@ -70,7 +70,7 @@
                                         </div>
                                         <div class="col s12">
                                             <div class="row">
-                                                <div class="row secundaria2_text">
+                                                <div class="row small-title secundaria1_text">
                                                     <small>Sigla</small>
                                                 </div>
                                                 <div class="col s12">

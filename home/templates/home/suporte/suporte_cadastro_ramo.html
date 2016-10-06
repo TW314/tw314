@@ -21,6 +21,7 @@
                             <tr>
                                 <th data-field="nome">Ramo</th>
                                 <th class="center" data-field="login">Nº de Serviços</th>
+                                <th class="center" data-field="login">Nº de Empresas</th>
                                 <th class="center" data-field="acoes">Visualizar</th>
                             </tr>
                             </thead>
@@ -28,7 +29,8 @@
                             {% for ramo in ramos %}
                                 <tr>
                                     <td><p>{{ ramo.nome }}</p></td>
-                                    <td class="center"> 10</td>
+                                    <td class="center">{{ ramo.numeroServicos }}</td>
+                                    <td class="center">{{ ramo.numeroEmpresas }}</td>
                                     <td class="center">
                                         <!-- Botao que chama Modal -->
                                         <a class=" btn-floating btn-short waves-light btn btn modal-trigger"
@@ -41,7 +43,7 @@
                                         <div class="row">
                                             <div class="col s12 texto_text">
                                                 <div class="col s10">
-                                                    <h5><i class="fa fa-puzzle-piece"></i>  Ramo de Atividade "{{ ramo.nome }}"</h5>
+                                                    <h5><i class="fa fa-puzzle-piece"></i>  Ramo de Atividade "{{ ramo.nome }}" <small class="sucesso_bg base_text" style="padding: 1px 5px; border-radius: 15px">{{ ramo.status_ativacao }}</small> </h5>
                                                 </div>
                                                 <div class="col s2">
                                                     <a href="" class="modal-action modal-close btn-flat right"><i class="right fa fa-times" aria-hidden="true"></i></a>
@@ -55,17 +57,19 @@
                                                     <div class="row small-title">
                                                         <small class="secundaria1_v_text">Dados</small>
                                                     </div>
-                                                    <div class="col s4">
-                                                        <span class="font18 texto_text">Número de serviços:</span>
+                                                    <div class="col s12">
+                                                        <span class="font18 texto_text">Número de serviços: {{ ramo.numeroServicos }}</span>
                                                     </div>
-                                                    <div class="col s8">
-                                                        <span class="font18 texto_text"> 6 </span>
+                                                    <div class="col s12">
+                                                        <span class="font18 texto_text">Número de empresas: {{ ramo.numeroEmpresas }}</span>
                                                     </div>
-                                                    <div class="col s4">
-                                                        <span class="font18 texto_text">Número de empresas:</span>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="row small-title">
+                                                        <small class="secundaria1_v_text">Descrição</small>
                                                     </div>
-                                                    <div class="col s8">
-                                                        <span class="font18 texto_text"> 3</span>
+                                                    <div class="col s12 m9">
+                                                        <span class="font18 texto_text">{{ ramo.descricao }}</span>
                                                     </div>
                                                 </div>
                                             </div>

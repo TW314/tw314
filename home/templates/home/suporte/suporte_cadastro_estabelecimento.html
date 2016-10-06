@@ -16,8 +16,10 @@
                         <thead>
                         <tr>
                             <th data-field="nome">Nome Fantasia</th>
-                            <th data-field="cnpj">CNPJ</th>
+                            <th data-field="nome">Razão Social</th>
                             <th data-field="rua">Responsável</th>
+                            <th data-field="rua">Telefone</th>
+                            <th data-field="rua">E-mail</th>
                             <th data-field="acoes">Vizualizar</th>
                         </tr>
                         </thead>
@@ -26,8 +28,10 @@
                             <a class="modal-trigger" href="#estabelecimento{{ empresa.id }}">
                                 <tr>
                                     <td>{{ empresa.nome_fantasia }}</td>
-                                    <td>{{ empresa.nr_cnpj }}</td>
+                                    <td>{{ empresa.razao_social }}</td>
                                     <td>{{ empresa.nome_responsavel }}</td>
+                                    <td>{{ empresa.telefone }}</td>
+                                    <td>{{ empresa.email }}</td>
                                     <td class="center">
                                         <!-- Botao que chama Modal -->
                                         <a class=" btn-floating btn-short wave-light btn btn modal-trigger"
@@ -54,10 +58,10 @@
                                                 <small class="principal_v2_text">Empresa</small>
                                             </div>
                                             <div class="col s12 m6">
-                                                <p class="font18 principal_v2_text">CNPJ:  <span class="texto_text">{{ empresa.nr_cnpj }}</span></p>
+                                                <p class="font18 principal_v2_text">CNPJ:  <span class="texto_text">{{ empresa.numero_cnpj }}</span></p>
                                             </div>
                                             <div class="col s12 m6 ">
-                                                <p class="font18 principal_v2_text">Ramo de Atividade:  <span class="texto_text">{{ empresa.ramo_atividade }}</span> </p>
+                                                <p class="font18 principal_v2_text">Ramo de Atividade:  <span class="texto_text">{{ empresa.ramo_atividade.nome }}</span> </p>
                                             </div>
                                         </div>
                                         <div class="col s12">
@@ -65,7 +69,7 @@
                                                 <small class="principal_v2_text">Endereço</small>
                                             </div>
                                             <div class="col s12">
-                                                <p class="font18 texto_text">{{ empresa.logradouro }}, nº {{ empresa.nr_logradouro }} - {{ empresa.bairro }}/{{ empresa.cidade }} - {{ empresa.uf }} | CEP: {{ empresa.cep }}</p>
+                                                <p class="font18 texto_text">{{ empresa.logradouro }}, nº {{ empresa.numero_logradouro }} - {{ empresa.bairro }}/{{ empresa.cidade }} - {{ empresa.uf }} | CEP: {{ empresa.cep }}</p>
                                             </div>
                                         </div>
                                         <div class="col s12">

@@ -735,7 +735,7 @@ i.medium {
 *************************/
 .small-title{
     border-bottom: 1px solid rgba(255, 246, 246, 0.60);
-    margin: 5px auto;
+    margin: 5px;
 }
 .modal {
     display: none;

@@ -77,10 +77,11 @@ def suporte_cadastro_estabelecimento(request):
     else:
         form = EmpForm()
 
-    empresas = suporte_listar_empresas(request)
-    ramos = RamoAtividade.objects.filter(status=1)
+    # empresas = suporte_listar_empresas(request)
+    r = requests.get('http://localhost:3000/consultaInformacoesEmpresa')
+    empresas = r.json()
     return render(request, 'home/suporte/suporte_cadastro_estabelecimento.html',
-                  {'empresas': empresas, 'form': form, 'ramos': ramos})
+                  {'empresas': empresas, 'form': form})
 
 
 def suporte_editar_estabelecimento(request, pk):
@@ -126,11 +127,12 @@ def suporte_cadastro_servico(request):
     else:
         form = SvcForm()
 
-    servicos = suporte_listar_servico(request)
-    ramos = RamoAtividade.objects.filter(status=1)
-
+    # servicos = suporte_listar_servico(request)
+    # ramos = RamoAtividade.objects.filter(status=1)
+    r = requests.get('http://localhost:3000/consultaInformacoesServico')
+    servicos = r.json()
     return render(request, 'home/suporte/suporte_cadastro_servico.html',
-                  {'servicos': servicos, 'form': form, 'ramos': ramos})
+                  {'servicos': servicos, 'form': form})
 
 
 def suporte_editar_servicos(request, pk):
@@ -225,9 +227,9 @@ def suporte_cadastro_ramo(request):
     else:
         form = RamForm()
 
-    ramos = suporte_listar_ramo(request)
-
-    return render(request, 'home/suporte/suporte_cadastro_ramo.html', {'ramos': ramos, 'form': form})
+    r = requests.get('http://localhost:3000/consultaInformacoesRamoAtividade')
+    ramos = r.json()
+    return render(request, 'home/suporte/suporte_cadastro_ramo.html', {'form': form, 'ramos': ramos})
 
 
 def suporte_editar_ramos(request, pk):
