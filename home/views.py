@@ -1,7 +1,7 @@
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, redirect, get_object_or_404, render_to_response
 from django.template.context import RequestContext
-
+from django.http import HttpRequest
 
 from pip._vendor import requests
 from .forms import *
@@ -77,7 +77,7 @@ def suporte_cadastro_estabelecimento(request):
     else:
         form = EmpForm()
 
-    # empresas = suporte_listar_empresas(request)
+    # LISTAR EMPRESAS
     r = requests.get('http://localhost:3000/consultaInformacoesEmpresa')
     empresas = r.json()
     return render(request, 'home/suporte/suporte_cadastro_estabelecimento.html',
@@ -100,8 +100,8 @@ def suporte_editar_estabelecimento(request, pk):
 
 def suporte_listar_empresas(request):
     # Lista
-    list_empresa = Empresa.objects.order_by('nome_fantasia')     # listagem de status ordenado por nome
-    paginator = Paginator(list_empresa, 5)                       # 5 dados por pagina
+    list_empresa = Empresa.objects.order_by('nome_fantasia')  # listagem de status ordenado por nome
+    paginator = Paginator(list_empresa, 5)  # 5 dados por pagina
 
     page = request.GET.get('page')
 
@@ -119,7 +119,7 @@ def suporte_listar_empresas(request):
 
 # Cadastro de Servico no suporte
 def suporte_cadastro_servico(request):
-    #Cadastro
+    # Cadastro
     if request.method == "POST":
         form = SvcForm(request.POST)
         if form.is_valid():
@@ -152,7 +152,7 @@ def suporte_editar_servicos(request, pk):
 def suporte_listar_servico(request):
     # Lista
     list_servico = Servico.objects.order_by('nome')  # listagem de servico ordenado por nome
-    paginator = Paginator(list_servico, 5)           # 5 dados por pagina
+    paginator = Paginator(list_servico, 5)  # 5 dados por pagina
 
     page = request.GET.get('page')
 
@@ -166,9 +166,6 @@ def suporte_listar_servico(request):
         servico = paginator.page(paginator.num_pages)
 
     return servico
-
-
-
 
 
 def suporte_cadastro_status(request):
@@ -189,8 +186,8 @@ def suporte_cadastro_status(request):
 
 def suporte_listar_status(request):
     # Lista
-    list_status = Status.objects.order_by('nome')   # listagem de status ordenado por nome
-    paginator = Paginator(list_status, 5)           # 5 dados por pagina
+    list_status = Status.objects.order_by('nome')  # listagem de status ordenado por nome
+    paginator = Paginator(list_status, 5)  # 5 dados por pagina
 
     page = request.GET.get('page')
 
@@ -247,7 +244,7 @@ def suporte_editar_ramos(request, pk):
 def suporte_listar_ramo(request):
     # Lista
     list_ramo = RamoAtividade.objects.order_by('nome')  # listagem de ramo ordenado por nome
-    paginator = Paginator(list_ramo, 5)                 # 5 dados por pagina
+    paginator = Paginator(list_ramo, 5)  # 5 dados por pagina
 
     page = request.GET.get('page')
 
@@ -273,12 +270,13 @@ def suporte_cadastro_usuario(request):
     else:
         form = UsuFormSuporte()
 
-    # usuarios = suporte_listar_usuario(request)
+    post = requests.post('http://localhost:3000/cadastraUsuario', {form: {UsuFormSuporte: 'nome', UsuFormSuporte: 'empresa', UsuFormSuporte: 'email'}})
+    cadastro_admin = post.json()
+    return render(request, 'home/suporte/suporte_cadastro_admin.html', {'form': form, 'cadastro_admin': cadastro_admin})
 
-    estabelecimentos = Empresa.objects.filter(status=1)
-    r = requests.get('http://localhost:3000/consultaInformacoesUsuariosPorPerfil/2')
+    r = requests.get('http://localhost:3000/consultaUsuariosPorPerfil/2')
     admins = r.json()
-    return render(request, 'home/suporte/suporte_cadastro_admin.html', {'form': form, 'estabelecimentos': estabelecimentos, 'admins': admins})
+    return render(request, 'home/suporte/suporte_cadastro_admin.html', {'form': form, 'admins': admins})
 
 
 def suporte_listar_usuario(request):
@@ -308,6 +306,7 @@ def suporte_listar_usuario(request):
     lista = user_admin(2)
     return render(request, 'home/suporte/suporte_cadastro_admin.html', lista)
     """
+
 
 # Atendimento
 def suporte_atendimento(request):
