@@ -270,10 +270,11 @@ def suporte_cadastro_usuario(request):
     else:
         form = UsuFormSuporte()
 
-    post = requests.post('http://localhost:3000/cadastraUsuario', {form: {UsuFormSuporte: 'nome', UsuFormSuporte: 'empresa', UsuFormSuporte: 'email'}})
-    cadastro_admin = post.json()
-    return render(request, 'home/suporte/suporte_cadastro_admin.html', {'form': form, 'cadastro_admin': cadastro_admin})
+    cad = requests.post('http://localhost:3000/cadastraUsuario', form=form)
+    cadastro_usu = cad.json()
+    return render(request, 'home/suporte/suporte_cadastro_admin.html', {'form': form, 'cadastro_usu': cadastro_usu})
 
+    #listar usuarios
     r = requests.get('http://localhost:3000/consultaUsuariosPorPerfil/2')
     admins = r.json()
     return render(request, 'home/suporte/suporte_cadastro_admin.html', {'form': form, 'admins': admins})

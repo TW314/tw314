@@ -1,5 +1,5 @@
 from django import forms
-
+from splitjson.widgets import SplitJSONWidget
 from . import models
 
 
@@ -23,8 +23,9 @@ class RamForm(forms.ModelForm):
 
 class UsuFormSuporte(forms.ModelForm):
     class Meta:
-        model = models.Usuario
-        fields = ('nome', 'empresa', 'email')
+
+        attrs = ('nome' 'empresa', 'email')
+        data = forms.CharField(widget=SplitJSONWidget(attrs=attrs, debug=True))
 
 
 class UsuFormAdmin(forms.ModelForm):
