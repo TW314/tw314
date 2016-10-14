@@ -100,7 +100,8 @@ def suporte_editar_estabelecimento(request, pk):
 
 def suporte_listar_empresas(request):
     # Lista
-    list_empresa = Empresa.objects.order_by('nome_fantasia')  # listagem de status ordenado por nome
+    # listagem de status ordenado por nome
+    list_empresa = Empresa.objects.order_by('nome_fantasia')
     paginator = Paginator(list_empresa, 5)  # 5 dados por pagina
 
     page = request.GET.get('page')
@@ -151,7 +152,8 @@ def suporte_editar_servicos(request, pk):
 
 def suporte_listar_servico(request):
     # Lista
-    list_servico = Servico.objects.order_by('nome')  # listagem de servico ordenado por nome
+    # listagem de servico ordenado por nome
+    list_servico = Servico.objects.order_by('nome')
     paginator = Paginator(list_servico, 5)  # 5 dados por pagina
 
     page = request.GET.get('page')
@@ -186,7 +188,8 @@ def suporte_cadastro_status(request):
 
 def suporte_listar_status(request):
     # Lista
-    list_status = Status.objects.order_by('nome')  # listagem de status ordenado por nome
+    # listagem de status ordenado por nome
+    list_status = Status.objects.order_by('nome')
     paginator = Paginator(list_status, 5)  # 5 dados por pagina
 
     page = request.GET.get('page')
@@ -243,7 +246,8 @@ def suporte_editar_ramos(request, pk):
 
 def suporte_listar_ramo(request):
     # Lista
-    list_ramo = RamoAtividade.objects.order_by('nome')  # listagem de ramo ordenado por nome
+    list_ramo = RamoAtividade.objects.order_by(
+        'nome')  # listagem de ramo ordenado por nome
     paginator = Paginator(list_ramo, 5)  # 5 dados por pagina
 
     page = request.GET.get('page')
@@ -262,21 +266,31 @@ def suporte_listar_ramo(request):
 
 def suporte_cadastro_usuario(request):
     # Cadastro
-
+    """
     if request.method == "POST":
         form = UsuFormSuporte(request.POST)
         if form.is_valid():
             form.save()
     else:
         form = UsuFormSuporte()
+    """
+    json = {'a': 1,
+            'b': 2,
+            'c': 3,
+            'd': 4}
+    form = UsuFormSuporte(request.POST or None, initial={'data': json})
+    if form.is_valid():
+        # validate and save
+        pass
 
-    cad = requests.post('http://localhost:3000/cadastraUsuario', form=form)
-    cadastro_usu = cad.json()
-    return render(request, 'home/suporte/suporte_cadastro_admin.html', {'form': form, 'cadastro_usu': cadastro_usu})
+    # cadastrar usuarios admin json
+    # cad = requests.post('http://localhost:3000/cadastraUsuario', form=form)
+    # cadastro_usu = cad.json()
 
-    #listar usuarios
+    # listar usuarios admin json
     r = requests.get('http://localhost:3000/consultaUsuariosPorPerfil/2')
     admins = r.json()
+    estabelecimentos = requests.get('http://localhost:3000/consultaInformacoesEmpresa').json()
     return render(request, 'home/suporte/suporte_cadastro_admin.html', {'form': form, 'admins': admins})
 
 
