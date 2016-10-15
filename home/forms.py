@@ -29,7 +29,7 @@ class UsuFormSuporte(forms.Form):
 
     class Meta:
 
-        attrs = {'nome': FIELDNAME = models.CharField(blank=True, max_length=100), 'empresa': FIELDNAME = models.CharField(blank=True, max_length=100), 'email': FIELDNAME = models.EmailField()}
+        attrs = {'nome': FIELDNAME = models.CharField(blank=True, max_length=100), 'empresa': FIELDNAME = models.CharField(blank=True, max_length=255), 'email': FIELDNAME = models.EmailField()}
         data = forms.CharField(widget=SplitJSONWidget(attrs=attrs, debug=True))
 
 
