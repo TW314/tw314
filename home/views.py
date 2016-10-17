@@ -262,22 +262,27 @@ def suporte_listar_ramo(request):
 
 def suporte_cadastro_usuario(request):
     # Cadastro
-
+    """""
     if request.method == "POST":
         form = UsuFormSuporte(request.POST)
         if form.is_valid():
             form.save()
     else:
         form = UsuFormSuporte()
-
-    cad = requests.post('http://localhost:3000/cadastraUsuario', form=form)
-    cadastro_usu = cad.json()
-    return render(request, 'home/suporte/suporte_cadastro_admin.html', {'form': form, 'cadastro_usu': cadastro_usu})
-
-    #listar usuarios
+    """
+    # listar usuarios
     r = requests.get('http://localhost:3000/consultaUsuariosPorPerfil/2')
+    estabelecimentos = requests.get('http://localhost:3000/consultaInformacoesEmpresa').json()
+
     admins = r.json()
-    return render(request, 'home/suporte/suporte_cadastro_admin.html', {'form': form, 'admins': admins})
+
+    if request.method == "POST":
+
+        json = request.
+        error = requests.post('http://localhost:3000/cadastraUsuario', json)
+        return render(request, 'home/suporte/suporte_cadastro_admin.html', {'admins': admins})
+
+    return render(request, 'home/suporte/suporte_cadastro_admin.html', {'admins': admins, 'estabelecimentos': estabelecimentos})
 
 
 def suporte_listar_usuario(request):
