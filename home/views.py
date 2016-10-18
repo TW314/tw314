@@ -2,6 +2,7 @@ from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, redirect, get_object_or_404, render_to_response
 from django.template.context import RequestContext
 from django.http import HttpRequest
+import json
 
 from pip._vendor import requests
 from .forms import *
@@ -220,12 +221,12 @@ def suporte_cadastro_ramo(request):
     if request.method == "POST":
         form = RamForm(request.POST)
         if form.is_valid():
-            form.save()
+            form = requests.post('http://localhost:3000/cadastraRamoAtividade', data=form.fields)
     else:
         form = RamForm()
 
-    r = requests.get('http://localhost:3000/consultaInformacoesRamoAtividade')
-    ramos = r.json()
+    ramos = requests.get('http://localhost:3000/consultaInformacoesRamoAtividade').json()
+
     return render(request, 'home/suporte/suporte_cadastro_ramo.html', {'form': form, 'ramos': ramos})
 
 
@@ -277,9 +278,7 @@ def suporte_cadastro_usuario(request):
     admins = r.json()
 
     if request.method == "POST":
-
-        json = request.
-        error = requests.post('http://localhost:3000/cadastraUsuario', json)
+        # error = requests.post('http://localhost:3000/cadastraUsuario', json)
         return render(request, 'home/suporte/suporte_cadastro_admin.html', {'admins': admins})
 
     return render(request, 'home/suporte/suporte_cadastro_admin.html', {'admins': admins, 'estabelecimentos': estabelecimentos})

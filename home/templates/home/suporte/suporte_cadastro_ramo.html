@@ -111,8 +111,6 @@
             </div>
         </div>
     </div>
-    </div>
-
 
     <!-- Inicio da estrutura do Modal -->
     <div id="ramo-inativo" class="modal modal-fixed-footer base_text" style="background-color: rgba(219, 61, 52, 0.90)">
@@ -173,7 +171,6 @@
     <!-- Fim da estrutura do Modal -->
 
     <!-- Botao que chama Modal de Cadastro-->
-
     <a class="sucesso_v_bg btn-floating btn-large waves-light btn btn modal-trigger fixed-action-btn tooltipped" data-position="top" data-delay="50" data-tooltip="Novo Ramo" href="#cadastrar_ramo"><i class="fa fa-plus" aria-hidden="true"></i></a>
 
     <!-- Modal de Cadastro -->
@@ -192,11 +189,23 @@
                                     {{ form.nome.errors }}
                                     <label for="nome">Nome do Ramo</label>
                                 </div>
+                                <div class="input-field col s12">
+                                    <textarea type="text" id="ss_descricao" class="materialize-textarea validate" cols="30" rows="5" name="descricao"></textarea>
+                                    {{ form.descricao.errors }}
+                                    <label for="ss_descricao">Descrição</label>
+                                </div>
+                                <div class="input-field col s12">
+                                    <select id="status" name="status">
+                                        <option value="" disabled selected>Status</option>
+                                            <option value="Ativo">Ativo</option>
+                                            <option value="Inativo">Inativo</option>
+                                            {{ form.status.errors }}
+                                    </select>
+                                </div>
                             </div>
                             <div class="row">
                                 <small class="small right">ATENÇÃO: O campo é obrigatório</small>
                             </div>
-
                         </div>
                         <!--Fim do formulário-->
                     </div>
@@ -211,11 +220,9 @@
                             <i class="fa fa-times-circle right" aria-hidden="true"></i>
                         </button>
                     </div>
-                    <!--Fim do botão cancelar-->
                     <!--Botão Cadastrar-->
                     <div class="col s12 m6">
-                        <button class="btn waves-effect waves-light right col s12 sucesso_bg" type="submit"
-                                name="action">Cadastrar
+                        <button class="btn waves-effect waves-light right col s12 sucesso_bg" type="submit" name="action">Cadastrar
                             <i class="fa fa-check-circle right" aria-hidden="true"></i>
                         </button>
                     </div>

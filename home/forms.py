@@ -1,40 +1,29 @@
 from django import forms
 
-from . import models
+status = ('Ativo', 'Inativo')
 
 
-class StsForm(forms.ModelForm):
-    class Meta:
-        model = models.Status
-        fields = ('nome', 'descricao',)
+class StsForm(forms.Form):
+    pass
 
 
-class EmpForm(forms.ModelForm):
-    class Meta:
-        model = models.Empresa
-        fields = ('nome_fantasia', 'razao_social', 'nr_cnpj', 'logradouro', 'nr_logradouro', 'cidade', 'bairro', 'uf', 'cep', 'telefone', 'email', 'nome_responsavel', 'cargo_responsavel', 'cpf_responsavel', 'ramo_atividade')
+class EmpForm(forms.Form):
+    pass
 
 
-class RamForm(forms.ModelForm):
-    class Meta:
-        model = models.RamoAtividade
-        fields = ('nome',)
-
-""""
-class UsuFormSuporte(forms.ModelForm):
-    class Meta:
-        model = models.Usuario
-        fields = ('nome' 'empresa', 'email')
-
-"""
-class UsuFormAdmin(forms.ModelForm):
-    class Meta:
-        model = models.Usuario
-        fields = ('nome', 'email', 'perfil')
+class RamForm(forms.Form):
+    nome = forms.CharField(max_length=45)
+    descricao = forms.CharField()
+    status = forms.ChoiceField()
 
 
-class SvcForm(forms.ModelForm):
-    class Meta:
-        model = models.Servico
-        fields = ('nome', 'descricao', 'ramo_atividade', 'sigla',)
+class UsuFormSuporte(forms.Form):
+    pass
 
+
+class UsuFormAdmin(forms.Form):
+    pass
+
+
+class SvcForm(forms.Form):
+    pass
