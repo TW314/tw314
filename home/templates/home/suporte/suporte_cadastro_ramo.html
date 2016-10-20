@@ -1,233 +1,221 @@
-{% extends "master_suporte.html" %}
+{% extends "master_suporte.html" %} {% block titulo %} Gerência de Ramos {% endblock %} {% block master %}
+<div class="row texto_text">
+	<div class="col push-m3 m6 s12">
+		<div class="input-field col s12">
+			<i class="fa fa-search prefix secundaria1_text"></i>
+			<input id="sr_search" type="text" class="validate">
+			<label for="sr_search">Pesquisar</label>
+		</div>
+		<div class="col s12">
+			<div class="card white">
+				<div class="card-content texto_text">
+					<span id="table" class="card-title small">Lista de Ramos</span>
+				</div>
+				<div class="card-action">
+					<!--Começo da Tabela-->
+					<table class="highlight responsive-table">
+						<thead>
+							<tr>
+								<th data-field="nome">Ramo</th>
+								<th class="center" data-field="login">Nº de Serviços</th>
+								<th class="center" data-field="login">Nº de Empresas</th>
+								<th class="center" data-field="acoes">Visualizar</th>
+							</tr>
+						</thead>
+						<tbody>
+							{% for ramo in ramos %}
+							<tr>
+								<td>
+									<p>{{ ramo.nome }}</p>
+								</td>
+								<td class="center">{{ ramo.numeroServicos }}</td>
+								<td class="center">{{ ramo.numeroEmpresas }}</td>
+								<td class="center">
+									<!-- Botao que chama Modal -->
+									<a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#ramo{{ ramo.id }}"><i class="fa fa-eye" aria-hidden="true"></i></a>
+								</td>
+							</tr>
+							<!-- Inicio da estrutura do Modal -->
+							<div id="ramo{{ ramo.id }}" class="modal modal-fixed-footer">
+								<div class="modal-content modal-padding">
+									<div class="row">
+										<div class="col s12 texto_text">
+											<div class="col s10">
+												<h5><i class="fa fa-puzzle-piece"></i>  Ramo de Atividade "{{ ramo.nome }}" <small class="sucesso_bg base_text" style="padding: 1px 5px; border-radius: 15px">{{ ramo.status_ativacao }}</small> </h5>
+											</div>
+											<div class="col s2">
+												<a href="" class="modal-action modal-close btn-flat right"><i class="right fa fa-times" aria-hidden="true"></i></a>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<!-- Dados -->
+										<div class="col s12">
+											<div class="row">
+												<div class="row small-title">
+													<small class="secundaria1_v_text">Dados</small>
+												</div>
+												<div class="col s12">
+													<span class="font18 texto_text">Número de serviços: {{ ramo.numeroServicos }}</span>
+												</div>
+												<div class="col s12">
+													<span class="font18 texto_text">Número de empresas: {{ ramo.numeroEmpresas }}</span>
+												</div>
+											</div>
+											<div class="row">
+												<div class="row small-title">
+													<small class="secundaria1_v_text">Descrição</small>
+												</div>
+												<div class="col s12 m9">
+													<span class="font18 texto_text">{{ ramo.descricao }}</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="modal-footer">
+									<!-- Menu de acoes da Modal -->
+									<div class="col s12">
+										<div class="right-align">
+											<a class="btn-floating alerta_bg tooltipped" data-position="top" data-delay="50" data-tooltip="Inativar"><i class="fa fa-ban" aria-hidden="true"></i></a>
+											<a href="cadastro_servico" class="btn-floating secundaria1_bg tooltipped" data-position="top" data-delay="50" data-tooltip="Ir para Serviços"><i class="fa fa-briefcase" aria-hidden="true"></i></a>
+											<a href="cadastro_estabelecimento" class="btn-floating tooltipped principal_bg" data-position="top" data-delay="50" data-tooltip="Ir para Estabelecimentos"><i class="fa fa-building" aria-hidden="true"></i></a>
+											<a href="editar_ramos/{{ ramo.pk }}" class="btn-floating editar_bg tooltipped z-depth-4" data-position="top" data-delay="50" data-tooltip="Editar"><i class="fa fa-pencil" aria-hidden="true"></i></a></div>
+									</div>
+								</div>
+							</div>
+							<!-- Fim da estrutura do Modal -->
+							{% endfor %}
+						</tbody>
+					</table>
+					<!--Fim da tabela-->
+				</div>
 
-{% block titulo %} Gerência de Ramos {% endblock %}
-{% block master %}
-    <div class="row texto_text">
-        <div class="col push-m3 m6 s12">
-            <div class="input-field col s12">
-                <i class="fa fa-search prefix secundaria1_text"></i>
-                <input id="sr_search" type="text" class="validate">
-                <label for="sr_search">Pesquisar</label>
-            </div>
-            <div class="col s12">
-                <div class="card white">
-                    <div class="card-content texto_text">
-                        <span id="table" class="card-title small">Lista de Ramos</span>
-                    </div>
-                    <div class="card-action">
-                        <!--Começo da Tabela-->
-                        <table class="highlight responsive-table">
-                            <thead>
-                            <tr>
-                                <th data-field="nome">Ramo</th>
-                                <th class="center" data-field="login">Nº de Serviços</th>
-                                <th class="center" data-field="login">Nº de Empresas</th>
-                                <th class="center" data-field="acoes">Visualizar</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {% for ramo in ramos %}
-                                <tr>
-                                    <td><p>{{ ramo.nome }}</p></td>
-                                    <td class="center">{{ ramo.numeroServicos }}</td>
-                                    <td class="center">{{ ramo.numeroEmpresas }}</td>
-                                    <td class="center">
-                                        <!-- Botao que chama Modal -->
-                                        <a class=" btn-floating btn-short waves-light btn btn modal-trigger"
-                                           href="#ramo{{ ramo.id }}"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                                    </td>
-                                </tr>
-                                <!-- Inicio da estrutura do Modal -->
-                                <div id="ramo{{ ramo.id }}" class="modal modal-fixed-footer">
-                                    <div class="modal-content modal-padding">
-                                        <div class="row">
-                                            <div class="col s12 texto_text">
-                                                <div class="col s10">
-                                                    <h5><i class="fa fa-puzzle-piece"></i>  Ramo de Atividade "{{ ramo.nome }}" <small class="sucesso_bg base_text" style="padding: 1px 5px; border-radius: 15px">{{ ramo.status_ativacao }}</small> </h5>
-                                                </div>
-                                                <div class="col s2">
-                                                    <a href="" class="modal-action modal-close btn-flat right"><i class="right fa fa-times" aria-hidden="true"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <!-- Dados -->
-                                            <div class="col s12">
-                                                <div class="row">
-                                                    <div class="row small-title">
-                                                        <small class="secundaria1_v_text">Dados</small>
-                                                    </div>
-                                                    <div class="col s12">
-                                                        <span class="font18 texto_text">Número de serviços: {{ ramo.numeroServicos }}</span>
-                                                    </div>
-                                                    <div class="col s12">
-                                                        <span class="font18 texto_text">Número de empresas: {{ ramo.numeroEmpresas }}</span>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="row small-title">
-                                                        <small class="secundaria1_v_text">Descrição</small>
-                                                    </div>
-                                                    <div class="col s12 m9">
-                                                        <span class="font18 texto_text">{{ ramo.descricao }}</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <!-- Menu de acoes da Modal -->
-                                        <div class="col s12">
-                                            <div class="right-align">
-                                                <a  class="btn-floating alerta_bg tooltipped" data-position="top" data-delay="50" data-tooltip="Inativar"><i class="fa fa-ban" aria-hidden="true"></i></a>
-                                                <a href="cadastro_servico" class="btn-floating secundaria1_bg tooltipped" data-position="top" data-delay="50" data-tooltip="Ir para Serviços"><i class="fa fa-briefcase" aria-hidden="true"></i></a>
-                                                <a href="cadastro_estabelecimento"
-                                                   class="btn-floating tooltipped principal_bg" data-position="top" data-delay="50" data-tooltip="Ir para Estabelecimentos"><i class="fa fa-building" aria-hidden="true"></i></a>
-                                                <a href="editar_ramos/{{ ramo.pk }}" class="btn-floating editar_bg tooltipped z-depth-4" data-position="top" data-delay="50" data-tooltip="Editar"><i class="fa fa-pencil" aria-hidden="true"></i></a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Fim da estrutura do Modal -->
-                            {% endfor %}
-                            </tbody>
-                        </table>
-                        <!--Fim da tabela-->
-                    </div>
-
-                    <!--Começo da páginação da tabela-->
-                    <div class="row" align="right">
-                        <ul class="pagination">
-                            <span class="step-links">
+				<!--Começo da páginação da tabela-->
+				<div class="row" align="right">
+					<ul class="pagination">
+						<span class="step-links">
                                 <li class="disabled"><a href="{% if ramos.has_previous %}?page={{ ramos.previous_page_number }}{% endif %}"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></a></li>
                                 <span class="current">
                                     <li class="waves-effect">{{ ramos.paginator.num_pages }}</li>
                                 </span>
-                                <li class="waves-effect {% if ramos.has_next %}disabled{% endif %}"><a href="{% if ramos.has_next %}?page={{ ramos.next_page_number }}{% endif %}"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></li>
-                            </span>
-                        </ul>
-                        <!--Fim da paginacao da tabela-->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+						<li class="waves-effect {% if ramos.has_next %}disabled{% endif %}"><a href="{% if ramos.has_next %}?page={{ ramos.next_page_number }}{% endif %}"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></li>
+						</span>
+					</ul>
+					<!--Fim da paginacao da tabela-->
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
-    <!-- Inicio da estrutura do Modal -->
-    <div id="ramo-inativo" class="modal modal-fixed-footer base_text" style="background-color: rgba(219, 61, 52, 0.90)">
-        <div class="modal-content modal-padding">
-            <div class="row">
-                <div class="col s8">
-                    <h5 class="light valign-wrapper form-title table-disabled base_text"><i
+<!-- Inicio da estrutura do Modal -->
+<div id="ramo-inativo" class="modal modal-fixed-footer base_text init">
+	<div class="modal-content modal-padding">
+		<div class="row">
+			<div class="col s8">
+				<h5 class="light valign-wrapper form-title table-disabled base_text"><i
                             class="fa fa-puzzle-piece fa-2x" aria-hidden="true"></i><span> Bando <small></small> </span>
                     </h5>
-                </div>
-                <div class="col s4"><a href="" class="modal-action modal-close btn-flat base_text right"> <i
-                        class="right fa fa-times" aria-hidden="true"></i></a></div>
-            </div>
-            <div class="row">
-                <!-- Dados -->
-                <div class="col s12">
-                    <div class="row">
-                        <div class="row small-title">
-                            <small>Dados</small>
-                        </div>
-                        <div class="col s4">
-                            <span class="font18 texto_text">Número de serviços:</span>
-                        </div>
-                        <div class="col s8">
-                            <span class="font18 texto_text"> - </span>
-                        </div>
-                        <div class="col s4">
-                            <span class="font18 texto_text">Número de Estabelecimentos</span>
-                        </div>
-                        <div class="col s8">
-                            <span class="font18 texto_text"> - </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="modal-footer">
-            <!-- Menu de acoes da Modal -->
-            <div class="fixed-action-btn2 horizontal">
-                <a class="btn-floating btn-short alerta_bg">
-                    <i class="fa fa-bars" aria-hidden="true"></i>
-                </a>
-                <ul>
-                    <li><a class="btn-floating alerta_bg tooltipped sucesso_text" data-position="top" data-delay="50"
-                           data-tooltip="Ativar"><i class="fa fa-check" aria-hidden="true"></i></a></li>
-                    <li><a href="cadastro_servico" class="btn-floating alerta_bg tooltipped" data-position="top"
-                           data-delay="50" data-tooltip="Ir para Serviços"><i class="fa fa-briefcase"
-                                                                              aria-hidden="true"></i></a></li>
-                    <li><a href="cadastro_estabelecimento" class="btn-floating alerta_bg tooltipped" data-position="top"
-                           data-delay="50" data-tooltip="Ir para Estabelecimentos"><i class="fa fa-building"
-                                                                                      aria-hidden="true"></i></a></li>
-                    <li><a class="btn-floating alerta_bg tooltipped" data-position="top" data-delay="50"
-                           data-tooltip="Editar"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <!-- Fim da estrutura do Modal -->
+			</div>
+			<div class="col s4">
+				<a href="" class="modal-action modal-close btn-flat base_text right"> <i class="right fa fa-times" aria-hidden="true"></i></a>
+			</div>
+		</div>
+		<div class="row">
+			<!-- Dados -->
+			<div class="col s12">
+				<div class="row">
+					<div class="row small-title">
+						<small>Dados</small>
+					</div>
+					<div class="col s4">
+						<span class="font18 texto_text">Número de serviços:</span>
+					</div>
+					<div class="col s8">
+						<span class="font18 texto_text"> - </span>
+					</div>
+					<div class="col s4">
+						<span class="font18 texto_text">Número de Estabelecimentos</span>
+					</div>
+					<div class="col s8">
+						<span class="font18 texto_text"> - </span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<!-- Menu de acoes da Modal -->
+		<div class="fixed-action-btn2 horizontal">
+			<a class="btn-floating btn-short alerta_bg">
+				<i class="fa fa-bars" aria-hidden="true"></i>
+			</a>
+			<ul>
+				<li><a class="btn-floating alerta_bg tooltipped sucesso_text" data-position="top" data-delay="50" data-tooltip="Ativar"><i class="fa fa-check" aria-hidden="true"></i></a></li>
+				<li><a href="cadastro_servico" class="btn-floating alerta_bg tooltipped" data-position="top" data-delay="50" data-tooltip="Ir para Serviços"><i class="fa fa-briefcase" aria-hidden="true"></i></a></li>
+				<li><a href="cadastro_estabelecimento" class="btn-floating alerta_bg tooltipped" data-position="top" data-delay="50" data-tooltip="Ir para Estabelecimentos"><i class="fa fa-building" aria-hidden="true"></i></a></li>
+				<li><a class="btn-floating alerta_bg tooltipped" data-position="top" data-delay="50" data-tooltip="Editar"><i class="fa fa-pencil" aria-hidden="true"></i></a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- Fim da estrutura do Modal -->
 
-    <!-- Botao que chama Modal de Cadastro-->
-    <a class="sucesso_v_bg btn-floating btn-large waves-light btn btn modal-trigger fixed-action-btn tooltipped" data-position="top" data-delay="50" data-tooltip="Novo Ramo" href="#cadastrar_ramo"><i class="fa fa-plus" aria-hidden="true"></i></a>
+<!-- Botao que chama Modal de Cadastro-->
+<a class="sucesso_v_bg btn-floating btn-large waves-light btn btn modal-trigger fixed-action-btn tooltipped" data-position="top" data-delay="50" data-tooltip="Novo Ramo" href="#cadastrar_ramo"><i class="fa fa-plus" aria-hidden="true"></i></a>
 
-    <!-- Modal de Cadastro -->
-    <div id="cadastrar_ramo" class="modal bottom-sheet">
-        <form method="POST" >
-            <div class="modal-content modal-padding">
-                <div class="row texto_text">
-                    <div class="col s12">
-                        <!--Começo do formulário-->
-                        <div class="col s12 m6 push-m3 margin-form">
-                            <h5 class="light valign-wrapper form-title secundaria1_text" ><i class="fa fa-puzzle-piece" aria-hidden="true"></i><span> Insira os dados para cadastrar um Ramo</span></h5>
-                            {% csrf_token %}
-                            <div class="row">
-                                <div class="input-field col s12">
-                                    <input id="nome" name="nome" maxlength="45" type="text">
-                                    {{ form.nome.errors }}
-                                    <label for="nome">Nome do Ramo</label>
-                                </div>
-                                <div class="input-field col s12">
-                                    <textarea type="text" id="ss_descricao" class="materialize-textarea validate" cols="30" rows="5" name="descricao"></textarea>
-                                    {{ form.descricao.errors }}
-                                    <label for="ss_descricao">Descrição</label>
-                                </div>
-                                <div class="input-field col s12">
-                                    <select id="status" name="status">
-                                        <option value="" disabled selected>Status</option>
-                                            <option value="Ativo">Ativo</option>
-                                            <option value="Inativo">Inativo</option>
-                                            {{ form.status.errors }}
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <small class="small right">ATENÇÃO: O campo é obrigatório</small>
-                            </div>
-                        </div>
-                        <!--Fim do formulário-->
-                    </div>
-                </div>
-            </div>
-            <div class="row modal-footer-cadastro">
-                <div class="col push-m6 m5 s12">
-                    <!--Botão Cancelar-->
-                    <div class="col s12 m6">
-                        <button class="btn waves-effect waves-light  col s12 alerta_bg modal-close " type="reset"
-                                name="action">Cancelar
+<!-- Modal de Cadastro -->
+<div id="cadastrar_ramo" class="modal bottom-sheet">
+	<form method="POST">
+		<div class="modal-content modal-padding">
+			<div class="row texto_text">
+				<div class="col s12">
+					<!--Começo do formulário-->
+					<div class="col s12 m6 push-m3 margin-form">
+						<h5 class="light valign-wrapper form-title secundaria1_text"><i class="fa fa-puzzle-piece" aria-hidden="true"></i><span> Insira os dados para cadastrar um Ramo</span></h5> {% csrf_token %}
+						<div class="row">
+							<div class="input-field col s12">
+								<input id="nome" name="nome" maxlength="45" type="text"> {{ form.nome.errors }}
+								<label for="nome">Nome do Ramo</label>
+							</div>
+							<div class="input-field col s12">
+								<textarea type="text" id="ss_descricao" class="materialize-textarea validate" cols="30" rows="5" name="descricao"></textarea> {{ form.descricao.errors }}
+								<label for="ss_descricao">Descrição</label>
+							</div>
+							<div class="input-field col s12">
+								<select id="status" name="status">
+									<option value="" disabled selected>Status</option>
+									<option value="Ativo">Ativo</option>
+									<option value="Inativo">Inativo</option>
+								</select>
+								{{ form.status.errors }}
+							</div>
+						</div>
+						<div class="row">
+							<small class="small right">ATENÇÃO: O campo é obrigatório</small>
+						</div>
+					</div>
+					<!--Fim do formulário-->
+				</div>
+			</div>
+		</div>
+		<div class="row modal-footer-cadastro">
+			<div class="col push-m6 m5 s12">
+				<!--Botão Cancelar-->
+				<div class="col s12 m6">
+					<button class="btn waves-effect waves-light  col s12 alerta_bg modal-close " type="reset" name="action">Cancelar
                             <i class="fa fa-times-circle right" aria-hidden="true"></i>
                         </button>
-                    </div>
-                    <!--Botão Cadastrar-->
-                    <div class="col s12 m6">
-                        <button class="btn waves-effect waves-light right col s12 sucesso_bg" type="submit" name="action">Cadastrar
+				</div>
+				<!--Botão Cadastrar-->
+				<div class="col s12 m6">
+					<button class="btn waves-effect waves-light right col s12 sucesso_bg" type="submit" name="action">Cadastrar
                             <i class="fa fa-check-circle right" aria-hidden="true"></i>
                         </button>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
 {% endblock %}

@@ -1,6 +1,7 @@
 /*************
 ** Genérico **
 *************/
+.init{background-color: rgba(219, 61, 52, 0.90)}
 .textDiv_Seconds h4{
     margin: -150px 70px !important;
 }

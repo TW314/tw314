@@ -101,7 +101,8 @@ def suporte_editar_estabelecimento(request, pk):
 
 def suporte_listar_empresas(request):
     # Lista
-    list_empresa = Empresa.objects.order_by('nome_fantasia')  # listagem de status ordenado por nome
+    # listagem de status ordenado por nome
+    list_empresa = Empresa.objects.order_by('nome_fantasia')
     paginator = Paginator(list_empresa, 5)  # 5 dados por pagina
 
     page = request.GET.get('page')
@@ -152,7 +153,8 @@ def suporte_editar_servicos(request, pk):
 
 def suporte_listar_servico(request):
     # Lista
-    list_servico = Servico.objects.order_by('nome')  # listagem de servico ordenado por nome
+    # listagem de servico ordenado por nome
+    list_servico = Servico.objects.order_by('nome')
     paginator = Paginator(list_servico, 5)  # 5 dados por pagina
 
     page = request.GET.get('page')
@@ -187,7 +189,8 @@ def suporte_cadastro_status(request):
 
 def suporte_listar_status(request):
     # Lista
-    list_status = Status.objects.order_by('nome')  # listagem de status ordenado por nome
+    # listagem de status ordenado por nome
+    list_status = Status.objects.order_by('nome')
     paginator = Paginator(list_status, 5)  # 5 dados por pagina
 
     page = request.GET.get('page')
@@ -221,11 +224,13 @@ def suporte_cadastro_ramo(request):
     if request.method == "POST":
         form = RamForm(request.POST)
         if form.is_valid():
-            form = requests.post('http://localhost:3000/cadastraRamoAtividade', data=form.fields)
+            form = requests.post(
+                'http://localhost:3000/cadastraRamoAtividade', data=form.data).json()
     else:
         form = RamForm()
 
-    ramos = requests.get('http://localhost:3000/consultaInformacoesRamoAtividade').json()
+    ramos = requests.get(
+        'http://localhost:3000/consultaInformacoesRamoAtividade').json()
 
     return render(request, 'home/suporte/suporte_cadastro_ramo.html', {'form': form, 'ramos': ramos})
 
@@ -244,7 +249,8 @@ def suporte_editar_ramos(request, pk):
 
 def suporte_listar_ramo(request):
     # Lista
-    list_ramo = RamoAtividade.objects.order_by('nome')  # listagem de ramo ordenado por nome
+    list_ramo = RamoAtividade.objects.order_by(
+        'nome')  # listagem de ramo ordenado por nome
     paginator = Paginator(list_ramo, 5)  # 5 dados por pagina
 
     page = request.GET.get('page')
@@ -273,7 +279,8 @@ def suporte_cadastro_usuario(request):
     """
     # listar usuarios
     r = requests.get('http://localhost:3000/consultaUsuariosPorPerfil/2')
-    estabelecimentos = requests.get('http://localhost:3000/consultaInformacoesEmpresa').json()
+    estabelecimentos = requests.get(
+        'http://localhost:3000/consultaInformacoesEmpresa').json()
 
     admins = r.json()
 

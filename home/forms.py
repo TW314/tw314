@@ -1,7 +1,5 @@
 from django import forms
 
-status = ('Ativo', 'Inativo')
-
 
 class StsForm(forms.Form):
     pass
@@ -12,9 +10,9 @@ class EmpForm(forms.Form):
 
 
 class RamForm(forms.Form):
-    nome = forms.CharField(max_length=45)
-    descricao = forms.CharField()
-    status = forms.ChoiceField()
+    nome = forms.CharField(max_length=45, required=True, min_length=3)
+    descricao = forms.CharField(required=True, min_length=5)
+    status = forms.CharField()
 
 
 class UsuFormSuporte(forms.Form):
