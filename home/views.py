@@ -225,7 +225,7 @@ def suporte_cadastro_ramo(request):
         form = RamForm(request.POST)
         if form.is_valid():
             form = requests.post(
-                'http://localhost:3000/cadastraRamoAtividade', data=form.data).json()
+                'http://localhost:3000/cadastraRamoAtividade', data=json.dumps(form))
     else:
         form = RamForm()
 
