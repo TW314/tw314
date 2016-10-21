@@ -1,4 +1,5 @@
 from django import forms
+from splitjson.widgets import SplitJSONWidget
 
 
 class StsForm(forms.Form):
@@ -10,9 +11,10 @@ class EmpForm(forms.Form):
 
 
 class RamForm(forms.Form):
-    nome = forms.CharField(max_length=45, required=True, min_length=3)
-    descricao = forms.CharField(required=True, min_length=5)
-    status = forms.CharField()
+    # tentando usar splitjson
+    nome = forms.CharField(widget=SplitJSONWidget(), max_length=45, required=True, min_length=3)
+    descricao = forms.CharField(widget=SplitJSONWidget(), required=True, min_length=5)
+    status = forms.CharField(widget=SplitJSONWidget())
 
 
 class UsuFormSuporte(forms.Form):

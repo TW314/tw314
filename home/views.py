@@ -221,11 +221,12 @@ def suporte_editar_status(request, pk):
 
 def suporte_cadastro_ramo(request):
     # Cadastro
+    headers = {'content-type': 'application/json'}
     if request.method == "POST":
-        form = RamForm(request.POST)
+        form = RamForm(request.POST or None)  # tentando usar splijson
         if form.is_valid():
-            form = requests.post(
-                'http://localhost:3000/cadastraRamoAtividade', data=json.dumps(form))
+            form = requests.post('POST', 'http://localhost:3000/cadastraRamoAtividade', data=json.dumps(form), headers=headers)
+
     else:
         form = RamForm()
 
