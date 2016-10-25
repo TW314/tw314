@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404, render_to_resp
 from django.template.context import RequestContext
 from django.http import HttpRequest
 import json
+from django.core import serializers
 
 from pip._vendor import requests
 from .forms import *
@@ -224,13 +225,17 @@ def suporte_cadastro_ramo(request):
     if request.method == "POST":
         form = RamForm(request.POST)
         if form.is_valid():
-            form = requests.post(
-                'http://localhost:3000/cadastraRamoAtividade', data=json.dumps(form))
+            nome = form.cleaned_data['nome']
+            descricao = form.cleaned_data['descricao']
+            status = form.cleaned_data['status']
+            form = requests.post('http://localhost:3000/cadastraRamoAtividade', data={'nome': nome, 'descricao': descricao, 'status': status})
+
     else:
         form = RamForm()
 
     ramos = requests.get(
         'http://localhost:3000/consultaInformacoesRamoAtividade').json()
+
 
     return render(request, 'home/suporte/suporte_cadastro_ramo.html', {'form': form, 'ramos': ramos})
 
