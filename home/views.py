@@ -1,10 +1,9 @@
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
-from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404, render_to_response
 from django.template.context import RequestContext
-from django.http import HttpRequest
+
 import json
-from django.core import serializers
+
 
 from pip._vendor import requests
 from .forms import *
@@ -81,8 +80,8 @@ def suporte_cadastro_estabelecimento(request):
         form = EmpForm()
 
     # LISTAR EMPRESAS
-    r = requests.get('http://localhost:3000/consultaInformacoesEmpresa')
-    empresas = r.json()
+    empresas = requests.get('http://localhost:3000/empresa').json()
+
     return render(request, 'home/suporte/suporte_cadastro_estabelecimento.html',
                   {'empresas': empresas, 'form': form})
 
@@ -133,8 +132,8 @@ def suporte_cadastro_servico(request):
 
     # servicos = suporte_listar_servico(request)
     # ramos = RamoAtividade.objects.filter(status=1)
-    r = requests.get('http://localhost:3000/consultaInformacoesServico')
-    servicos = r.json()
+    servicos = requests.get('http://localhost:3000/servico').json()
+
     return render(request, 'home/suporte/suporte_cadastro_servico.html',
                   {'servicos': servicos, 'form': form})
 
@@ -275,26 +274,19 @@ def suporte_listar_ramo(request):
 
 def suporte_cadastro_usuario(request):
     # Cadastro
-    """""
+
     if request.method == "POST":
         form = UsuFormSuporte(request.POST)
         if form.is_valid():
             form.save()
     else:
         form = UsuFormSuporte()
-    """
+
     # listar usuarios
-    r = requests.get('http://localhost:3000/consultaUsuariosPorPerfil/2')
-    estabelecimentos = requests.get(
-        'http://localhost:3000/consultaInformacoesEmpresa').json()
+    admins = requests.get('http://localhost:3000/consultaUsuarioPorPerfil/2').json()
+    estabelecimentos = requests.get('http://localhost:3000/empresa').json()
 
-    admins = r.json()
-
-    if request.method == "POST":
-        # error = requests.post('http://localhost:3000/cadastraUsuario', json)
-        return render(request, 'home/suporte/suporte_cadastro_admin.html', {'admins': admins})
-
-    return render(request, 'home/suporte/suporte_cadastro_admin.html', {'admins': admins, 'estabelecimentos': estabelecimentos})
+    return render(request, 'home/suporte/suporte_cadastro_admin.html', {'admins': admins, 'form': form, 'estabelecimentos': estabelecimentos})
 
 
 def suporte_listar_usuario(request):
