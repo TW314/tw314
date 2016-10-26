@@ -1,4 +1,5 @@
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404, render_to_response
 from django.template.context import RequestContext
 from django.http import HttpRequest
@@ -228,14 +229,14 @@ def suporte_cadastro_ramo(request):
             nome = form.cleaned_data['nome']
             descricao = form.cleaned_data['descricao']
             status = form.cleaned_data['status']
-            form = requests.post('http://localhost:3000/cadastraRamoAtividade', data={'nome': nome, 'descricao': descricao, 'status': status})
+            data = {'nome': nome, 'descricao': descricao, 'status': status}
+            form = requests.post('http://127.0.0.1:3000/ramoAtividade', data=json.dumps(data)).json()
 
     else:
         form = RamForm()
 
     ramos = requests.get(
-        'http://localhost:3000/consultaInformacoesRamoAtividade').json()
-
+        'http://localhost:3000/ramoAtividade').json()
 
     return render(request, 'home/suporte/suporte_cadastro_ramo.html', {'form': form, 'ramos': ramos})
 
