@@ -138,7 +138,7 @@
                                     <div class="input-field col s12 m6">
                                         <select id="ramo_atividade" name="ramo_atividade" class="browser-default">
                                             <option value="" disabled selected>Ramo de Atividade</option>
-                                            {% for ramo in ramos %}
+                                            {% for ramo in ram %}
                                                 <option value="{{ ramo.id }}">{{ ramo.nome }}</option>
                                             {% endfor %}
                                         </select>
@@ -164,6 +164,14 @@
                                         <label for="ss_descricao">Descrição</label>
                                     </div>
                                 </div>
+                                <div class="input-field col s12">
+								<select id="{{ form.status_ativacao }}" name="status">
+									<option value="" disabled selected>Status</option>
+									<option value="Ativo">Ativo</option>
+									<option value="Inativo">Inativo</option>
+								</select>
+								{{ form.status_ativacao.errors }}
+							</div>
 
                                 <div class="row">
                                     <small class="small right">ATENÇÃO: O campo é obrigatório</small>
