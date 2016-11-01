@@ -1,8 +1,7 @@
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, redirect, get_object_or_404, render_to_response
 from django.template.context import RequestContext
-from .serializer import RamoSerializer
-from django.conf import settings
+
 
 import json
 
@@ -227,16 +226,16 @@ def suporte_cadastro_ramo(request):
     if request.method == "POST":
         form = RamForm(request.POST)
         if form.is_valid():
-            url = form.cleaned_data['url']
-            r = requests.get('http://localhost:3000/ramoAtividade' + '&url=' + url)
-            j = r.json()
-            serializer = RamoSerializer(data=j)
-            if serializer.is_valid():
-                embed = serializer.save()
-                return render(request, 'embeds.html', {'embed': embed})
+            nome = form.cleaned_data['nome']
+            descricao = form.cleaned_data['descricao']
+            status = form.cleaned_data['status_ativacao']
+            data = {'nome': nome, 'descricao': descricao, 'status_ativacao': status}
+            form = requests.post('http://localhost:3000/ramoAtividade', json=data)
+            print(form.text)
     else:
         form = RamForm()
 
+    ramos = requests.get('http://localhost:3000/ramoAtividade').json()
     return render(request, 'home/suporte/suporte_cadastro_ramo.html', {'form': form, 'ramos': ramos})
 
 

@@ -10,7 +10,9 @@ class EmpForm(forms.Form):
 
 
 class RamForm(forms.Form):
-    url = forms.URLField()
+    nome = forms.CharField(max_length=45, required=True, min_length=3)
+    descricao = forms.CharField(required=True, min_length=5)
+    status_ativacao = forms.CharField(required=True)
 
 
 class UsuFormSuporte(forms.Form):
