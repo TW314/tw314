@@ -4,7 +4,6 @@ from django.template.context import RequestContext
 
 import json
 
-
 from pip._vendor import requests
 from .forms import *
 from .models import *
@@ -34,16 +33,20 @@ def admin_cadastro_usuario(request):
         if form.is_valid():
             nome = form.cleaned_data['nome']
             email = form.cleaned_data['email']
+            data_ativacao = None
+            senha = None
+            data_inativacao = None
             status = form.cleaned_data['status_ativacao']
-            data = {'nome': nome, 'email': email, 'status_ativacao': status}
+            data = {'nome': nome, 'email': email, 'data_ativacao': data_ativacao, 'senha': senha, 'data_inativacao': data_inativacao, 'status_ativacao': status}
             form = requests.post('http://localhost:3000/cadastraUsuario', json=data)
 
     else:
         form = UsuFormAdmin()
 
     fun = requests.get('http://localhost:3000/consultaUsuarioPorPerfil/3').json()
+    perfil = requests.get('http://localhost:3000/perfil').json()
     return render(request, 'home/admin/admin_cadastro_usuario.html',
-                  {'fun': fun, 'form': form})
+                  {'fun': fun, 'perfil': perfil, 'form': form})
 
 
 # Relatorio
@@ -79,15 +82,38 @@ def suporte_cadastro_estabelecimento(request):
     if request.method == "POST":
         form = EmpForm(request.POST)
         if form.is_valid():
-            form.save()
+            nome_fantasia = form.cleaned_data['nome_fantasia']
+            razao_social = form.cleaned_data['razao_social']
+            nr_cnpj = form.cleaned_data['nr_cnpj']
+            logradouro = form.cleaned_data['logradouro']
+            nr_logradouro = form.cleaned_data['nr_logradouro']
+            cidade = form.cleaned_data['cidade']
+            bairro = form.cleaned_data['bairro']
+            uf = form.cleaned_data['uf']
+            cep = form.cleaned_data['cep']
+            telefone = form.cleaned_data['telefone']
+            email = form.cleaned_data['email']
+            nome_responsavel = form.cleaned_data['nome_responsavel']
+            cargo_responsavel = form.cleaned_data['cargo_responsavel']
+            cpf_responsavel = form.cleaned_data['cpf_responsavel']
+            data_ativacao = None
+            data_inativacao = None
+            data_abertura = None
+
+            data = {'nome_fantasia': nome_fantasia, 'razao_social': razao_social, 'nr_cnpj': nr_cnpj,
+                    'logradouro': logradouro, 'nr_logradouro': nr_logradouro, 'cidade': cidade, 'bairro': bairro,
+                    'cep': cep, 'uf': uf, 'telefone': telefone, 'email': email, 'nome_responsavel': nome_responsavel,
+                    'cargo_responsavel': cargo_responsavel, 'cpf_responsavel': cpf_responsavel, 'data_ativacao': data_ativacao, 'data_inativacao': data_inativacao, 'data_abertura': data_abertura}
+            form = requests.post('http://localhost:3000/empresa', json=data)
     else:
         form = EmpForm()
 
     # LISTAR EMPRESAS
+    ramos = requests.get('http://localhost:3000/ramoAtividade').json()
     empresas = requests.get('http://localhost:3000/empresa').json()
 
     return render(request, 'home/suporte/suporte_cadastro_estabelecimento.html',
-                  {'empresas': empresas, 'form': form})
+                  {'empresas': empresas, 'ramos': ramos, 'form': form})
 
 
 def suporte_editar_estabelecimento(request, pk):
@@ -135,7 +161,8 @@ def suporte_cadastro_servico(request):
             ramo_atividade = form.cleaned_data['ramo_atividade']
             sigla = form.cleaned_data['sigla']
             status_ativacao = form.cleaned_data['status_ativacao']
-            data = {'nome': nome, 'descricao': descricao, 'ramo_atividade': ramo_atividade, 'sigla': sigla, 'status_ativacao': status_ativacao}
+            data = {'nome': nome, 'descricao': descricao, 'ramo_atividade': ramo_atividade, 'sigla': sigla,
+                    'status_ativacao': status_ativacao}
             form = requests.post('http://localhost:3000/servico/', json=data)
     else:
         form = SvcForm()
@@ -294,7 +321,8 @@ def suporte_cadastro_usuario(request):
     admins = requests.get('http://localhost:3000/consultaUsuarioPorPerfil/2').json()
     estabelecimentos = requests.get('http://localhost:3000/empresa').json()
 
-    return render(request, 'home/suporte/suporte_cadastro_admin.html', {'admins': admins, 'form': form, 'estabelecimentos': estabelecimentos})
+    return render(request, 'home/suporte/suporte_cadastro_admin.html',
+                  {'admins': admins, 'form': form, 'estabelecimentos': estabelecimentos})
 
 
 def suporte_listar_usuario(request):
