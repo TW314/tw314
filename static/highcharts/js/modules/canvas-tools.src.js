@@ -1171,7 +1171,7 @@ if(!Array.prototype.indexOf){
 			
 				this.baseSetContext(ctx);
 				
-				// create new view port
+				// create new persistence port
 				if (this.attribute('x').hasValue() && this.attribute('y').hasValue()) {
 					ctx.translate(this.attribute('x').Length.toPixels('x'), this.attribute('y').Length.toPixels('y'));
 				}

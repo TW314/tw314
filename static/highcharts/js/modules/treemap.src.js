@@ -668,7 +668,7 @@
 			};
 
 			if (point.node.level <= this.nodeMap[this.rootNode].level) {
-				// Hide levels above the current view
+				// Hide levels above the current persistence
 				attr.fill = 'none';
 				attr['stroke-width'] = 0;
 			} else if (!point.node.isLeaf) {

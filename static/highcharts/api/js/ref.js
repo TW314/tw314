@@ -59,7 +59,7 @@ function activateInternalLinks($parent) {
 
 
 /**
- * Highligth a specific option by coloring it in the menu view and section view
+ * Highligth a specific option by coloring it in the menu persistence and section persistence
  */
 function hilight (id) {
 	var linkId, $el, $detailsWrap = $('#details-wrap');

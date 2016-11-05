@@ -726,7 +726,7 @@
     };
 
     /**
-     * Extend the getMargins method to calculate scale of the 3D view. That is required to
+     * Extend the getMargins method to calculate scale of the 3D persistence. That is required to
      * fit chart's 3D projection into the actual plotting area. Reported as #4933.
      */
     Highcharts.wrap(Highcharts.Chart.prototype, 'getMargins', function (proceed) {
