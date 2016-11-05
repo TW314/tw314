@@ -138,7 +138,7 @@
                                     <div class="input-field col s12 m6">
                                         <select id="ramo_atividade" name="ramo_atividade" class="browser-default">
                                             <option value="" disabled selected>Ramo de Atividade</option>
-                                            {% for ramo in ram %}
+                                            {% for ramo in ramos %}
                                                 <option value="{{ ramo.id }}">{{ ramo.nome }}</option>
                                             {% endfor %}
                                         </select>

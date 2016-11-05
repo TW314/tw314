@@ -1,6 +1,6 @@
 from pip._vendor import requests
 
-from form.servico import ServicoForm
+from form.ServicoForm import ServicoForm
 
 
 def cadastra(servico):
@@ -16,14 +16,15 @@ def cadastra(servico):
                 'status_ativacao': status_ativacao}
         form = requests.post('http://localhost:3000/servico/', json=data)
     else:
-        form = "Campos de Serviço não preenchido corretamente"
+        form = "Campos de Servico nao preenchido corretamente"
 
     return form
 
 
-def edita(servico, pk):
+def atualiza(servico, pk):
     pass
 
 
 def lista():
-    pass
+    servico = requests.get('http://localhost:3000/servico').json()
+    return servico

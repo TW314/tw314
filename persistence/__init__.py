@@ -1,1 +1,2 @@
-from persistence import *
+from . import RamoAtividadePersistence
+from . import ServicoPersistence

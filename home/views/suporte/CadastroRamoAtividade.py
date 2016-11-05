@@ -14,10 +14,13 @@ def template(request):
     form = RamoForm()
     ramos = RamoAtividadeService.lista()
 
-    return render(request, template_name, {'form': form, 'ramos': ramos})
+    return render(request, template_name, params(form, ramos))
 
 
 @require_POST
 def cadastra(ramo_atividade):
-
     RamoAtividadeService.cadastra(ramo_atividade.POST)
+
+
+def params(form, ramos):
+    return {'form': form, 'ramos': ramos}
