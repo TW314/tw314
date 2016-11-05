@@ -1,5 +1,6 @@
 from django import forms
 
+
 class EmpresaForm(forms.Form):
     nome_fantasia = forms.CharField(max_length=80)
     razao_social = forms.CharField(max_length=80)
