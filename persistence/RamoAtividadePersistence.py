@@ -1,6 +1,6 @@
 from pip._vendor import requests
 
-from form import RamoForm
+from form.RamoForm import RamoForm
 
 
 def cadastra(ramo_atividade):

@@ -1,6 +1,23 @@
-from django.shortcuts import render, redirect, get_object_or_404, render_to_response
+from django.shortcuts import render
+from service import RamoAtividadeService
+from form.RamoForm import RamoForm
+from django.views.decorators.http import require_POST
+
+template_name = 'home/suporte/suporte_cadastro_ramo.html'
 
 
 def template(request):
-    return render(request, 'home/suporte/suporte_cadastro_ramo.html', {})
 
+    if request.method == "POST":
+        cadastra(request)
+
+    form = RamoForm()
+    ramos = RamoAtividadeService.lista()
+
+    return render(request, template_name, {'form': form, 'ramos': ramos})
+
+
+@require_POST
+def cadastra(ramo_atividade):
+
+    RamoAtividadeService.cadastra(ramo_atividade.POST)
