@@ -9,7 +9,8 @@ def cadastra(ramo_atividade):
         nome = form.cleaned_data['nome']
         descricao = form.cleaned_data['descricao']
         status = form.cleaned_data['status_ativacao']
-        data = {'nome': nome, 'descricao': descricao, 'status_ativacao': status}
+
+        data = monta_json(nome, descricao, status)
 
         try:
             form = requests.post('http://localhost:3000/ramoAtividade', json=data)
@@ -28,3 +29,9 @@ def atualiza(ramo_atividade, pk):
 def lista():
     ramos = requests.get('http://localhost:3000/ramoAtividade').json()
     return ramos
+
+
+def monta_json(nome, descricao, status):
+    data = {'nome': nome, 'descricao': descricao, 'status_ativacao': status}
+    return data
+

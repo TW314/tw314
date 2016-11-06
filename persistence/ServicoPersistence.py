@@ -12,8 +12,9 @@ def cadastra(servico):
         ramo_atividade = form.cleaned_data['ramo_atividade']
         sigla = form.cleaned_data['sigla']
         status_ativacao = form.cleaned_data['status_ativacao']
-        data = {'nome': nome, 'descricao': descricao, 'ramoAtividadeId': ramo_atividade, 'sigla': sigla,
-                'status_ativacao': status_ativacao}
+
+        data = monta_json(nome, descricao, ramo_atividade, sigla, status_ativacao)
+
         form = requests.post('http://localhost:3000/servico/', json=data)
     else:
         form = "Campos de Servico nao preenchido corretamente"
@@ -28,3 +29,10 @@ def atualiza(servico, pk):
 def lista():
     servico = requests.get('http://localhost:3000/servico').json()
     return servico
+
+
+def monta_json(nome, descricao, ramo_atividade, sigla, status_ativacao):
+    data = {'nome': nome, 'descricao': descricao, 'ramoAtividadeId': ramo_atividade, 'sigla': sigla,
+            'status_ativacao': status_ativacao}
+
+    return data
