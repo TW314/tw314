@@ -15,8 +15,7 @@ def template(request):
     if request.method == "GET":
         admins = lista_por_empresa_perfil(request)
         # estabelecimentos = busca_por_cnpj(request)
-        return render(request, 'home/suporte/suporte_cadastro_admin.html',
-                      {'form': form, 'admins': admins, 'estabelecimentos': estabelecimentos})
+        return render(request, 'home/suporte/suporte_cadastro_admin.html', {'form': form, 'admins': admins, 'estabelecimentos': estabelecimentos})
 
     return render(request, 'home/suporte/suporte_cadastro_admin.html', {'form': form, 'estabelecimentos': estabelecimentos})
 

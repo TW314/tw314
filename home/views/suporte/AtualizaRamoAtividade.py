@@ -9,18 +9,19 @@ template_cadastro = 'http://127.0.0.1:8000/suporte/cadastro_ramos'
 
 def template(request, pk):
 
-    if request.method == "POST":
-        atualiza(request, pk)
-        return redirect(template_cadastro)
     form = RamoForm()
-    ramo = RamoAtividadeService.ramo_por_id(pk)
+    ramo_atividade = RamoAtividadeService.ramo_por_id(pk)
 
-    return render(request, template_name, params(form, ramo))
+    if request.method == "POST":
+        atualiza(request, ramo_atividade, pk)
+        return redirect(template_cadastro)
+
+    return render(request, template_name, params(form, ramo_atividade))
 
 
 @require_POST
-def atualiza(ramo_atividade, pk):
-    RamoAtividadeService.atualiza(ramo_atividade.POST, pk)
+def atualiza(request, ramo_atividade, pk):
+    RamoAtividadeService.atualiza(request.POST, ramo_atividade, pk)
 
 
 def params(form, ramos):
