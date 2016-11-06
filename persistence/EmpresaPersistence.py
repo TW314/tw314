@@ -5,6 +5,7 @@ from form.EmpresaForm import EmpresaForm
 
 def cadastra(empresa):
     form = EmpresaForm(empresa)
+
     if form.is_valid():
         ramo_atividade = form.cleaned_data['ramo_atividade']
         nr_cnpj = form.cleaned_data['nr_cnpj']
@@ -24,7 +25,6 @@ def cadastra(empresa):
         pais = 'Brasil'
 
         data = monta_json(nome_fantasia, razao_social, nr_cnpj, logradouro, nr_logradouro, cidade, uf, cep, pais, telefone, email, nome_responsavel, cargo_responsavel, cpf_responsavel, ramo_atividade, status_ativacao)
-
         try:
             form = requests.post('http://localhost:3000/empresa', json=data)
         except requests.exceptions.ConnectionError: # verificar se funciona
@@ -32,6 +32,7 @@ def cadastra(empresa):
     else:
         form = "Campos de Empresa não preenchidos corretamente"
 
+    print('Form: ' + form)
     return form
 
 
