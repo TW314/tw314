@@ -1,6 +1,26 @@
-from django.shortcuts import render, redirect, get_object_or_404, render_to_response
+from django.shortcuts import render
+from service import EmpresaService
+from form.EmpresaForm import EmpresaForm
+from django.views.decorators.http import require_POST
+
+template_name = 'home/suporte/suporte_cadastro_estabelecimento.html'
 
 
 def template(request):
-    return render(request, 'home/suporte/suporte_cadastro_estabelecimento.html', {})
 
+    if request.method == "POST":
+        cadastra(request)
+
+    form = EmpresaForm()
+    empresas = EmpresaService.lista()
+
+    return render(request, template_name, params(form, empresas))
+
+
+@require_POST
+def cadastra(empresas):
+    EmpresaService.cadastra(empresas.POST)
+
+
+def params(form, empresas):
+    return {'form': form, 'empresas': empresas}
