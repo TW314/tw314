@@ -37,7 +37,6 @@ def atualiza(ramo_atividade_novo, ramo_atividade, pk):
     else:
         form = "Campos de Ramo de Atividade nao preenchidos corretamente"
 
-    print(form.text)
     return form
 
 
@@ -49,3 +48,9 @@ def lista():
 def ramo_por_id(pk):
     ramo = requests.get('http://localhost:3000/ramoAtividade/'+pk).json()
     return ramo
+
+
+def monta_json(nome, descricao, status_ativacao):
+    data = {'nome': nome, 'descricao': descricao, 'status_ativacao': status_ativacao}
+
+    return data
