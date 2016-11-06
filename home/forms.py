@@ -6,23 +6,24 @@ class StsForm(forms.Form):
 
 
 class EmpForm(forms.Form):
-    nome_fantasia = forms.CharField(max_length=80)
-    razao_social = forms.CharField(max_length=80)
-    nr_cnpj = forms.CharField(max_length=14)
-    logradouro = forms.CharField(max_length=255)
-    nr_logradouro = forms.CharField(max_length=255)
-    cidade = forms.CharField(max_length=100)
-    bairro = forms.CharField(max_length=100)
-    uf = forms.CharField(max_length=2)
-    cep = forms.CharField(max_length=8)
-    telefone = forms.CharField(max_length=11)
-    email = forms.EmailField(max_length=100)
-    nome_responsavel = forms.CharField(max_length=80)
-    cargo_responsavel = forms.CharField(max_length=45)
-    cpf_responsavel = forms.CharField(max_length=11)
-    data_abertura = forms.DateField()
-    data_ativacao = forms.DateField()
-    data_inativacao = forms.DateField()
+    nome_fantasia = forms.CharField(max_length=80, required=True)
+    razao_social = forms.CharField(max_length=80, required=True)
+    numero_cnpj = forms.CharField(max_length=14, required=True)
+    logradouro = forms.CharField(max_length=255, required=True)
+    numero_logradouro = forms.CharField(max_length=255, required=True)
+    cidade = forms.CharField(max_length=100, required=True)
+    uf = forms.CharField(max_length=2, required=True)
+    cep = forms.CharField(max_length=8, required=True)
+    pais = forms.CharField(max_length=255, required=True)
+    telefone = forms.CharField(max_length=11, required=True)
+    email = forms.EmailField(max_length=100, required=True)
+    nome_responsavel = forms.CharField(max_length=80, required=True)
+    cargo_responsavel = forms.CharField(max_length=45, required=True)
+    cpf_responsavel = forms.CharField(max_length=11, required=True)
+    data_abertura = forms.DateField(required=False)
+    data_inativacao = forms.DateField(required=False)
+    status_ativacao = forms.CharField(required=True)
+    ramo_atividade = forms.CharField(required=True)
 
 
 class RamForm(forms.Form):
@@ -32,22 +33,23 @@ class RamForm(forms.Form):
 
 
 class UsuFormSuporte(forms.Form):
-    pass
+    nome = forms.CharField(max_length=80, required=True)
+    email = forms.EmailField(max_length=100, required=True)
+    data_inativacao = forms.DateField(required=False)
+    status_ativacao = forms.CharField(required=True)
+    empresa = forms.CharField(required=True)
 
 
 class UsuFormAdmin(forms.Form):
     nome = forms.CharField(max_length=80, required=True)
     email = forms.EmailField(max_length=100, required=True)
-    data_ativacao = forms.DateField()
-    senha = forms.CharField(max_length=45)
-    data_inativacao = forms.DateField()
+    data_inativacao = forms.DateField(required=False)
     status_ativacao = forms.CharField(required=True)
 
 
 class SvcForm(forms.Form):
     nome = forms.CharField(max_length=45)
     descricao = forms.CharField(required=True, min_length=5)
-    ramo_atividade = forms.CharField()
     sigla = forms.CharField(max_length=2)
     status_ativacao = forms.CharField(required=True)
 
