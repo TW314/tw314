@@ -26,11 +26,10 @@ def cadastra(usuario):
     UsuarioService.suporte_cadastra(usuario.POST)
 
 
-@require_GET
 def lista_por_empresa_perfil(request):
     empresa = request.POST.empresa
     perfil = 2
-    UsuarioService.lista_por_empresa_perfil(empresa, perfil)
+    return UsuarioService.lista_por_empresa_perfil(empresa, perfil)
 
 
 def busca_por_cnpj(request):
