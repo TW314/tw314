@@ -167,7 +167,7 @@
                                         </div>
                                         <div class="input-field col m6 s12">
                                             <input maxlength="14" id="nr_cnpj" name="nr_cnpj" type="number" class="validate">
-                                            {{ form.nr_cnpj.errors }}
+                                            {{ form.numero_cnpj.errors }}
                                             <label for="nr_cnpj" data-error="Insira somente números">CNPJ</label>
                                         </div>
                                     </div>
@@ -183,6 +183,14 @@
                                             <label for="razao_social">Razão Social</label>
                                         </div>
                                     </div>
+                                    <div class="input-field col s6">
+								<select id="{{ form.status_ativacao }}" name="status">
+									<option value="" disabled selected>Status</option>
+									<option value="Ativo">Ativo</option>
+									<option value="Inativo">Inativo</option>
+								</select>
+								{{ form.status_ativacao.errors }}
+							</div>
                                 </div>
                                 <div id="endereco" class="col s12">
                                     <div class="row">
@@ -198,16 +206,12 @@
                                         </div>
                                         <div class="input-field col s12 m2">
                                             <input id="nr_logradouro" name="nr_logradouro" type="number" class="validate">
-                                            {{ form.nr_logradouro.errors }}
+                                            {{ form.numero_logradouro.errors }}
                                             <label for="nr_logradouro" data-error="Insira somente números">Número</label>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="input-field col s12 m6">
-                                            <input id="bairro" name="bairro" type="text" class="validate">
-                                            {{ form.bairro.errors }}
-                                            <label for="bairro">Bairro</label>
-                                        </div>
+
                                         <div class="input-field col s12 m4">
                                             <input id="cidade" name="cidade" type="text" class="validate">
                                             {{ form.cidade.errors }}
