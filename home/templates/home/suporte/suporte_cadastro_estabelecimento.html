@@ -35,7 +35,8 @@
                                     <td class="center">
                                         <!-- Botao que chama Modal -->
                                         <a class=" btn-floating btn-short wave-light btn btn modal-trigger"
-                                           href="#estabelecimento{{ empresa.id }}"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                           href="#estabelecimento{{ empresa.id }}"><i class="fa fa-eye"
+                                                                                      aria-hidden="true"></i></a>
                                     </td>
                                 </tr>
                             </a>
@@ -46,10 +47,15 @@
                                 <div class="modal-content">
                                     <div class="row">
                                         <div class="col s10">
-                                            <h5 class="light valign-wrapper form-title secundaria1_text"><i class="fa fa-building" aria-hidden="true"></i><span> {{ empresa.nome_fantasia }} <small class="small-title">{{ empresa.razao_social }}</small> </span>
+                                            <h5 class="light valign-wrapper form-title secundaria1_text"><i
+                                                    class="fa fa-building"
+                                                    aria-hidden="true"></i><span> {{ empresa.nome_fantasia }} <small
+                                                    class="small-title">{{ empresa.razao_social }}</small> </span>
                                             </h5>
                                         </div>
-                                        <div class="col s2"><a href="" class="modal-action modal-close btn-flat texto_text right"> <i class="right fa fa-times" aria-hidden="true"></i></a></div>
+                                        <div class="col s2"><a href=""
+                                                               class="modal-action modal-close btn-flat texto_text right">
+                                            <i class="right fa fa-times" aria-hidden="true"></i></a></div>
                                     </div>
                                     <div class="row">
                                         <!-- Dados do estabelecimento -->
@@ -58,10 +64,12 @@
                                                 <small class="principal_v2_text">Empresa</small>
                                             </div>
                                             <div class="col s12 m6">
-                                                <p class="font18 principal_v2_text">CNPJ:  <span class="texto_text">{{ empresa.numero_cnpj }}</span></p>
+                                                <p class="font18 principal_v2_text">CNPJ: <span
+                                                        class="texto_text">{{ empresa.numero_cnpj }}</span></p>
                                             </div>
                                             <div class="col s12 m6 ">
-                                                <p class="font18 principal_v2_text">Ramo de Atividade:  <span class="texto_text">{{ empresa.ramo_atividade.nome }}</span> </p>
+                                                <p class="font18 principal_v2_text">Ramo de Atividade: <span
+                                                        class="texto_text">{{ empresa.ramo_atividade.nome }}</span></p>
                                             </div>
                                         </div>
                                         <div class="col s12">
@@ -69,7 +77,10 @@
                                                 <small class="principal_v2_text">Endereço</small>
                                             </div>
                                             <div class="col s12">
-                                                <p class="font18 texto_text">{{ empresa.logradouro }}, nº {{ empresa.numero_logradouro }} - {{ empresa.bairro }}/{{ empresa.cidade }} - {{ empresa.uf }} | CEP: {{ empresa.cep }}</p>
+                                                <p class="font18 texto_text">{{ empresa.logradouro }},
+                                                    nº {{ empresa.numero_logradouro }}
+                                                    - {{ empresa.bairro }}/{{ empresa.cidade }} - {{ empresa.uf }} |
+                                                    CEP: {{ empresa.cep }}</p>
                                             </div>
                                         </div>
                                         <div class="col s12">
@@ -77,10 +88,12 @@
                                                 <small class="principal_v2_text">Contato</small>
                                             </div>
                                             <div class="col s12 m6">
-                                                <p class="font18 principal_v2_text">Telefone:  <span class="font18  texto_text">{{ empresa.telefone }}</span></p>
+                                                <p class="font18 principal_v2_text">Telefone: <span
+                                                        class="font18  texto_text">{{ empresa.telefone }}</span></p>
                                             </div>
                                             <div class="col s12 m6">
-                                                <p class="font18 principal_v2_text">Email:  <span class="texto_text">{{ empresa.email }}</span></p>
+                                                <p class="font18 principal_v2_text">Email: <span
+                                                        class="texto_text">{{ empresa.email }}</span></p>
                                             </div>
                                         </div>
                                         <div class="col s12">
@@ -92,7 +105,8 @@
                                             </div>
 
                                             <div class="col s12 m6">
-                                                <p class="font18 principal_v2_text">CPF:  <span class="texto_text">{{ empresa.cpf_responsavel }}</span></p>
+                                                <p class="font18 principal_v2_text">CPF: <span
+                                                        class="texto_text">{{ empresa.cpf_responsavel }}</span></p>
                                             </div>
                                         </div>
                                     </div>
@@ -102,9 +116,17 @@
                                     <div class="col s12">
                                         <div class="right-align">
                                             <a href="cadastro_ramos"
-                                               class="btn-floating tooltipped principal_bg" data-position="top" data-delay="50" data-tooltip="Ir para Ramos"><i class="fa fa-puzzle-piece" aria-hidden="true"></i></a>
-                                            <a  class="btn-floating alerta_bg tooltipped" data-position="top" data-delay="50" data-tooltip="Inativar"><i class="fa fa-ban" aria-hidden="true"></i></a>
-                                            <a href="editar_servicos/{{ servico.pk }}" class="btn-floating editar_bg tooltipped z-depth-4" data-position="top" data-delay="50" data-tooltip="Editar"><i class="fa fa-pencil" aria-hidden="true"></i></a></div>
+                                               class="btn-floating tooltipped principal_bg" data-position="top"
+                                               data-delay="50" data-tooltip="Ir para Ramos"><i
+                                                    class="fa fa-puzzle-piece" aria-hidden="true"></i></a>
+                                            <a class="btn-floating alerta_bg tooltipped" data-position="top"
+                                               data-delay="50" data-tooltip="Inativar"><i class="fa fa-ban"
+                                                                                          aria-hidden="true"></i></a>
+                                            <a href="editar_servicos/{{ servico.pk }}"
+                                               class="btn-floating editar_bg tooltipped z-depth-4" data-position="top"
+                                               data-delay="50" data-tooltip="Editar"><i class="fa fa-pencil"
+                                                                                        aria-hidden="true"></i></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -118,11 +140,15 @@
                 <div class="row" align="right">
                     <ul class="pagination">
                         <span class="step-links">
-                            <li class="disabled"><a href="{% if servicos.has_previous %}?page={{ servicos.previous_page_number }}{% endif %}"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></a></li>
+                            <li class="disabled"><a
+                                    href="{% if servicos.has_previous %}?page={{ servicos.previous_page_number }}{% endif %}"><i
+                                    class="fa fa-chevron-circle-left" aria-hidden="true"></i></a></li>
                             <span class="current">
                                 <li class="waves-effect">{{ servicos.paginator.num_pages }}</li>
                             </span>
-                            <li class="waves-effect {% if servicos.has_next %}disabled{% endif %}"><a href="{% if servicos.has_next %}?page={{ servicos.next_page_number }}{% endif %}"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></li>
+                            <li class="waves-effect {% if servicos.has_next %}disabled{% endif %}"><a
+                                    href="{% if servicos.has_next %}?page={{ servicos.next_page_number }}{% endif %}"><i
+                                    class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></li>
                         </span>
                     </ul>
                     <!--Fim da paginacao da tabela-->
@@ -133,188 +159,204 @@
     </div>
 
     <!-- Botao que chama Modal de Cadastro-->
-    <a class="sucesso_v_bg btn-floating btn-large waves-light btn btn modal-trigger fixed-action-btn tooltipped" data-position="top" data-delay="50" data-tooltip="Novo Ramo" href="#cadastrar_estabelecimento"><i class="fa fa-plus" aria-hidden="true"></i></a>
+    <a class="sucesso_v_bg btn-floating btn-large waves-light btn btn modal-trigger fixed-action-btn tooltipped"
+       data-position="top" data-delay="50" data-tooltip="Novo Ramo" href="#cadastrar_estabelecimento"><i
+            class="fa fa-plus" aria-hidden="true"></i></a>
 
     <!-- Inicio da estrutura do Modal -->
     <div id="cadastrar_estabelecimento" class="modal bottom-sheet">
         <div class="row">
             <div class="col s12">
                 <ul class="tabs">
-                    <li class="tab col s3"><a class="active" href="#empresa"><i class="fa fa-building" aria-hidden="true"></i> Empresa</a></li>
-                    <li class="tab col s3"><a href="#endereco"><i class="fa fa-map-marker" aria-hidden="true"></i> Endereço</a></li>
-                    <li class="tab col s3"><a href="#contato"><i class="fa fa-comment" aria-hidden="true"></i> Contato</a></li>
-                    <li class="tab col s3"><a href="#responsavel"><i class="fa fa-user" aria-hidden="true"></i> Responsável</a></li>
+                    <li class="tab col s3"><a class="active" href="#empresa"><i class="fa fa-building"
+                                                                                aria-hidden="true"></i> Empresa</a></li>
+                    <li class="tab col s3"><a href="#endereco"><i class="fa fa-map-marker" aria-hidden="true"></i>
+                        Endereço</a></li>
+                    <li class="tab col s3"><a href="#contato"><i class="fa fa-comment" aria-hidden="true"></i>
+                        Contato</a></li>
+                    <li class="tab col s3"><a href="#responsavel"><i class="fa fa-user" aria-hidden="true"></i>
+                        Responsável</a></li>
                 </ul>
             </div>
-            <form method="POST" >
-                <div class="modal-content modal-padding">
-                    <div class="row texto_text">
-                        <div class="col s12">
-                            <!--Começo do formulário-->
-                            <div class="container">
-                                <h5 class="light valign-wrapper form-title secundaria1_text" ><i class="fa fa-briefcase" aria-hidden="true"></i><span> Insira os dados para cadastrar uma Empresa</span></h5>
-                                {% csrf_token %}
-                                <div id="empresa" class="col s12">
-                                    <div class="row">
-                                        <div class="input-field col m6 s12">
-                                            <select id="ramo_atividade" name="ramo_atividade" class="browser-default">
-                                                <option value="" disabled selected>Ramo de Atividade</option>
-                                                {% for ramo in ramos %}
-                                                    <option value="{{ ramo.id }}">{{ ramo.nome }}</option>
-                                                {% endfor %}
-                                            </select>
-                                            {{ form.ramo_atividade.errors }}
-                                        </div>
-                                        <div class="input-field col m6 s12">
-                                            <input maxlength="14" id="nr_cnpj" name="nr_cnpj" type="number" class="validate">
-                                            {{ form.numero_cnpj.errors }}
-                                            <label for="nr_cnpj" data-error="Insira somente números">CNPJ</label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s12 m6">
-                                            <input id="nome_fantasia" name="nome_fantasia" type="text" class="validate">
-                                            {{ form.nome_fantasia.errors }}
-                                            <label for="nome_fantasia">Nome Fantasia</label>
-                                        </div>
-                                        <div class="input-field col s12 m6">
-                                            <input id="razao_social" name="razao_social" type="text" class="validate">
-                                            {{ form.razao_social.errors }}
-                                            <label for="razao_social">Razão Social</label>
-                                        </div>
-                                    </div>
-                                    <div class="input-field col s6">
-								<select id="{{ form.status_ativacao }}" name="status">
-									<option value="" disabled selected>Status</option>
-									<option value="Ativo">Ativo</option>
-									<option value="Inativo">Inativo</option>
-								</select>
-								{{ form.status_ativacao.errors }}
-							</div>
-                                </div>
-                                <div id="endereco" class="col s12">
-                                    <div class="row">
-                                        <div class="input-field col s12 m4">
-                                            <input id="cep" name="cep" type="text" class="validate">
-                                            {{ form.cep.errors }}
-                                            <label for="cep" data-error="Insira somente números">CEP</label>
-                                        </div>
-                                        <div class="input-field col s12 m6">
-                                            <input id="logradouro" name="logradouro" type="text" class="validate">
-                                            {{ form.logradouro.errors }}
-                                            <label for="logradouro">Rua</label>
-                                        </div>
-                                        <div class="input-field col s12 m2">
-                                            <input id="nr_logradouro" name="nr_logradouro" type="number" class="validate">
-                                            {{ form.numero_logradouro.errors }}
-                                            <label for="nr_logradouro" data-error="Insira somente números">Número</label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-
-                                        <div class="input-field col s12 m4">
-                                            <input id="cidade" name="cidade" type="text" class="validate">
-                                            {{ form.cidade.errors }}
-                                            <label for="cidade">Cidade</label>
-                                        </div>
-                                        <div class="input-field col s12 m2">
-                                            <select id="uf" name="uf" class="browser-default">
-                                                <option value="" disabled selected>Selecione</option>
-                                                <option value="AC">AC</option>
-                                                <option value="AL">AL</option>
-                                                <option value="AP">AP</option>
-                                                <option value="AM">AM</option>
-                                                <option value="BA">BA</option>
-                                                <option value="CE">CE</option>
-                                                <option value="DF">DF</option>
-                                                <option value="ES">ES</option>
-                                                <option value="GO">GO</option>
-                                                <option value="MA">MA</option>
-                                                <option value="MT">MT</option>
-                                                <option value="MS">MS</option>
-                                                <option value="MG">MG</option>
-                                                <option value="PR">PR</option>
-                                                <option value="PB">PB</option>
-                                                <option value="PA">PA</option>
-                                                <option value="PE">PE</option>
-                                                <option value="PI">PI</option>
-                                                <option value="RJ">RJ</option>
-                                                <option value="RN">RN</option>
-                                                <option value="RS">RS</option>
-                                                <option value="RO">RO</option>
-                                                <option value="RR">RR</option>
-                                                <option value="SC">SC</option>
-                                                <option value="SE">SE</option>
-                                                <option value="SP">SP</option>
-                                                <option value="TO">TO</option>
-                                            </select>
-                                            {{ form.uf.errors }}
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="contato" class="col s12">
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input id="email" name="email" type="email" class="validate">
-                                            {{ form.email.errors }}
-                                            <label for="email" data-error="E-mail inválido">E-mail</label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input id="telefone" name="telefone" type="tel" maxlength="11" class="validate">
-                                            {{ form.telefone.errors }}
-                                            <label for="telefone" data-error="Insira somente números">Telefone</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="responsavel" class="col s12">
-                                    <div class="row">
-                                        <div class="input-field col s12">
-                                            <input id="nome_responsavel" name="nome_responsavel" type="text" class="validate">
-                                            {{ form.nome_responsavel.errors }}
-                                            <label for="nome_responsavel">Responsável</label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="input-field col s12 m6">
-                                            <input id="cargo_responsavel" name="cargo_responsavel" type="text" class="validate">
-                                            {{ form.cargo_responsavel.errors }}
-                                            <label for="cargo_responsavel">Cargo</label>
-                                        </div>
-                                        <div class="input-field col s12 m6">
-                                            <input id="cpf_responsavel" name="cpf_responsavel" type="number" class="validate">
-                                            {{ form.cpf_responsavel.errors }}
-                                            <label for="cpf_responsavel" data-error="Insira somente números">CPF</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <small class="small right">ATENÇÃO: Todos os campos são obrigatórios</small>
-                            </div>
-                            <!--Fim do Botão Cadastrar-->
-                        </div>
-                        <!--Fim do formulário-->
-                    </div>
-                </div>
         </div>
-        <div class="row modal-footer-cadastro">
-            <div class="col push-m6 m5 s12">
-                <!--Botão Cancelar-->
-                <div class="col s12 m6">
-                    <button class="btn waves-effect waves-light  col s12 alerta_bg modal-close " type="reset" name="action">Cancelar <i class="fa fa-times-circle right" aria-hidden="true"></i> </button>
-                </div>
-                <!--Fim do botão cancelar-->
-                <!--Botão Cadastrar-->
-                <div class="col s12 m6">
-                    <button class="btn waves-effect waves-light right col s12 sucesso_bg" type="submit"
-                            name="action">Cadastrar
-                        <i class="fa fa-check-circle right" aria-hidden="true"></i>
-                    </button>
+        <form method="POST">
+            <div class="modal-content modal-padding">
+                <div class="row texto_text">
+                    <div class="col s12">
+                        <!--Começo do formulário-->
+                        <div class="container">
+                            <h5 class="light valign-wrapper form-title secundaria1_text">
+                                <i class="fa fa-briefcase" aria-hidden="true"></i><span> Insira os dados para cadastrar uma Empresa</span>
+                            </h5>
+                            {% csrf_token %}
+                            <div id="empresa" class="col s12">
+                                <div class="row">
+                                    <div class="input-field col m6 s12">
+                                        <select id="ramo_atividade" name="ramo_atividade" class="browser-default">
+                                            <option value="" disabled selected>Ramo de Atividade</option>
+                                            {% for ramo in ramos %}
+                                                <option value="{{ ramo.id }}">{{ ramo.nome }}</option>
+                                            {% endfor %}
+                                        </select>
+                                        {{ form.ramo_atividade.errors }}
+                                    </div>
+                                    <div class="input-field col m6 s12">
+                                        <input maxlength="14" id="nr_cnpj" name="nr_cnpj" type="number"
+                                               class="validate">
+                                        {{ form.numero_cnpj.errors }}
+                                        <label for="nr_cnpj" data-error="Insira somente números">CNPJ</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12 m6">
+                                        <input id="nome_fantasia" name="nome_fantasia" type="text" class="validate">
+                                        {{ form.nome_fantasia.errors }}
+                                        <label for="nome_fantasia">Nome Fantasia</label>
+                                    </div>
+                                    <div class="input-field col s12 m6">
+                                        <input id="razao_social" name="razao_social" type="text" class="validate">
+                                        {{ form.razao_social.errors }}
+                                        <label for="razao_social">Razão Social</label>
+                                    </div>
+                                </div>
+                                <div class="input-field col s6">
+                                    <select id="status_ativacao" name="status">
+                                        <option value="" disabled selected>Status</option>
+                                        <option value="Ativo">Ativo</option>
+                                        <option value="Inativo">Inativo</option>
+                                    </select>
+                                    {{ form.status_ativacao.errors }}
+                                </div>
+                            </div>
+                            <div id="endereco" class="col s12">
+                                <div class="row">
+                                    <div class="input-field col s12 m4">
+                                        <input id="cep" name="cep" type="text" class="validate">
+                                        {{ form.cep.errors }}
+                                        <label for="cep" data-error="Insira somente números">CEP</label>
+                                    </div>
+                                    <div class="input-field col s12 m6">
+                                        <input id="logradouro" name="logradouro" type="text" class="validate">
+                                        {{ form.logradouro.errors }}
+                                        <label for="logradouro">Rua</label>
+                                    </div>
+                                    <div class="input-field col s12 m2">
+                                        <input id="nr_logradouro" name="nr_logradouro" type="number"
+                                               class="validate">
+                                        {{ form.numero_logradouro.errors }}
+                                        <label for="nr_logradouro"
+                                               data-error="Insira somente números">Número</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+
+                                    <div class="input-field col s12 m4">
+                                        <input id="cidade" name="cidade" type="text" class="validate">
+                                        {{ form.cidade.errors }}
+                                        <label for="cidade">Cidade</label>
+                                    </div>
+                                    <div class="input-field col s12 m2">
+                                        <select id="uf" name="uf" class="browser-default">
+                                            <option value="" disabled selected>Selecione</option>
+                                            <option value="AC">AC</option>
+                                            <option value="AL">AL</option>
+                                            <option value="AP">AP</option>
+                                            <option value="AM">AM</option>
+                                            <option value="BA">BA</option>
+                                            <option value="CE">CE</option>
+                                            <option value="DF">DF</option>
+                                            <option value="ES">ES</option>
+                                            <option value="GO">GO</option>
+                                            <option value="MA">MA</option>
+                                            <option value="MT">MT</option>
+                                            <option value="MS">MS</option>
+                                            <option value="MG">MG</option>
+                                            <option value="PR">PR</option>
+                                            <option value="PB">PB</option>
+                                            <option value="PA">PA</option>
+                                            <option value="PE">PE</option>
+                                            <option value="PI">PI</option>
+                                            <option value="RJ">RJ</option>
+                                            <option value="RN">RN</option>
+                                            <option value="RS">RS</option>
+                                            <option value="RO">RO</option>
+                                            <option value="RR">RR</option>
+                                            <option value="SC">SC</option>
+                                            <option value="SE">SE</option>
+                                            <option value="SP">SP</option>
+                                            <option value="TO">TO</option>
+                                        </select>
+                                        {{ form.uf.errors }}
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="contato" class="col s12">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="email" name="email" type="email" class="validate">
+                                        {{ form.email.errors }}
+                                        <label for="email" data-error="E-mail inválido">E-mail</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="telefone" name="telefone" type="tel" maxlength="11"
+                                               class="validate">
+                                        {{ form.telefone.errors }}
+                                        <label for="telefone" data-error="Insira somente números">Telefone</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="responsavel" class="col s12">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input id="nome_responsavel" name="nome_responsavel" type="text"
+                                               class="validate">
+                                        {{ form.nome_responsavel.errors }}
+                                        <label for="nome_responsavel">Responsável</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12 m6">
+                                        <input id="cargo_responsavel" name="cargo_responsavel" type="text"
+                                               class="validate">
+                                        {{ form.cargo_responsavel.errors }}
+                                        <label for="cargo_responsavel">Cargo</label>
+                                    </div>
+                                    <div class="input-field col s12 m6">
+                                        <input id="cpf_responsavel" name="cpf_responsavel" type="number"
+                                               class="validate">
+                                        {{ form.cpf_responsavel.errors }}
+                                        <label for="cpf_responsavel" data-error="Insira somente números">CPF</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <small class="small right">ATENÇÃO: Todos os campos são obrigatórios</small>
+                        </div>
+                    </div>
+                    <!--Fim do formulário-->
                 </div>
             </div>
-        </div>
+
+            <div class="row modal-footer-cadastro">
+                <div class="col push-m6 m5 s12">
+                    <!--Botão Cancelar-->
+                    <div class="col s12 m6">
+                        <button class="btn waves-effect waves-light  col s12 alerta_bg modal-close " type="reset"
+                                name="action">Cancelar <i class="fa fa-times-circle right" aria-hidden="true"></i></button>
+                    </div>
+                    <!--Fim do botão cancelar-->
+                    <!--Botão Cadastrar-->
+                    <div class="col s12 m6">
+                        <button class="btn waves-effect waves-light right col s12 sucesso_bg" type="submit"
+                                name="action">Cadastrar
+                            <i class="fa fa-check-circle right" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </form>
     </div>
     <!-- Fim da estrutura do Modal -->
