@@ -22,17 +22,15 @@ def cadastra(ramo_atividade):
     return form
 
 
-def atualiza(ramo_atividade, pk):
-    form = RamoForm(ramo_atividade, pk)
-    if form.is_valid():
-        nome = form.cleaned_data['nome']
-        descricao = form.cleaned_data['descricao']
-        status = form.cleaned_data['status_ativacao']
+def atualiza(ramo_atividade_novo, ramo_atividade, pk):
+    form = RamoForm(ramo_atividade_novo)
 
-        data = monta_json(nome, descricao, status)
+    if form.is_valid():
+        ramo_atividade['nome'] = form.cleaned_data['nome']
+        ramo_atividade['descricao'] = form.cleaned_data['descricao']
 
         try:
-            form = requests.put('http://localhost:3000/ramoAtividade/'+pk, json=data)
+            form = requests.put('http://localhost:3000/ramoAtividade/'+pk, json=ramo_atividade)
 
         except requests.exceptions.ConnectionError:  # verificar se funciona
             form = "Erro ao tentar conectar com WebService"
@@ -51,7 +49,8 @@ def ramo_por_id(pk):
     ramo = requests.get('http://localhost:3000/ramoAtividade/'+pk).json()
     return ramo
 
-def monta_json(nome, descricao, status):
-    data = {'nome': nome, 'descricao': descricao, 'status_ativacao': status}
-    return data
 
+def monta_json(nome, descricao, status_ativacao):
+    data = {'nome': nome, 'descricao': descricao, 'status_ativacao': status_ativacao}
+
+    return data

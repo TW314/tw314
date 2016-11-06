@@ -26,7 +26,9 @@
                                     <td>{{ usuario.email }}</td>
                                     <td class="center">
                                         <!-- Botao que chama Modal -->
-                                        <a class=" btn-floating btn-short waves-light btn btn modal-trigger" href="#admin{{ usuario.id }}"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                        <a class=" btn-floating btn-short waves-light btn btn modal-trigger"
+                                           href="#admin{{ usuario.id }}"><i class="fa fa-eye"
+                                                                            aria-hidden="true"></i></a>
                                     </td>
                                 </tr>
                                 <!-- Inicio da estrutura do Modal -->
@@ -34,10 +36,14 @@
                                     <div class="modal-content modal-padding">
                                         <div class="row">
                                             <div class="col s8">
-                                                <h5 class="light valign-wrapper texto_text form-title"><i class="fa fa-user fa-2x" aria-hidden="true"></i><span> {{ usuario.nome }} <small></small> </span>
+                                                <h5 class="light valign-wrapper texto_text form-title"><i
+                                                        class="fa fa-user fa-2x"
+                                                        aria-hidden="true"></i><span> {{ usuario.nome }} <small></small> </span>
                                                 </h5>
                                             </div>
-                                            <div class="col s4"><a href="" class="modal-action modal-close btn-flat base_text right"> <i class="right fa fa-times" aria-hidden="true"></i></a></div>
+                                            <div class="col s4"><a href=""
+                                                                   class="modal-action modal-close btn-flat base_text right">
+                                                <i class="right fa fa-times" aria-hidden="true"></i></a></div>
                                         </div>
                                         <div class="row">
                                             <!-- Dados -->
@@ -66,11 +72,14 @@
                                         <!-- Menu de acoes da Modal -->
                                         <div class="col s12">
                                             <div class="right-align">
-                                                <a class="btn-floating secundaria1_bg alerta_bg"><i class="fa fa-ban" aria-hidden="true"></i></a>
+                                                <a class="btn-floating secundaria1_bg alerta_bg"><i class="fa fa-ban"
+                                                                                                    aria-hidden="true"></i></a>
 
-                                                <a class="btn-floating secundaria2_bg "><i class="fa fa-key" aria-hidden="true"></i></a>
+                                                <a class="btn-floating secundaria2_bg "><i class="fa fa-key"
+                                                                                           aria-hidden="true"></i></a>
 
-                                                <a class="btn-floating editar_bg"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                                <a class="btn-floating editar_bg"><i class="fa fa-pencil"
+                                                                                     aria-hidden="true"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -85,11 +94,15 @@
                     <div class="row" align="right">
                         <ul class="pagination">
                         <span class="step-links">
-                            <li class="disabled"><a href="{% if usuarios.has_previous %}?page={{ usuarios.previous_page_number }}{% endif %}"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></a></li>
+                            <li class="disabled"><a
+                                    href="{% if usuarios.has_previous %}?page={{ usuarios.previous_page_number }}{% endif %}"><i
+                                    class="fa fa-chevron-circle-left" aria-hidden="true"></i></a></li>
                             <span class="current">
                                 <li class="waves-effect">{{ usuarios.paginator.num_pages }}</li>
                             </span>
-                            <li class="waves-effect {% if usuarios.has_next %}disabled{% endif %}"><a href="{% if usuarios.has_next %}?page={{ usuarios.next_page_number }}{% endif %}"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></li>
+                            <li class="waves-effect {% if usuarios.has_next %}disabled{% endif %}"><a
+                                    href="{% if usuarios.has_next %}?page={{ usuarios.next_page_number }}{% endif %}"><i
+                                    class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></li>
                         </span>
                         </ul>
                         <!--Fim da paginacao da tabela-->
@@ -110,48 +123,48 @@
                     <div class="col s12">
                         <!--Comeco do formulario-->
                         <div class="col s12 m7 push-m3 margin-form">
-                            <h5 class="light valign-wrapper form-title secundaria1_text">Insira os dados para cadastrar um Administrador</h5>
-                            <form method="POST" class="col s12"> {% csrf_token %}
-                                <h6 class="light valign-wrapper form-title secundaria2_text" style="margin-top: 10px;"><i class="fa fa-user small" aria-hidden="true"></i><span> Dados de Acesso </span></h6>
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <select id="empresa" name="empresa">
-                                            <option value="" disabled selected>Estabelecimento</option>
-                                            {% for estabelecimento in estabelecimentos %}
-                                                <option value="{{ estabelecimento.id }}">{{ estabelecimento.nome_fantasia }}</option>
-                                            {% endfor %}
-                                        </select>
-                                        <label for="empresa">Estabelecimento</label>
-                                    </div>
+                            <h5 class="light valign-wrapper form-title secundaria1_text">Insira os dados para cadastrar
+                                um Administrador</h5>
+                            <h6 class="light valign-wrapper form-title secundaria2_text" style="margin-top: 10px;">
+                                <i class="fa fa-user small" aria-hidden="true"></i><span> Dados de Acesso </span>
+                            </h6>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <select id="empresa" name="empresa">
+                                        <option value="" disabled selected>Estabelecimento</option>
+                                        {% for estabelecimento in estabelecimentos %}
+                                            <option value="{{ estabelecimento.id }}">{{ estabelecimento.nome_fantasia }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    <label for="empresa">Estabelecimento</label>
                                 </div>
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <input id="nome" name="nome" type="text" class="validate">
-                                        {{ form.nome.errors }}
-                                        <label for="nome">Nome</label>
-                                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="nome" name="nome" type="text" class="validate">
+                                    {{ form.nome.errors }}
+                                    <label for="nome">Nome</label>
                                 </div>
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <input id="email" name="email" type="text" class="validate">
-                                        {{ form.email.errors }}
-                                        <label for="email">E-mail</label>
-                                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="email" name="email" type="text" class="validate">
+                                    {{ form.email.errors }}
+                                    <label for="email">E-mail</label>
                                 </div>
+                            </div>
                             <div class="input-field col s12">
-								<select id="{{ form.status_ativacao }}" name="status">
-									<option value="" disabled selected>Status</option>
-									<option value="Ativo">Ativo</option>
-									<option value="Inativo">Inativo</option>
-								</select>
-								{{ form.status_ativacao.errors }}
-							</div>
-                                <div class="row">
-                                    <small class="small right">ATENÇÃO: Todos os campos são obrigatórios</small>
-                                </div>
-
+                                <select id="status_ativacao" name="status">
+                                    <option value="" disabled selected>Status</option>
+                                    <option value="Ativo">Ativo</option>
+                                    <option value="Inativo">Inativo</option>
+                                </select>
+                                {{ form.status_ativacao.errors }}
+                            </div>
+                            <div class="row">
+                                <small class="small right">ATENÇÃO: Todos os campos são obrigatórios</small>
+                            </div>
                         </div>
-
                     </div>
                 </div>
 
@@ -168,9 +181,7 @@
                         <!--Fim do botão cancelar-->
                         <!--Botão Cadastrar-->
                         <div class="col s12 m6">
-                            <button class="btn waves-effect waves-light right col s12 sucesso_bg" type="submit"
-                                    name="action">Cadastrar
-                                <i class="fa fa-check-circle right" aria-hidden="true"></i>
+                            <button class="btn waves-effect waves-light right col s12 sucesso_bg" type="submit" name="action">Cadastrar <i class="fa fa-check-circle right" aria-hidden="true"></i>
                             </button>
                         </div>
                     </div>
@@ -179,5 +190,4 @@
         </form>
     </div>
     <!-- FIM Modal de Cadastro-->
-
 {% endblock %}
