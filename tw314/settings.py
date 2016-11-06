@@ -87,29 +87,6 @@ DATABASES = {
 } 
 """
 # """
-# LOCAL
-DATABASES = {
-    'default': {
-        'NAME': 'tw314',
-        'ENGINE': 'django.db.backends.mysql',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'OPTIONS': {'autocommit': True,},
-    }
-}
-"""
-# SERVER
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'tw314$tw314',
-        'USER': 'tw314',
-        'PASSWORD': 'fatec@pi_tw314',
-        'HOST': 'tw314.mysql.pythonanywhere-services.com',
-        'OPTIONS': {'autocommit': True, },
-    }
-}
-# """
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
 
