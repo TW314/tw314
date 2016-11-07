@@ -4,7 +4,7 @@ from form.RamoForm import RamoForm
 from django.views.decorators.http import require_POST
 
 template_name = 'home/suporte/suporte_editar_ramos.html'
-template_cadastro = 'http://127.0.0.1:8000/suporte/cadastro_ramos'
+template_cadastro = 'http://127.0.0.1:8000/suporte/cadastro/ramo'
 
 
 def template(request, pk):

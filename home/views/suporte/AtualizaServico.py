@@ -5,7 +5,7 @@ from form.ServicoForm import ServicoForm
 from django.views.decorators.http import require_POST
 
 template_name = 'home/suporte/suporte_editar_servicos.html'
-template_cadastro = 'http://127.0.0.1:8000/suporte/cadastro_servico'
+template_cadastro = 'http://127.0.0.1:8000/suporte/cadastro/servico'
 
 
 def template(request, pk):
