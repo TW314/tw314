@@ -20,9 +20,8 @@ urlpatterns = [
     url(r'^suporte/atendimento', suporte.Atendimento.template),
     url(r'^suporte/cadastro_servico', suporte.CadastroServico.template),
     url(r'^suporte/cadastro_ramos', suporte.CadastroRamoAtividade.template),
-    # url(r'^suporte/editar_status/(?P<pk>[0-9]+)/$', views.suporte_editar_status),
     url(r'^suporte/editar_ramos/(?P<pk>[0-9]+)/$', suporte.AtualizaRamoAtividade.template),
-    # url(r'^suporte/editar_servicos/(?P<pk>[0-9]+)/$', views.suporte_editar_servicos),
+    url(r'^suporte/editar_servicos/(?P<pk>[0-9]+)/$', suporte.AtualizaServico.template),
     # funcionario
     url(r'^funcionario/principal', funcionario.Principal.template),
     url(r'^funcionario/relatorio', funcionario.Relatorio.template),

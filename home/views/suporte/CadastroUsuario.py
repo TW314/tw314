@@ -1,4 +1,4 @@
-from cups import require
+#from cups import require
 
 from django.shortcuts import render
 from service import UsuarioService

@@ -22,8 +22,33 @@ def cadastra(servico):
     return form
 
 
-def atualiza(servico, pk):
-    pass
+def atualiza(servico_novo, servico, pk):
+
+    form = ServicoForm(servico_novo)
+
+    if form.is_valid():
+        nome = form.cleaned_data['nome']
+        descricao = form.cleaned_data['descricao']
+        ramoAtividadeId = form.cleaned_data['ramo_atividade']
+        sigla = form.cleaned_data['sigla']
+        status_ativacao = servico['status_ativacao']
+
+        data = monta_json(nome, descricao, ramoAtividadeId, sigla, status_ativacao)
+
+        try:
+            form = requests.put('http://localhost:3000/servico/' + pk, json=data)
+
+        except requests.exceptions.ConnectionError:  # verificar se funciona
+            form = "Erro ao tentar conectar com WebService"
+    else:
+        form = "Campos de Servico nao preenchidos corretamente"
+
+    return form
+
+
+def servico_por_id(pk):
+    servico = requests.get('http://localhost:3000/servico/' + pk).json()
+    return servico
 
 
 def lista():
@@ -31,8 +56,8 @@ def lista():
     return servico
 
 
-def monta_json(nome, descricao, ramo_atividade, sigla, status_ativacao):
-    data = {'nome': nome, 'descricao': descricao, 'ramoAtividadeId': ramo_atividade, 'sigla': sigla,
+def monta_json(nome, descricao, ramoAtividadeId, sigla, status_ativacao):
+    data = {'nome': nome, 'descricao': descricao, 'ramoAtividadeId': ramoAtividadeId, 'sigla': sigla,
             'status_ativacao': status_ativacao}
 
     return data
