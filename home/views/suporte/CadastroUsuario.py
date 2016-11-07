@@ -8,12 +8,12 @@ from django.views.decorators.http import require_POST, require_GET
 
 
 def template(request):
+    form = UsuarioForm()
+    estabelecimentos = listar_empresa()
     if request.method == "POST":
         cadastra(request)
-    form = UsuarioForm()
-    estabelecimentos = listar_empresa(request)
-    if request.method == "GET":
-        admins = lista_por_empresa_perfil(request)
+    elif request.method == "GET":
+        admins = lista_por_perfil()
         # estabelecimentos = busca_por_cnpj(request)
         return render(request, 'home/suporte/suporte_cadastro_admin.html', {'form': form, 'admins': admins, 'estabelecimentos': estabelecimentos})
 
@@ -25,10 +25,19 @@ def cadastra(usuario):
     UsuarioService.suporte_cadastra(usuario.POST)
 
 
+def listar(request):
+    return UsuarioService
+
+
 def lista_por_empresa_perfil(request):
-    empresa = str(1)
+    empresa = request.POST.empresa
     perfil = 2
     return UsuarioService.lista_por_empresa_perfil(empresa, perfil)
+
+
+def lista_por_perfil():
+    perfil = 2
+    return UsuarioService.lista_por_perfil(perfil)
 
 
 def busca_por_cnpj(request):
@@ -36,7 +45,7 @@ def busca_por_cnpj(request):
     return EmpresaService.busca_por_cnpj(cnpj)
 
 
-def listar_empresa(request):
+def listar_empresa():
     return EmpresaService.lista()
 
 

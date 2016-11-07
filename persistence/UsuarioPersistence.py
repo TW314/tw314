@@ -1,3 +1,4 @@
+# coding=utf-8
 from pip._vendor import requests
 
 from form.UsuarioForm import UsuarioForm
@@ -49,10 +50,14 @@ def lista_por_empresa_perfil(empresa, perfil):
     return usuario
 
 
+def lista_por_perfil(perfil):
+    # fixme: arrumar esse retorno - todo: descobrir o que esta acontecendo
+    return requests.get('http://localhost:3000/usuario/perfil/'+perfil).json()
+
+
 def suporte_monta_json(nome, email, empresa, status_ativacao, data_inativacao):
     data = {'nome': nome, 'email': email, 'status_ativacao': status_ativacao,
             'data_inativacao': data_inativacao, 'empresaId': empresa, 'perfilId': 2}
-
     return data
 
 
