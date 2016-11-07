@@ -16,12 +16,12 @@ urlpatterns = [
     # suporte
     url(r'^suporte/principal', suporte.Principal.template),
     url(r'^suporte/cadastro_admin', suporte.CadastroUsuario.template),
-    url(r'^suporte/cadastro_estabelecimento', suporte.CadastroEstabelecimento.template),
+    url(r'^suporte/cadastro/empresa', suporte.CadastroEstabelecimento.template),
     url(r'^suporte/atendimento', suporte.Atendimento.template),
     url(r'^suporte/cadastro/servico', suporte.CadastroServico.template),
-    url(r'^suporte/cadastro/ramos', suporte.CadastroRamoAtividade.template),
-    url(r'^suporte/editar/ramos/(?P<pk>[0-9]+)/$', suporte.AtualizaRamoAtividade.template),
-    url(r'^suporte/editar/servicos/(?P<pk>[0-9]+)/$', suporte.AtualizaServico.template),
+    url(r'^suporte/cadastro/ramo', suporte.CadastroRamoAtividade.template),
+    url(r'^suporte/editar/ramo/(?P<pk>[0-9]+)/$', suporte.AtualizaRamoAtividade.template),
+    url(r'^suporte/editar/servico/(?P<pk>[0-9]+)/$', suporte.AtualizaServico.template),
     # funcionario
     url(r'^funcionario/principal', funcionario.Principal.template),
     url(r'^funcionario/relatorio', funcionario.Relatorio.template),
