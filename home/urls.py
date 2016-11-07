@@ -16,7 +16,7 @@ urlpatterns = [
     # suporte
     url(r'^suporte/principal', suporte.Principal.template),
     url(r'^suporte/cadastro_admin', suporte.CadastroUsuario.template),
-    url(r'^suporte/cadastro_estabelecimento', suporte.CadastroEstabelecimento.template),
+    url(r'^suporte/cadastro/empresa', suporte.CadastroEstabelecimento.template),
     url(r'^suporte/atendimento', suporte.Atendimento.template),
     url(r'^suporte/cadastro/servico', suporte.CadastroServico.template),
     url(r'^suporte/cadastro/ramos', suporte.CadastroRamoAtividade.template),
