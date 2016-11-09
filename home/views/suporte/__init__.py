@@ -6,3 +6,4 @@ from . import CadastroServico
 from . import CadastroRamoAtividade
 from . import AtualizaRamoAtividade
 from . import AtualizaServico
+from . import AtualizaEstabelecimento

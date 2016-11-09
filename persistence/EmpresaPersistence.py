@@ -10,13 +10,14 @@ def cadastra(empresa):
 
     if form.is_valid():
         ramo_atividade = form.cleaned_data['ramo_atividade']
-        nr_cnpj = form.cleaned_data['nr_cnpj']
+        nr_cnpj = form.cleaned_data["numero_cnpj"]
         nome_fantasia = form.cleaned_data['nome_fantasia']
         razao_social = form.cleaned_data['razao_social']
         status_ativacao = form.cleaned_data['status_ativacao']
         cep = form.cleaned_data['cep']
         logradouro = form.cleaned_data['logradouro']
         nr_logradouro = form.cleaned_data['numero_logradouro']
+        bairro = form.cleaned_data['cidade']
         cidade = form.cleaned_data['cidade']
         uf = form.cleaned_data['uf']
         email = form.cleaned_data['email']
@@ -25,13 +26,48 @@ def cadastra(empresa):
         cargo_responsavel = form.cleaned_data['cargo_responsavel']
         cpf_responsavel = form.cleaned_data['cpf_responsavel']
 
-        data = monta_json(nome_fantasia, razao_social, nr_cnpj, logradouro, nr_logradouro, cidade, uf, cep, telefone, email, nome_responsavel, cargo_responsavel, cpf_responsavel, ramo_atividade, status_ativacao)
+        data = monta_json(nome_fantasia, razao_social, nr_cnpj, logradouro, nr_logradouro, bairro, cidade, uf, cep, telefone, email, nome_responsavel, cargo_responsavel, cpf_responsavel, ramo_atividade, status_ativacao)
         try:
             form = requests.post('http://localhost:3000/empresa', json=data)
         except requests.exceptions.ConnectionError: # verificar se funciona
             form = "Erro ao tentar conectar com WebService"
     else:
         form = "Campos de Empresa nao preenchidos corretamente"
+
+    return form
+
+
+def atualiza(empresa_novo, empresa, pk):
+
+    form = EmpresaForm(empresa_novo)
+
+    if form.is_valid():
+        ramo_atividade = form.cleaned_data['ramo_atividade']
+        numero_cnpj = form.cleaned_data['numero_cnpj']
+        nome_fantasia = form.cleaned_data['nome_fantasia']
+        razao_social = form.cleaned_data['razao_social']
+        status_ativacao = empresa['status_ativacao']
+        cep = form.cleaned_data['cep']
+        logradouro = form.cleaned_data['logradouro']
+        numero_logradouro = form.cleaned_data['numero_logradouro']
+        bairro = form.cleaned_data['bairro']
+        cidade = form.cleaned_data['cidade']
+        uf = form.cleaned_data['uf']
+        email = form.cleaned_data['email']
+        telefone = form.cleaned_data['telefone']
+        nome_responsavel = form.cleaned_data['nome_responsavel']
+        cargo_responsavel = form.cleaned_data['cargo_responsavel']
+        cpf_responsavel = form.cleaned_data['cpf_responsavel']
+
+        data = monta_json(nome_fantasia, razao_social, numero_cnpj, logradouro, numero_logradouro, bairro, cidade, uf, cep, telefone, email, nome_responsavel, cargo_responsavel, cpf_responsavel, ramo_atividade, status_ativacao)
+
+        try:
+            form = requests.put('http://localhost:3000/empresa/' + pk, json=data)
+
+        except requests.exceptions.ConnectionError:  # verificar se funciona
+            form = "Erro ao tentar conectar com WebService"
+            """else:
+    form = "Campos de Servico nao preenchidos corretamente" """
 
     return form
 
@@ -46,6 +82,10 @@ def busca_por_cnpj(cnpj):
     return empresa
 
 
-def monta_json(nome_fantasia, razao_social, nr_cnpj, logradouro, nr_logradouro, cidade, uf, cep, telefone, email, nome_responsavel, cargo_responsavel, cpf_responsavel, ramo_atividade, status_ativacao):
-    data = {'nome_fantasia': nome_fantasia, 'razao_social': razao_social, 'numero_cnpj': nr_cnpj, 'logradouro': logradouro, 'numero_logradouro': nr_logradouro, 'cidade': cidade, 'uf': uf, 'cep': cep, 'telefone': telefone, 'email': email, 'nome_responsavel': nome_responsavel, 'cargo_responsavel': cargo_responsavel, 'cpf_responsavel': cpf_responsavel, 'ramoAtividadeId': ramo_atividade, 'status_ativacao': status_ativacao}
+def empresa_por_id(id):
+    return requests.get('http://localhost:3000/empresa/' + str(id)).json()
+
+
+def monta_json(nome_fantasia, razao_social, nr_cnpj, logradouro,  nr_logradouro, bairro, cidade, uf, cep, telefone, email, nome_responsavel, cargo_responsavel, cpf_responsavel, ramo_atividade, status_ativacao):
+    data = {'nome_fantasia': nome_fantasia, 'razao_social': razao_social, 'numero_cnpj': nr_cnpj, 'logradouro': logradouro, 'numero_logradouro': nr_logradouro, 'bairro': bairro, 'cidade': cidade, 'uf': uf, 'cep': cep, 'telefone': telefone, 'email': email, 'nome_responsavel': nome_responsavel, 'cargo_responsavel': cargo_responsavel, 'cpf_responsavel': cpf_responsavel, 'ramoAtividadeId': ramo_atividade, 'status_ativacao': status_ativacao}
     return data

@@ -7,24 +7,23 @@
             <!--Começo do formulário-->
             <div class="card">
                 <div class="card-content">
-                    <span class="card-title">Editar Estabelecimento {{ servicos.nome }}</span>
+                    <span class="card-title">Editar Estabelecimento {{ empresas.nome_fantasia }}</span>
                 </div>
                 <div class="card-action">
                     <form method="POST" class="post-form">{% csrf_token %}
-                        <h6 class="light valign-wrapper form-title secundaria2_text" style="margin-top: 10px;"><i class="fa fa-briefcase small" aria-hidden="true"></i><span> Editar dados </span></h6>
-                        <h5 class="light valign-wrapper form-title secundaria1_text" ><i class="fa fa-briefcase" aria-hidden="true"></i><span> Empresa</span></h5>
+                        <h5 class="light valign-wrapper form-title secundaria1_text" ><i class="fa fa-briefcase" aria-hidden="true"></i><span> Dados da Empresa</span></h5>
                         <div class="row">
                             <div class="input-field col m6 s12">
                                 <select id="ramo_atividade" name="ramo_atividade" class="browser-default">
                                     <option value="" disabled selected>Ramo de Atividade</option>
                                     {% for ramo in ramos %}
-                                        <option {% if servicos.ramo_atividade_id == ramo.id %} selected {% endif %} value="{{ ramo.id }}">{{ ramo.nome }}</option>
+                                        <option {% if empresas.ramo_atividade.id == ramo.id %} selected {% endif %} value="{{ ramo.id }}">{{ ramo.nome }}</option>
                                     {% endfor %}
                                 </select>
                             </div>
                             <div class="input-field col m6 s12">
-                                <input maxlength="14" id="nr_cnpj" name="nr_cnpj" type="number" class="validate" value="{{ empresas.nr_cnpj }}">
-                                <label for="nr_cnpj" data-error="Insira somente números">CNPJ</label>
+                                <input maxlength="14" id="numero_cnpj" name="numero_cnpj" type="number" class="validate" value="{{ empresas.numero_cnpj }}">
+                                <label for="numero_cnpj" data-error="Insira somente números">CNPJ</label>
                             </div>
                         </div>
                         <div class="row">
@@ -37,7 +36,7 @@
                                 <label for="razao_social">Razão Social</label>
                             </div>
                         </div>
-                        <h5 class="light valign-wrapper form-title secundaria1_text" ><i class="fa fa-briefcase" aria-hidden="true"></i><span> Endereço</span></h5>
+                        <h5 class="light valign-wrapper form-title secundaria1_text" ><i class="fa fa-map-marker" aria-hidden="true"></i><span> Endereço</span></h5>
                         <div class="row">
                             <div class="input-field col s12 m4">
                                 <input id="cep" name="cep" type="text" class="validate" value="{{ empresas.cep }}">
@@ -63,68 +62,65 @@
                             </div>
                             <div class="input-field col s12 m2">
                                 <select id="uf" name="uf" class="browser-default">
-                                    <option value="" disabled selected>Selecione</option>
-                                    <option value="AC">AC</option>
-                                    <option value="AL">AL</option>
-                                    <option value="AP">AP</option>
-                                    <option value="AM">AM</option>
-                                    <option value="BA">BA</option>
-                                    <option value="CE">CE</option>
-                                    <option value="DF">DF</option>
-                                    <option value="ES">ES</option>
-                                    <option value="GO">GO</option>
-                                    <option value="MA">MA</option>
-                                    <option value="MT">MT</option>
-                                    <option value="MS">MS</option>
-                                    <option value="MG">MG</option>
-                                    <option value="PR">PR</option>
-                                    <option value="PB">PB</option>
-                                    <option value="PA">PA</option>
-                                    <option value="PE">PE</option>
-                                    <option value="PI">PI</option>
-                                    <option value="RJ">RJ</option>
-                                    <option value="RN">RN</option>
-                                    <option value="RS">RS</option>
-                                    <option value="RO">RO</option>
-                                    <option value="RR">RR</option>
-                                    <option value="SC">SC</option>
-                                    <option value="SE">SE</option>
-                                    <option value="SP">SP</option>
-                                    <option value="TO">TO</option>
+                                    <option value="" disabled >Selecione</option>
+                                    <option value="AC" {% if empresas.uf == "AC" %} selected {% endif %}>AC</option>
+                                    <option value="AL" {% if empresas.uf == "AL" %} selected {% endif %}>AL</option>
+                                    <option value="AP" {% if empresas.uf == "AP" %} selected {% endif %}>AP</option>
+                                    <option value="AM" {% if empresas.uf == "AM" %} selected {% endif %}>AM</option>
+                                    <option value="BA" {% if empresas.uf == "BA" %} selected {% endif %}>BA</option>
+                                    <option value="CE" {% if empresas.uf == "CE" %} selected {% endif %}>CE</option>
+                                    <option value="DF" {% if empresas.uf == "DF" %} selected {% endif %}>DF</option>
+                                    <option value="ES" {% if empresas.uf == "ES" %} selected {% endif %}>ES</option>
+                                    <option value="GO" {% if empresas.uf == "GO" %} selected {% endif %}>GO</option>
+                                    <option value="MA" {% if empresas.uf == "MA" %} selected {% endif %}>MA</option>
+                                    <option value="MT" {% if empresas.uf == "MT" %} selected {% endif %}>MT</option>
+                                    <option value="MS" {% if empresas.uf == "MS" %} selected {% endif %}>MS</option>
+                                    <option value="MG" {% if empresas.uf == "MG" %} selected {% endif %}>MG</option>
+                                    <option value="PR" {% if empresas.uf == "PR" %} selected {% endif %}>PR</option>
+                                    <option value="PB" {% if empresas.uf == "PB" %} selected {% endif %}>PB</option>
+                                    <option value="PA" {% if empresas.uf == "PA" %} selected {% endif %}>PA</option>
+                                    <option value="PE" {% if empresas.uf == "PE" %} selected {% endif %}>PE</option>
+                                    <option value="PI" {% if empresas.uf == "PI" %} selected {% endif %}>PI</option>
+                                    <option value="RJ" {% if empresas.uf == "RJ" %} selected {% endif %}>RJ</option>
+                                    <option value="RN" {% if empresas.uf == "RN" %} selected {% endif %}>RN</option>
+                                    <option value="RS" {% if empresas.uf == "RS" %} selected {% endif %}>RS</option>
+                                    <option value="RO" {% if empresas.uf == "RO" %} selected {% endif %}>RO</option>
+                                    <option value="RR" {% if empresas.uf == "RR" %} selected {% endif %}>RR</option>
+                                    <option value="SC" {% if empresas.uf == "SC" %} selected {% endif %}>SC</option>
+                                    <option value="SE" {% if empresas.uf == "SE" %} selected {% endif %}>SE</option>
+                                    <option value="SP" {% if empresas.uf == "SP" %} selected {% endif %}>SP</option>
+                                    <option value="TO" {% if empresas.uf == "TO" %} selected {% endif %}>TO</option>
                                 </select>
                             </div>
                         </div>
-
-
-
-
+                        <h5 class="light valign-wrapper form-title secundaria1_text" ><i class="fa fa-comment" aria-hidden="true"></i><span> Contato</span></h5>
                         <div class="row">
                             <div class="input-field col s12">
-                                <select id="ramo_atividade" name="ramo_atividade" class="browser-default">
-                                    <option value="" disabled selected>Ramo de Atividade</option>
-                                    {% for ramo in ramos %}
-                                        <option {% if servicos.ramo_atividade_id == ramo.id %} selected {% endif %} value="{{ ramo.id }}">{{ ramo.nome }}</option>
-                                    {% endfor %}
-                                </select>
-                                <label for="ramo_atividade">Ramo de Atividade</label>
+                                <input id="email" name="email" type="email" class="validate" value="{{ empresas.email }}">
+                                <label for="email" data-error="E-mail inválido">E-mail</label>
                             </div>
                         </div>
                         <div class="row">
                             <div class="input-field col s12">
-                                <input id="nome" name="nome" maxlength="45" type="text" class="validate" value="{{ servicos.nome }}">
-                                <label for="nome">Nome</label>
+                                <input id="telefone" name="telefone" type="tel" maxlength="11" value="{{ empresas.telefone }}" class="validate">
+                                <label for="telefone" data-error="Insira somente números">Telefone</label>
+                            </div>
+                        </div>
+                        <h5 class="light valign-wrapper form-title secundaria1_text" ><i class="fa fa-user" aria-hidden="true"></i><span> Responsável</span></h5>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="nome_responsavel" name="nome_responsavel" value="{{ empresas.nome_responsavel }}" type="text" class="validate">
+                                <label for="nome_responsavel">Responsável</label>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="input-field col s12">
-                                <input id="sigla" name="sigla" maxlength="2" type="text" class="validate" value="{{ servicos.sigla }}">
-                                <label for="sigla">Sigla</label>
+                            <div class="input-field col s12 m6">
+                                <input id="cargo_responsavel" name="cargo_responsavel" type="text" value="{{ empresas.cargo_responsavel }}" class="validate">
+                                <label for="cargo_responsavel">Cargo</label>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="input-field col s12">
-                                <textarea type="text" id="ss_descricao" class="materialize-textarea validate" cols="30" rows="5" name="descricao">{{ servicos.descricao }}</textarea>
-                                <label for="ss_descricao">Descrição</label>
+                            <div class="input-field col s12 m6">
+                                <input id="cpf_responsavel" name="cpf_responsavel" type="number" value="{{ empresas.cpf_responsavel }}" class="validate">
+                                <label for="cpf_responsavel" data-error="Insira somente números">CPF</label>
                             </div>
                         </div>
                         <div class="row">

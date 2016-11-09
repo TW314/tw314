@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'^suporte/cadastro/ramo', suporte.CadastroRamoAtividade.template),
     url(r'^suporte/editar/ramo/(?P<pk>[0-9]+)/$', suporte.AtualizaRamoAtividade.template),
     url(r'^suporte/editar/servico/(?P<pk>[0-9]+)/$', suporte.AtualizaServico.template),
+    url(r'^suporte/editar/empresa/(?P<pk>[0-9]+)/$', suporte.AtualizaEstabelecimento.template, name='editar_empresa'),
     # funcionario
     url(r'^funcionario/principal', funcionario.Principal.template),
     url(r'^funcionario/relatorio', funcionario.Relatorio.template),
