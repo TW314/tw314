@@ -17,7 +17,7 @@
                                 <select id="ramo_atividade" name="ramo_atividade" >
                                     <option value="" disabled selected>Ramo de Atividade</option>
                                     {% for ramo in ramos %}
-                                        <option {% if servicos.ramo_atividade_id == ramo.id %} selected {% endif %} value="{{ ramo.id }}">{{ ramo.nome }}</option>
+                                        <option {% if servicos.ramo_atividade.id == ramo.id %} selected {% endif %} value="{{ ramo.id }}">{{ ramo.nome }}</option>
                                     {% endfor %}
                                 </select>
                                 <label for="ramo_atividade">Ramo de Atividade</label>
