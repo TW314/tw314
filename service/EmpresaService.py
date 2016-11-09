@@ -5,8 +5,8 @@ def cadastra(empresa):
     return EmpresaPersistence.cadastra(empresa)
 
 
-def atualiza(empresa_novo, empresa, pk):
-    return EmpresaPersistence.atualiza(empresa_novo, empresa, pk)
+def atualiza(request, empresa, pk):
+    return EmpresaPersistence.atualiza(request, empresa, pk)
 
 
 def busca_por_cnpj(cnpj):

@@ -201,10 +201,9 @@
                                         {{ form.ramo_atividade.errors }}
                                     </div>
                                     <div class="input-field col m6 s12">
-                                        <input maxlength="14" id="nr_cnpj" name="nr_cnpj" type="number"
-                                               class="validate">
+                                        <input maxlength="14" id="numero_cnpj" name="numero_cnpj" type="number" class="validate">
+                                        <label for="numero_cnpj" data-error="Insira somente números">CNPJ</label>
                                         {{ form.numero_cnpj.errors }}
-                                        <label for="nr_cnpj" data-error="Insira somente números">CNPJ</label>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -249,13 +248,11 @@
                                     </div>
                                 </div>
                                 <div class="row">
-
                                     <div class="input-field col s12 m4">
                                         <input id="cidade" name="cidade" type="text" class="validate">
                                         {{ form.cidade.errors }}
                                         <label for="cidade">Cidade</label>
                                     </div>
-
                                     <div class="input-field col s12 m6">
                                         <input id="bairro" name="bairro" type="text" class="validate">
                                         <label for="bairro">Bairro</label>
@@ -306,34 +303,30 @@
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <input id="telefone" name="telefone" type="tel" maxlength="11"
-                                               class="validate">
-                                        {{ form.telefone.errors }}
+                                        <input id="telefone" name="telefone" type="tel" maxlength="11" class="validate">
                                         <label for="telefone" data-error="Insira somente números">Telefone</label>
+                                        {{ form.telefone.errors }}
                                     </div>
                                 </div>
                             </div>
                             <div id="responsavel" class="col s12">
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <input id="nome_responsavel" name="nome_responsavel" type="text"
-                                               class="validate">
-                                        {{ form.nome_responsavel.errors }}
+                                        <input id="nome_responsavel" name="nome_responsavel" type="text" class="validate">
                                         <label for="nome_responsavel">Responsável</label>
+                                        {{ form.nome_responsavel.errors }}
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="input-field col s12 m6">
-                                        <input id="cargo_responsavel" name="cargo_responsavel" type="text"
-                                               class="validate">
-                                        {{ form.cargo_responsavel.errors }}
+                                        <input id="cargo_responsavel" name="cargo_responsavel" type="text" class="validate">
                                         <label for="cargo_responsavel">Cargo</label>
+                                        {{ form.cargo_responsavel.errors }}
                                     </div>
                                     <div class="input-field col s12 m6">
-                                        <input id="cpf_responsavel" name="cpf_responsavel" type="number"
-                                               class="validate">
-                                        {{ form.cpf_responsavel.errors }}
+                                        <input id="cpf_responsavel" name="cpf_responsavel" type="number" class="validate">
                                         <label for="cpf_responsavel" data-error="Insira somente números">CPF</label>
+                                        {{ form.cpf_responsavel.errors }}
                                     </div>
                                 </div>
                             </div>
