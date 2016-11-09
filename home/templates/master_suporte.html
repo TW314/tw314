@@ -46,7 +46,7 @@
             <div class="nav-wrapper">
                 <ul>
                     <li>
-                        <a href="principal" class="logo white-text valign-wrapper ">
+                        <a href="{% url 'suporte_principal' %}" class="logo white-text valign-wrapper ">
                             <img src="{% static "img/logo-certa.png" %}" class="responsive-img" alt="logo TW314"> <span class="flow-text_2 arial_round valign">TW<span class="principal_v2_text">314</span></span>
                         </a>
                     </li>
@@ -70,12 +70,12 @@
             <div class="col s12">
                 <h5 class="white-text">Mapa</h5>
                 <ul class="uppercase texto_text">
-                    <li><a href="principal">Principal</a></li>
-                    <li><a href="cadastro_admin">Administrador</a></li>
-                    <li><a href="cadastro_estabelecimento">Estabelecimento</a></li>
-                    <li><a href="atendimento">Atendimento</a></li>
-                    <li><a href="cadastro_servico">Serviço</a></li>
-                    <li><a href="cadastro_ramos">Ramo</a></li>
+                    <li><a href="{% url 'suporte_principal' %}">Principal</a></li>
+                    <li><a href="{% url 'cadastrar_admin' %}">Administrador</a></li>
+                    <li><a href="{% url 'cadastrar_empresa' %}">Estabelecimento</a></li>
+                    <li><a href="{% url 'atendimento_suporte' %}">Atendimento</a></li>
+                    <li><a href="{% url 'cadastrar_servico' %}">Serviço</a></li>
+                    <li><a href="{% url 'cadastrar_ramo' %}">Ramo</a></li>
                 </ul>
                 <div class="col s12 center-align"><span class="texto_text center">© 2016 TW314 V1.0</span></div>
             </div>
@@ -83,12 +83,12 @@
     </div>
     <div class="footer-copyright hide-on-med-and-down uppercase">
         <span class="texto_text left">© 2016 TW314 V1.0</span>
-        <a class="texto_text right hvr-underline-from-left" href="cadastro_ramos"><i class="fa fa-puzzle-piece" aria-hidden="true"></i> Ramos</a>
-        <a class="texto_text right hvr-underline-from-left" href="atendimento"><i class="fa fa-phone" aria-hidden="true"></i> Atendimento</a>
-        <a class="texto_text right hvr-underline-from-left" href="cadastro_servico"><i class="fa fa-briefcase" aria-hidden="true"></i> Serviços</a>
-        <a class="texto_text right hvr-underline-from-left" href="cadastro_estabelecimento"><i class="fa fa-building" aria-hidden="true"></i> Estabelecimento</a>
-        <a class="texto_text right hvr-underline-from-left" href="cadastro_admin"><i class="fa fa-user" aria-hidden="true"></i> Administradores</a>
-        <a class="texto_text right hvr-underline-from-left" href="principal"><i class="fa fa-home" aria-hidden="true"></i> Principal</a>
+        <a class="texto_text right hvr-underline-from-left" href="{% url 'cadastrar_ramo' %}"><i class="fa fa-puzzle-piece" aria-hidden="true"></i> Ramos</a>
+        <a class="texto_text right hvr-underline-from-left" href="{% url 'atendimento_suporte' %}"><i class="fa fa-phone" aria-hidden="true"></i> Atendimento</a>
+        <a class="texto_text right hvr-underline-from-left" href="{% url 'cadastrar_servico' %}"><i class="fa fa-briefcase" aria-hidden="true"></i> Serviços</a>
+        <a class="texto_text right hvr-underline-from-left" href="{% url 'cadastrar_empresa' %}"><i class="fa fa-building" aria-hidden="true"></i> Estabelecimento</a>
+        <a class="texto_text right hvr-underline-from-left" href="{% url 'cadastrar_admin' %}"><i class="fa fa-user" aria-hidden="true"></i> Administradores</a>
+        <a class="texto_text right hvr-underline-from-left" href="{% url 'suporte_principal' %}"><i class="fa fa-home" aria-hidden="true"></i> Principal</a>
     </div>
 </footer>
 

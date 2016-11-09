@@ -17,8 +17,7 @@
                             <thead>
                             <tr>
                                 <th data-field="nome">Ramo</th>
-                                <th class="center" data-field="login">Nº de Serviços</th>
-                                <th class="center" data-field="login">Nº de Empresas</th>
+
                                 <th class="center" data-field="acoes">Visualizar</th>
                             </tr>
                             </thead>
@@ -28,8 +27,7 @@
                                     <td>
                                         <p>{{ ramo.nome }}</p>
                                     </td>
-                                    <td class="center">{{ ramo.numeroServicos }}</td>
-                                    <td class="center">{{ ramo.numeroEmpresas }}</td>
+
                                     <td class="center">
                                         <!-- Botao que chama Modal -->
                                         <a class=" btn-floating btn-short waves-light btn btn modal-trigger"
@@ -57,17 +55,7 @@
                                         <div class="row">
                                             <!-- Dados -->
                                             <div class="col s12">
-                                                <div class="row">
-                                                    <div class="row small-title">
-                                                        <small class="secundaria1_v_text">Dados</small>
-                                                    </div>
-                                                    <div class="col s12">
-                                                        <span class="font18 texto_text">Número de serviços: {{ ramo.numeroServicos }}</span>
-                                                    </div>
-                                                    <div class="col s12">
-                                                        <span class="font18 texto_text">Número de empresas: {{ ramo.numeroEmpresas }}</span>
-                                                    </div>
-                                                </div>
+
                                                 <div class="row">
                                                     <div class="row small-title">
                                                         <small class="secundaria1_v_text">Descrição</small>
@@ -94,7 +82,7 @@
                                                    data-position="top" data-delay="50"
                                                    data-tooltip="Ir para Estabelecimentos"><i class="fa fa-building"
                                                                                               aria-hidden="true"></i></a>
-                                                <a href="../editar/ramo/{{ ramo.id }}"
+                                                <a href="{% url 'editar_ramo' ramo.id%}"
                                                    class="btn-floating editar_bg tooltipped z-depth-4"
                                                    data-position="top" data-delay="50" data-tooltip="Editar"><i
                                                         class="fa fa-pencil" aria-hidden="true"></i></a></div>

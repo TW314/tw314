@@ -47,7 +47,7 @@
             <div class="nav-wrapper">
                 <ul>
                     <li>
-                        <a href="principal" class="logo white-text valign-wrapper ">
+                        <a href="{% url 'funcionario_principal' %}" class="logo white-text valign-wrapper ">
                             <img src="{% static "img/logo-certa.png" %}" class="responsive-img" alt="logo TW314"> <span class="flow-text_2 arial_round valign">TW<span class="principal_v2_text">314</span></span>
                         </a>
                     </li>
@@ -71,11 +71,11 @@
             <div class="col s12">
                 <h5 class="white-text">Mapa</h5>
                 <ul class="uppercase texto_text">
-                    <li><a href="principal">Principal</a></li>
+                    <li><a href="{% url 'funcionario_principal' %}">Principal</a></li>
                     <li><a href="">Perfil</a></li>
-                    <li><a href="">Relatórios</a></li>
+                    <li><a href="{% url 'funcionario_relatorio' %}">Relatórios</a></li>
                     <li><a href="">Introdução ao sistema</a></li>
-                    <li><a href="sobre">Sobre</a></li>
+                    <li><a href="{% url 'funcionario_sobre' %}">Sobre</a></li>
                 </ul>
                 <div class="col s12 center-align"><span class="texto_text center">© 2016 TW314 V1.0</span></div>
             </div>
@@ -83,11 +83,11 @@
     </div>
     <div class="footer-copyright hide-on-med-and-down uppercase">
         <span class="texto_text left">© 2016 TW314 V1.0</span>
-        <a class="texto_text right hvr-underline-from-left" href="sobre"><i class="fa fa-info-circle" aria-hidden="true"></i> Sobre</a>
+        <a class="texto_text right hvr-underline-from-left" href="{% url 'funcionario_sobre' %}"><i class="fa fa-info-circle" aria-hidden="true"></i> Sobre</a>
         <a class="texto_text right hvr-underline-from-left" href=""><i class="fa fa-question-circle-o" aria-hidden="true"></i> Como funciona?</a>
-        <a class="texto_text right hvr-underline-from-left" href=""><i class="fa fa-clipboard" aria-hidden="true"></i> Relatórios</a>
+        <a class="texto_text right hvr-underline-from-left" href="{% url 'funcionario_relatorio' %}"><i class="fa fa-clipboard" aria-hidden="true"></i> Relatórios</a>
         <a class="texto_text right hvr-underline-from-left" href="cadastro_estabelecimento"><i class="fa fa-user" aria-hidden="true"></i> Perfil</a>
-        <a class="texto_text right hvr-underline-from-left" href="principal"><i class="fa fa-home" aria-hidden="true"></i> Principal</a>
+        <a class="texto_text right hvr-underline-from-left" href="{% url 'funcionario_principal' %}"><i class="fa fa-home" aria-hidden="true"></i> Principal</a>
     </div>
 </footer>
 
