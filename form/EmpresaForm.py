@@ -6,7 +6,7 @@ class EmpresaForm(forms.Form):
     numero_cnpj = forms.CharField(max_length=14, required=True)
     nome_fantasia = forms.CharField(max_length=80, required=True)
     razao_social = forms.CharField(max_length=80, required=True)
-    status_ativacao = forms.CharField(required=True)
+    status_ativacao = forms.CharField(required=False)
     cep = forms.CharField(max_length=8, required=True)
     logradouro = forms.CharField(max_length=255, required=True)
     numero_logradouro = forms.CharField(max_length=255, required=True)

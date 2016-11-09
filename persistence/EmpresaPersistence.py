@@ -42,7 +42,7 @@ def atualiza(empresa_novo, empresa, pk):
 
     if form.is_valid():
         ramo_atividade = form.cleaned_data['ramo_atividade']
-        numero_cnpj = form.cleaned_data['numero_cnpj']
+        numero_cnpj = form.cleaned_data["numero_cnpj"]  # todo: remover da edicao
         nome_fantasia = form.cleaned_data['nome_fantasia']
         razao_social = form.cleaned_data['razao_social']
         status_ativacao = empresa['status_ativacao']
@@ -65,8 +65,11 @@ def atualiza(empresa_novo, empresa, pk):
 
         except requests.exceptions.ConnectionError:  # verificar se funciona
             form = "Erro ao tentar conectar com WebService"
-            """else:
-    form = "Campos de Servico nao preenchidos corretamente" """
+    else:
+        form = "Campos de Empresa nao preenchidos corretamente"
+        for i in range(10):
+            print("ERRRRRRRRRRROOUUUUUUUUUUUUU")
+
     return form
 
 
