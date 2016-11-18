@@ -15,11 +15,12 @@ urlpatterns = [
     url(r'^administrador/sobre', administrador.Sobre.template, name='admin_sobre'),
     # suporte
     url(r'^suporte/principal', suporte.Principal.template, name='suporte_principal'),
-    url(r'^suporte/cadastro_admin', suporte.CadastroUsuario.template, name='cadastrar_admin'),
+    url(r'^suporte/cadastro/administrador', suporte.CadastroUsuario.template, name='cadastrar_admin'),
     url(r'^suporte/cadastro/empresa', suporte.CadastroEstabelecimento.template, name='cadastrar_empresa'),
     url(r'^suporte/atendimento', suporte.Atendimento.template, name='atendimento_suporte'),
     url(r'^suporte/cadastro/servico', suporte.CadastroServico.template, name='cadastrar_servico'),
     url(r'^suporte/cadastro/ramo', suporte.CadastroRamoAtividade.template, name='cadastrar_ramo'),
+    url(r'^cadastrar/senha/(?P<pk>[0-9]+)/$', suporte.AdicionaSenha.template, name='adiciona_senha'),
     url(r'^suporte/editar/ramo/(?P<pk>[0-9]+)/$', suporte.AtualizaRamoAtividade.template, name='editar_ramo'),
     url(r'^suporte/editar/servico/(?P<pk>[0-9]+)/$', suporte.AtualizaServico.template, name='editar_servico'),
     url(r'^suporte/editar/empresa/(?P<pk>[0-9]+)/$', suporte.AtualizaEstabelecimento.template, name='editar_empresa'),
