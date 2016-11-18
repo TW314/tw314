@@ -9,8 +9,8 @@ def suporte_cadastra(usuario):
     return UsuarioPersistence.suporte_cadastra(usuario)
 
 
-def atualiza(servico, pk):
-    return UsuarioPersistence.atualiza(servico, pk)
+def suporte_atualiza(request, usuario, pk):
+    return UsuarioPersistence.suporte_atualiza(request, usuario, pk)
 
 
 def adiciona_senha(request, pk):

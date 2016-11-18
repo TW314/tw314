@@ -5,7 +5,6 @@ from form.SenhaForm import SenhaForm
 from django.core.mail import send_mail
 from datetime import datetime
 import bcrypt
-from django.core.urlresolvers import reverse
 
 
 def administrador_cadastra(usuario):
@@ -20,9 +19,6 @@ def administrador_cadastra(usuario):
         form = requests.post('http://localhost:3000/usuario', json=data)
     else:
         form = "Campos de Usuario nao preenchidos corretamente"
-        for i in range(10):
-            print("ERROOOOOOOOOOOOOOOOOOOOOOOOOOOOUUUUUUUUUUUUUUUUUUUUUUUUUU")
-
     return form
 
 
@@ -37,9 +33,9 @@ def suporte_cadastra(usuario):
 
         data = suporte_monta_json(nome, email, empresa, status_ativacao)
         send_mail(
-            'Novo Usuário em TW314',
+            'Bem-vindo ao time TW314',
             'Olá,' + nome + '! Esse e-mail foi cadastrado em nosso sistema em ' + str(now.day) + '/' + str(now.month) + '/' + str(now.year) + ' às ' + str(now.hour) + ':' + str(now.minute) + 'hrs. Aguarde novo contato para cadastrar sua senha. Se acredita que houve um engano, por favor, entre em contado pelo e-mail contato@tw314.com.br . Att, Time TW314',
-            'fakedahalu@gmail.com',
+            'contatotw314@gmail.com',
             [email],
             fail_silently=False,
         )
@@ -50,8 +46,24 @@ def suporte_cadastra(usuario):
     return form
 
 
-def atualiza(servico, pk):
-    pass
+def suporte_atualiza(usuario_novo, usuario, pk):
+    form = UsuarioForm(usuario_novo)
+    if form.is_valid():
+        nome = form.cleaned_data['nome']
+        email = form.cleaned_data['email']
+        status_ativacao = usuario['status_ativacao']
+        empresa = form.cleaned_data['empresa']
+
+        data = suporte_monta_json(nome, email, empresa, status_ativacao)
+
+        try:
+            form = requests.put('http://localhost:3000/usuario/' + pk, json=data)
+        except requests.exceptions.ConnectionError:  # verificar se funciona
+            form = "Erro ao tentar conectar com WebService"
+    else:
+        form = "Campos de Servico nao preenchidos corretamente"
+
+    return form
 
 
 def adiciona_senha(usuario_novo, pk):
@@ -91,7 +103,7 @@ def senha_monta_json(senha):
     return data
 
 
-def administrador_monta_json(nome, email, status_ativacao, data_inativacao):
+def administrador_monta_json(nome, email, status_ativacao, data_inativacao=None):
     data = {'nome': nome, 'email': email, 'status_ativacao': status_ativacao, 'data_inativacao': data_inativacao,
             'perfilId': 3, 'empresaId': 1}
 

@@ -72,14 +72,11 @@
                                         <!-- Menu de acoes da Modal -->
                                         <div class="col s12">
                                             <div class="right-align">
-                                                <a class="btn-floating secundaria1_bg alerta_bg"><i class="fa fa-ban"
-                                                                                                    aria-hidden="true"></i></a>
+                                                <a class="btn-floating secundaria1_bg alerta_bg"><i class="fa fa-ban" aria-hidden="true"></i></a>
 
-                                                <a href="{% url 'solicitar_senha' usuario.id%}" class="btn-floating secundaria2_bg "><i class="fa fa-key"
-                                                                                           aria-hidden="true"></i></a>
+                                                <a href="{% url 'solicitar_senha' usuario.id %}" class="btn-floating secundaria2_bg "><i class="fa fa-key" aria-hidden="true"></i></a>
 
-                                                <a class="btn-floating editar_bg"><i class="fa fa-pencil"
-                                                                                     aria-hidden="true"></i></a>
+                                                <a href="{% url 'editar_admin' usuario.id %}" class="btn-floating editar_bg"><i class="fa fa-pencil" aria-hidden="true"></i></a>
                                             </div>
                                         </div>
                                     </div>

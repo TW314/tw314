@@ -7,4 +7,5 @@ from . import CadastroRamoAtividade
 from . import AtualizaRamoAtividade
 from . import AtualizaServico
 from . import AtualizaEstabelecimento
+from . import AtualizaUsuario
 from . import AdicionaSenha
