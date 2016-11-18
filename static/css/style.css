@@ -833,7 +833,7 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
 }
 
 /***************************************************************
-** todo: USAR ESSAS 2 PROPRIEDADES ABAIXO PARA TEXTO SUCESSO **
+** USAR ESSAS 2 PROPRIEDADES ABAIXO PARA TEXTO SUCESSO **
 ***************************************************************/
 
 input:not([type]).valid, input:not([type]):focus.valid,

@@ -5,6 +5,7 @@ from form.SenhaForm import SenhaForm
 from django.core.mail import send_mail
 from datetime import datetime
 import bcrypt
+from django.core.urlresolvers import reverse
 
 
 def administrador_cadastra(usuario):
@@ -37,7 +38,7 @@ def suporte_cadastra(usuario):
         data = suporte_monta_json(nome, email, empresa, status_ativacao)
         send_mail(
             'Novo Usuário em TW314',
-            'Olá,' + nome + '! Esse e-mail foi cadastrado em nosso sistema em ' + now.day + '/' + now.month + '/' + now.year + ' às ' + now.hour + ':' + now.minute + 'hrs. Para continuar e acessar sua conta no sistema TW314, entre nesse link -link lindo aqui- e cadastre sua senha. Se acredita que houve um engano, por favor, entre em contado pelo link -link lindo aqui-. Time TW314',
+            'Olá,' + nome + '! Esse e-mail foi cadastrado em nosso sistema em ' + str(now.day) + '/' + str(now.month) + '/' + str(now.year) + ' às ' + str(now.hour) + ':' + str(now.minute) + 'hrs. Aguarde novo contato para cadastrar sua senha. Se acredita que houve um engano, por favor, entre em contado pelo e-mail contato@tw314.com.br . Att, Time TW314',
             'fakedahalu@gmail.com',
             [email],
             fail_silently=False,

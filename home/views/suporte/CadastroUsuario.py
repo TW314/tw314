@@ -1,10 +1,12 @@
 # from cups import require
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from service import UsuarioService
 from service import EmpresaService
 from form.UsuarioForm import UsuarioForm
 from django.views.decorators.http import require_POST, require_GET
+from django.core.mail import send_mail
+from django.core.urlresolvers import reverse
 
 template_name = 'home/suporte/suporte_cadastro_admin.html'
 
@@ -48,3 +50,15 @@ def listar_empresa():
 
 def params(form, admins, estabelecimentos):
     return {'form': form, 'admins': admins, 'estabelecimentos': estabelecimentos}
+
+
+def enviar_email(request, pk):
+    usuario = UsuarioService.usuario_por_id(pk)
+    send_mail(
+        'Bem-vindo ao time TW314, ' + usuario['nome'],
+        'Olá,' + usuario['nome'] + '! Para continuar e acessar sua conta no sistema TW314, entre nesse link ' + str(reverse('adiciona_senha', args=(usuario['id'],))) + ' e cadastre sua senha. Se acredita que houve um engano, por favor, entre em contado pelo e-mail contato@tw314.com.br. Att, Time TW314',
+        'fakedahalu@gmail.com',
+        [usuario['email']],
+        fail_silently=False,
+    )
+    return redirect(reverse('cadastrar_admin'))

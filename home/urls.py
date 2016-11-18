@@ -15,6 +15,7 @@ urlpatterns = [
     url(r'^administrador/sobre', administrador.Sobre.template, name='admin_sobre'),
     # suporte
     url(r'^suporte/principal', suporte.Principal.template, name='suporte_principal'),
+    url(r'^suporte/solicitar/senha/(?P<pk>[0-9]+)', suporte.CadastroUsuario.enviar_email, name='solicitar_senha'),
     url(r'^suporte/cadastro/administrador', suporte.CadastroUsuario.template, name='cadastrar_admin'),
     url(r'^suporte/cadastro/empresa', suporte.CadastroEstabelecimento.template, name='cadastrar_empresa'),
     url(r'^suporte/atendimento', suporte.Atendimento.template, name='atendimento_suporte'),
