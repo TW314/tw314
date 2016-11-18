@@ -31,9 +31,8 @@ def atualiza(servico_novo, servico, pk):
         descricao = form.cleaned_data['descricao']
         ramoAtividadeId = form.cleaned_data['ramo_atividade']
         sigla = form.cleaned_data['sigla']
-        status_ativacao = servico['status_ativacao']
 
-        data = monta_json(nome, descricao, ramoAtividadeId, sigla, status_ativacao)
+        data = monta_json(nome, descricao, ramoAtividadeId, sigla)
 
         try:
             form = requests.put('http://localhost:3000/servico/' + pk, json=data)
@@ -56,8 +55,7 @@ def lista():
     return servico
 
 
-def monta_json(nome, descricao, ramoAtividadeId, sigla, status_ativacao):
-    data = {'nome': nome, 'descricao': descricao, 'ramoAtividadeId': ramoAtividadeId, 'sigla': sigla,
-            'status_ativacao': status_ativacao}
+def monta_json(nome, descricao, ramoAtividadeId, sigla):
+    data = {'nome': nome, 'descricao': descricao, 'ramoAtividadeId': ramoAtividadeId, 'sigla': sigla}
 
     return data

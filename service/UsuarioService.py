@@ -24,3 +24,7 @@ def lista_por_empresa_perfil(empresa, perfil):
 def lista_por_perfil(perfil):
     return UsuarioPersistence.lista_por_perfil(perfil)
 
+
+def usuario_por_id(pk):
+    return UsuarioPersistence.usuario_por_id(pk)
+

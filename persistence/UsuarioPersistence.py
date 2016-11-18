@@ -61,11 +61,9 @@ def adiciona_senha(usuario_novo, pk):
         senha_hash = bcrypt.hashpw(senha, bcrypt.gensalt())
 
         data = senha_monta_json(senha_hash)
-        for i in range(10):
-            print(data)
 
         try:
-            form = requests.put('http://localhost:3000/servico/' + pk, json=data)
+            form = requests.put('http://localhost:3000/usuario/' + pk, json=data)
 
         except requests.exceptions.ConnectionError:  # verificar se funciona
             form = "Erro ao tentar conectar com WebService"
@@ -97,3 +95,9 @@ def administrador_monta_json(nome, email, status_ativacao, data_inativacao):
             'perfilId': 3, 'empresaId': 1}
 
     return data
+
+
+def usuario_por_id(pk):
+    usuario = requests.get('http://localhost:3000/usuario/'+pk).json()
+    return usuario
+
