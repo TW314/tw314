@@ -98,19 +98,25 @@
 
                     <!--Começo da páginação da tabela-->
                     <div class="row" align="right">
-                        <ul class="pagination">
+
+                            <span class="step-links">
+                                <ul class="pagination">
 						<span class="step-links">
                                 <li class="disabled"><a
-                                        href="{% if ramos.has_previous %}?page={{ ramos.previous_page_number }}{% endif %}"><i
+                                        href="{% if page.has_previous %}?page={{ page.previous_page_number }}{% endif %}"><i
                                         class="fa fa-chevron-circle-left" aria-hidden="true"></i></a></li>
                                 <span class="current">
-                                    <li class="waves-effect">{{ ramos.paginator.num_pages }}</li>
+                                    <li class="waves-effect">{{ page.paginator.num_pages }}</li>
                                 </span>
-						<li class="waves-effect {% if ramos.has_next %}disabled{% endif %}"><a
-                                href="{% if ramos.has_next %}?page={{ ramos.next_page_number }}{% endif %}"><i
+						<li class="waves-effect {% if page.has_next %}disabled{% endif %}"><a
+                                href="{% if page.has_next %}?page={{ page.next_page_number }}{% endif %}"><i
                                 class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></li>
 						</span>
-                        </ul>
+</ul>
+
+
+                            </span>
+
                         <!--Fim da paginacao da tabela-->
                     </div>
                 </div>
