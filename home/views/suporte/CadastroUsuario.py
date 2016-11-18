@@ -1,23 +1,26 @@
-#from cups import require
+# from cups import require
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from service import UsuarioService
 from service import EmpresaService
 from form.UsuarioForm import UsuarioForm
 from django.views.decorators.http import require_POST, require_GET
+from django.core.mail import send_mail
+from django.core.urlresolvers import reverse
+
+template_name = 'home/suporte/suporte_cadastro_admin.html'
 
 
 def template(request):
+
     form = UsuarioForm()
-    estabelecimentos = listar_empresa()
     if request.method == "POST":
         cadastra(request)
-    elif request.method == "GET":
-        admins = lista_por_perfil()
-        # estabelecimentos = busca_por_cnpj(request)
-        return render(request, 'home/suporte/suporte_cadastro_admin.html', {'form': form, 'admins': admins, 'estabelecimentos': estabelecimentos})
 
-    return render(request, 'home/suporte/suporte_cadastro_admin.html', {'form': form, 'estabelecimentos': estabelecimentos})
+    estabelecimentos = listar_empresa()
+
+    admins = lista_por_perfil()
+    return render(request, template_name, params(form, admins, estabelecimentos))
 
 
 @require_POST
@@ -25,14 +28,10 @@ def cadastra(usuario):
     UsuarioService.suporte_cadastra(usuario.POST)
 
 
-def listar(request):
-    return UsuarioService
-
-
-def lista_por_empresa_perfil(request):
+"""def lista_por_empresa_perfil(request):
     empresa = request.POST.empresa
     perfil = 2
-    return UsuarioService.lista_por_empresa_perfil(empresa, perfil)
+    return UsuarioService.lista_por_empresa_perfil(empresa, perfil)"""
 
 
 def lista_por_perfil():
@@ -49,6 +48,17 @@ def listar_empresa():
     return EmpresaService.lista()
 
 
-def params(form, servicos, ramos):
-    return {'form': form, 'servicos': servicos, 'ramos': ramos}
+def params(form, admins, estabelecimentos):
+    return {'form': form, 'admins': admins, 'estabelecimentos': estabelecimentos}
 
+
+def enviar_email(request, pk):
+    usuario = UsuarioService.usuario_por_id(pk)
+    send_mail(
+        'Bem-vindo ao time TW314, ' + usuario['nome'],
+        'Olá,' + usuario['nome'] + '! Para continuar e acessar sua conta no sistema TW314, entre nesse link ' + str(reverse('adiciona_senha', args=(usuario['id'],))) + ' e cadastre sua senha. Se acredita que houve um engano, por favor, entre em contado pelo e-mail contato@tw314.com.br. Att, Time TW314',
+        'fakedahalu@gmail.com',
+        [usuario['email']],
+        fail_silently=False,
+    )
+    return redirect(reverse('cadastrar_admin'))

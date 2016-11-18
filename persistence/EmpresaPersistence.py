@@ -64,11 +64,9 @@ def atualiza(empresa_novo, empresa, pk):
             form = requests.put('http://localhost:3000/empresa/' + pk, json=data)
 
         except requests.exceptions.ConnectionError:  # verificar se funciona
-            form = "Erro ao tentar conectar com WebService"
+            form = "<h3>Erro ao tentar conectar com WebService</h3>"
     else:
-        form = "Campos de Empresa nao preenchidos corretamente"
-        for i in range(10):
-            print("ERRRRRRRRRRROOUUUUUUUUUUUUU")
+        form = "<h3>Campos de Empresa nao preenchidos corretamente</h3>"
 
     return form
 
