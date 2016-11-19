@@ -4,6 +4,11 @@
 {% block master %}
     <div class="row texto_text">
         <div class="col push-m3 m6 s12">
+            <div class="input-field col s12">
+                <i class="fa fa-search prefix secundaria1_text"></i>
+                <input id="sr_search" type="text" class="validate">
+                <label for="sr_search">Pesquisar</label>
+            </div>
             <div class="col s12">
                 <div class="card white">
                     <div class="card-content texto_text">
@@ -36,14 +41,12 @@
                                     <div class="modal-content modal-padding">
                                         <div class="row">
                                             <div class="col s8">
-                                                <h5 class="light valign-wrapper texto_text form-title"><i
-                                                        class="fa fa-user fa-2x"
-                                                        aria-hidden="true"></i><span> {{ usuario.nome }} <small></small> </span>
+                                                <h5 class="light valign-wrapper texto_text form-title"><i class="fa fa-user fa-2x" aria-hidden="true"></i><span> {{ usuario.nome }} <small></small> </span>
                                                 </h5>
                                             </div>
-                                            <div class="col s4"><a href=""
-                                                                   class="modal-action modal-close btn-flat base_text right">
-                                                <i class="right fa fa-times" aria-hidden="true"></i></a></div>
+                                            <div class="col s4"><a href="" class="modal-action modal-close btn-flat base_text right">
+                                                <i class="right fa fa-times" aria-hidden="true"></i></a>
+                                            </div>
                                         </div>
                                         <div class="row">
                                             <!-- Dados -->

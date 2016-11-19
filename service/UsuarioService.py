@@ -13,6 +13,10 @@ def suporte_atualiza(request, usuario, pk):
     return UsuarioPersistence.suporte_atualiza(request, usuario, pk)
 
 
+def administrador_atualiza(request, usuario, pk):
+    return UsuarioPersistence.administrador_atualiza(request, usuario, pk)
+
+
 def adiciona_senha(request, pk):
     return UsuarioPersistence.adiciona_senha(request, pk)
 

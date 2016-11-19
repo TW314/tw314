@@ -43,7 +43,7 @@ def admin_cadastro_usuario(request):
 
     fun = requests.get('http://localhost:3000/usuario/perfil/3').json()
 
-    return render(request, 'home/admin/admin_cadastro_usuario.html',
+    return render(request, 'home/admin/admin_cadastro_funcionario.html',
                   {'fun': fun, 'form': form})
 
 
