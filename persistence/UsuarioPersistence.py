@@ -22,7 +22,7 @@ def administrador_cadastra(usuario):
             'contatotw314@gmail.com',
             [email],
             fail_silently=False,
-        )
+            )
         form = requests.post('http://localhost:3000/usuario', json=data)
     else:
         form = "<h3>Campos de Usuario nao preenchidos corretamente</h3>"
@@ -65,7 +65,7 @@ def suporte_cadastra(usuario):
             'contatotw314@gmail.com',
             [email],
             fail_silently=False,
-        )
+            )
         form = requests.post('http://localhost:3000/usuario', json=data)
     else:
         form = "<h3>Campos de Usuario nao preenchidos corretamente</h3>"
@@ -88,7 +88,7 @@ def suporte_atualiza(usuario_novo, usuario, pk):
         except requests.exceptions.ConnectionError:  # verificar se funciona
             form = "Erro ao tentar conectar com WebService"
     else:
-        form = "Campos de Servico nao preenchidos corretamente"
+        return "<h3>Campos de Servico nao preenchidos corretamente</h3>"
 
     return form
 
@@ -120,8 +120,9 @@ def lista_por_perfil(perfil):
     return requests.get('http://localhost:3000/usuario/perfil/' + str(perfil)).json()
 
 
-def suporte_monta_json(nome, email, empresa, status_ativacao):
-    data = {'nome': nome, 'email': email, 'status_ativacao': status_ativacao, 'empresaId': empresa, 'perfilId': 2}
+def suporte_monta_json(nome, email, empresa, status_ativacao, data_inativacao=None):
+    data = {'nome': nome, 'email': email, 'status_ativacao': status_ativacao,
+            'data_inativacao': data_inativacao,'empresaId': empresa, 'perfilId': 2}
     return data
 
 
@@ -131,7 +132,8 @@ def senha_monta_json(senha):
 
 
 def administrador_monta_json(nome, email, status_ativacao, data_inativacao=None):
-    data = {'nome': nome, 'email': email, 'status_ativacao': status_ativacao, 'data_inativacao': data_inativacao, 'perfilId': 3, 'empresaId': 1}
+    data = {'nome': nome, 'email': email, 'status_ativacao': status_ativacao,
+            'data_inativacao': data_inativacao, 'perfilId': 3, 'empresaId': 1}
 
     return data
 

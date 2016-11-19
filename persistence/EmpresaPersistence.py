@@ -31,8 +31,6 @@ def cadastra(empresa):
             form = "Erro ao tentar conectar com WebService"
     else:
         form = "Campos de Empresa nao preenchidos corretamente"
-        for i in range(10):
-            print("ERRRRRRRRRRROOUUUUUUUUUUUUU")
     return form
 
 

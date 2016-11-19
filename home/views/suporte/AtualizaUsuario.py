@@ -12,17 +12,23 @@ def template(request, pk):
 
     form = UsuarioForm()
     admins = UsuarioService.usuario_por_id(pk)
-    empresas = EmpresaService.lista()
+
     if request.method == "POST":
         atualiza(request, admins, pk)
         return redirect(redirect_admin)
 
-    return render(request, template_name, params(form, admins, empresas))
+    estabelecimentos = listar_empresa()
+
+    return render(request, template_name, params(form, admins, estabelecimentos))
 
 
 @require_POST
 def atualiza(request, usuario, pk):
     UsuarioService.suporte_atualiza(request.POST, usuario, pk)
+
+
+def listar_empresa():
+    return EmpresaService.lista()
 
 
 def params(form, admins, estabelecimentos):
