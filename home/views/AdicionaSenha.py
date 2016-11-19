@@ -15,7 +15,7 @@ def template(request, pk):
 
     if request.method == "POST":
         adiciona_senha(request, pk)
-        # return redirect(redirect_route)
+        return redirect(redirect_route)
 
     return render(request, template_name, params(form))
 

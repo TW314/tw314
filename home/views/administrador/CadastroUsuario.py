@@ -4,7 +4,10 @@ from django.shortcuts import render, redirect
 from service import UsuarioService
 from service import EmpresaService
 from form.UsuarioForm import UsuarioForm
-from django.views.decorators.http import require_POST
+from django.views.decorators.http import require_POST, require_GET
+from django.core.mail import send_mail
+from django.core.urlresolvers import reverse, reverse_lazy
+from django.http import HttpResponseRedirect
 
 template_name = 'home/admin/admin_cadastro_funcionario.html'
 
@@ -30,11 +33,6 @@ def lista_por_empresa_perfil(request):
     empresa = 1
     perfil = 3
     return UsuarioService.lista_por_empresa_perfil(empresa, perfil)
-
-
-def lista_por_perfil():
-    perfil = 2
-    return UsuarioService.lista_por_perfil(perfil)
 
 
 def busca_por_cnpj(request):
