@@ -1,0 +1,187 @@
+{% extends "master_admin.html" %}
+{% block titulo %} Gerência de Funcionários {% endblock %}
+{% block master %}
+    <div class="row text_text" data-step="7" data-intro="Visualize os usuarios cadastrados">
+        <div class="col push-m3 m6 s12">
+            <div class="input-field col s12">
+                <i class="fa fa-search prefix secundaria1_text"></i>
+                <input id="sr_search" type="text" class="validate">
+                <label for="sr_search">Pesquisar</label>
+            </div>
+            <div class="card white">
+                <div class="card-content texto_text">
+                    <span id="table" class="card-title small">Lista de Funcionários</span>
+                </div>
+                <div class="card-action">
+                    <!--Comeco da Tabela-->
+                    <table class="highlight">
+                        <thead>
+                        <tr>
+                            <th data-field="nome">Nome</th>
+                            <th data-field="email">E-mail</th>
+                            <th data-field="acoes">Visualizar</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for usuario in funs %}
+                            <tr>
+                                <td><p>{{ usuario.nome }}</p></td>
+                                <td>{{ usuario.email }}</td>
+                                <td class="center">
+                                    <!-- Botao que chama Modal -->
+                                    <a class=" btn-floating btn-short waves-light btn btn modal-trigger" data-step="8" data-intro="Visualize mais informações em relação ao usuario" href="#fun{{ usuario.id }}"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                </td>
+                            </tr>
+
+                            <!-- Inicio da estrutura do Modal -->
+                            <div id="fun{{ usuario.id }}" class="modal modal-fixed-footer">
+                                <div class="modal-content modal-padding">
+                                    <div class="row">
+                                        <div class="col s8">
+                                            <h5 class="light valign-wrapper texto_text form-title"><i class="fa fa-user fa-2x" aria-hidden="true"></i><span> {{ usuario.nome }} <small></small> </span>
+                                            </h5>
+                                        </div>
+                                        <div class="col s4"><a href="" class="modal-action modal-close btn-flat base_text right">
+                                            <i class="right fa fa-times" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <!-- Dados -->
+                                        <div class="col s12">
+                                            <div class="row">
+                                                <div class="row small-title">
+                                                    <small class="secundaria1_v_text">Dados</small>
+                                                </div>
+                                                <div class="col s3">
+                                                    <span class="font18 texto_text">Estabelecimento:</span>
+                                                </div>
+                                                <div class="col s9">
+                                                    <span class="font18 texto_text">{{ usuario.empresa.razao_social }}</span>
+                                                </div>
+                                                <div class="col s3">
+                                                    <span class="font18 texto_text">Email:</span>
+                                                </div>
+                                                <div class="col s9">
+                                                    <span class="font18 texto_text">{{ usuario.email }}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <!-- Menu de acoes da Modal -->
+                                    <div class="col s12">
+                                        <div class="right-align">
+                                            <a class="btn-floating secundaria1_bg alerta_bg"><i class="fa fa-ban" aria-hidden="true"></i></a>
+
+                                            <a href="{% url 'solicitar_senha' usuario.id %}" class="btn-floating secundaria2_bg "><i class="fa fa-key" aria-hidden="true"></i></a>
+
+                                            <a href="{% url 'editar_fun' usuario.id %}" class="btn-floating editar_bg"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Fim da estrutura do Modal -->
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Comeco da paginacao da tabela -->
+                <div class="row" align="right" data-step="9" data-intro="Navegue entre os usuario cadastados">
+                    <ul class="pagination">
+                        <span class="step-links">
+                            <li class="disabled"><a href="{% if usuarios.has_previous %}?page={{ usuarios.previous_page_number }}{% endif %}"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></a></li>
+                            <span class="current"> <li class="waves-effect">{{ usuarios.paginator.num_pages }}</li> </span>
+                            <li class="waves-effect {% if usuarios.has_next %}disabled{% endif %}"><a href="{% if usuarios.has_next %}?page={{ usuarios.next_page_number }}{% endif %}"><i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a></li>
+                        </span>
+                    </ul>
+                    <!--Fim da paginacao da tabela-->
+                    <!-- <div class="pagination">
+                        <span class="step-links">
+                            {% if usuarios.has_previous %}
+                                <a href="?page={{ usuarios.previous_page_number }}">previous</a>
+                            {% endif %}
+
+                            <span class="current">
+                                Page {{ usuarios.number }} of {{ usuarios.paginator.num_pages }}.
+                            </span>
+
+                            {% if usuarios.has_next %}
+                                <a href="?page={{ usuarios.next_page_number }}">next</a>
+                            {% endif %}
+                        </span>
+                        </div>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botao que chama cadastro de usuario -->
+    <a class="sucesso_v_bg btn-floating btn-large waves-light btn btn modal-trigger fixed-action-btn tooltipped" data-position="top" data-delay="50" data-tooltip="Novo Usuário" href="#cadastro_usuario"><i class="fa fa-plus" aria-hidden="true"></i></a>
+
+    <!-- Inicio da Modal de Cadastro de usuario -->
+    <div id="cadastro_usuario" class="modal bottom-sheet">
+        <form class="col s12 post-form" method="post">{% csrf_token %}a
+            <div class="modal-content modal-padding">
+                <div class="row texto_text">
+                    <!--Comeco do formulario-->
+                    <div class="col s12">
+                        <div data-step="3"
+                             data-intro="Preencha os campos do formulario adequadamente para cadastrar um usuario">
+                        </div>
+                        <div class="col s12 m6 push-m3 margin-form">
+
+                            <h5 class="light valign-wrapper form-title secundaria1_text">Insira os dados para cadastrar um Usuário</h5>
+
+                            <h6 class="light valign-wrapper form-title secundaria2_text"><i class="fa fa-user small" aria-hidden="true"></i><span> Dados de  Acesso </span></h6>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="nome" name="nome" type="text" class="validate">
+                                    {{ form.nome.errors }}
+                                    <label for="nome">Nome</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input id="email" name="email" type="email" class="validate">
+                                    {{ form.email.errors }}
+                                    <label for="email">E-mail</label>
+                                </div>
+                            </div>
+                            <div class="input-field col s12">
+                                <select id="{{ form.status_ativacao }}" name="status_ativacao">
+                                    <option value="" disabled selected>Status</option>
+                                    <option value="Ativo">Ativo</option>
+                                    <option value="Inativo">Inativo</option>
+                                </select>
+                                {{ form.status_ativacao.errors }}
+                            </div>
+
+                            <div class="row">
+                                <small class="small right">ATENÇÃO: Todos os campos são obrigatórios</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row modal-footer-cadastro">
+                    <div class="col push-m6 m5 s12">
+                        <!--Botão Cancelar-->
+                        <div class="col s12 m6" data-step="6" data-intro="Ou limpe os campos clicando em CANCELAR">
+                            <button class="btn waves-effect waves-light right col s12 alerta_bg modal-close" type="reset" name="action">Cancelar <i class="fa fa-times-circle right" aria-hidden="true"></i>
+                            </button>
+                        </div>
+
+                        <!--Botão Cadastrar-->
+                        <div class="col s12 m6" data-step="5"
+                             data-intro="Após preencher todo os campos, clique em CADASTRAR para efetivar o cadastro">
+                            <button class="btn waves-effect waves-light right col s12 sucesso_bg" type="submit" name="action">Cadastrar <i class="fa fa-check-circle right" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <!--Fim do formulario-->
+    </div>
+
+{% endblock %}
