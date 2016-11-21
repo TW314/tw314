@@ -43,18 +43,9 @@ def atualiza(rel_novo, rel, pk):
     return form
 
 
-def lista():
-    empresa = requests.get('http://localhost:3000/empresa').json()
-    return empresa
-
-
-def busca_por_cnpj(cnpj):
-    empresa = requests.get('http://localhost:3000/empresa/' + cnpj).json()
-    return empresa
-
-
-def empresa_por_id(id):
-    return requests.get('http://localhost:3000/empresa/' + str(id)).json()
+def lista(empresa):
+    rel_emp_svc = requests.get('http://localhost:3000/servicos_empresa/' + str(empresa)).json()
+    return rel_emp_svc
 
 
 def monta_json(status_ativacao, servico):

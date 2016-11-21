@@ -1,25 +1,38 @@
 from django.shortcuts import render
 from service import EmpresaServicoService
 from service import ServicoService
-from form.UsuarioForm import UsuarioForm
+from form.EmpresaServicoForm import EmpresaServicoForm
 from django.views.decorators.http import require_POST
 
-# TODO: terminar
+# rel_emp_svc == Objeto da tabela de relacionamento entre empresa e servico
 template_name = ''
 
 
 def template(request):
 
-    form = UsuarioForm()
+    form = EmpresaServicoForm()
     if request.method == "POST":
         cadastra(request)
 
-    servicos = listar()
+    servicos = servicos_listar()
 
-    funs = lista_por_empresa_perfil(request)
-    return render(request, template_name, params(form, funs, estabelecimentos))
+    rel_emp_svc = rel_emp_svc_listar(request)
+    return render(request, template_name, params(form, servicos, rel_emp_svc))
+
 
 @require_POST
-def cadastra(usuario):
-    # UsuarioService.administrador_cadastra(usuario.POST)
-    pass
+def cadastra(rel_emp_svc):
+    EmpresaServicoService.cadastra(rel_emp_svc.POST)
+
+
+def servicos_listar():
+    return ServicoService.lista()
+
+
+def rel_emp_svc_listar(request):
+    empresa = 1
+    return EmpresaServicoService.lista(empresa)
+
+
+def params(form, servicos, rel_emp_svc):
+    return {"form": form, "servicos": servicos, "rel_emp_svc": rel_emp_svc}
