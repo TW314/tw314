@@ -1,8 +1,8 @@
 from persistence import EmpresaServicoPersistence
 
 
-def cadastra(rel):
-    return EmpresaServicoPersistence.cadastra(rel)
+def cadastra(rel_emp_svc):
+    return EmpresaServicoPersistence.cadastra(rel_emp_svc)
 
 
 def atualiza(request, rel, pk):

@@ -3,8 +3,9 @@ from pip._vendor import requests
 from form.EmpresaServicoForm import EmpresaServicoForm
 # TODO MASTER: MUDAR AS ROTAS DE REQUEST DO
 
-def cadastra(empresa):
-    form = EmpresaServicoForm(empresa)
+
+def cadastra(rel_emp_svc):
+    form = EmpresaServicoForm(rel_emp_svc)
 
     if form.is_valid():
         status_ativacao = form.cleaned_data['status_ativacao']
@@ -13,8 +14,8 @@ def cadastra(empresa):
         data = monta_json(status_ativacao, servico)
 
         try:
-            form = requests.post('http://localhost:3000/empresa', json=data)
-        except requests.exceptions.ConnectionError: # verificar se funciona
+            form = requests.post('http://localhost:3000/servicos_empresa', json=data)
+        except requests.exceptions.ConnectionError:  # verificar se funciona
             form = "Erro ao tentar conectar com WebService"
     else:
         form = "Campos de Empresa nao preenchidos corretamente"
