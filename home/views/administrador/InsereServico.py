@@ -5,7 +5,7 @@ from form.EmpresaServicoForm import EmpresaServicoForm
 from django.views.decorators.http import require_POST
 
 # rel_emp_svc == Objeto da tabela de relacionamento entre empresa e servico
-template_name = ''
+template_name = 'home/admin/admin_insere_servico.html'
 
 
 def template(request):
