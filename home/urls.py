@@ -1,8 +1,9 @@
 from django.conf.urls import url
+
+from .views import AdicionaSenha, Index
 from .views import administrador
 from .views import funcionario
 from .views import suporte
-from .views import AdicionaSenha, Index
 
 urlpatterns = [
     # geral
@@ -13,9 +14,12 @@ urlpatterns = [
 
     # administrador
     url(r'^administrador/cadastro/funcionario', administrador.CadastroUsuario.template, name='cadastrar_usuario'),
-    url(r'^administrador/editar/funcionario/(?P<pk>[0-9]+)/$', administrador.AtualizaUsuario.template, name='editar_fun'),
+    url(r'^administrador/editar/funcionario/(?P<pk>[0-9]+)/$', administrador.AtualizaUsuario.template,
+        name='editar_fun'),
     url(r'^administrador/principal', administrador.Principal.template, name='admin_principal'),
     url(r'^administrador/cadastro/servico', administrador.InsereServico.template, name='add_servico'),
+    url(r'^administrador/remove/servico/(?P<pk>[0-9]+)/$', administrador.RemoveServico.remove_servico,
+        name='rmv_servico'),
     url(r'^administrador/relatorio', administrador.Relatorio.template, name='admin_relatorio'),
     url(r'^administrador/suporte', administrador.Suporte.template, name='admin_suporte'),
     url(r'^administrador/sobre', administrador.Sobre.template, name='admin_sobre'),

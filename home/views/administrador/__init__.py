@@ -5,3 +5,4 @@ from . import Sobre
 from . import Suporte
 from . import AtualizaUsuario
 from . import InsereServico
+from . import RemoveServico
