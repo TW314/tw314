@@ -26,14 +26,25 @@
         </div>
     </div>
     <div class="row valign-wrapper">
-        <div class="col s12 m6 valign-wrapper tooltipped" data-position="right" data-delay="50" data-tooltip="O tempo médio de atendimento desse serviço é de 20 min.">
-            <div id="CountDownTimer" data-timer="60" style="width: auto; height: 250px;">
-            </div>
-            <div class="col s12 m7 font20 uppercase">
-                <p class="">Prioridade: <span class="secundaria1_text">Normal</span> </p>
+        <div class="col s12 m3 valign">
+            <div class="col s12">
+                <div id="CountDownTimer" data-timer="60" style="width: auto; height: 250px;">
+                </div>
+                <div class="font20 uppercase">
+                    <p>Prioridade: <span class="secundaria1_text">Normal</span> </p>
+                </div>
             </div>
         </div>
-        <div class="col s12 m6 valign">
+        <div class="col s12 m5 valign font18">
+            <div id="fila">
+                {% for ticket in fila %}
+                    <div class="valign-wrapper col s1 big elipse elipse-l margin-elipse">
+                        <p class="center-block ticket_plus1">{{ ticket.ticket }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col s12 m4 valign">
             <div class="col s12 center-align">
                 <i id="hourglass" class="hide-on-small-and-down fa fa-hourglass-o fa-3x fa-fw secundaria1_text" aria-hidden="true"></i>
                 <span class="sr-only">Loading...</span>
@@ -41,36 +52,11 @@
             </div>
         </div>
     </div>
-    <div style="margin-top: 5%" class="row valign-wrapper">
-        <div class="col s12 m5 font18">
-            <div id="fila">
-                <div class="valign-wrapper col s1 big elipse elipse-l margin-elipse">
-                    <p class="center-block ticket_plus1">TW314</p>
-                </div>
-                <div class="valign-wrapper col s1 big elipse elipse-l margin-elipse">
-                    <p class="center-block ticket_plus2">TW315</p>
-                </div>
-                <div class="valign-wrapper col s1 big elipse elipse-l margin-elipse">
-                    <p class="center-block ticket_plus3">TW316</p>
-                </div>
-                <div class="valign-wrapper col s1 big elipse elipse-l margin-elipse">
-                    <p class="center-block ticket_plus4">TW317</p>
-                </div>
-                <div class="hide-on-med-and-down valign-wrapper col s1 big elipse elipse-l margin-elipse">
-                    <p class="center-block ticket_plus5">TW318</p>
-                </div>
-            </div>
-        </div>
-        <div class="col s12 m7 valign font10">
-            <div class="col s12 m4 btn-funcoes valign-wrapper">
-                <button id="reset" disabled class="btn alerta_bg waves-effect waves-light" onclick="Materialize.toast('Atendimento Finalizado', 1500)" type="button" name="action"><span class="center">Finalizar Atendimento</span> <i class="right fa fa-check" aria-hidden="true"></i> </button>
-            </div>
-            <div class="col s12 m4 btn-funcoes">
-                <button id="start" onclick="Materialize.toast('Atendimento Iniciado', 2000)" disabled class="btn sucesso_bg waves-effect waves-light stopTimer" type="button" name="action"><span class="center">Iniciar Atendimento</span> <i class="right fa fa-play" aria-hidden="true"></i> </button>
-            </div>
-            <div class="col s12 m4 btn-funcoes">
-                <button id="next" class="startTimer btn waves-effect waves-light right-align" onclick="Materialize.toast('Chamando cliente', 2000);" type="button" name="action">Chamar Próximo <i class="right fa fa-bell" aria-hidden="true"></i> </button>
-            </div>
+    <div class="row">
+        <div class="col s12 btn-funcoes right-aligned">
+            <button id="reset" disabled class="btn btn-large btn-large alerta_bg waves-effect waves-light btn-atendimento" onclick="Materialize.toast('Atendimento Finalizado', 1500)" type="button" name="action"><span class="center">Finalizar Atendimento</span> <i class="right fa fa-check" aria-hidden="true"></i> </button>
+            <button id="start" onclick="Materialize.toast('Atendimento Iniciado', 2000)" disabled class="btn btn-large sucesso_bg waves-effect waves-light btn-atendimento stopTimer" type="button" name="action"><span class="center">Iniciar Atendimento</span> <i class="right fa fa-play" aria-hidden="true"></i> </button>
+            <button id="next" class="startTimer btn btn-large waves-effect waves-light right-align btn-atendimento" onclick="Materialize.toast('Chamando cliente', 2000);" type="button" name="action">Chamar Próximo <i class="right fa fa-bell" aria-hidden="true"></i> </button>
         </div>
     </div>
     <!-- Scripts -->

@@ -650,6 +650,7 @@ aside.menu-padding {margin: 0 25px;}
 /*********************
 ** Main Funcionário **
 *********************/
+.btn-atendimento{margin: auto 20px;}
 .clockface {
     border-bottom: medium none !important;
     font-size: 18px !important;
