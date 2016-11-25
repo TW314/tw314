@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
-from service import UsuarioService
-from service import EmpresaService
-from form.UsuarioForm import UsuarioForm
 from django.views.decorators.http import require_POST
+
+from form.UsuarioForm import UsuarioForm
+from service import UsuarioService
 
 template_name = 'home/admin/admin_editar_funcionarios.html'
 redirect_admin = 'http://127.0.0.1:8000/administrador/cadastro/funcionario'

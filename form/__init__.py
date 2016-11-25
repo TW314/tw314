@@ -3,3 +3,4 @@ from . import RamoForm
 from . import ServicoForm
 from . import UsuarioForm
 from . import SenhaForm
+from . import GuicheServicoForm

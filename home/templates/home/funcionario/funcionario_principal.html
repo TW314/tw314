@@ -11,7 +11,17 @@
         </div>
         <div class="col s12 m11 ">
             <div class="col s12 ">
-                <span class="font24 secundaria1_text left-align">02</span>
+                <span class="font24 secundaria1_text left-align">{% if guiche >= 10 %} {{ guiche }} {% else %} 0{{ guiche }}{% endif %}</span>
+            </div>
+        </div>
+    </div>
+    <div class="row valign-wrapper uppercase hide-on-med-and-down">
+        <div class="col s12 m1">
+            <p class="font12 right">Serviço: </p>
+        </div>
+        <div class="col s12 m11 ">
+            <div class="col s12 ">
+                <span class="font24 secundaria1_text left-align">{{ servico.nome }}</span>
             </div>
         </div>
     </div>
@@ -20,7 +30,6 @@
             <div id="CountDownTimer" data-timer="60" style="width: auto; height: 250px;">
             </div>
             <div class="col s12 m7 font20 uppercase">
-                <p class="">Serviço: <span class="secundaria1_text">Vendas</span> </p>
                 <p class="">Prioridade: <span class="secundaria1_text">Normal</span> </p>
             </div>
         </div>
