@@ -13,5 +13,5 @@ def chamar_ticket(empresa, servico):
     return TicketPersistence.chamar_ticket(empresa, servico)
 
 
-def mudar_status_ticket(pk):
-    return TicketPersistence.mudar_status_ticket(pk)
+def mudar_status_ticket(pk, status):
+    return TicketPersistence.mudar_status_ticket(pk, status)

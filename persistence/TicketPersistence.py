@@ -20,9 +20,9 @@ def chamar_ticket(empresa, servico):
     return ticket
 
 
-def mudar_status_ticket(pk):
+def mudar_status_ticket(pk, status):
         try:
-            ticket = requests.put('http://localhost:3000/ticket/' + pk, json={"statusTicketId": 2})
+            ticket = requests.put('http://localhost:3000/ticket/' + pk, json={"statusTicketId": status})
             return ticket
         except requests.exceptions.ConnectionError:  # verificar se funciona
             print("Erro ao tentar conectar com WebService</h3>")

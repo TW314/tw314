@@ -18,7 +18,12 @@ def template(request):
 
 
 def chamar_proximo(request, pk):
-    mudar_status_ticket(pk)
+    mudar_status_ticket(pk, 2)
+    return HttpResponseRedirect(reverse('funcionario_principal'))
+
+
+def finalizar_atendimento(request, pk):
+    mudar_status_ticket(pk, 3)
     return HttpResponseRedirect(reverse('funcionario_principal'))
 
 

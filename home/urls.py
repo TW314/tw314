@@ -39,7 +39,9 @@ urlpatterns = [
     # funcionario
     url(r'^funcionario/principal', funcionario.Principal.template, name='funcionario_principal'),
     url(r'^funcionario/escolher/$', funcionario.EscolheGuicheServico.template, name='funcionario_escolher'),
-    url(r'^funcionario/alterar/status_ticket/(?P<pk>\w+)/$', funcionario.Principal.chamar_proximo, name='funcionario_altera_ticket'),
+    url(r'^funcionario/chamar/(?P<pk>\w+)/$', funcionario.Principal.chamar_proximo, name='funcionario_chamar'),
+    url(r'^funcionario/finalizar/(?P<pk>\w+)/$', funcionario.Principal.finalizar_atendimento,
+        name='funcionario_finalizar'),
     url(r'^funcionario/relatorio', funcionario.Relatorio.template, name='funcionario_relatorio'),
     url(r'^funcionario/suporte', funcionario.Suporte.template, name='funcionario_suporte'),
     url(r'^funcionario/sobre', funcionario.Sobre.template, name='funcionario_sobre'),
