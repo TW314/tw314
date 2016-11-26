@@ -1,6 +1,6 @@
 from django.conf.urls import url
 
-from .views import AdicionaSenha, Index
+from .views import AdicionaSenha, Index, Login
 from .views import administrador
 from .views import funcionario
 from .views import suporte
@@ -10,7 +10,7 @@ urlpatterns = [
     url(r'^$', Index.index),
     url(r'^cadastrar/senha/(?P<pk>[0-9]+)/$', AdicionaSenha.template, name='adiciona_senha'),
     url(r'^solicitar/senha/(?P<pk>[0-9]+)/$', AdicionaSenha.enviar_email, name='solicitar_senha'),
-    # url(r'^login', views.login),
+    url(r'^login/$', Login.login, name='login'),
 
     # administrador
     url(r'^administrador/cadastro/funcionario', administrador.CadastroUsuario.template, name='cadastrar_usuario'),

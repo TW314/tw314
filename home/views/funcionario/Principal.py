@@ -9,6 +9,7 @@ template_name = 'home/funcionario/funcionario_principal.html'
 
 
 def template(request):
+
     guiche = request.session["guiche"]
     servico = servico_por_id(request.session["servico"])
     fila = mostrar_fila(1, request.session["servico"])

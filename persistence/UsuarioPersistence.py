@@ -97,13 +97,11 @@ def adiciona_senha(usuario_novo, pk):
     form = SenhaForm(usuario_novo)
 
     if form.is_valid():
-        senha = "{}".format(form.cleaned_data['senha']).encode()
+        senha = form.cleaned_data['senha'].encode()
         senha_hash = bcrypt.hashpw(senha, bcrypt.gensalt())
 
-        data = senha_monta_json(senha_hash)
-
         try:
-            form = requests.put('http://localhost:3000/usuario/' + pk, json=data)
+            form = requests.put('http://localhost:3000/usuario/' + pk, json={'senha': str(senha_hash)})
 
         except requests.exceptions.ConnectionError:  # verificar se funciona
             form = "Erro ao tentar conectar com WebService"
@@ -123,11 +121,6 @@ def lista_por_perfil(perfil):
 def suporte_monta_json(nome, email, empresa, status_ativacao, data_inativacao=None):
     data = {'nome': nome, 'email': email, 'status_ativacao': status_ativacao,
             'data_inativacao': data_inativacao,'empresaId': empresa, 'perfilId': 2}
-    return data
-
-
-def senha_monta_json(senha):
-    data = {'senha': senha}
     return data
 
 

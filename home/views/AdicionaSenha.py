@@ -6,7 +6,6 @@ from django.core.mail import send_mail
 from django.core.urlresolvers import reverse
 
 template_name = 'home/suporte/suporte_adicionar_senha.html'
-redirect_route = 'http://127.0.0.1:8000'
 
 
 def template(request, pk):
@@ -15,7 +14,7 @@ def template(request, pk):
 
     if request.method == "POST":
         adiciona_senha(request, pk)
-        return redirect(redirect_route)
+        return redirect(reverse('login'))
 
     return render(request, template_name, params(form))
 
