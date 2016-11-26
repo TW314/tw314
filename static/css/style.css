@@ -124,6 +124,7 @@ select:focus {
 .font18 {font-size: 18px !important;}
 .font20 {font-size: 20px;}
 .font24 {font-size: 24px;}
+.font48 {font-size: 48px;}
 .font80 {font-size: 80px !important;}
 .fa-2x {font-size: 30px;}
 
@@ -651,6 +652,7 @@ aside.menu-padding {margin: 0 25px;}
 ** Main Funcionário **
 *********************/
 .btn-atendimento{margin: auto 20px;}
+.espacinho{margin: auto 10px;}
 .clockface {
     border-bottom: medium none !important;
     font-size: 18px !important;
@@ -683,6 +685,7 @@ i.medium {
     width: 6.28rem !important;
     height: 6.28rem !important;
 }
+.big{width: 15rem !important; height: 15rem !important;}
 .elipse-l {color: #59a6b4; border: 0.3rem #59a6b4 solid;}
 
 .preloader-wrapper.big {

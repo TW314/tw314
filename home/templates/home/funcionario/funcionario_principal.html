@@ -5,43 +5,48 @@
     <!----------------------------------------
     -- NOVA PAGINA PRINCIPAL DO FUNCIONARIO --
     ----------------------------------------->
-    <div class="row valign-wrapper uppercase hide-on-med-and-down">
-        <div class="col s12 m1">
-            <p class="font12 right">Guichê: </p>
+    <div class="row uppercase hide-on-med-and-down">
+        <div class="col s12 m3">
+            <p class="font12 valign-wrapper">Guichê: <span class="espacinho valign font24 secundaria1_text left-align"> {% if guiche >= 10 %} {{ guiche }} {% else %} 0{{ guiche }}{% endif %}</span></p>
         </div>
-        <div class="col s12 m11 ">
-            <div class="col s12 ">
-                <span class="font24 secundaria1_text left-align">{% if guiche >= 10 %} {{ guiche }} {% else %} 0{{ guiche }}{% endif %}</span>
-            </div>
-        </div>
-    </div>
-    <div class="row valign-wrapper uppercase hide-on-med-and-down">
-        <div class="col s12 m1">
-            <p class="font12 right">Serviço: </p>
-        </div>
-        <div class="col s12 m11 ">
-            <div class="col s12 ">
-                <span class="font24 secundaria1_text left-align">{{ servico.nome }}</span>
-            </div>
+        <div class="col s12 m3">
+            <p class="font12 valign-wrapper">Serviço: <span class="valign font24 secundaria1_text left-align espacinho">{{ servico.nome }}</span></p>
         </div>
     </div>
     <div class="row valign-wrapper">
         <div class="col s12 m3 valign">
-            <div class="col s12">
-                <div id="CountDownTimer" data-timer="60" style="width: auto; height: 250px;">
+            {% for s in senha %}
+                <div class="col s12">
+                    <div class="valign-wrapper col s1 elipse big elipse-l margin-elipse">
+                        <p class="center-block font48">{{ s.ticket }}</p>
+                    </div>
                 </div>
-                <div class="font20 uppercase">
-                    <p>Prioridade: <span class="secundaria1_text">Normal</span> </p>
+                <div class="font20 uppercase col s10 center-align">
+                    <p>Prioridade: <span class="secundaria1_text">{{ s.prioridade_nome }}</span> </p>
                 </div>
-            </div>
+            {% empty %}
+                <div class="col s12">
+                    <div class="valign-wrapper col s1 elipse big elipse-l margin-elipse">
+                        <p class="center-block font48">Iniciar</p>
+                    </div>
+                </div>
+                <div class="font20 uppercase col s9 center">
+                    <p>Prioridade: <span class="secundaria1_text"> --- </span> </p>
+                </div>
+            {% endfor %}
         </div>
         <div class="col s12 m5 valign font18">
-            <div id="fila">
+            <div id="senhas">
                 {% for ticket in fila %}
-                    <div class="valign-wrapper col s1 big elipse elipse-l margin-elipse">
+                    <div class="valign-wrapper col s1 elipse elipse-l margin-elipse">
                         <p class="center-block ticket_plus1">{{ ticket.ticket }}</p>
                     </div>
+                {% empty %}
+                    <div class="valign-wrapper">
+                        <p class="center-block ticket_plus1"> <i>Nenhuma senha Aguardando atendimento</i></p>
+                    </div>
                 {% endfor %}
+
             </div>
         </div>
         <div class="col s12 m4 valign">
@@ -52,11 +57,17 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col s12 btn-funcoes right-aligned">
-            <button id="reset" disabled class="btn btn-large btn-large alerta_bg waves-effect waves-light btn-atendimento" onclick="Materialize.toast('Atendimento Finalizado', 1500)" type="button" name="action"><span class="center">Finalizar Atendimento</span> <i class="right fa fa-check" aria-hidden="true"></i> </button>
-            <button id="start" onclick="Materialize.toast('Atendimento Iniciado', 2000)" disabled class="btn btn-large sucesso_bg waves-effect waves-light btn-atendimento stopTimer" type="button" name="action"><span class="center">Iniciar Atendimento</span> <i class="right fa fa-play" aria-hidden="true"></i> </button>
-            <button id="next" class="startTimer btn btn-large waves-effect waves-light right-align btn-atendimento" onclick="Materialize.toast('Chamando cliente', 2000);" type="button" name="action">Chamar Próximo <i class="right fa fa-bell" aria-hidden="true"></i> </button>
+    <div class="row right-align">
+        <div class="col s12 btn-funcoes">
+
+            <!-- Botao Finalizar Atendimento -->
+            <a id="reset" disabled class="btn btn-large btn-large alerta_bg waves-effect waves-light btn-atendimento" onclick="Materialize.toast('Atendimento Finalizado', 1500)" type="button" name="action"><span class="center">Finalizar Atendimento</span> <i class="right fa fa-check" aria-hidden="true"></i> </a>
+
+            <!-- Botao Iniciar Atendimento -->
+            <a id="start" onclick="Materialize.toast('Atendimento Iniciado', 2000)" disabled class="btn btn-large sucesso_bg waves-effect waves-light btn-atendimento stopTimer" type="button" name="action"><span class="center">Iniciar Atendimento</span> <i class="right fa fa-play" aria-hidden="true"></i> </a>
+
+            <!-- Botao Chamar próximo -->
+            <a {% for codigo in pegar_codigo %} href=" {% url 'funcionario_altera_ticket' codigo.codigo_acesso %} " {% endfor %} id="next" class="startTimer btn btn-large waves-effect waves-light right-align btn-atendimento" onclick="Materialize.toast('Chamando cliente', 2000);">Chamar Próximo <i class="right fa fa-bell" aria-hidden="true"></i> </a>
         </div>
     </div>
     <!-- Scripts -->
@@ -65,6 +76,15 @@
     <script>
         window.onload = function() {
             //$("#CountDownTimer").TimeCircles({});
+            var inicio = "";
+            if($('#senha').val() != '[]'){
+                $('.textDiv_Seconds h4').html($('#senha').val());
+                inicio = $('#senha').val();
+            }
+            else {
+                $('.textDiv_Seconds h4').html($("-|-").val());
+                inicio = "Iniciar"
+            }
             $("#CountDownTimer").TimeCircles({
                 "animation": "smooth",
                 "bg_width": 0.9,
@@ -75,7 +95,7 @@
                     "Hours": {"show": false},
                     "Minutes": {"show": false},
                     "Seconds": {
-                        "text": "INICIAR",
+                        "text": ""+inicio,
                         "color": "#00a0c2",
                         "show": true
                     }
@@ -101,9 +121,9 @@
                 $("#CountDownTimer").TimeCircles().stop();
                 timer.start($('#clockface').val());
                 $("#hourglass").addClass("fa-spin"); //giro da ampulhete
-                $( "#start" ).prop( "disabled", true ); //desativa botão iniciar atendimento
-                $( "#reset" ).prop( "disabled", false );//ativa botão iniciar atendimento
-                $( "#paus" ).prop( "disabled", true );//desativa botão pausar fila
+                $( "#start" ).prop( "disabled", true ); //desativa Botao iniciar atendimento
+                $( "#reset" ).prop( "disabled", false );//ativa Botao iniciar atendimento
+                $( "#paus" ).prop( "disabled", true );//desativa Botao pausar fila
                 document.getElementById("loader").style.display = "none"; //oculta elipse animado
                 document.getElementById("static").style.display = "inline-block"; //exibe elipse estatico
             }); //inicia atendimento
@@ -136,7 +156,6 @@
                 $( "#fila" ).html((fila-1)+" pessoas");
             }); //finaliza atendimento
             $('#next').on('click', function () {
-                $('.textDiv_Seconds h4').html("TW"+(ticket++));
                 $('.ticket_plus1').html("TW"+(ticket1++));
                 $('.ticket_plus2').html("TW"+(ticket2++));
                 $('.ticket_plus3').html("TW"+(ticket3++));
