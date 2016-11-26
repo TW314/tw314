@@ -40,6 +40,7 @@ urlpatterns = [
     url(r'^funcionario/principal', funcionario.Principal.template, name='funcionario_principal'),
     url(r'^funcionario/escolher/$', funcionario.EscolheGuicheServico.template, name='funcionario_escolher'),
     url(r'^funcionario/chamar/(?P<pk>\w+)/$', funcionario.Principal.chamar_proximo, name='funcionario_chamar'),
+    url(r'^funcionario/iniciar/(?P<ticket>\w+)/$', funcionario.Principal.iniciar_atendimento, name='funcionario_iniciar'),
     url(r'^funcionario/finalizar/(?P<pk>\w+)/$', funcionario.Principal.finalizar_atendimento,
         name='funcionario_finalizar'),
     url(r'^funcionario/relatorio', funcionario.Relatorio.template, name='funcionario_relatorio'),

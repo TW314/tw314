@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404, render_to_response
 from service.ServicoService import servico_por_id
 from service.TicketService import *
+from service import AtendimentoService
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 
@@ -19,6 +20,11 @@ def template(request):
 
 def chamar_proximo(request, pk):
     mudar_status_ticket(pk, 2)
+    return HttpResponseRedirect(reverse('funcionario_principal'))
+
+
+def iniciar_atendimento(request, ticket):
+    AtendimentoService.cadastra(1, ticket, 1)
     return HttpResponseRedirect(reverse('funcionario_principal'))
 
 

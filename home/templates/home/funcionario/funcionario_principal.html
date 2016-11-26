@@ -64,7 +64,7 @@
             <a {% for codigo in senha %} href=" {% url 'funcionario_finalizar' codigo.codigo_acesso %} " {% endfor %} id="reset" disabled class="btn btn-large btn-large alerta_bg waves-effect waves-light btn-atendimento" onclick="Materialize.toast('Atendimento Finalizado', 1500)" type="button" name="action"><span class="center">Finalizar Atendimento</span> <i class="right fa fa-check" aria-hidden="true"></i> </a>
 
             <!-- Botao Iniciar Atendimento -->
-            <a id="start" onclick="Materialize.toast('Atendimento Iniciado', 2000)" disabled class="btn btn-large sucesso_bg waves-effect waves-light btn-atendimento stopTimer" type="button" name="action"><span class="center">Iniciar Atendimento</span> <i class="right fa fa-play" aria-hidden="true"></i> </a>
+            <a {% for codigo in senha %} href=" {% url 'funcionario_iniciar' codigo.codigo_acesso %} " {% endfor %} id="start" onclick="Materialize.toast('Atendimento Iniciado', 2000)"  class="btn btn-large sucesso_bg waves-effect waves-light btn-atendimento stopTimer" type="button" name="action"><span class="center">Iniciar Atendimento</span> <i class="right fa fa-play" aria-hidden="true"></i> </a>
 
             <!-- Botao Chamar próximo -->
             <a {% for codigo in pegar_codigo %} href=" {% url 'funcionario_chamar' codigo.codigo_acesso %} " {% endfor %} id="next" class="startTimer btn btn-large waves-effect waves-light right-align btn-atendimento" onclick="Materialize.toast('Chamando cliente', 2000);">Chamar Próximo <i class="right fa fa-bell" aria-hidden="true"></i> </a>
