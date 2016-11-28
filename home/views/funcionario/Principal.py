@@ -9,15 +9,18 @@ template_name = 'home/funcionario/funcionario_principal.html'
 
 
 def template(request):
-    user = request.session["user"]
 
-    guiche = request.session["guiche"]
-    servico = servico_por_id(request.session["servico"])
-    fila = mostrar_fila(1, request.session["servico"])
-    pegar_codigo = chamar_ticket(1, request.session["servico"])
-    senha = mostrar_ticket(1, request.session["servico"])
+    if request.session["user"]:
+        user = request.session["user"]
+        guiche = request.session["guiche"]
+        servico = servico_por_id(request.session["servico"])
+        fila = mostrar_fila(1, request.session["servico"])
+        pegar_codigo = chamar_ticket(1, request.session["servico"])
+        senha = mostrar_ticket(1, request.session["servico"])
 
-    return render(request, template_name, params(guiche, servico, fila, senha, pegar_codigo, user))
+        return render(request, template_name, params(guiche, servico, fila, senha, pegar_codigo, user))
+    else:
+        return HttpResponseRedirect(reverse("login"))
 
 
 def chamar_proximo(request, pk):

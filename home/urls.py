@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^cadastrar/senha/(?P<pk>[0-9]+)/$', AdicionaSenha.template, name='adiciona_senha'),
     url(r'^solicitar/senha/(?P<pk>[0-9]+)/$', AdicionaSenha.enviar_email, name='solicitar_senha'),
     url(r'^login/$', Login.login, name='login'),
+    url(r'^logout/$', Login.logout, name='logout'),
 
     # administrador
     url(r'^administrador/cadastro/funcionario', administrador.CadastroUsuario.template, name='cadastrar_usuario'),

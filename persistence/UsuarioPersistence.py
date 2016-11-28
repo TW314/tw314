@@ -143,30 +143,31 @@ def usuario_por_email(email):
     usuario = requests.get('http://localhost:3000/login/'+str(email)).json()
     return usuario
 
+t = 0
+
 
 def loga(request, login):
     form = LoginForm(login)
-    if form.is_valid():
-        email = form.cleaned_data["email"]
-        senha = form.cleaned_data["senha"]
-        user = usuario_por_email(email)
-        senha_user = user["senha"]
-        id_user = str(user["id"])
-        if user and type(user) != int:
-            if bcrypt.checkpw(senha.encode(), senha_user.encode()):
-                request.session["user"] = user
-                if user["perfil"]["id"] == 1:
-                    return HttpResponseRedirect(reverse('suporte_principal'))
-                if user["perfil"]["id"] == 2:
-                    return HttpResponseRedirect(reverse('admin_principal'))
-                if user["perfil"]["id"] == 3:
-                    return HttpResponseRedirect(reverse('funcionario_principal'))
+    global t
+    t += 1
+    if t <= 3:
+        if form.is_valid():
+            email = form.cleaned_data["email"]
+            senha = form.cleaned_data["senha"]
+            user = usuario_por_email(email)
+            senha_user = user["senha"]
+            if user and type(user) != int:
+                if bcrypt.checkpw(senha.encode(), senha_user.encode()):
+                    usuario = usuario_por_id(user["id"])
+                    request.session["user"] = usuario
+                    t = 0
+                else:
+                    return HttpResponse("OPS! Senha incorreta, tente novamente")
+            elif type(user) == int:
+                return HttpResponse("404")
             else:
-                return HttpResponse("OPS! Senha incorreta, tente novamente")
-        elif type(user) == int:
-            return HttpResponse("404")
-
+                return HttpResponse("OPS! Parece que esse usuário não existe em nosso sistema. Contate o seu administrador")
         else:
-            return HttpResponse("OPS! Parece que esse usuário não existe em nosso sistema. Contate o seu administrador")
+            return form.errors
     else:
-        return form.errors
+        return HttpResponse("Parece que você tentou muito entrar! Contate o admnistrador")

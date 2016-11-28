@@ -18,11 +18,21 @@ def login(request):
         if request.session["user"]["perfil"]["id"] == 2:
             return HttpResponseRedirect(reverse('admin_principal'))
         if request.session["user"]["perfil"]["id"] == 3:
-            return HttpResponseRedirect(reverse('funcionario_principal'))
+            return HttpResponseRedirect(reverse('funcionario_escolher'))
     else:
         print("teu cu request nao e post")
 
     return render(request, template_name, params(form))
+
+
+def logout(request):
+    try:
+        del request.session['user']
+        del request.session['guiche']
+        del request.session['servico']
+    except KeyError:
+        pass
+    return HttpResponseRedirect(reverse('login'))
 
 
 @require_POST
