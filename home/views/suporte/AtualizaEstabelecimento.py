@@ -9,6 +9,7 @@ redirect_cadastro = 'http://127.0.0.1:8000/suporte/cadastro/empresa'
 
 
 def template(request, pk):
+    user = request.session["user"]
 
     form = EmpresaForm()
     empresa = EmpresaService.busca_por_id(pk)
@@ -18,7 +19,7 @@ def template(request, pk):
         atualiza(request, empresa, pk)
         return redirect(redirect_cadastro)
 
-    return render(request, template_name, params(form, empresa, ramos))
+    return render(request, template_name, params(form, empresa, ramos, user))
 
 
 @require_POST
@@ -26,5 +27,5 @@ def atualiza(request, empresa, pk):
     EmpresaService.atualiza(request.POST, empresa, pk)
 
 
-def params(form, empresas, ramos):
-    return {'form': form, 'empresas': empresas, 'ramos': ramos}
+def params(form, empresas, ramos, user):
+    return {'form': form, 'empresas': empresas, 'ramos': ramos, "user": user}

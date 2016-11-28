@@ -9,6 +9,7 @@ template_cadastro = 'http://127.0.0.1:8000/suporte/cadastro/servico'
 
 
 def template(request, pk):
+    user = request.session["user"]
 
     form = ServicoForm()
     servico = ServicoService.servico_por_id(pk)
@@ -18,7 +19,7 @@ def template(request, pk):
         atualiza(request, servico, pk)
         return redirect(template_cadastro)
 
-    return render(request, template_name, params(form, servico, ramos))
+    return render(request, template_name, params(form, servico, ramos, user))
 
 
 @require_POST
@@ -26,5 +27,5 @@ def atualiza(request, servico, pk):
     ServicoService.atualiza(request.POST, servico, pk)
 
 
-def params(form, servico, ramos):
-    return {'form': form, 'servicos': servico, 'ramos': ramos}
+def params(form, servico, ramos, user):
+    return {'form': form, 'servicos': servico, 'ramos': ramos, "user": user}

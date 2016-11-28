@@ -8,7 +8,7 @@ template_name = 'home/suporte/suporte_cadastro_estabelecimento.html'
 
 
 def template(request):
-
+    user = request.session["user"]
     if request.method == "POST":
         cadastra(request)
 
@@ -16,7 +16,7 @@ def template(request):
     empresas = EmpresaService.lista()
     ramos = RamoAtividadeService.lista()
 
-    return render(request, template_name, params(form, empresas, ramos))
+    return render(request, template_name, params(form, empresas, ramos, user))
 
 
 @require_POST
@@ -24,5 +24,5 @@ def cadastra(empresas):
     EmpresaService.cadastra(empresas.POST)
 
 
-def params(form, empresas, ramos):
-    return {'form': form, 'empresas': empresas, 'ramos': ramos}
+def params(form, empresas, ramos, user):
+    return {'form': form, 'empresas': empresas, 'ramos': ramos, "user": user}

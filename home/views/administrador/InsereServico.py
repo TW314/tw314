@@ -9,6 +9,7 @@ template_name = 'home/admin/admin_insere_servico.html'
 
 
 def template(request):
+    user = request.session["user"]
 
     form = EmpresaServicoForm()
     if request.method == "POST":
@@ -17,7 +18,7 @@ def template(request):
     servicos = servicos_listar()
 
     rel_emp_svc = rel_emp_svc_listar(request)
-    return render(request, template_name, params(form, servicos, rel_emp_svc))
+    return render(request, template_name, params(form, servicos, rel_emp_svc, user))
 
 
 @require_POST
@@ -34,5 +35,5 @@ def rel_emp_svc_listar(request):
     return EmpresaServicoService.lista(empresa)
 
 
-def params(form, servicos, rel_emp_svc):
-    return {"form": form, "servicos": servicos, "rel_emp_svc": rel_emp_svc}
+def params(form, servicos, rel_emp_svc, user):
+    return {"form": form, "servicos": servicos, "rel_emp_svc": rel_emp_svc, "user": user}

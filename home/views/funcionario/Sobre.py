@@ -2,5 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404, render_to_resp
 
 
 def template(request):
-    return render(request, 'home/funcionario/funcionario_sobre.html', {})
+    user = request.session["user"]
+
+    return render(request, 'home/funcionario/funcionario_sobre.html', {"user": user})
 

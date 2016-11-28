@@ -8,6 +8,7 @@ template_cadastro = 'http://127.0.0.1:8000/suporte/cadastro/ramo'
 
 
 def template(request, pk):
+    user = request.session["user"]
 
     form = RamoForm()
     ramo_atividade = RamoAtividadeService.ramo_por_id(pk)
@@ -16,7 +17,7 @@ def template(request, pk):
         atualiza(request, ramo_atividade, pk)
         return redirect(template_cadastro)
 
-    return render(request, template_name, params(form, ramo_atividade))
+    return render(request, template_name, params(form, ramo_atividade, user))
 
 
 @require_POST
@@ -24,5 +25,5 @@ def atualiza(request, ramo_atividade, pk):
     RamoAtividadeService.atualiza(request.POST, ramo_atividade, pk)
 
 
-def params(form, ramos):
-    return {'form': form, 'ramos': ramos}
+def params(form, ramos, user):
+    return {'form': form, 'ramos': ramos, "user": user}

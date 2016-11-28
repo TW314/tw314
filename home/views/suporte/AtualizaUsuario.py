@@ -9,6 +9,7 @@ redirect_admin = 'http://127.0.0.1:8000/suporte/cadastro/administrador'
 
 
 def template(request, pk):
+    user = request.session["user"]
 
     form = UsuarioForm()
     admins = UsuarioService.usuario_por_id(pk)
@@ -19,7 +20,7 @@ def template(request, pk):
 
     estabelecimentos = listar_empresa()
 
-    return render(request, template_name, params(form, admins, estabelecimentos))
+    return render(request, template_name, params(form, admins, estabelecimentos,user))
 
 
 @require_POST
@@ -31,5 +32,5 @@ def listar_empresa():
     return EmpresaService.lista()
 
 
-def params(form, admins, estabelecimentos):
-    return {'form': form, 'admins': admins, 'estabelecimentos': estabelecimentos}
+def params(form, admins, estabelecimentos, user):
+    return {'form': form, 'admins': admins, 'estabelecimentos': estabelecimentos, "user": user}

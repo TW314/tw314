@@ -9,6 +9,7 @@ template_name = 'home/funcionario/funcionario_principal.html'
 
 
 def template(request):
+    user = request.session["user"]
 
     guiche = request.session["guiche"]
     servico = servico_por_id(request.session["servico"])
@@ -16,7 +17,7 @@ def template(request):
     pegar_codigo = chamar_ticket(1, request.session["servico"])
     senha = mostrar_ticket(1, request.session["servico"])
 
-    return render(request, template_name, params(guiche, servico, fila, senha, pegar_codigo))
+    return render(request, template_name, params(guiche, servico, fila, senha, pegar_codigo, user))
 
 
 def chamar_proximo(request, pk):
@@ -34,5 +35,6 @@ def finalizar_atendimento(request, pk):
     return HttpResponseRedirect(reverse('funcionario_principal'))
 
 
-def params(guiche, servico, fila, senha, pegar_codigo):
-    return {"guiche": guiche, "servico": servico, 'fila': fila, 'senha': senha, 'pegar_codigo': pegar_codigo}
+def params(guiche, servico, fila, senha, pegar_codigo, user):
+    return {"guiche": guiche, "servico": servico, 'fila': fila, 'senha': senha, 'pegar_codigo': pegar_codigo, "user": user}
+

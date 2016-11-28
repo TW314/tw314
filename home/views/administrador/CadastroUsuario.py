@@ -13,6 +13,7 @@ template_name = 'home/admin/admin_cadastro_funcionario.html'
 
 
 def template(request):
+    user = request.session["user"]
 
     form = UsuarioForm()
     if request.method == "POST":
@@ -21,7 +22,7 @@ def template(request):
     estabelecimentos = listar_empresa()
 
     funs = lista_por_empresa_perfil(request)
-    return render(request, template_name, params(form, funs, estabelecimentos))
+    return render(request, template_name, params(form, funs, estabelecimentos, user))
 
 
 @require_POST
@@ -44,7 +45,7 @@ def listar_empresa():
     return EmpresaService.lista()
 
 
-def params(form, funs, estabelecimentos):
-    return {'form': form, 'funs': funs, 'estabelecimentos': estabelecimentos}
+def params(form, funs, estabelecimentos, user):
+    return {'form': form, 'funs': funs, 'estabelecimentos': estabelecimentos, "user": user}
 
 
