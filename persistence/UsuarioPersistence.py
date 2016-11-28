@@ -2,8 +2,11 @@
 from pip._vendor import requests
 from form.UsuarioForm import UsuarioForm
 from form.SenhaForm import SenhaForm
+from form.LoginForm import LoginForm
 from django.core.mail import send_mail
+from django.http import HttpResponse, HttpResponseRedirect
 from datetime import datetime
+from django.core.urlresolvers import reverse
 import bcrypt
 
 
@@ -99,9 +102,9 @@ def adiciona_senha(usuario_novo, pk):
     if form.is_valid():
         senha = form.cleaned_data['senha'].encode()
         senha_hash = bcrypt.hashpw(senha, bcrypt.gensalt())
-
+        print(senha_hash.decode)
         try:
-            form = requests.put('http://localhost:3000/usuario/' + pk, json={'senha': str(senha_hash)})
+            form = requests.put('http://localhost:3000/usuario/' + str(pk), json={'senha': senha_hash.decode("utf8")})
 
         except requests.exceptions.ConnectionError:  # verificar se funciona
             form = "Erro ao tentar conectar com WebService"
@@ -135,3 +138,35 @@ def usuario_por_id(pk):
     usuario = requests.get('http://localhost:3000/usuario/'+pk).json()
     return usuario
 
+
+def usuario_por_email(email):
+    usuario = requests.get('http://localhost:3000/login/'+str(email)).json()
+    return usuario
+
+
+def loga(request, login):
+    form = LoginForm(login)
+    if form.is_valid():
+        email = form.cleaned_data["email"]
+        senha = form.cleaned_data["senha"]
+        user = usuario_por_email(email)
+        senha_user = user["senha"]
+        id_user = str(user["id"])
+        if user and type(user) != int:
+            if bcrypt.checkpw(senha.encode(), senha_user.encode()):
+                request.session["user"] = user
+                if user["perfil"]["id"] == 1:
+                    return HttpResponseRedirect(reverse('suporte_principal'))
+                if user["perfil"]["id"] == 2:
+                    return HttpResponseRedirect(reverse('admin_principal'))
+                if user["perfil"]["id"] == 3:
+                    return HttpResponseRedirect(reverse('funcionario_principal'))
+            else:
+                return HttpResponse("OPS! Senha incorreta, tente novamente")
+        elif type(user) == int:
+            return HttpResponse("404")
+
+        else:
+            return HttpResponse("OPS! Parece que esse usuário não existe em nosso sistema. Contate o seu administrador")
+    else:
+        return form.errors

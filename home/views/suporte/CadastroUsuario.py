@@ -13,7 +13,7 @@ template_name = 'home/suporte/suporte_cadastro_admin.html'
 
 
 def template(request):
-
+    user = request.session["user"]
     form = UsuarioForm()
     if request.method == "POST":
         cadastra(request)
@@ -21,7 +21,7 @@ def template(request):
     estabelecimentos = listar_empresa()
 
     admins = lista_por_perfil()
-    return render(request, template_name, params(form, admins, estabelecimentos))
+    return render(request, template_name, params(form, admins, estabelecimentos, user))
 
 
 @require_POST
@@ -49,8 +49,8 @@ def listar_empresa():
     return EmpresaService.lista()
 
 
-def params(form, admins, estabelecimentos):
-    return {'form': form, 'admins': admins, 'estabelecimentos': estabelecimentos}
+def params(form, admins, estabelecimentos, user):
+    return {'form': form, 'admins': admins, 'estabelecimentos': estabelecimentos, "user": user}
 
 
 def enviar_email(request, pk):

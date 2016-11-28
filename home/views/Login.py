@@ -1,22 +1,34 @@
 from django.shortcuts import render, redirect, get_object_or_404, render_to_response
 from service import UsuarioService
-from form import LoginForm
-from django.http import HttpResponseRedirect
+from form.LoginForm import LoginForm
+import bcrypt
+from django.http import HttpResponseRedirect, HttpResponse
 from django.core.urlresolvers import reverse
+from django.views.decorators.http import require_POST
 
 template_name = 'home/login.html'
 
 
 def login(request):
+    form = LoginForm()
+    if request.method == "POST":
+        form = logar(request)
+        if request.session["user"]["perfil"]["id"] == 1:
+            return HttpResponseRedirect(reverse('suporte_principal'))
+        if request.session["user"]["perfil"]["id"] == 2:
+            return HttpResponseRedirect(reverse('admin_principal'))
+        if request.session["user"]["perfil"]["id"] == 3:
+            return HttpResponseRedirect(reverse('funcionario_principal'))
+    else:
+        print("teu cu request nao e post")
 
-    guiche = 0
-    servico = 0
-    fila = 0
-    pegar_codigo = 0
-    senha = 0
-
-    return render(request, template_name, params(guiche, servico, fila, senha, pegar_codigo))
+    return render(request, template_name, params(form))
 
 
-def params(guiche, servico, fila, senha, pegar_codigo):
-    return {"guiche": guiche, "servico": servico, 'fila': fila, 'senha': senha, 'pegar_codigo': pegar_codigo}
+@require_POST
+def logar(request):
+    return UsuarioService.loga(request, request.POST)
+
+
+def params(form, usuario=None):
+    return {"form": form, "usuario": usuario}

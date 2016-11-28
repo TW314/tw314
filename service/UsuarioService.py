@@ -32,3 +32,10 @@ def lista_por_perfil(perfil):
 def usuario_por_id(pk):
     return UsuarioPersistence.usuario_por_id(pk)
 
+
+def usuario_por_email(email):
+    return UsuarioPersistence.usuario_por_email(email)
+
+
+def loga(request, login):
+    return UsuarioPersistence.loga(request, login)

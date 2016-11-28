@@ -56,17 +56,17 @@
             <div class="col s12 m6 l4 offset-m3 offset-l4">
                 <div class="card hoverable">
                     <div class="card-action">
-                        <form class="col s12" id="login">
+                        <form class="col s12" method="POST" id="login">{% csrf_token %}
                             <span class="card-title">Insira seus dados para acessar sua conta:</span>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input id="login" type="text" class="validate">
-                                    <label for="login">Login:</label>
+                                    <input name="email" id="email" type="email" class="validate">
+                                    <label for="email">E-mail:</label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="input-field col s12">
-                                    <input id="senha" type="password" class="validate">
+                                    <input name="senha" id="senha" type="password" class="validate">
                                     <label for="senha">Senha:</label>
                                 </div>
                             </div>
@@ -75,7 +75,7 @@
                                     <button id="ir-reset" type="button" class="font12 secundaria1_text btn-flat" style="padding: 0; ">Esqueci minha senha</button>
                                 </div>
                                 <div class="input-field col s12 m6">
-                                    <a href="funcionario/principal" class="flow-text waves-effect waves-light btn secundaria1_bg right"><i class="material-icons right fa fa-sign-in" aria-hidden="true"></i> Entrar</a>
+                                    <button type="submit" name="action" class="flow-text waves-effect waves-light btn secundaria1_bg right"><i class="material-icons right fa fa-sign-in" aria-hidden="true"></i> Entrar</button>
                                 </div>
                             </div>
                         </form>
