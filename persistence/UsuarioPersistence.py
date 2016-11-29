@@ -6,19 +6,18 @@ from form.LoginForm import LoginForm
 from django.core.mail import send_mail
 from django.http import HttpResponse, HttpResponseRedirect
 from datetime import datetime
-from django.core.urlresolvers import reverse
 import bcrypt
 
 
-def administrador_cadastra(usuario):
+def administrador_cadastra(request, usuario):
     now = datetime.now()
     form = UsuarioForm(usuario)
     if form.is_valid():
         nome = form.cleaned_data['nome']
         email = form.cleaned_data['email']
         status_ativacao = form.cleaned_data['status_ativacao']
-
-        data = administrador_monta_json(nome, email, status_ativacao)
+        empresa = request.session["user"]["empresa"]["id"]
+        data = administrador_monta_json(nome, email, status_ativacao, empresa)
         send_mail(
             'Bem-vindo ao time TW314',
             'Olá, ' + nome + '! Esse e-mail foi cadastrado em nosso sistema em ' + str(now.day) + '/' + str(now.month) + '/' + str(now.year) + ' às ' + str(now.hour) + ':' + str(now.minute) + 'hrs. Aguarde novo contato para cadastrar sua senha. Se acredita que houve um engano, por favor, entre em contado pelo e-mail contatotw314@gmail.com . Att, Time TW314',
@@ -127,15 +126,15 @@ def suporte_monta_json(nome, email, empresa, status_ativacao, data_inativacao=No
     return data
 
 
-def administrador_monta_json(nome, email, status_ativacao, data_inativacao=None):
+def administrador_monta_json(nome, email, status_ativacao, empresaId, data_inativacao=None):
     data = {'nome': nome, 'email': email, 'status_ativacao': status_ativacao,
-            'data_inativacao': data_inativacao, 'perfilId': 3, 'empresaId': 1}
+            'data_inativacao': data_inativacao, 'perfilId': 3, 'empresaId': empresaId}
 
     return data
 
 
 def usuario_por_id(pk):
-    usuario = requests.get('http://localhost:3000/usuario/'+pk).json()
+    usuario = requests.get('http://localhost:3000/usuario/'+str(pk)).json()
     return usuario
 
 
@@ -151,6 +150,7 @@ def loga(request, login):
     global t
     t += 1
     if t <= 3:
+        print(t)
         if form.is_valid():
             email = form.cleaned_data["email"]
             senha = form.cleaned_data["senha"]
@@ -160,6 +160,12 @@ def loga(request, login):
                 if bcrypt.checkpw(senha.encode(), senha_user.encode()):
                     usuario = usuario_por_id(user["id"])
                     request.session["user"] = usuario
+                    if user["perfil"]["id"] == 1:
+                        request.session.set_expiry(600)
+                    if user["perfil"]["id"] == 2:
+                        request.session.set_expiry(300)
+                    if user["perfil"]["id"] == 3:
+                        request.session.set_expiry(0)
                     t = 0
                 else:
                     return HttpResponse("OPS! Senha incorreta, tente novamente")

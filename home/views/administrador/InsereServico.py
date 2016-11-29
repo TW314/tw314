@@ -22,8 +22,8 @@ def template(request):
 
 
 @require_POST
-def cadastra(rel_emp_svc):
-    EmpresaServicoService.cadastra(rel_emp_svc.POST)
+def cadastra(request):
+    EmpresaServicoService.cadastra(request, request.POST)
 
 
 def servicos_listar():
@@ -31,7 +31,7 @@ def servicos_listar():
 
 
 def rel_emp_svc_listar(request):
-    empresa = 1
+    empresa = request.session["user"]["empresa"]["id"]
     return EmpresaServicoService.lista(empresa)
 
 

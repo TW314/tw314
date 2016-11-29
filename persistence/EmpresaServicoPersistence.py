@@ -4,14 +4,14 @@ from form.EmpresaServicoForm import EmpresaServicoForm
 # TODO MASTER: MUDAR AS ROTAS DE REQUEST DO
 
 
-def cadastra(rel_emp_svc):
+def cadastra(request, rel_emp_svc):
     form = EmpresaServicoForm(rel_emp_svc)
 
     if form.is_valid():
         status_ativacao = form.cleaned_data['status_ativacao']
         servico = form.cleaned_data['servico']
 
-        data = monta_json(status_ativacao, servico)
+        data = monta_json(status_ativacao, request.session["user"]["empresa"]["id"], servico)
 
         try:
             form = requests.post('http://localhost:3000/servicos_empresa', json=data)
@@ -48,6 +48,6 @@ def lista(empresa):
     return rel_emp_svc
 
 
-def monta_json(status_ativacao, servico):
-    data = {'status_ativacao': status_ativacao, 'empresaId': 1, 'servicoId': servico}
+def monta_json(status_ativacao, empresa, servico):
+    data = {'status_ativacao': status_ativacao, 'empresaId': empresa, 'servicoId': servico}
     return data

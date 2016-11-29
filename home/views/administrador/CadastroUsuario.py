@@ -26,12 +26,12 @@ def template(request):
 
 
 @require_POST
-def cadastra(usuario):
-    UsuarioService.administrador_cadastra(usuario.POST)
+def cadastra(request):
+    UsuarioService.administrador_cadastra(request, request.POST)
 
 
 def lista_por_empresa_perfil(request):
-    empresa = 1
+    empresa = request.session["user"]["empresa"]["id"]
     perfil = 3
     return UsuarioService.lista_por_empresa_perfil(empresa, perfil)
 

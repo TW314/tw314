@@ -1,8 +1,8 @@
 from persistence import UsuarioPersistence
 
 
-def administrador_cadastra(usuario):
-    return UsuarioPersistence.administrador_cadastra(usuario)
+def administrador_cadastra(request, usuario):
+    return UsuarioPersistence.administrador_cadastra(request, usuario)
 
 
 def suporte_cadastra(usuario):

@@ -6,7 +6,7 @@ from service.EmpresaServicoService import lista
 
 def template(request):
     form = GuicheServicoForm(request.POST)
-    servicos = lista(1)
+    servicos = lista(request.session["user"]["empresa"]["id"])
     guiches = [x*1 for x in range(1, 6)]
     user = request.session["user"]
 
