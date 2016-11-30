@@ -1,0 +1,30 @@
+{% extends "master_suporte.html" %}
+
+{% block titulo %} do seu perfil {% endblock %}
+{% block master %}
+    <div class="row texto_text">
+        <div class="container">
+            <div class="col s12">
+                <div class="card white">
+                    <div class="card-content texto_text">
+                        <span id="table" class="card-title secundaria1_text ">Dados</span>
+                    </div>
+                    <div class="card-action light">
+                        <p class="secundaria2_text">Nome: </p>
+                        <h4 class="principal_v_text"><i class="fa fa-user"></i> {{ perfil.nome }}</h4>
+                        <p class="secundaria2_text">E-mail: </p>
+                        <h5 class="secundaria1_v_text light"><i class="fa fa-envelope "></i> {{ perfil.email }}</h5>
+                        <p class="secundaria2_text">Perfil: </p>
+                        <h5 class="secundaria1_v_text light"><i class="fa fa-group"></i> {{ perfil.perfil.nome }}</h5>
+                        <p class="secundaria2_text">Empresa: </p>
+                        <h5 class="secundaria1_v_text light"><i class="fa fa-building"></i> {{ perfil.empresa.razao_social }}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- INICIO Modal de Cadastro-->
+
+    <a class="secundaria1_v_bg btn-floating btn-large waves-light btn btn modal-trigger fixed-action-btn tooltipped" data-position="left" data-delay="100" data-tooltip="Mudar senha" href="{% url 'adiciona_senha' user.id %}"><i class="fa fa-key" aria-hidden="true"></i></a>
+{% endblock %}

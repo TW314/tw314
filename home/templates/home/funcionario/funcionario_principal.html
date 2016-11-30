@@ -13,6 +13,9 @@
             <p class="font12 valign-wrapper">Serviço: <span class="valign font24 secundaria1_text left-align espacinho">{{ servico.nome }}</span></p>
         </div>
     </div>
+    <ul id="fila-list">
+
+    </ul>
     <div class="row valign-wrapper">
         <div class="col s12 m3 valign">
             {% for s in senha %}
@@ -73,6 +76,24 @@
 
     <!-- Scripts -->
     <script type="text/javascript" src="{% static "js/tock.js" %}"></script>
+
+    <script src="{{ NODEJS_SOCKET_URL }}/ticket/fila/1&:empresa&:servico&:data"></script>
+    <script>
+        var socket = io.connect('{{NODEJS_SOCKET_URL}}');
+        socket.on('proximo', function (data) {
+                    console.log(data);
+                    // Check if the data has a special attribute to see if we publish to feed
+                    if (data.message.empresa) {
+                        console.log(data.message.empresa);
+                        if (data.message.servico) {
+                            console.log(data.message.servico);
+                            // Append to specials-list
+                            $('#fila-list').prepend("<li class=\"list-group-item\" style=\"background-color: #337ab7;\"><b> Teste</b><br/>"+ "Servico: " + data.message.servico +"<br/>End: " + data.message.special.end +"</li>");
+                        }
+                    }
+                }
+        );
+    </script>
 
     <!-- SOH TOQUE NESSES SCRIPTS COM CERTEZA DO QUE ESTA FAZENDO -->
     <script>

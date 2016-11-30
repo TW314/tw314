@@ -148,3 +148,6 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'contatotw314@gmail.com'
 EMAIL_HOST_PASSWORD = 'tw314123Mudar'
 EMAIL_PORT = 587
+
+# Nodejs Socket IO
+NODEJS_SOCKET_URL = 'http://localhost:3000/'

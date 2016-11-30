@@ -19,8 +19,6 @@ def login(request):
             return HttpResponseRedirect(reverse('admin_principal'))
         if request.session["user"]["perfil"]["id"] == 3:
             return HttpResponseRedirect(reverse('funcionario_escolher'))
-    else:
-        print("teu cu request nao e post")
 
     return render(request, template_name, params(form))
 

@@ -3,19 +3,19 @@ from datetime import date
 
 
 def mostrar_fila(empresa, servico):
-    fila = requests.get("http://localhost:3000/ticket/fila/1&{0}&{1}&{2}".format(empresa, servico, date(2016, 11, 23))).json()
+    fila = requests.get("http://localhost:3000/ticket/fila/1&{0}&{1}&{2}".format(empresa, servico, date.today())).json()
 
     return fila
 
 
 def mostrar_ticket(empresa, servico):
-    ticket = requests.get("http://localhost:3000/ticket/ticket/2&{0}&{1}&{2}".format(empresa, servico, date(2016, 11, 23))).json()
+    ticket = requests.get("http://localhost:3000/ticket/ticket/2&{0}&{1}&{2}".format(empresa, servico, date.today())).json()
 
     return ticket
 
 
 def chamar_ticket(empresa, servico):
-    ticket = requests.get("http://localhost:3000/ticket/ticket/1&{0}&{1}&{2}".format(empresa, servico, date(2016, 11, 23))).json()
+    ticket = requests.get("http://localhost:3000/ticket/ticket/1&{0}&{1}&{2}".format(empresa, servico, date.today())).json()
 
     return ticket
 

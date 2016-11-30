@@ -640,6 +640,11 @@ aside.menu-padding {margin: 0 25px;}
     font-size: 22px;
     font-weight: 300;
 }
+.light {font-weight: 300;}
+.card-title-perfil {
+    font-size: 20em !important;
+    font-weight: 300;
+}
 
 .list-style li{list-style: circle;}
 
