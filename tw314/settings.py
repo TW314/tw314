@@ -91,13 +91,14 @@ DATABASES = {
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
 
 # LOCAL
+
 DATABASES = {
     'default': {
         'NAME': 'tw314',
         'ENGINE': 'django.db.backends.mysql',
         'USER': 'root',
         'PASSWORD': 'root',
-        'OPTIONS': {'autocommit': True,},
+        'OPTIONS': {'autocommit': True, },
     }
 }
 
@@ -150,4 +151,4 @@ EMAIL_HOST_PASSWORD = 'tw314123Mudar'
 EMAIL_PORT = 587
 
 # Nodejs Socket IO
-NODEJS_SOCKET_URL = 'http://localhost:3000/'
+NODEJS_SOCKET_URL = 'http://192.168.0.104:3000/'

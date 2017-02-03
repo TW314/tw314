@@ -5,3 +5,4 @@ from . import UsuarioForm
 from . import SenhaForm
 from . import GuicheServicoForm
 from . import LoginForm
+from . import ContatarForm

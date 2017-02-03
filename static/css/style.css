@@ -688,7 +688,7 @@ i.medium {
 .elipse {
     border-radius: 50%;
     width: 6.28rem !important;
-    height: 6.28rem !important;
+    height: 6.28rem;
 }
 .big{width: 15rem !important; height: 15rem !important;}
 .elipse-l {color: #59a6b4; border: 0.3rem #59a6b4 solid;}

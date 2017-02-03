@@ -37,4 +37,4 @@ def enviar_email(request, pk):
         [usuario['email']],
         fail_silently=False,
     )
-    return redirect(reverse('login'))
+    return redirect('login')

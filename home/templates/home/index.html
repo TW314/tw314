@@ -311,7 +311,7 @@
                                 <span class="card-title">Ainda com dúvidas? Tire-as agora!</span>
                             </div>
                             <div class="card-action">
-                                <form class="col s12">
+                                <form method="POST" class="col s12">{% csrf_token %}
                                     <div class="row">
                                         <div class="input-field col s12">
                                             <input id="nome" type="text" class="validate">
@@ -320,23 +320,25 @@
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <input id="email" type="email" class="validate">
+                                            <input id="email" name="email" type="email" class="validate">
                                             <label for="email">E-mail</label>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <input id="assunto" type="text" class="validate">
+                                            <input id="assunto" name="assunto" type="text" class="validate">
                                             <label for="assunto">Assunto</label>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="input-field col s12">
-                                            <textarea id="mensagem" class="materialize-textarea"></textarea>
+                                            <textarea id="mensagem" name="mensagem" class="materialize-textarea"></textarea>
                                             <label for="mensagem">Mensagem</label>
                                         </div>
                                     </div>
-                                    <a href="#" class="waves-effect waves-light btn secundaria1_bg right"> Enviar <i class="fa fa-send" aria-hidden="true"></i></a>
+                                    <button class="btn waves-effect waves-light btn secundaria1_bg right" type="submit" name="action">
+                                        Enviar <i class="fa fa-send" aria-hidden="true"></i>
+                                    </button>
                                 </form>
                                 <a href=""></a>
                             </div>
@@ -442,27 +444,27 @@
         $('.tooltipped').tooltip({delay: 50});
         $('.scrollspy').scrollSpy();
         $(".owl-carousel").owlCarousel({
-                    center: true,
-                    loop:true,
-                    margin:10,
-                    autoplay:true,
-                    autoplayTimeout:3000,
-                    autoplayHoverPause:true,
-                    responsive:{
-                        260:{
-                            items: 1
-                        },
-                        599:{
-                            items: 1
-                        },
-                        992:{
-                            items: 2
-                        },
-                        993:{
-                            items: 3
-                        }
+                center: true,
+                loop:true,
+                margin:10,
+                autoplay:true,
+                autoplayTimeout:3000,
+                autoplayHoverPause:true,
+                responsive:{
+                    260:{
+                        items: 1
+                    },
+                    599:{
+                        items: 1
+                    },
+                    992:{
+                        items: 2
+                    },
+                    993:{
+                        items: 3
                     }
                 }
+            }
         );
     });
 </script>
