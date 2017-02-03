@@ -9,8 +9,8 @@ def mostrar_ticket(empresa, servico):
     return TicketPersistence.mostrar_ticket(empresa, servico)
 
 
-def chamar_ticket(empresa, servico):
-    return TicketPersistence.chamar_ticket(empresa, servico)
+def chamar_ticket(request, empresa, servico):
+    return TicketPersistence.chamar_ticket(request, empresa, servico)
 
 
 def mudar_status_ticket(pk, status):
