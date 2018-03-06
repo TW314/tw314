@@ -6,7 +6,7 @@ from service import EmpresaService
 from form.UsuarioForm import UsuarioForm
 from django.views.decorators.http import require_POST, require_GET
 from django.core.mail import send_mail
-from django.core.urlresolvers import reverse, reverse_lazy
+from django.urls import reverse, reverse_lazy
 from django.http import HttpResponseRedirect
 
 template_name = 'home/admin/admin_cadastro_funcionario.html'
@@ -47,5 +47,3 @@ def listar_empresa():
 
 def params(form, funs, estabelecimentos, user):
     return {'form': form, 'funs': funs, 'estabelecimentos': estabelecimentos, "user": user}
-
-

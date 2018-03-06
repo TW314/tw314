@@ -3,7 +3,7 @@ from service.ServicoService import servico_por_id
 from service.TicketService import *
 from service import AtendimentoService
 from django.http import HttpResponseRedirect
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from socketIO_client import SocketIO
 from urllib.parse import urlparse
 from django.conf import settings
