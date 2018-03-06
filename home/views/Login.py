@@ -3,7 +3,7 @@ from service import UsuarioService
 from form.LoginForm import LoginForm
 import bcrypt
 from django.http import HttpResponseRedirect, HttpResponse
-from django.urls import reverse
+from django.core.urlresolvers import reverse
 from django.views.decorators.http import require_POST
 
 template_name = 'home/login.html'

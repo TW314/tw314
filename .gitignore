@@ -69,3 +69,4 @@ target/
 
 #Banco
 *.sqlite3
+.ropeproject/

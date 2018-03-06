@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from form.GuicheServicoForm import GuicheServicoForm
-from django.urls import reverse
+from django.core.urlresolvers import reverse
 from service.EmpresaServicoService import lista
 
 
